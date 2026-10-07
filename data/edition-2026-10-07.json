@@ -1,0 +1,4343 @@
+{
+ "edition": {
+  "issue": 3,
+  "date": "Wednesday, 7 October 2026",
+  "compiled": "06:00 BST, 7 Oct 2026"
+ },
+ "sections": [
+  {
+   "id": "world",
+   "name": "World",
+   "subs": [
+    "Americas",
+    "Middle East",
+    "Asia-Pacific",
+    "Africa",
+    "Europe"
+   ]
+  },
+  {
+   "id": "uk",
+   "name": "UK",
+   "subs": [
+    "Security",
+    "Justice",
+    "Transport",
+    "Housing"
+   ]
+  },
+  {
+   "id": "politics",
+   "name": "Politics",
+   "subs": [
+    "Parties",
+    "Elections",
+    "Policy"
+   ]
+  },
+  {
+   "id": "business",
+   "name": "Business",
+   "subs": [
+    "Economy",
+    "Markets",
+    "Trade",
+    "Companies"
+   ]
+  },
+  {
+   "id": "science",
+   "name": "Science",
+   "subs": [
+    "Biology",
+    "Space",
+    "Physics"
+   ]
+  },
+  {
+   "id": "health",
+   "name": "Health",
+   "subs": [
+    "Public health",
+    "Research",
+    "Services"
+   ]
+  },
+  {
+   "id": "climate",
+   "name": "Climate",
+   "subs": [
+    "Policy",
+    "Energy",
+    "Nature"
+   ]
+  },
+  {
+   "id": "tech",
+   "name": "Technology",
+   "subs": [
+    "AI",
+    "Security",
+    "Devices"
+   ]
+  },
+  {
+   "id": "culture",
+   "name": "Culture",
+   "subs": [
+    "Music",
+    "Heritage",
+    "Film & TV",
+    "Books"
+   ]
+  },
+  {
+   "id": "sport",
+   "name": "Sport",
+   "subs": [
+    "Football",
+    "Motor racing",
+    "Cricket",
+    "Tennis",
+    "Rugby"
+   ]
+  }
+ ],
+ "outlets": {
+  "abc": {
+   "name": "ABC News",
+   "country": "Australia"
+  },
+  "afludiary": {
+   "name": "Avian Flu Diary",
+   "country": "US"
+  },
+  "aip": {
+   "name": "American Institute of Physics",
+   "country": "US"
+  },
+  "aircargoweek": {
+   "name": "Air Cargo Week",
+   "country": "UK"
+  },
+  "aj": {
+   "name": "Al Jazeera",
+   "country": "Qatar"
+  },
+  "ajot": {
+   "name": "American Journal of Transportation",
+   "country": "US"
+  },
+  "aol": {
+   "name": "AOL UK (Evening Standard)",
+   "country": "UK"
+  },
+  "bein": {
+   "name": "beIN Sports",
+   "country": "Qatar"
+  },
+  "bfi": {
+   "name": "British Film Institute",
+   "country": "United Kingdom"
+  },
+  "biorxiv": {
+   "name": "bioRxiv",
+   "country": "US"
+  },
+  "bleeping": {
+   "name": "BleepingComputer",
+   "country": "US"
+  },
+  "bloomberg": {
+   "name": "Bloomberg",
+   "country": "US"
+  },
+  "brecorder": {
+   "name": "Business Recorder",
+   "country": "Pakistan"
+  },
+  "britbrief": {
+   "name": "Brit Brief",
+   "country": "UK"
+  },
+  "britcine": {
+   "name": "British Cinematographer",
+   "country": "United Kingdom"
+  },
+  "businessday": {
+   "name": "BusinessDay",
+   "country": "South Africa"
+  },
+  "cbs": {
+   "name": "CBS News",
+   "country": "US"
+  },
+  "channel4": {
+   "name": "Channel 4 News",
+   "country": "UK"
+  },
+  "citizen": {
+   "name": "Citizen Digital",
+   "country": "Kenya"
+  },
+  "cityam": {
+   "name": "City AM",
+   "country": "UK"
+  },
+  "click2houston": {
+   "name": "KPRC Click2Houston",
+   "country": "US"
+  },
+  "cnbc": {
+   "name": "CNBC",
+   "country": "US"
+  },
+  "coincentral": {
+   "name": "CoinCentral",
+   "country": "US"
+  },
+  "ctp": {
+   "name": "Counter Terrorism Policing",
+   "country": "UK"
+  },
+  "ctv": {
+   "name": "CTV News",
+   "country": "Canada"
+  },
+  "dailysabah": {
+   "name": "Daily Sabah",
+   "country": "Turkey"
+  },
+  "deepdive": {
+   "name": "The Deep Dive",
+   "country": "Canada"
+  },
+  "ednews": {
+   "name": "EDNews",
+   "country": "Azerbaijan"
+  },
+  "elcolombiano": {
+   "name": "El Colombiano",
+   "country": "Colombia"
+  },
+  "engadget": {
+   "name": "Engadget",
+   "country": "US"
+  },
+  "espn": {
+   "name": "ESPN",
+   "country": "United States"
+  },
+  "eunews": {
+   "name": "Eunews",
+   "country": "Italy"
+  },
+  "eurekalert": {
+   "name": "EurekAlert!",
+   "country": "US"
+  },
+  "euronews": {
+   "name": "Euronews",
+   "country": "France"
+  },
+  "finestre": {
+   "name": "Finestre sull'Arte",
+   "country": "Italy"
+  },
+  "flashscore": {
+   "name": "Flashscore",
+   "country": "Czech Republic"
+  },
+  "forbes": {
+   "name": "Forbes",
+   "country": "US"
+  },
+  "foxsports": {
+   "name": "Fox Sports",
+   "country": "United States"
+  },
+  "fxstreet": {
+   "name": "FXStreet",
+   "country": "Spain"
+  },
+  "gbaf": {
+   "name": "Global Banking & Finance Review",
+   "country": "UK"
+  },
+  "gbnews": {
+   "name": "GB News",
+   "country": "UK"
+  },
+  "govwales": {
+   "name": "Welsh Government",
+   "country": "UK"
+  },
+  "gurufocus": {
+   "name": "GuruFocus",
+   "country": "US"
+  },
+  "healthni": {
+   "name": "Department of Health (Northern Ireland)",
+   "country": "UK"
+  },
+  "hitsradio": {
+   "name": "Hits Radio",
+   "country": "UK"
+  },
+  "hotpress": {
+   "name": "Hot Press",
+   "country": "Ireland"
+  },
+  "icc": {
+   "name": "International Cricket Council",
+   "country": "United Arab Emirates"
+  },
+  "indexbox": {
+   "name": "IndexBox",
+   "country": "US"
+  },
+  "indiashipping": {
+   "name": "India Shipping News",
+   "country": "India"
+  },
+  "irishnews": {
+   "name": "The Irish News",
+   "country": "UK"
+  },
+  "itv": {
+   "name": "ITV News",
+   "country": "UK"
+  },
+  "kcl": {
+   "name": "King's College London",
+   "country": "UK"
+  },
+  "koreatimes": {
+   "name": "The Korea Times",
+   "country": "South Korea"
+  },
+  "kyivpost": {
+   "name": "Kyiv Post",
+   "country": "Ukraine"
+  },
+  "livescience": {
+   "name": "Live Science",
+   "country": "US"
+  },
+  "malaymail": {
+   "name": "Malay Mail",
+   "country": "Malaysia"
+  },
+  "malwarebytes": {
+   "name": "Malwarebytes Labs",
+   "country": "US"
+  },
+  "manxradio": {
+   "name": "Manx Radio",
+   "country": "Isle of Man"
+  },
+  "marktechpost": {
+   "name": "MarkTechPost",
+   "country": "US"
+  },
+  "mediaite": {
+   "name": "Mediaite",
+   "country": "US"
+  },
+  "moscowtimes": {
+   "name": "The Moscow Times",
+   "country": "Netherlands"
+  },
+  "nanowerk": {
+   "name": "Nanowerk",
+   "country": "US"
+  },
+  "nationcymru": {
+   "name": "Nation.Cymru",
+   "country": "UK"
+  },
+  "nature": {
+   "name": "Nature",
+   "country": "UK"
+  },
+  "nbf": {
+   "name": "National Book Foundation",
+   "country": "United States"
+  },
+  "nextio": {
+   "name": "NEXT.io",
+   "country": "UK"
+  },
+  "nme": {
+   "name": "NME",
+   "country": "United Kingdom"
+  },
+  "nv": {
+   "name": "NV (New Voice of Ukraine)",
+   "country": "Ukraine"
+  },
+  "opb": {
+   "name": "OPB",
+   "country": "United States"
+  },
+  "outlook": {
+   "name": "Outlook India",
+   "country": "India"
+  },
+  "pdx": {
+   "name": "Portland State University",
+   "country": "US"
+  },
+  "physorg": {
+   "name": "Phys.org",
+   "country": "UK"
+  },
+  "politicsco": {
+   "name": "Politics.co.uk",
+   "country": "UK"
+  },
+  "qz": {
+   "name": "Quartz",
+   "country": "US"
+  },
+  "radiotamazuj": {
+   "name": "Radio Tamazuj",
+   "country": "South Sudan"
+  },
+  "reneweconomy": {
+   "name": "RenewEconomy",
+   "country": "Australia"
+  },
+  "riotimes": {
+   "name": "The Rio Times",
+   "country": "Brazil"
+  },
+  "rte": {
+   "name": "RTÉ",
+   "country": "Ireland"
+  },
+  "sciencealert": {
+   "name": "ScienceAlert",
+   "country": "Australia"
+  },
+  "sciencenews": {
+   "name": "Science News",
+   "country": "US"
+  },
+  "screendaily": {
+   "name": "Screen Daily",
+   "country": "United Kingdom"
+  },
+  "sharecast": {
+   "name": "Sharecast",
+   "country": "UK"
+  },
+  "silicon": {
+   "name": "Silicon UK",
+   "country": "UK"
+  },
+  "spacecom": {
+   "name": "Space.com",
+   "country": "US"
+  },
+  "sussexnews": {
+   "name": "Sussex News",
+   "country": "UK"
+  },
+  "tass": {
+   "name": "TASS",
+   "country": "Russia"
+  },
+  "techrepublic": {
+   "name": "TechRepublic",
+   "country": "US"
+  },
+  "tennismajors": {
+   "name": "Tennis Majors",
+   "country": "France"
+  },
+  "thehackernews": {
+   "name": "The Hacker News",
+   "country": "US"
+  },
+  "thenewspk": {
+   "name": "The News International",
+   "country": "Pakistan"
+  },
+  "therecord": {
+   "name": "The Record",
+   "country": "US"
+  },
+  "thestreet": {
+   "name": "TheStreet",
+   "country": "US"
+  },
+  "tikr": {
+   "name": "TIKR",
+   "country": "US"
+  },
+  "tonline": {
+   "name": "t-online",
+   "country": "Germany"
+  },
+  "tradingecon": {
+   "name": "Trading Economics",
+   "country": "US"
+  },
+  "turkiyetoday": {
+   "name": "Türkiye Today",
+   "country": "Turkey"
+  },
+  "ucr": {
+   "name": "UC Riverside CNAS",
+   "country": "US"
+  },
+  "ukranews": {
+   "name": "UkraNews",
+   "country": "Ukraine"
+  },
+  "wallst247": {
+   "name": "24/7 Wall St.",
+   "country": "US"
+  },
+  "wbwire": {
+   "name": "West Bridgford Wire",
+   "country": "UK"
+  },
+  "wion": {
+   "name": "WION",
+   "country": "India"
+  },
+  "yahoo": {
+   "name": "Yahoo Finance",
+   "country": "US"
+  }
+ },
+ "stories": [
+  {
+   "id": "w-bnd-hanning-arrest",
+   "sec": "world",
+   "sub": "Europe",
+   "head": "Former German spy chief Hanning arrested on treason suspicion",
+   "stand": "August Hanning, who ran Germany's BND foreign intelligence service until 2005, is accused of obtaining secret documents for a foreign agency.",
+   "body": [
+    "German federal prosecutors have arrested August Hanning, a former head of the BND foreign intelligence service, on suspicion of treasonous espionage and attempted treason. He was detained on Tuesday at his home in Nordwalde, near Münster.",
+    "A former BND employee, identified only as Manfred D., was arrested in Bavaria. Prosecutors allege that from 2010 at the latest he passed Hanning internal BND material in return for payment, about 2,000 documents in all, many of them classified.",
+    "Prosecutors say Hanning used some of the material to draft analysis for a foreign intelligence officer and passed political information to that agency's representatives for years. The foreign service has not been named; reports say Russia is not involved.",
+    "Hanning led the BND for seven years until 2005. The current BND president, Martin Jaeger, said there could be no compromise on internal security. Both men are presumed innocent."
+   ],
+   "kept": [
+    [
+     "Ex-BND chief August Hanning was arrested on Tuesday 6 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "Prosecutors suspect him of treasonous espionage and attempted treason",
+     "3 of 3 outlets"
+    ],
+    [
+     "A former BND staffer allegedly supplied about 2,000 documents from 2010",
+     "3 of 3 outlets"
+    ],
+    [
+     "The foreign intelligence service involved has not been named",
+     "2 of 3 outlets"
+    ],
+    [
+     "Hanning headed the BND until 2005",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Reports that the scheme does not involve Russia",
+     "Unsourced in coverage; noted only as reported"
+    ],
+    [
+     "Description of documents as including chancellery briefings",
+     "Only one outlet; not confirmed elsewhere"
+    ]
+   ],
+   "open": [
+    "Role of the second suspect: described as Hanning's former office manager or chief of staff"
+   ],
+   "primary": [
+    "German federal prosecutors' statement",
+    "BND president Martin Jaeger"
+   ],
+   "m": [
+    85,
+    75,
+    60
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-07/german-spy-chief-teason-allegations/107236556"
+    ],
+    [
+     "turkiyetoday",
+     "https://www.turkiyetoday.com/region/ex-bnd-chief-august-hanning-arrested-on-suspicion-of-espionage-attempted-treason-3229747"
+    ],
+    [
+     "mediaite",
+     "https://www.mediaite.com/media/news/ex-german-spy-chief-arrested-arrested-over-alleged-foreign-intelligence-plot-treasonous-espionage/"
+    ]
+   ]
+  },
+  {
+   "id": "w-black-sea-bulgaria-ships",
+   "sec": "world",
+   "sub": "Europe",
+   "head": "Drones hit two ships off Bulgaria, one sinks with crew missing",
+   "say": "Drones have hit two merchant ships off Bulgaria. One, the Alfa Watan, sank and its crew are missing. All 18 crew of the other ship were rescued.",
+   "stand": "A Togo-flagged vessel sank and a grain carrier caught fire in Bulgaria's Black Sea economic zone, a day after a ship sank off Romania.",
+   "body": [
+    "Sea and air drones struck two Turkish-owned merchant ships early on Tuesday about 70 nautical miles east of Byala, inside Bulgaria's exclusive economic zone.",
+    "The Togo-flagged Alfa Watan sank. A Bulgarian ferry found an overturned lifeboat and life jackets but none of its crew. The Palau-flagged Able, carrying wheat, caught fire; all 18 crew were taken off and two were treated in hospital in Varna.",
+    "Prime Minister Rumen Radev called the attack a blatant breach of international law but did not say who was responsible. European Commission President Ursula von der Leyen called the developments very concerning.",
+    "The strikes came a day after a cargo ship sank off Romania, an attack Ukraine blamed on Russia."
+   ],
+   "kept": [
+    [
+     "Drones hit two merchant ships in Bulgaria's Black Sea economic zone on 6 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "The Togo-flagged Alfa Watan sank and its crew are missing",
+     "3 of 3 outlets"
+    ],
+    [
+     "All 18 crew of the grain carrier Able were rescued; two are in hospital",
+     "3 of 3 outlets"
+    ],
+    [
+     "Bulgaria's PM called it a blatant breach of international law",
+     "2 of 3 outlets"
+    ],
+    [
+     "No one has been officially blamed for the attack",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Radev's warning the war could become a global conflict",
+     "Speculative framing; not needed for the facts"
+    ]
+   ],
+   "open": [
+    "Time of attack: reported as about 03:00 GMT or 03:00 local time",
+    "Number of Alfa Watan crew not disclosed"
+   ],
+   "primary": [
+    "Bulgarian PM Rumen Radev",
+    "EU Commission President Ursula von der Leyen"
+   ],
+   "m": [
+    85,
+    65,
+    50
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-07/crew-missing-after-drone-sinks-ship-in-black-sea/107235430"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/6/bulgaria-says-two-commercial-vessels-were-hit-in-drone-attack-in-its-waters"
+    ],
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/drones-hit-two-ships-off-coast-of-bulgaria-as-government-calls-emergency-meeting"
+    ],
+    [
+     "kyivpost",
+     "https://www.kyivpost.com/post/86230",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "w-yemen-offensive-aden",
+   "sec": "world",
+   "sub": "Middle East",
+   "head": "Yemen government claims Mocha and Taiz gains as Houthis target Aden airport",
+   "say": "In Yemen, government forces say they've retaken the port city of Mocha from the Houthis. Early on Wednesday, a Houthi missile landed near the runway at Aden airport.",
+   "stand": "Saudi-backed forces say they have retaken the port of Mocha and a Taiz peak; a Houthi missile landed near Aden's runway.",
+   "body": [
+    "Saudi-backed Yemeni government forces say they have recaptured the Red Sea port of Mocha, which the Houthis took in September, along with positions near the Bab al-Mandeb strait. Al Jazeera said it could not independently verify the battlefield claims.",
+    "Coalition spokesman Turki al-Maliki said 100 fighter jets were supporting the ground offensive, which government forces call Operation Dawn of Yemen. On Wednesday they said they had tightened control of the highest peak in Taiz's Jabal Habashi district.",
+    "Houthi spokesman Yahya Saree said the group had stopped government attempts to advance towards Bab al-Mandeb.",
+    "Early on Wednesday, two ballistic missiles and several drones targeted Aden airport. One missile landed near the runway, and a Yemenia flight from Cairo was diverted to Jeddah. Yemen's transport ministry called it a serious escalation."
+   ],
+   "kept": [
+    [
+     "Government forces say they have retaken the port city of Mocha from the Houthis",
+     "3 of 3 outlets"
+    ],
+    [
+     "The Saudi-led coalition says 100 fighter jets are supporting the offensive",
+     "2 of 3 outlets"
+    ],
+    [
+     "A Houthi missile landed near Aden airport's runway early on 7 October",
+     "1 of 3 outlets"
+    ],
+    [
+     "A Yemenia flight from Cairo was diverted to Jeddah during the attack",
+     "1 of 3 outlets"
+    ],
+    [
+     "Houthis say they halted an advance towards Bab al-Mandeb",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Analyst claims that strike accuracy exceeds 2015 levels",
+     "Opinion, not a verified fact"
+    ],
+    [
+     "Claims of Houthi fighters killed and captured",
+     "No figures; unverified battlefield claims"
+    ]
+   ],
+   "open": [
+    "Start date of Operation Dawn of Yemen given inconsistently",
+    "Battlefield claims not independently verified"
+   ],
+   "primary": [
+    "Coalition spokesman Maj Gen Turki al-Maliki",
+    "Houthi spokesman Yahya Saree",
+    "Yemen transport ministry statement"
+   ],
+   "m": [
+    60,
+    55,
+    35
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news-analysis/2026/10/6/yemen-government-is-on-the-attack-against-the-houthis-what-has-changed"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/liveblog/2026/10/7/iran-war-live-yemen-forces-claim-control-over-strategic-taiz-mountain-peak"
+    ],
+    [
+     "indiashipping",
+     "https://indiashippingnews.com/international-shipping/yemen-government-forces-report-recapture-of-mocha-from-houthis/"
+    ],
+    [
+     "ednews",
+     "https://ednews.net/en/yemen-condemns-houthi-attack-on-aden-airport-as-inbound-flight-approached"
+    ],
+    [
+     "bloomberg",
+     "https://www.bloomberg.com/news/articles/2026-10-05/yemen-says-it-s-retaken-mocha-as-battle-for-bab-el-mandeb-looms",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "w-sudan-burhan-talks",
+   "sec": "world",
+   "sub": "Africa",
+   "head": "Sudan army chief rules out talks as UN body demands ceasefire",
+   "stand": "Abdel Fattah al-Burhan said the army would fight until the RSF is driven out, as the UN Human Rights Council called for a truce.",
+   "body": [
+    "Sudan's army chief Abdel Fattah al-Burhan has rejected negotiations with the paramilitary Rapid Support Forces. Speaking in Merowe, northern Sudan, he said the army would pursue military victory until all territory was cleared.",
+    "His remarks came as the UN Human Rights Council voted 28 to 10, with 9 abstentions, to extend its fact-finding mission on Sudan. The resolution calls for an immediate and complete ceasefire without preconditions. Sudan had urged members to reject it.",
+    "The US has proposed a 90-day humanitarian ceasefire followed by talks. US adviser Massad Boulos recently met al-Burhan in Egypt.",
+    "The war began in April 2023. It has killed tens of thousands of people and displaced about 13 million."
+   ],
+   "kept": [
+    [
+     "Al-Burhan said the army will fight on until the RSF is removed",
+     "2 of 2 outlets"
+    ],
+    [
+     "UN rights council extended its Sudan inquiry by 28 votes to 10",
+     "1 of 2 outlets"
+    ],
+    [
+     "The council called for an immediate ceasefire without preconditions",
+     "1 of 2 outlets"
+    ],
+    [
+     "The US has proposed a 90-day humanitarian ceasefire",
+     "1 of 2 outlets"
+    ],
+    [
+     "About 13 million people have been displaced since April 2023",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "At least 10 civilians reported killed in Abu Ajal village",
+     "Single local committee source"
+    ]
+   ],
+   "open": [
+    "Day of al-Burhan's speech: Al Jazeera's report and Radio Tamazuj's date differ"
+   ],
+   "primary": [
+    "UN Human Rights Council resolution",
+    "Abdel Fattah al-Burhan, via Sudan News Agency"
+   ],
+   "m": [
+    75,
+    75,
+    60
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/7/sudans-al-burhan-rejects-talks-vows-to-retake-all-territory-from-rsf"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/6/un-rights-council-condemns-attacks-on-civilians-in-sudan-calls-for-truce"
+    ],
+    [
+     "radiotamazuj",
+     "https://www.radiotamazuj.org/en/news/article/sudans-burhan-rules-out-talks-with-rsf"
+    ]
+   ]
+  },
+  {
+   "id": "w-fort-hood-firing-squad",
+   "sec": "world",
+   "sub": "Americas",
+   "head": "Trump approves firing squad execution for Fort Hood gunman",
+   "say": "President Trump has approved a firing squad execution for Nidal Hasan, who killed 13 people at Fort Hood in Texas in 2009. It would be the first US military execution since 1961.",
+   "stand": "Nidal Hasan, who killed 13 people in 2009, faces the first US military execution since 1961.",
+   "body": [
+    "President Donald Trump has approved the execution by firing squad of Nidal Hasan, the former Army psychiatrist who killed 13 people at Fort Hood, Texas, in November 2009. More than 30 others were wounded.",
+    "The Pentagon announced the decision. Defence Secretary Pete Hegseth had recommended the execution, and the Army secretary will set the time and place.",
+    "A military jury sentenced Hasan to death in 2013. The US military has not carried out an execution since 1961.",
+    "Hasan can still challenge the sentence in federal civilian courts, which could delay it for years."
+   ],
+   "kept": [
+    [
+     "Trump approved a firing squad execution for Fort Hood gunman Nidal Hasan",
+     "3 of 3 outlets"
+    ],
+    [
+     "Hasan killed 13 people at Fort Hood, Texas, in November 2009",
+     "3 of 3 outlets"
+    ],
+    [
+     "It would be the first US military execution since 1961",
+     "3 of 3 outlets"
+    ],
+    [
+     "The Army secretary will set the time and place",
+     "3 of 3 outlets"
+    ],
+    [
+     "Hasan can still appeal in federal civilian courts",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Pentagon spokesman's line that 'judgement day' has come",
+     "Rhetorical; quote only"
+    ],
+    [
+     "Suggestion appeals are unlikely",
+     "Speculation"
+    ]
+   ],
+   "open": [
+    "Number wounded: reported as 32 or more than two dozen"
+   ],
+   "primary": [
+    "Pentagon spokesman Sean Parnell",
+    "Defence Secretary Pete Hegseth"
+   ],
+   "m": [
+    90,
+    75,
+    75
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/6/fort-hood-shooter-to-be-executed-by-firing-squad-all-to-know"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-06/trump-approves-firing-squad-for-convicted-us-military-base-shoot/107233178"
+    ],
+    [
+     "click2houston",
+     "https://www.click2houston.com/news/texas/2026/10/06/trump-approves-firing-squad-execution-for-fort-hood-shooter-nidal-hasan/"
+    ],
+    [
+     "cnbc",
+     "https://www.cnbc.com/2026/10/06/trump-execution-nidal-hasan-firing-squad-fort-hood.html",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "w-mexico-el-tanque",
+   "sec": "world",
+   "sub": "Americas",
+   "head": "Mexico arrests alleged Jalisco cartel fuel-theft boss 'El Tanque'",
+   "stand": "Iván Cazarín Molina, sanctioned by the US in 2024, was detained in Zapopan, Mexico's security minister said.",
+   "body": [
+    "Mexican forces have arrested Iván Cazarín Molina, known as \"El Tanque\", in Zapopan in Jalisco state, Security Secretary Omar García Harfuch announced. The arrest took place on Monday 5 October.",
+    "Authorities describe him as a regional operator for the Jalisco New Generation Cartel in Veracruz, Oaxaca, Tabasco and Puebla. He is suspected of homicide, extortion, drug trafficking, money laundering and fuel theft.",
+    "The US Treasury sanctioned him in September 2024, saying his fuel-theft network earned tens of millions of dollars a year. He is also linked by authorities to a 2015 attack on an army helicopter. The allegations have not been tested in court."
+   ],
+   "kept": [
+    [
+     "Iván Cazarín Molina, 'El Tanque', was arrested in Zapopan on 5 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "Mexico says he is a regional operator for the Jalisco New Generation Cartel",
+     "3 of 3 outlets"
+    ],
+    [
+     "The US Treasury sanctioned him in September 2024 over fuel theft",
+     "3 of 3 outlets"
+    ],
+    [
+     "He is suspected of homicide, extortion and drug trafficking",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description as part of El Mencho's 'inner circle'",
+     "Characterisation, not a charge"
+    ]
+   ],
+   "open": [
+    "Death toll in the 2015 helicopter attack: reported as nine, or nine soldiers and 20 police"
+   ],
+   "primary": [
+    "Security Secretary Omar García Harfuch",
+    "US Treasury sanctions statement"
+   ],
+   "m": [
+    85,
+    70,
+    75
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/jalisco-cartel-the-tank-arrested-mexico/"
+    ],
+    [
+     "riotimes",
+     "https://www.riotimesonline.com/el-tanque-arrested-zapopan-jalisco-cartel/"
+    ],
+    [
+     "elcolombiano",
+     "https://www.elcolombiano.com/internacional/alias-el-tanque-capturado-operador-cartel-jalisco-nueva-generacion-mexico-NE41980296"
+    ]
+   ]
+  },
+  {
+   "id": "w-malaysia-myanmar-returns",
+   "sec": "world",
+   "sub": "Asia-Pacific",
+   "head": "Myanmar leader visits Malaysia as returns pass 10,000",
+   "stand": "Min Aung Hlaing's two-day visit follows the repatriation of about 10,000 Myanmar nationals this year, drawing UN warnings.",
+   "body": [
+    "Myanmar's leader Min Aung Hlaing is making a two-day visit to Malaysia on 7 and 8 October. Prime Minister Anwar Ibrahim said repatriation of Myanmar nationals would be on the agenda.",
+    "About 10,000 people have been returned to Myanmar from Malaysia since January. Nearly 1,500 arrived by sea on Sunday.",
+    "The UN refugee agency said its staff were not allowed to check whether returnees chose freely. UN rights chief Volker Türk warned against forced returns to Myanmar.",
+    "Anwar said Myanmar must treat returnees fairly. Rights groups fear Rohingya refugees could be included. Malaysia is not a party to the UN Refugee Convention."
+   ],
+   "kept": [
+    [
+     "Min Aung Hlaing visits Malaysia on 7–8 October",
+     "2 of 2 outlets"
+    ],
+    [
+     "About 10,000 Myanmar nationals have been returned from Malaysia in 2026",
+     "2 of 2 outlets"
+    ],
+    [
+     "UNHCR says it could not confirm returns were freely chosen",
+     "1 of 2 outlets"
+    ],
+    [
+     "Nearly 1,500 returnees reached Myanmar by sea on Sunday",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of Min Aung Hlaing as architect of possible genocide",
+     "Contested characterisation"
+    ]
+   ],
+   "open": [
+    "Number of Myanmar refugees Malaysia hosts: figures vary by category"
+   ],
+   "primary": [
+    "PM Anwar Ibrahim",
+    "Malaysian foreign ministry",
+    "UNHCR",
+    "UN rights chief Volker Türk"
+   ],
+   "m": [
+    80,
+    70,
+    65
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/6/malaysias-anwar-to-host-myanmar-leader-as-repatriations-surpass-10000"
+    ],
+    [
+     "malaymail",
+     "https://www.malaymail.com/news/malaysia/2026/10/06/myanmar-president-to-visit-malaysia-tomorrow-as-migrant-returns-draw-rights-groups-warnings/237968"
+    ],
+    [
+     "bloomberg",
+     "https://www.bloomberg.com/news/articles/2026-10-06/malaysia-repatriations-to-myanmar-top-10-000-as-anwar-prepares-to-host-president",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "uk-fairford-seventh-arrest",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "Seventh man arrested in RAF Fairford terror investigation",
+   "say": "A seventh man has been arrested in the RAF Fairford terror investigation. Police say the 22-year-old was held in Westminster on suspicion of preparing terrorist acts.",
+   "stand": "Counter-terrorism police held a 22-year-old British man in Westminster on suspicion of preparing terrorist acts.",
+   "body": [
+    "Counter Terrorism Policing arrested a 22-year-old British national in the London borough of Westminster on 6 October. He is held on suspicion of preparing terrorist acts under section 5 of the Terrorism Act 2006, and properties in the area were searched.",
+    "He is the seventh person arrested in the inquiry. Five British men were arrested near the Gloucestershire airbase on 27 September, and a 25-year-old dual UK-Iranian national on 1 October. Police say all six, men in their 20s, remain on bail.",
+    "The US has moved its bombers away from the base. Prime Minister Andy Burnham has spoken of strong indications of Iranian involvement, ITV reports, while Iran has denied any part. Police describe it as a live investigation with several lines of enquiry."
+   ],
+   "kept": [
+    [
+     "A 22-year-old British man was arrested in Westminster on 6 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "He is held on suspicion of preparing terrorist acts",
+     "3 of 3 outlets"
+    ],
+    [
+     "Six earlier suspects, all men in their 20s, are on police bail",
+     "3 of 3 outlets"
+    ],
+    [
+     "The US moved its bombers from RAF Fairford over a suspected drone threat",
+     "2 of 3 outlets"
+    ],
+    [
+     "Iran has denied involvement in the suspected plot",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of the case as a 'terror plot' as settled fact",
+     "No one has been charged; police describe a live investigation"
+    ],
+    [
+     "Trump's claim 'we actually know the people that made the threat'",
+     "Unverified claim from one side"
+    ]
+   ],
+   "open": [
+    "Detail of the threat: outlets refer to a suspected drone attack, but police have not set out what was planned"
+   ],
+   "primary": [
+    "Counter Terrorism Policing statement, 6 October",
+    "Vicki Evans, Senior National Coordinator for Counter Terrorism Policing"
+   ],
+   "m": [
+    85,
+    80,
+    50
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-06/seventh-man-arrested-by-counter-terrorism-police-in-raf-fairford-investigation"
+    ],
+    [
+     "ctp",
+     "https://www.counterterrorism.police.uk/news/new-arrest-made-in-the-raf-fairford-investigation/"
+    ],
+    [
+     "businessday",
+     "https://www.businessday.co.za/world/europe/2026-10-06-uk-police-arrest-22-year-old-over-suspected-fairford-airbase-plot/"
+    ],
+    [
+     "gbnews",
+     "https://www.gbnews.com/news/raf-fairford-seventh-man-arrested-terror-plot-six-bailed",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "uk-sussex-taser-officers-sacked",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "Officers who Tasered 92-year-old amputee in care home dismissed",
+   "stand": "A misconduct panel found two Sussex Police constables used excessive force on a wheelchair user with dementia in 2022.",
+   "body": [
+    "Two Sussex Police officers have been dismissed without notice after a misconduct panel found them guilty of gross misconduct. PC Stephen Smith, 52, and PC Rachel Comotto, 37, have also been placed on the police barred list.",
+    "The case concerns a 92-year-old resident of a care home in St Leonards-on-Sea in June 2022. He used a wheelchair, had one leg amputated and had dementia. Officers were called after reports that he was holding a knife.",
+    "Within about a minute and a half of arriving, the officers used PAVA spray, a baton, a Taser and handcuffs. The panel, which sat from 28 September to 6 October, found the force excessive and unreasonable.",
+    "The man was taken to hospital, caught Covid-19 and died in July 2022. A pathologist found the officers' actions did not cause or contribute to his death. Both officers were cleared of assault at a criminal trial in May 2025."
+   ],
+   "kept": [
+    [
+     "Two Sussex Police constables were dismissed for gross misconduct",
+     "3 of 3 outlets"
+    ],
+    [
+     "The panel found they used excessive force on a 92-year-old in a wheelchair",
+     "2 of 3 outlets"
+    ],
+    [
+     "Both officers were placed on the police barred list",
+     "2 of 3 outlets"
+    ],
+    [
+     "Both were acquitted of assault at a criminal trial in 2025",
+     "2 of 3 outlets"
+    ],
+    [
+     "A pathologist found their actions did not cause the man's death",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Name of the care home resident",
+     "Private individual and victim"
+    ],
+    [
+     "Panel descriptions of the officers as lacking compassion and 'antagonistic'",
+     "Characterisations kept out of a neutral summary"
+    ]
+   ],
+   "open": [
+    "Time before force was used: reports give 83 seconds or within 90 seconds"
+   ],
+   "primary": [
+    "Sussex Police misconduct hearing findings, 28 September to 6 October 2026"
+   ],
+   "m": [
+    85,
+    70,
+    85
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/meridian/2026-10-06/officers-who-tasered-amputee-92-at-care-home-used-excessive-force"
+    ],
+    [
+     "sussexnews",
+     "https://sussex.news/east-sussex/two-sussex-police-officers-dismissed-after-force-used-against-disabled-care-home-resident/44761/"
+    ],
+    [
+     "channel4",
+     "https://www.channel4.com/news/police-officers-who-tasered-care-home-resident-sacked"
+    ]
+   ]
+  },
+  {
+   "id": "uk-tividale-murder-plea",
+   "sec": "uk",
+   "sub": "Justice",
+   "head": "Student admits murdering woman at Tividale Airbnb",
+   "stand": "Benjamin Day, 20, changed his plea on the second day of his trial at Wolverhampton Crown Court.",
+   "body": [
+    "Benjamin Day, 20, has admitted murdering a 24-year-old woman at an Airbnb property in Tividale, West Midlands, in December 2025. He changed his plea to guilty on 6 October, the second day of his trial.",
+    "The prosecution said Day, a University of Worcester forensics student from Redditch, had lined a room with plastic beforehand. The woman suffered 78 knife wounds.",
+    "Prosecutors said he began to dismember her body but stopped after cutting himself, then called 999. He was arrested in hospital. Day had been expected to argue self-defence.",
+    "He was remanded in custody and is due to be sentenced on 4 December."
+   ],
+   "kept": [
+    [
+     "Benjamin Day, 20, pleaded guilty to murder at Wolverhampton Crown Court",
+     "3 of 3 outlets"
+    ],
+    [
+     "The killing happened at an Airbnb in Tividale in December 2025",
+     "3 of 3 outlets"
+    ],
+    [
+     "He is due to be sentenced on 4 December",
+     "3 of 3 outlets"
+    ],
+    [
+     "Prosecutors said he prepared a plastic-lined room beforehand",
+     "3 of 3 outlets"
+    ],
+    [
+     "The victim suffered 78 knife wounds, the court heard",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Victim's name and nationality",
+     "Private individual and victim"
+    ],
+    [
+     "'Dexter-style' framing in headlines",
+     "Sensational framing"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Rachel Brand KC, prosecuting",
+    "Wolverhampton Crown Court proceedings"
+   ],
+   "m": [
+    90,
+    80,
+    90
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/central/2026-10-06/forensics-student-admits-murder-of-sex-worker-in-dexter-style-kill-room"
+    ],
+    [
+     "manxradio",
+     "https://www.manxradio.com/news/uk-news/forensics-student-admits-dexter-style-murder-in-kill-room/"
+    ],
+    [
+     "hitsradio",
+     "https://www.hellorayo.co.uk/hits-radio/shropshire/news/forensics-student-dexter-style-murder-guilty-plea"
+    ]
+   ]
+  },
+  {
+   "id": "uk-walkden-arson-inquest",
+   "sec": "uk",
+   "sub": "Justice",
+   "head": "Arson killer was freed after threatening petrol bomb, inquest hears",
+   "stand": "An inquest into a 2017 house fire that killed a mother and four children is examining Greater Manchester Police's earlier handling of threats.",
+   "body": [
+    "An inquest at Bolton Coroner's Court is examining the deaths of a mother and four children after an arson attack on a house in Walkden in December 2017. It is expected to last about two months.",
+    "On 6 October, its second day, a Greater Manchester Police response officer gave evidence about an incident on 26 November 2017. Zak Bolland had damaged the house and sent a text threatening to petrol bomb it.",
+    "The inquest heard Bolland was released after a short 'no comment' interview, though he was on a suspended sentence. The officer said he was not aware of the threats or the suspended sentence at the time.",
+    "Bolland and David Worrall were later given life sentences with minimum terms of 40 and 37 years."
+   ],
+   "kept": [
+    [
+     "An inquest is examining a 2017 Walkden arson attack that killed five people",
+     "2 of 2 outlets"
+    ],
+    [
+     "Zak Bolland had texted a threat to petrol bomb the house weeks earlier",
+     "2 of 2 outlets"
+    ],
+    [
+     "He was released by police though on a suspended sentence, the inquest heard",
+     "2 of 2 outlets"
+    ],
+    [
+     "Bolland and Worrall are serving life terms of at least 40 and 37 years",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Names of the victims",
+     "Private individuals and victims"
+    ],
+    [
+     "Name of the response officer giving evidence",
+     "Junior officer; not central to the facts"
+    ]
+   ],
+   "open": [
+    "Outcome of the November 2017 case file: the officer suggested such crimes were then often closed, which the inquest has yet to examine fully"
+   ],
+   "primary": [
+    "Evidence at Bolton Coroner's Court, 6 October 2026"
+   ],
+   "m": [
+    80,
+    70,
+    60
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/granada/2026-10-06/firebomb-killer-released-by-police-despite-last-chance-warning-inquest-hears"
+    ],
+    [
+     "britbrief",
+     "https://britbrief.co.uk/crime/courts/murderer-freed-weeks-before-fatal-arson-inquest-hears.html"
+    ]
+   ]
+  },
+  {
+   "id": "uk-ema-smuggling-boats",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "25 smuggling boats seized in air freight at East Midlands Airport",
+   "stand": "The National Crime Agency says it is the first time small-boat equipment has been found in air cargo.",
+   "body": [
+    "The National Crime Agency (NCA) and Border Force seized 25 inflatable boats at East Midlands Airport on 2 October. The cargo was passing through the UK on its way from Turkey to the Netherlands.",
+    "Each boat is about nine metres long. Together they could carry around 1,700 people across the Channel, the agencies estimate.",
+    "Officials say it is the first such find in air freight. In July, 25 boats and 25 engines were seized at Felixstowe port.",
+    "The NCA says it has seized more than 1,600 boats and engines, which it believes is raising costs for smugglers. No arrests have been reported."
+   ],
+   "kept": [
+    [
+     "25 inflatable boats were seized at East Midlands Airport on 2 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "The boats were in transit from Turkey to the Netherlands",
+     "3 of 3 outlets"
+    ],
+    [
+     "Officials say the boats could have carried about 1,700 people",
+     "3 of 3 outlets"
+    ],
+    [
+     "It is the first such seizure found in air freight, officials say",
+     "2 of 3 outlets"
+    ],
+    [
+     "25 boats and 25 engines were seized at Felixstowe in July",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Minister's description of 'evil smuggling gangs'",
+     "Loaded language"
+    ],
+    [
+     "Claim that seizures are having an impact",
+     "Agency's own assessment; attributed rather than stated as fact"
+    ]
+   ],
+   "open": [
+    "Rise in immigration crime arrests: reports give over 55% or 74%"
+   ],
+   "primary": [
+    "Craig Turner, NCA deputy director of investigations",
+    "Anna Turley, minister"
+   ],
+   "m": [
+    85,
+    75,
+    85
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/central/2026-10-06/smuggler-boats-used-to-move-migrants-seized-at-east-midlands-airport"
+    ],
+    [
+     "aircargoweek",
+     "https://aircargoweek.com/boats-destined-for-people-smugglers-seized-at-east-midlands-airport/"
+    ],
+    [
+     "wbwire",
+     "https://westbridgfordwire.com/25-boats-for-people-smuggling-gangs-seized-at-east-midlands-airport"
+    ]
+   ],
+   "fig": [
+    "25",
+    "boats seized"
+   ]
+  },
+  {
+   "id": "uk-wales-m4-menai-plans",
+   "sec": "uk",
+   "sub": "Transport",
+   "head": "Wales orders M4 road study and starts work on third Menai crossing",
+   "stand": "The Welsh Government set out plans for two congestion hotspots, including an 18-month study of road options around Newport.",
+   "body": [
+    "The Welsh Government announced on 6 October an 18-month study of road-based options for the M4 around Newport. A preferred option will be chosen afterwards.",
+    "ITV reports the options could include junction closures and widening the Brynglas tunnels. Interim steps over five years include junction upgrades and new or improved stations at Cardiff Parkway, Magor and Undy.",
+    "Development work also begins on a third Menai crossing, covering design, environmental assessment and a business case. ITV puts the cost at about £670m and the timescale at eight to ten years.",
+    "Deputy Transport Minister Mark Hooper said measures aim to cut peak-hour traffic by up to around one in ten vehicles. Opposition parties said junction closures would only move congestion elsewhere."
+   ],
+   "kept": [
+    [
+     "An 18-month study will examine road options for the M4 around Newport",
+     "2 of 3 outlets"
+    ],
+    [
+     "Development work starts on a third Menai crossing",
+     "3 of 3 outlets"
+    ],
+    [
+     "Britannia Bridge will get wind deflectors and variable speed limits",
+     "2 of 3 outlets"
+    ],
+    [
+     "Ministers aim to cut peak-hour M4 traffic by up to about one in ten",
+     "2 of 3 outlets"
+    ],
+    [
+     "The new Menai crossing is put at about £670m, ITV reports",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Opposition charge of 'more plans for plans'",
+     "Partisan framing"
+    ]
+   ],
+   "open": [
+    "Cost and timescale of the Menai crossing appear only in ITV's report, not the government release"
+   ],
+   "primary": [
+    "Welsh Government announcement, 6 October 2026",
+    "Mark Hooper, Deputy Minister for Transport"
+   ],
+   "m": [
+    75,
+    85,
+    70
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/wales/2026-10-06/roads-based-solution-to-m4-congestion-under-review-welsh-government-say"
+    ],
+    [
+     "govwales",
+     "https://www.gov.wales/plans-third-menai-crossing-and-roads-based-solution-m4-around-newport-announced-today"
+    ],
+    [
+     "nationcymru",
+     "https://nation.cymru/news/third-menai-crossing-plans-revived-as-ministers-announce-study-into-m4-road-options/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "pol-badenoch-closing-speech",
+   "sec": "politics",
+   "sub": "Parties",
+   "head": "Badenoch to pitch tax cuts in closing Tory conference speech",
+   "stand": "The Conservative leader is set to frame the next election as a contest of ideas, backed by a youth national insurance cut.",
+   "body": [
+    "Kemi Badenoch is due to close the Conservative conference in Birmingham with a speech centred on the economy, according to pre-briefed extracts. She is expected to call the next general election a battle of ideas over the nation's future.",
+    "The party has announced it would cut employer national insurance from 15% to 7.5% for workers aged 21 to 24. ITV reports a static cost of £3.25bn, with the party estimating a net cost of £2.3bn by 2029-30.",
+    "Badenoch says the national debt is above £2.9tn and argues growth must be a Conservative government's organising aim. The extracts also criticise Prime Minister Andy Burnham over public spending.",
+    "Labour called the national insurance plan unfunded. Reform UK's Robert Jenrick said his party would scrap the employer charge for all workers."
+   ],
+   "kept": [
+    [
+     "Tories pledge to halve employer NI to 7.5% for workers aged 21 to 24",
+     "3 of 4 outlets"
+    ],
+    [
+     "Party puts net cost of the NI cut at £2.3bn by 2029-30",
+     "2 of 4 outlets"
+    ],
+    [
+     "Badenoch to call next election a 'battle for the soul of this nation'",
+     "2 of 4 outlets"
+    ],
+    [
+     "Badenoch says national debt exceeds £2.9tn",
+     "1 of 4 outlets"
+    ],
+    [
+     "Labour called the NI plan 'fantasy economics' and unfunded",
+     "1 of 4 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of the speech as 'landmark'",
+     "Speech not yet delivered when sources were published; evaluative framing"
+    ],
+    [
+     "Possible inheritance tax cuts in the speech",
+     "Attributed to an unnamed party source; unconfirmed"
+    ]
+   ],
+   "open": [
+    "Speech timing: outlets describe it as Wednesday afternoon; one gives 8 October",
+    "Static cost of NI cut (£3.25bn) given by ITV only"
+   ],
+   "primary": [
+    "Kemi Badenoch speech extracts",
+    "Andrew Griffith, shadow chancellor",
+    "ONS NEET figures (981,000 aged 16-24, April-June 2026)"
+   ],
+   "m": [
+    78,
+    60,
+    50
+   ],
+   "src": [
+    [
+     "politicsco",
+     "https://www.politics.co.uk/2026/10/badenoch-to-warn-of-battle-for-the-soul-of-this-nation-in-conference-speech/"
+    ],
+    [
+     "britbrief",
+     "https://britbrief.co.uk/politics/partisanship/badenoch-next-election-will-be-battle-for-soul-of-nation.html"
+    ],
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-06/tories-pledge-to-halve-employer-national-insurance-for-young-people"
+    ],
+    [
+     "cityam",
+     "https://www.cityam.com/badenoch-to-announce-multiple-tax-cuts-in-major-speech/"
+    ]
+   ]
+  },
+  {
+   "id": "pol-britannia-shield",
+   "sec": "politics",
+   "sub": "Policy",
+   "head": "Tories pledge £10bn 'Britannia Shield' air defence system",
+   "stand": "The Conservatives say a future government would build radar, command systems and interceptors to guard the UK against missiles and drones.",
+   "body": [
+    "The Conservatives have pledged £10bn over ten years for an integrated air and missile defence system called Britannia Shield. It was announced at the party's Birmingham conference on 6 October.",
+    "The plan covers new radar, upgraded command and control, and more interceptor missiles with counter-drone capability. The party says a minimal working system would be ready within its first term.",
+    "A party press release first called it a British 'Iron Dome'. Kemi Badenoch later said it differed from Israel's system. The party says funding would come from its pledge to spend 3% of GDP on defence by 2030.",
+    "Defence Secretary Wes Streeting criticised the Conservatives' record on the armed forces. The Liberal Democrats said £10bn would not cover the whole UK."
+   ],
+   "kept": [
+    [
+     "Conservatives pledge £10bn over ten years for 'Britannia Shield'",
+     "2 of 2 outlets"
+    ],
+    [
+     "System would combine new radar, command systems and interceptor missiles",
+     "2 of 2 outlets"
+    ],
+    [
+     "Party promises a minimal deployable system within its first term",
+     "2 of 2 outlets"
+    ],
+    [
+     "Badenoch distanced the plan from Israel's Iron Dome after a press release used the term",
+     "1 of 2 outlets"
+    ],
+    [
+     "Funding to come from a pledge of 3% of GDP on defence by 2030",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Labour claim that the Tories 'cut the Army to its smallest size since Napoleon'",
+     "Partisan claim, not verified"
+    ],
+    [
+     "Lib Dem label 'Truss-style fantasy economics'",
+     "Partisan framing"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Conservative Party press release",
+    "James Cartlidge, shadow defence secretary"
+   ],
+   "m": [
+    82,
+    55,
+    70
+   ],
+   "src": [
+    [
+     "politicsco",
+     "https://www.politics.co.uk/2026/10/conservatives-pledge-10bn-britannia-shield-missile-and-drone-defence-system/"
+    ],
+    [
+     "wion",
+     "https://www.wionews.com/world/what-is-britannia-shield-uk-conservatives-promise-new-air-defence-system-1791272572021"
+    ],
+    [
+     "britbrief",
+     "https://britbrief.co.uk/politics/partisanship/badenoch-next-election-will-be-battle-for-soul-of-nation.html"
+    ]
+   ],
+   "fig": [
+    "£10bn",
+    "Britannia Shield over 10 years"
+   ]
+  },
+  {
+   "id": "pol-greens-zionism-fallout",
+   "sec": "politics",
+   "sub": "Parties",
+   "head": "Greens face criticism after 'Zionism is racism' vote",
+   "stand": "European Greens and Kemi Badenoch condemned the motion, as most Green MPs also rejected it ahead of Thursday's by-election.",
+   "body": [
+    "Green Party of England and Wales members voted 1,022 to 813 to define Zionism as a form of racism at their Brighton conference. The motion also backed a single Palestinian state in historic Palestine.",
+    "The European Green Party said it distanced itself from the motion and would seek clarity from the party's leadership. It restated its support for a two-state solution.",
+    "Four of the five Green MPs publicly rejected the motion. Leader Zack Polanski did not vote, having left to campaign in the Holborn and St Pancras by-election, due on 8 October.",
+    "Conservative leader Kemi Badenoch told ITV she was appalled by the vote. Polanski has said antisemitism and criticism of the Israeli state are distinct."
+   ],
+   "kept": [
+    [
+     "Green members passed the motion by 1,022 votes to 813",
+     "1 of 2 outlets"
+    ],
+    [
+     "European Green Party says it distances itself from the motion",
+     "1 of 2 outlets"
+    ],
+    [
+     "Four of five Green MPs publicly rejected the motion",
+     "2 of 2 outlets"
+    ],
+    [
+     "Zack Polanski did not vote, having left to campaign in a by-election",
+     "2 of 2 outlets"
+    ],
+    [
+     "Badenoch told ITV she was 'appalled' by the vote",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Badenoch's claim the party has 'a lot of people who are antisemites'",
+     "Sweeping allegation from a political rival; not verifiable"
+    ],
+    [
+     "Claim that under 1% of members took part",
+     "Attributed to European Greens only"
+    ]
+   ],
+   "open": [
+    "Date of vote: ITV reported it on 4 October; Politics.co.uk gives 5 October"
+   ],
+   "primary": [
+    "European Green Party statement",
+    "Zack Polanski statement",
+    "Kemi Badenoch interview with ITV"
+   ],
+   "m": [
+    75,
+    55,
+    60
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-06/kemi-badenoch-appalled-and-embarrassed-by-green-party-zionism-vote"
+    ],
+    [
+     "politicsco",
+     "https://www.politics.co.uk/2026/10/european-greens-to-demand-clarity-from-zack-polanski-over-zionism-is-racism-motion/"
+    ],
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-04/greens-back-zionism-is-racism-policy-despite-opposition-from-senior-figures",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "pol-trump-la-san-diego",
+   "sec": "politics",
+   "sub": "Elections",
+   "head": "Trump draws backlash for saying Iran could 'take out' LA",
+   "stand": "California leaders from both parties criticised the president's rally remarks; the White House says he was misunderstood.",
+   "body": [
+    "At a midterm rally in Nebraska on Monday, Donald Trump said Iran could be allowed to take out Los Angeles and San Diego. He was speaking about the war with Iran and fuel prices.",
+    "California Governor Gavin Newsom called the remarks deranged and dangerous. He said state officials would monitor potential threats.",
+    "Los Angeles Mayor Karen Bass and San Diego Mayor Todd Gloria also objected. Republican House candidate Jim Desmond said no American city was expendable.",
+    "The White House said Trump meant the US was fighting to stop Iran gaining the ability to strike such cities. Communications director Steven Cheung called the criticism a media overreaction."
+   ],
+   "kept": [
+    [
+     "Trump said Iran could 'take out' Los Angeles and San Diego at a Nebraska rally",
+     "3 of 3 outlets"
+    ],
+    [
+     "Gavin Newsom called the remarks 'deranged and dangerous'",
+     "2 of 3 outlets"
+    ],
+    [
+     "Republican candidate Jim Desmond said no American city is expendable",
+     "2 of 3 outlets"
+    ],
+    [
+     "White House says Trump meant the US is stopping Iran from threatening US cities",
+     "3 of 3 outlets"
+    ],
+    [
+     "LA Mayor Karen Bass and San Diego Mayor Todd Gloria criticised the remark",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of attendees cheering",
+     "Reported by one outlet as 'appeared to'; uncertain"
+    ],
+    [
+     "'Very small price to pay' quote",
+     "Wording given by one outlet only"
+    ]
+   ],
+   "open": [
+    "Rally date: two outlets say Monday 5 October; one gives 6 October"
+   ],
+   "primary": [
+    "White House rapid response statement",
+    "Steven Cheung, White House communications director",
+    "Gavin Newsom statement"
+   ],
+   "m": [
+    88,
+    60,
+    75
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/losangeles/news/trump-suggests-allowing-iran-take-out-la-and-san-diego-during-campaign-rally/"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/7/politicians-slam-trumps-suggestion-that-iran-take-san-diego-los-angeles"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-07/californians-blast-trump-remark-iran-could-take-out-los-angeles/107236972"
+    ]
+   ]
+  },
+  {
+   "id": "pol-quebec-pq-minority",
+   "sec": "politics",
+   "sub": "Elections",
+   "head": "Separatist Parti Québécois wins Quebec election",
+   "stand": "The PQ will form a minority government, while the governing CAQ was reported to have lost all its seats.",
+   "body": [
+    "The Parti Québécois won the most seats in Quebec's provincial election on 5 October. It fell short of the 64 seats needed for a majority in the 127-seat National Assembly.",
+    "Leader Paul St-Pierre Plamondon will become premier, ending eight years of Coalition Avenir Québec rule. The PQ won three seats in 2022.",
+    "He has promised a third independence referendum in his first term, but not before Donald Trump leaves office in January 2029. Polls put support for independence around 30%.",
+    "Prime Minister Mark Carney congratulated the PQ leader and offered co-operation on US tariffs, jobs and housing."
+   ],
+   "kept": [
+    [
+     "Parti Québécois will form a minority government in Quebec",
+     "4 of 4 outlets"
+    ],
+    [
+     "Paul St-Pierre Plamondon will become premier",
+     "3 of 4 outlets"
+    ],
+    [
+     "PQ pledges an independence referendum, not before Trump leaves office",
+     "3 of 4 outlets"
+    ],
+    [
+     "Coalition Avenir Québec, which held 79 seats, lost all its seats",
+     "1 of 4 outlets"
+    ],
+    [
+     "Support for independence is around 30%",
+     "2 of 4 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Claim the result is a 'dramatic political comeback'",
+     "Evaluative framing"
+    ],
+    [
+     "Analyst view that the vote was about removing the CAQ, not sovereignty",
+     "Opinion"
+    ]
+   ],
+   "open": [
+    "PQ seat total: one outlet gives 59; another says about 60",
+    "CAQ seat total: one outlet says zero; another says it faced possible elimination"
+   ],
+   "primary": [
+    "Paul St-Pierre Plamondon victory speech",
+    "Mark Carney statement"
+   ],
+   "m": [
+    85,
+    50,
+    75
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/quebec-separatists-vow-independence-referendum-after-winning-local-elections-but-falling-s"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/6/secessionist-parti-quebecois-wins-quebec-election-in-canada"
+    ],
+    [
+     "deepdive",
+     "https://thedeepdive.ca/caq-drops-from-79-seats-to-zero-as-separatists-win-quebec-minority-government/"
+    ],
+    [
+     "ctv",
+     "https://www.ctvnews.ca/montreal/quebec-election-2026/article/5-takeways-from-quebec-election-as-parti-quebecois-forms-minority-government/"
+    ]
+   ]
+  },
+  {
+   "id": "pol-afd-landtag-speaker",
+   "sec": "politics",
+   "sub": "Parties",
+   "head": "AfD wins its first German state parliament speakership",
+   "stand": "Tobias Rausch was elected president of Saxony-Anhalt's parliament with support beyond his own party.",
+   "body": [
+    "Tobias Rausch of the Alternative for Germany (AfD) was elected speaker of Saxony-Anhalt's state parliament on 6 October. He won 48 votes to 29 in the first round.",
+    "He is the first AfD politician to hold a state parliament presidency. The AfD won 43.8% in September's state election but has no majority.",
+    "The BSW party, with five seats, backed him in advance. The AfD and BSW together hold 44 seats, so some votes came from other groups in the secret ballot.",
+    "Rausch called himself pragmatic. He has faced cronyism allegations over staffing; he says he was not involved in the hiring decisions. The AfD's lead candidate, Ulrich Siegmund, seeks to become state premier in December."
+   ],
+   "kept": [
+    [
+     "AfD's Tobias Rausch elected Saxony-Anhalt parliament speaker, 48 votes to 29",
+     "3 of 3 outlets"
+    ],
+    [
+     "First AfD politician to lead a German state parliament",
+     "3 of 3 outlets"
+    ],
+    [
+     "The BSW party pledged its five votes in advance",
+     "3 of 3 outlets"
+    ],
+    [
+     "AfD won 43.8% in September's state election, short of a majority",
+     "2 of 3 outlets"
+    ],
+    [
+     "Rausch received votes from outside the AfD and BSW",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Nepotism allegations over relatives' employment",
+     "Allegations; Rausch denies involvement"
+    ]
+   ],
+   "open": [
+    "AfD seat total: one outlet gives 39 of 83 seats; not confirmed elsewhere"
+   ],
+   "primary": [
+    "Saxony-Anhalt state parliament vote"
+   ],
+   "m": [
+    88,
+    60,
+    85
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/germanys-far-right-afd-bids-to-take-helm-of-state-parliament-in-saxony-anhalt"
+    ],
+    [
+     "tonline",
+     "https://www.t-online.de/nachrichten/deutschland/innenpolitik/id_101468834/tobias-rausch-das-ist-der-neue-afd-landtagspraesident-von-sachsen-anhalt.html"
+    ],
+    [
+     "tass",
+     "https://tass.com/world/2198235"
+    ]
+   ]
+  },
+  {
+   "id": "biz-wall-st-record-oct6",
+   "sec": "business",
+   "sub": "Markets",
+   "head": "S&P 500 closes at another record as Treasury yields ease",
+   "stand": "Technology and energy-related shares led US stocks higher on Tuesday, with the S&P 500 finishing above 7,800 for a second day.",
+   "body": [
+    "US stocks rose on Tuesday 6 October, with the S&P 500 setting a new closing record. The Dow and the Nasdaq also gained around half a percentage point.",
+    "Chip makers helped lead the advance. Marvell Technology rose 7–8% after raising its revenue targets linked to AI infrastructure, and AMD gained almost 3%.",
+    "Constellation Energy jumped after a long-term nuclear power deal with Google. Option Care Health soared on a takeover agreement.",
+    "The 10-year US Treasury yield slipped to about 5.27%, down from roughly 5.31%. Storage firms Seagate and Western Digital were among the biggest fallers."
+   ],
+   "kept": [
+    [
+     "S&P 500 rose 0.58% to a record close of 7,818.93 on 6 October",
+     "2 of 2 outlets"
+    ],
+    [
+     "Dow Jones rose 0.49% to close at 51,521.28",
+     "2 of 2 outlets"
+    ],
+    [
+     "Nasdaq Composite gained 0.45%",
+     "2 of 2 outlets"
+    ],
+    [
+     "10-year Treasury yield eased to about 5.27%",
+     "2 of 2 outlets"
+    ],
+    [
+     "Marvell rose 7–8% after raising AI-related revenue targets",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Analyst said gains reflected easing of interest rate uncertainty",
+     "Market interpretation, not a verifiable fact"
+    ],
+    [
+     "Earnings growth expectations of nearly 30% for the season",
+     "Single analyst estimate"
+    ]
+   ],
+   "open": [
+    "Oil: one outlet reports WTI down 1.9% at $87.77, another reports November crude up 0.9% at $90.23",
+    "Constellation Energy's gain: reported as about 13% or 14.8%",
+    "Whether the Nasdaq also closed at a record: stated by one outlet only"
+   ],
+   "primary": [],
+   "m": [
+    85,
+    40,
+    85
+   ],
+   "src": [
+    [
+     "thestreet",
+     "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-06-2026"
+    ],
+    [
+     "yahoo",
+     "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-october-6-dow-sp-500-nasdaq-080526166.html"
+    ]
+   ]
+  },
+  {
+   "id": "biz-europe-ftse-close-oct6",
+   "sec": "business",
+   "sub": "Markets",
+   "head": "European shares rise for third day as bond yields retreat",
+   "stand": "Healthcare stocks led European markets higher on Tuesday, while London's FTSE 100 extended its recovery from a three-month low.",
+   "body": [
+    "European stocks rose on Tuesday 6 October, the third straight day of gains. Eurozone government bond yields eased after touching multi-decade highs the previous week.",
+    "Healthcare shares led the market. Danish biotech Genmab rose more than 7% after a late-stage trial of a blood cancer drug combination it develops with AbbVie.",
+    "In London, the FTSE 100 gained about 0.4% to close near 10,542. Informa rose more than 5% after agreeing to buy events group Clarion.",
+    "Banks also advanced. Schneider Electric fell further after its large deal for PTC announced on Monday."
+   ],
+   "kept": [
+    [
+     "Stoxx 600 rose on 6 October for a third consecutive session",
+     "3 of 3 outlets"
+    ],
+    [
+     "Genmab jumped more than 7% after positive late-stage lymphoma trial results",
+     "3 of 3 outlets"
+    ],
+    [
+     "FTSE 100 closed at about 10,542, up roughly 0.4%",
+     "2 of 3 outlets"
+    ],
+    [
+     "Eurozone bond yields eased from multi-decade highs reached last week",
+     "2 of 3 outlets"
+    ],
+    [
+     "Informa shares rose after agreeing a £2.24bn deal for Clarion",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Political uncertainty in Spain and France weighed on sentiment",
+     "Interpretive framing"
+    ]
+   ],
+   "open": [
+    "Stoxx 600 gain: reported as 0.5% (636.76), 0.8% (638.41) or about 1%",
+    "Genmab gain: reported as 7.6%, 8.3% or over 8%"
+   ],
+   "primary": [],
+   "m": [
+    80,
+    35,
+    80
+   ],
+   "src": [
+    [
+     "tradingecon",
+     "https://tradingeconomics.com/euro-area/stock-market"
+    ],
+    [
+     "tradingecon",
+     "https://tradingeconomics.com/united-kingdom/stock-market"
+    ],
+    [
+     "brecorder",
+     "https://www.brecorder.com/news/40442894/european-shares-gain-as-genmab-jumps-bond-yields-retreat"
+    ],
+    [
+     "coincentral",
+     "https://coincentral.com/european-stocks-rise-as-bond-yields-ease-from-multi-decade-highs"
+    ]
+   ]
+  },
+  {
+   "id": "biz-option-care-cdr-mckesson",
+   "sec": "business",
+   "sub": "Companies",
+   "head": "CD&R and McKesson agree $5.8bn deal for Option Care Health",
+   "stand": "The US home infusion provider's shares jumped about a third after it agreed to a cash takeover by a private equity firm and drug distributor.",
+   "body": [
+    "Option Care Health has agreed to be bought by private equity firm CD&R and drug distributor McKesson. The deal values the US company at about $5.8bn including debt.",
+    "Shareholders will receive $32.05 a share in cash. That is about 37% above Monday's closing price of $23.37.",
+    "CD&R will hold 51% and McKesson 49%, with McKesson investing about $1.4bn. McKesson has a possible route to buy CD&R's stake later, subject to conditions.",
+    "The companies expect the deal to close in the first half of 2027. It needs shareholder and regulatory approval. Option Care's shares rose about 33% on Tuesday."
+   ],
+   "kept": [
+    [
+     "Option Care Health to be bought for $32.05 a share in cash",
+     "2 of 2 outlets"
+    ],
+    [
+     "Deal values the company at about $5.8bn including debt",
+     "2 of 2 outlets"
+    ],
+    [
+     "CD&R will own 51% and McKesson 49%, investing about $1.4bn",
+     "2 of 2 outlets"
+    ],
+    [
+     "Deal expected to close in the first half of 2027",
+     "1 of 2 outlets"
+    ],
+    [
+     "Option Care shares rose about a third on Tuesday",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Chief executive called it 'a great outcome' for shareholders",
+     "Promotional company quote"
+    ],
+    [
+     "Analysis suggesting the price still undervalues the business",
+     "Opinion from a ratings model"
+    ]
+   ],
+   "open": [
+    "Share gain on the day: reported as about 33% or 34%"
+   ],
+   "primary": [
+    "Option Care Health chief executive John Rademacher",
+    "McKesson chief executive Brian Tyler"
+   ],
+   "m": [
+    80,
+    60,
+    85
+   ],
+   "src": [
+    [
+     "tikr",
+     "https://www.tikr.com/blog/option-care-health-soars-33-on-5-8-billion-buyout-by-cdr-and-mckesson-a-great-outcome"
+    ],
+    [
+     "gurufocus",
+     "https://www.gurufocus.com/news/9111355/option-care-health-opch-shares-surge-34-on-acquisition-deal-by-cdr-and-mckesson"
+    ],
+    [
+     "thestreet",
+     "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-06-2026"
+    ]
+   ],
+   "fig": [
+    "$5.8bn",
+    "Option Care deal value incl. debt"
+   ]
+  },
+  {
+   "id": "biz-informa-clarion",
+   "sec": "business",
+   "sub": "Companies",
+   "head": "Informa to buy events group Clarion from Blackstone for £2.24bn",
+   "stand": "The FTSE 100 events and publishing group also plans to separate its Taylor & Francis academic publishing business.",
+   "body": [
+    "Informa has agreed to buy Clarion Events from private equity firm Blackstone for £2.24bn. Clarion runs more than 100 business-to-business brands, including the ICE gaming show in Barcelona and the DSEI defence exhibition.",
+    "Informa plans to raise about £940m in new shares to help fund the purchase. It expects the deal to complete by the end of 2026.",
+    "The company also said it plans to separate Taylor & Francis, its academic publishing arm. It said fuller details would come with next year's results.",
+    "Blackstone bought Clarion in 2017 for £600m, according to trade outlet NEXT.io. Informa shares rose on the news."
+   ],
+   "kept": [
+    [
+     "Informa agreed to buy Clarion Events from Blackstone for £2.24bn",
+     "2 of 2 outlets"
+    ],
+    [
+     "Informa plans a £940m equity raise to help fund the deal",
+     "1 of 2 outlets"
+    ],
+    [
+     "Informa plans to separate its Taylor & Francis academic arm",
+     "1 of 2 outlets"
+    ],
+    [
+     "Clarion runs more than 100 B2B brands including ICE and DSEI",
+     "2 of 2 outlets"
+    ],
+    [
+     "Deal expected to complete by the end of 2026",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Deal 'underscores Informa as the leader' in B2B live events",
+     "Promotional company claim"
+    ],
+    [
+     "Blackstone called Informa 'the ideal partner'",
+     "Promotional seller quote"
+    ]
+   ],
+   "open": [
+    "Informa share gain: 3.9% in early trade, about 5.2% by the close"
+   ],
+   "primary": [
+    "Informa chief executive Stephen Carter",
+    "Informa company announcement"
+   ],
+   "m": [
+    80,
+    65,
+    85
+   ],
+   "src": [
+    [
+     "sharecast",
+     "https://www.sharecast.com/amp/news/news-and-announcements/informa-to-buy-clarion-for-pound224bn-separate-academic-business--23765112.html"
+    ],
+    [
+     "nextio",
+     "https://next.io/news/investment/clarion-sold-informa-group-2bn/"
+    ],
+    [
+     "tradingecon",
+     "https://tradingeconomics.com/united-kingdom/stock-market"
+    ]
+   ]
+  },
+  {
+   "id": "biz-constellation-google-nuclear",
+   "sec": "business",
+   "sub": "Companies",
+   "head": "Google signs 20-year nuclear power deal with Constellation",
+   "stand": "Constellation will spend $4.3bn upgrading existing reactors to supply Google, sending its shares sharply higher on Tuesday.",
+   "body": [
+    "Constellation Energy has signed a 20-year power purchase agreement with Google. It covers 890 megawatts of new capacity from upgrades at existing nuclear reactors.",
+    "The work spans 11 Constellation-owned units in Illinois, Pennsylvania and New Jersey. The company plans to invest $4.3bn, with the first upgrade expected by 2028.",
+    "A separate 15-year agreement covers about 2,700 megawatts from Constellation's existing plants. The firms also agreed a five-year cloud services deal.",
+    "Financial terms were not disclosed. Constellation shares rose more than 12% on Tuesday, and other power producers such as Vistra also gained."
+   ],
+   "kept": [
+    [
+     "Constellation and Google signed a 20-year deal for 890MW of nuclear power",
+     "3 of 3 outlets"
+    ],
+    [
+     "Capacity comes from upgrades at 11 reactors in Illinois, Pennsylvania and New Jersey",
+     "2 of 3 outlets"
+    ],
+    [
+     "Constellation plans to invest $4.3bn; first upgrade expected by 2028",
+     "2 of 3 outlets"
+    ],
+    [
+     "Separate 15-year deal covers about 2,700MW from existing plants",
+     "2 of 3 outlets"
+    ],
+    [
+     "Financial terms of the agreements were not disclosed",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Report the deal is worth $1bn or more",
+     "Second-hand report not confirmed by the companies"
+    ],
+    [
+     "Warning that execution risks could hurt the shares",
+     "Speculative commentary"
+    ]
+   ],
+   "open": [
+    "Constellation's share gain: reported as 12%, 13% or 14.8%"
+   ],
+   "primary": [
+    "Constellation Energy and Google announcement"
+   ],
+   "m": [
+    85,
+    60,
+    85
+   ],
+   "src": [
+    [
+     "yahoo",
+     "https://finance.yahoo.com/energy/articles/constellation-shares-gain-20-nuclear-111427858.html"
+    ],
+    [
+     "wallst247",
+     "https://247wallst.com/investing/2026/10/06/constellation-energy-soars-12-on-google-nuclear-deal-for-890-mw-vistra-jumps-8-talen-energy-climbs-7/"
+    ],
+    [
+     "tikr",
+     "https://www.tikr.com/blog/google-and-constellation-sign-a-3-6-gw-deal-the-bigger-half-isnt-the-nuclear"
+    ]
+   ]
+  },
+  {
+   "id": "biz-unicredit-russia-decree",
+   "sec": "business",
+   "sub": "Companies",
+   "head": "Putin approves UniCredit plan to sell most of its Russian bank",
+   "stand": "A presidential decree lets the Italian bank split its Russian unit and sell the retail and corporate business to a UAE-based investor.",
+   "body": [
+    "Russian President Vladimir Putin has signed a decree allowing UniCredit to reorganise and sell part of its Russian subsidiary. Since 2022, such deals by banks from 'unfriendly' countries need presidential approval.",
+    "UniCredit will split the unit in two. It will keep a business handling international euro and dollar payments for clients not under sanctions.",
+    "The retail and corporate banking operations will go to an unnamed private investor based in the United Arab Emirates. No price has been published.",
+    "UniCredit expects the deal to complete in the first half of 2027. It still needs approval from Russia's central bank and Western regulators."
+   ],
+   "kept": [
+    [
+     "Putin signed a decree allowing UniCredit to sell part of its Russian unit",
+     "2 of 2 outlets"
+    ],
+    [
+     "Retail and corporate banking will be sold to an unnamed UAE-based investor",
+     "2 of 2 outlets"
+    ],
+    [
+     "UniCredit will keep a payments business for non-sanctioned clients",
+     "2 of 2 outlets"
+    ],
+    [
+     "Deal expected to complete in the first half of 2027",
+     "2 of 2 outlets"
+    ],
+    [
+     "Sale still needs Russian central bank and Western regulatory approval",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Reports that the buyer is Alfa Group",
+     "Unconfirmed media speculation"
+    ],
+    [
+     "Anonymous Russian source quoted saying 'Let them be scared'",
+     "Anonymous, unverifiable remark"
+    ]
+   ],
+   "open": [
+    "Decree date: reported as 5 October or 6 October",
+    "Financial hit: one outlet cites a UniCredit estimate of €3–3.3bn; another says no price disclosed"
+   ],
+   "primary": [
+    "Russian presidential decree",
+    "UniCredit statement"
+   ],
+   "m": [
+    80,
+    70,
+    75
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/unicredit-gets-putins-approval-to-sell-part-of-its-russian-business"
+    ],
+    [
+     "gbaf",
+     "https://www.globalbankingandfinance.com/putin-grants-approval-unicredit-russia-units-reorganisation/"
+    ],
+    [
+     "rte",
+     "https://www.rte.ie/news/business/2026/1006/1594152-unicredit-russia-units-reorganisation/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "biz-german-factory-orders-aug",
+   "sec": "business",
+   "sub": "Economy",
+   "head": "German factory orders drop 10.6% in August",
+   "stand": "New orders fell far more than expected as large domestic contracts, including defence and transport equipment, unwound after a strong July.",
+   "body": [
+    "Orders for German factories fell 10.6% in August from July, the Federal Statistics Office said. Economists had expected a drop of about 1%.",
+    "The fall was driven by fewer large domestic orders. Orders for military vehicles, aircraft, ships and trains dropped by more than 60%.",
+    "Excluding large orders, the level was almost unchanged from July. Over June to August, orders were 1.3% higher than in the previous three months.",
+    "July's increase was revised up to 3.2%. The economy ministry called August a marked setback but said public procurement makes orders highly volatile."
+   ],
+   "kept": [
+    [
+     "German factory orders fell 10.6% in August from July",
+     "2 of 2 outlets"
+    ],
+    [
+     "Economists had forecast a fall of about 1%",
+     "2 of 2 outlets"
+    ],
+    [
+     "Drop driven by fewer large domestic orders, defence and transport down over 60%",
+     "1 of 2 outlets"
+    ],
+    [
+     "Excluding large orders, orders were nearly unchanged",
+     "1 of 2 outlets"
+    ],
+    [
+     "July's rise was revised up to 3.2%",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Data signal the manufacturing sector 'lost momentum'",
+     "Interpretive framing"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "German Federal Statistics Office (Destatis)",
+    "German economy ministry"
+   ],
+   "m": [
+    80,
+    85,
+    85
+   ],
+   "src": [
+    [
+     "fxstreet",
+     "https://www.fxstreet.com/news/106-germanys-factory-orders-fall-in-august-missed-10-estimates-202610060602"
+    ],
+    [
+     "dailysabah",
+     "https://www.dailysabah.com/business/economy/german-factory-orders-drop-sharply-in-august"
+    ],
+    [
+     "rte",
+     "https://www.rte.ie/news/business/2026/1006/1594166-german-factory-orders/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "biz-us-trade-deficit-aug",
+   "sec": "business",
+   "sub": "Trade",
+   "head": "US trade deficit widens to $105.6bn on record imports",
+   "stand": "The gap between US imports and exports grew 13.7% in August, more than economists expected, as goods imports rose sharply.",
+   "body": [
+    "The US trade deficit in goods and services rose to $105.6bn in August, official data showed on Tuesday. That was up $12.7bn from a revised $92.8bn in July.",
+    "Imports climbed 4.3% to $420.8bn, while exports rose 1.4% to $315.2bn. Economists had forecast a deficit of about $102bn.",
+    "The Korea Times, citing economists, linked the import rise to strong consumer spending and business investment in equipment, including for AI.",
+    "For the year to date, the deficit is about 20% smaller than in the same period of 2025, the official release said."
+   ],
+   "kept": [
+    [
+     "US trade deficit rose to $105.6bn in August, up 13.7%",
+     "3 of 3 outlets"
+    ],
+    [
+     "Imports rose 4.3% to $420.8bn; exports rose 1.4% to $315.2bn",
+     "2 of 3 outlets"
+    ],
+    [
+     "July's deficit was revised to $92.8bn",
+     "1 of 3 outlets"
+    ],
+    [
+     "Economists had forecast a deficit of about $102bn",
+     "1 of 3 outlets"
+    ],
+    [
+     "Year-to-date deficit is down about 20% from 2025",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Trade could cut up to 2.5 percentage points from third-quarter GDP",
+     "Economists' estimate, not data"
+    ],
+    [
+     "Widest gap since just before Trump's tariffs were imposed",
+     "Headline only; not confirmed in pages opened"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "US Census Bureau and Bureau of Economic Analysis trade report"
+   ],
+   "m": [
+    85,
+    90,
+    90
+   ],
+   "src": [
+    [
+     "ajot",
+     "https://www.ajot.com/news/u.s-international-trade-in-goods-and-services-august-2026"
+    ],
+    [
+     "koreatimes",
+     "https://www.koreatimes.co.kr/amp/world/20261006/us-trade-deficit-widens-in-august-amid-strong-imports"
+    ],
+    [
+     "cnbc",
+     "https://www.cnbc.com/2026/10/06/trade-deficit-hits-105point6-billion-widest-since-just-before-trump-tariffs-enacted-last-year.html",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "sci-nobel-physics-halzen",
+   "sec": "science",
+   "sub": "Physics",
+   "head": "Physics Nobel goes to Francis Halzen for IceCube neutrino discovery",
+   "say": "This year's Nobel Prize in Physics goes to just one person, Francis Halzen. The 82-year-old is honoured for IceCube, which found high-energy neutrinos arriving from deep space.",
+   "stand": "The Belgian-born physicist is the sole winner, honoured for turning Antarctic ice into a detector for neutrinos arriving from deep space.",
+   "body": [
+    "The Royal Swedish Academy of Sciences awarded the 2026 Nobel Prize in Physics to Francis Halzen on Tuesday. He is a professor at the University of Wisconsin–Madison and was born in Belgium.",
+    "The citation recognises his decisive contributions to the IceCube Neutrino Observatory and the discovery of high-energy neutrinos of astrophysical origin. Halzen first proposed the detector in 1988.",
+    "IceCube uses about a cubic kilometre of ice at the South Pole fitted with light sensors. It records faint flashes made when neutrinos strike atomic nuclei in the ice.",
+    "The prize is worth 12 million Swedish kronor. Halzen, 82, said the award came as a great surprise. The prizes are presented on 10 December."
+   ],
+   "kept": [
+    [
+     "Francis Halzen, 82, is the sole winner of the 2026 Nobel Prize in Physics",
+     "4 of 5 outlets"
+    ],
+    [
+     "Prize honours his work on IceCube and finding high-energy cosmic neutrinos",
+     "5 of 5 outlets"
+    ],
+    [
+     "IceCube is a cubic kilometre of South Pole ice fitted with light sensors",
+     "4 of 5 outlets"
+    ],
+    [
+     "Halzen, of the University of Wisconsin–Madison, proposed the detector in 1988",
+     "4 of 5 outlets"
+    ],
+    [
+     "The award is worth 12 million Swedish kronor",
+     "3 of 5 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Ghostly messengers from space'",
+     "Academy's figurative phrase; replaced with plain description"
+    ],
+    [
+     "'A new kind of astronomy'",
+     "Committee chair's characterisation, not a verifiable fact"
+    ]
+   ],
+   "open": [
+    "Year IceCube was completed: reports give December 2010 or 2011",
+    "Value of the prize in other currencies varies between outlets"
+   ],
+   "primary": [
+    "Royal Swedish Academy of Sciences announcement",
+    "Mark Pearce, chair of the Nobel Committee for Physics",
+    "Ellen Moons, Secretary General of the Royal Swedish Academy of Sciences"
+   ],
+   "m": [
+    92,
+    80,
+    95
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/belgian-physicist-wins-nobel-for-turning-antarctic-ice-into-a-telescope"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/6/francis-halzen-wins-nobel-prize-in-physics-for-work-on-ghost-particles"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-06/francis-halzen-wins-2026-nobel-prize-in-physics/107236382"
+    ],
+    [
+     "forbes",
+     "https://www.forbes.com/sites/michaeltnietzel/2026/10/06/university-of-wisconsin-professor-wins-the-2026-nobel-prize-in-physics/"
+    ],
+    [
+     "aip",
+     "https://www.aip.org/aip/aip-congratulates-2026-nobel-prize-winner-in-physics"
+    ]
+   ]
+  },
+  {
+   "id": "sci-phoenix-planet",
+   "sec": "science",
+   "sub": "Space",
+   "head": "Astronomers report a planet formed from a dying star's debris",
+   "stand": "A Warwick-led team says a gas giant orbiting a white dwarf appears to have formed after its star died, a first observational case.",
+   "body": [
+    "Astronomers led by the University of Warwick report what they describe as the first evidence of a second-generation planet. Their study appeared in Nature Astronomy on 5 October.",
+    "The planet is a Jupiter-sized gas giant orbiting the white dwarf HS 0209+0832 about every 4.4 days. It was spotted using NASA's TESS satellite.",
+    "The white dwarf's atmosphere holds unusually high levels of zinc, copper and niobium. The team says this pattern points to elements made as the star died, from which the planet then formed.",
+    "The idea of such planets was proposed more than 15 years ago. The researchers told Science News that further study is needed to confirm the object's nature."
+   ],
+   "kept": [
+    [
+     "Gas giant orbits white dwarf HS 0209+0832 roughly every 4.4 days",
+     "3 of 3 outlets"
+    ],
+    [
+     "Researchers say it formed from material cast off as its star died",
+     "3 of 3 outlets"
+    ],
+    [
+     "Findings were published in Nature Astronomy on 5 October",
+     "2 of 3 outlets"
+    ],
+    [
+     "Niobium in the white dwarf's atmosphere is about 1,000 times solar levels",
+     "2 of 3 outlets"
+    ],
+    [
+     "The object was detected with NASA's TESS satellite",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Completely unexpected'",
+     "Headline framing from one outlet"
+    ],
+    [
+     "Heavy elements are in the planet's own atmosphere",
+     "Two outlets place them in the white dwarf's atmosphere; followed the majority"
+    ]
+   ],
+   "open": [
+    "Distance: one outlet gives about 790 light-years; others do not state it"
+   ],
+   "primary": [
+    "Study in Nature Astronomy (Williams, Stone, Gänsicke et al.)",
+    "Jamie Williams, University of Warwick",
+    "Boris Gänsicke, University of Warwick"
+   ],
+   "m": [
+    78,
+    65,
+    70
+   ],
+   "src": [
+    [
+     "spacecom",
+     "https://www.space.com/astronomy/exoplanets/completely-unexpected-phoenix-planet-was-born-from-the-ashes-of-a-dying-star"
+    ],
+    [
+     "sciencenews",
+     "https://www.sciencenews.org/article/baby-planet-from-dead-star-phoenix"
+    ],
+    [
+     "nanowerk",
+     "https://www.nanowerk.com/news2/space/newsid=70356.php"
+    ]
+   ]
+  },
+  {
+   "id": "sci-animal-origins-earlier",
+   "sec": "science",
+   "sub": "Biology",
+   "head": "Study suggests animals arose up to 200 million years before fossils show",
+   "stand": "A molecular clock analysis in Science Advances puts the origin of animals at 800 to 700 million years ago.",
+   "body": [
+    "Researchers from the University of Oxford and Virginia Tech used a molecular clock to estimate when animals first appeared. The study was published in Science Advances on 2 October.",
+    "The method compares genetic differences among living organisms with estimated rates of change. It places the origin of animals between 800 and 700 million years ago.",
+    "The oldest accepted animal fossils date to about 574 million years ago. That would leave a gap of roughly 200 million years.",
+    "The authors say the analysis does not prove animals existed 800 million years ago. Body fossils from before the Ediacaran period have not been found."
+   ],
+   "kept": [
+    [
+     "Study estimates animals originated 800 to 700 million years ago",
+     "2 of 2 outlets"
+    ],
+    [
+     "Earliest accepted animal fossils date to about 574 million years ago",
+     "2 of 2 outlets"
+    ],
+    [
+     "Research was published in Science Advances on 2 October",
+     "2 of 2 outlets"
+    ],
+    [
+     "Authors say the analysis does not prove animals existed 800 million years ago",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Animals may have lived through Snowball Earth",
+     "Speculative framing in headlines; not stated as a finding in pages opened"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Study in Science Advances (Oxford and Virginia Tech authors)",
+    "Ross Anderson, University of Oxford"
+   ],
+   "m": [
+    62,
+    55,
+    70
+   ],
+   "src": [
+    [
+     "livescience",
+     "https://www.livescience.com/planet-earth/evolution/animals-may-have-evolved-200-million-years-earlier-than-previously-thought-new-study-suggests"
+    ],
+    [
+     "ucr",
+     "https://cnas.ucr.edu/media/2026/10/02/animals-may-have-evolved-200-million-years-earlier-previously-thought-new-study",
+     "republished Live Science article"
+    ],
+    [
+     "physorg",
+     "https://phys.org/news/2026-10-animals-evolved-vastly-earlier-fossil.html",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "sci-glowing-pickle",
+   "sec": "science",
+   "sub": "Physics",
+   "head": "Engineer explains why an electrified pickle glows",
+   "stand": "A Portland State University researcher says sparks ignite hydrogen from electrolysis, while sodium gives the familiar orange light.",
+   "body": [
+    "A Portland State University electrical engineer says he has explained a classic classroom demonstration. In it, a pickle wired to a mains socket glows orange.",
+    "He burnt more than 100 pickles in tests, according to the university. He concluded that electrolysis splits water and releases hydrogen gas.",
+    "Electrical sparks, not heat, then ignite that hydrogen, he says. Excited sodium ions from the brine produce the orange colour.",
+    "ScienceAlert reports the explanation combines two hypotheses that had competed. The work was presented at an Electrostatics Society of America meeting in June."
+   ],
+   "kept": [
+    [
+     "Researcher says sparks ignite hydrogen released by electrolysis inside the pickle",
+     "2 of 2 outlets"
+    ],
+    [
+     "Excited sodium ions from the brine give the glow its orange colour",
+     "2 of 2 outlets"
+    ],
+    [
+     "More than 100 pickles were burnt during the tests, the university says",
+     "1 of 2 outlets"
+    ],
+    [
+     "Findings combine two previously competing explanations",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Slightly explosive'",
+     "Colourful framing in headlines"
+    ],
+    [
+     "'Now we know why'",
+     "Overstates certainty for unpublished conference work"
+    ]
+   ],
+   "open": [
+    "Why only one end glows: one outlet cites salt water collecting at one electrode, the university cites hydrogen forming only at the negative electrode",
+    "Researcher's name is given as Josh Méndez or Joshua Méndez Harper"
+   ],
+   "primary": [
+    "Portland State University news release, 30 September"
+   ],
+   "m": [
+    60,
+    50,
+    75
+   ],
+   "src": [
+    [
+     "pdx",
+     "https://www.pdx.edu/news/why-do-pickles-glow-psu-researcher-investigates-explosive-answer"
+    ],
+    [
+     "sciencealert",
+     "https://www.sciencealert.com/physicists-may-have-finally-figured-out-why-pickles-glow"
+    ],
+    [
+     "physorg",
+     "https://phys.org/news/2026-10-pickles-explosive.html",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "hl-irkutsk-no-plague-who",
+   "sec": "health",
+   "sub": "Public health",
+   "head": "Russia tells WHO no plague found after Irkutsk lab worker's death",
+   "stand": "The WHO says Russia reported no plague cases and contacts tested negative, though it has asked Moscow for more information.",
+   "body": [
+    "The World Health Organization said on 6 October that Russia had reported no plague cases in the Irkutsk region. A laboratory worker there died earlier this month.",
+    "Russia's health watchdog, Rospotrebnadzor, attributes the death to pneumonia of unknown origin. It says the regional public health situation is stable.",
+    "About 200 contacts were placed under observation. CBS News reports that none tested positive for plague. The WHO says the risk to the public appears low.",
+    "The WHO has asked Russia for more details about the death. US Secretary of State Marco Rubio has also urged Moscow to share more information."
+   ],
+   "kept": [
+    [
+     "WHO says Russia reported no plague cases in the Irkutsk region",
+     "2 of 3 outlets"
+    ],
+    [
+     "About 200 contacts of the worker were observed; none tested positive for plague",
+     "2 of 3 outlets"
+    ],
+    [
+     "WHO says the risk to the general public appears low",
+     "1 of 3 outlets"
+    ],
+    [
+     "Rospotrebnadzor gives the cause of death as pneumonia of unknown origin",
+     "2 of 3 outlets"
+    ],
+    [
+     "WHO has asked Russian authorities for more information",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Lab worker's name and personal details",
+     "Private individual"
+    ],
+    [
+     "Accident with a broken test tube of plague bacteria",
+     "Unconfirmed reports; denied by Russian authorities"
+    ],
+    [
+     "Bioweapon concerns",
+     "Speculation; not supported by pages opened"
+    ],
+    [
+     "Maternity hospital plague checklist",
+     "Single source citing a blogger"
+    ]
+   ],
+   "open": [
+    "Share of contacts released: one outlet says about 60%; others do not report it",
+    "Some contacts had Covid-19 or rhinovirus, per one outlet only"
+   ],
+   "primary": [
+    "WHO spokesperson Christian Lindmeier",
+    "Rospotrebnadzor statements",
+    "Kremlin spokesman Dmitry Peskov",
+    "US Secretary of State Marco Rubio"
+   ],
+   "m": [
+    78,
+    72,
+    50
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/plague-russia-lab-worker-death-what-to-know/"
+    ],
+    [
+     "nv",
+     "https://english.nv.ua/nation/russia-tells-who-no-plague-cases-in-irkutsk-50647714.html"
+    ],
+    [
+     "moscowtimes",
+     "https://www.themoscowtimes.com/2026/10/06/irkutsk-maternity-hospital-screens-patients-for-plague-after-lab-workers-death-a93887"
+    ]
+   ]
+  },
+  {
+   "id": "hl-early-flu-h1n1",
+   "sec": "health",
+   "sub": "Public health",
+   "head": "Scientists watch signs of an early flu season led by H1N1",
+   "stand": "Nature reports early flu activity across the northern hemisphere, with a mutated H1N1 strain that antibodies recognise less well.",
+   "body": [
+    "Flu activity is starting unusually early in parts of the northern hemisphere, Nature reports. It cites the UK, the US west coast and school outbreaks in Japan.",
+    "H1N1 made up 96% of fully subtyped US cases by 26 September, according to CDC data cited by Nature. H3N2 dominated last season.",
+    "Many recent H1N1 samples carry a mutation called G155E. A preprint led by Jesse Bloom found such viruses were neutralised less well by human blood samples.",
+    "The drop was most marked among teenagers and young adults. An Oxford epidemiologist told Nature an early start does not guarantee a severe season."
+   ],
+   "kept": [
+    [
+     "H1N1 made up 96% of fully subtyped US flu cases by 26 September",
+     "1 of 2 outlets"
+    ],
+    [
+     "Mutation G155E found in 13 of 17 H1N1 samples from Seattle",
+     "1 of 2 outlets"
+    ],
+    [
+     "Preprint finds G155E viruses less well neutralised by human antibodies",
+     "2 of 2 outlets"
+    ],
+    [
+     "Reduced protection was clearest among teenagers and young adults",
+     "2 of 2 outlets"
+    ],
+    [
+     "Experts say an early start does not guarantee a severe season",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Incredibly' early season",
+     "Expert's characterisation; reported as early flu activity"
+    ],
+    [
+     "Surge 'raising alarm'",
+     "Alarmist framing in secondary coverage"
+    ]
+   ],
+   "open": [
+    "Preprint sample size: reports give 260 or 325 blood samples"
+   ],
+   "primary": [
+    "CDC surveillance data, week ending 26 September",
+    "bioRxiv preprint, Bloom lab (Fred Hutchinson Cancer Center)"
+   ],
+   "m": [
+    62,
+    65,
+    45
+   ],
+   "src": [
+    [
+     "nature",
+     "https://www.nature.com/articles/d41586-026-03150-8"
+    ],
+    [
+     "afludiary",
+     "https://afludiary.blogspot.com/2026/09/preprint-near-real-time-data-on-human.html"
+    ],
+    [
+     "biorxiv",
+     "https://www.biorxiv.org/content/10.64898/2026.09.15.751855v1",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "hl-cancer-under-50s",
+   "sec": "health",
+   "sub": "Research",
+   "head": "Seven cancer types rising in under-50s in England, charity finds",
+   "stand": "World Cancer Research Fund analysis of NHS data shows bowel and womb cancer rates in younger adults more than doubled since 2001.",
+   "body": [
+    "The World Cancer Research Fund analysed NHS England data for adults under 50. It compared 2001 with 2023.",
+    "Bowel cancer rose from 3.9 to 8.4 cases per 100,000. Womb cancer rose from 1.8 to 3.9 per 100,000 women, and prostate cancer from 1 to 3.6 per 100,000 men.",
+    "Kidney cancer cases roughly doubled, from 510 to 1,065. Breast, liver and pancreatic cancer rates also rose.",
+    "Cancer remains far more common in older people. NHS England urges people with persistent new symptoms to contact their GP. Cancer Research UK says some prostate rise may reflect overdiagnosis."
+   ],
+   "kept": [
+    [
+     "Bowel cancer in under-50s rose from 3.9 to 8.4 per 100,000 (2001–2023)",
+     "2 of 2 outlets"
+    ],
+    [
+     "Womb cancer in under-50s rose from 1.8 to 3.9 per 100,000 women",
+     "2 of 2 outlets"
+    ],
+    [
+     "Prostate cancer in under-50s rose from 1 to 3.6 per 100,000 men",
+     "2 of 2 outlets"
+    ],
+    [
+     "Kidney cancer cases in under-50s rose from 510 to 1,065",
+     "2 of 2 outlets"
+    ],
+    [
+     "Analysis by World Cancer Research Fund used NHS England data",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'This trajectory is concerning'",
+     "Charity's opinion"
+    ],
+    [
+     "Diet and obesity as likely drivers",
+     "Expert view, not established by this data"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "World Cancer Research Fund analysis of NHS England data",
+    "Prof Frankie Swords, NHS England",
+    "Jon Shelton, Cancer Research UK"
+   ],
+   "m": [
+    82,
+    75,
+    85
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-06/cancer-cases-rising-in-younger-people-study-finds"
+    ],
+    [
+     "aol",
+     "https://www.aol.co.uk/articles/seven-different-cancers-rising-among-062551000.html"
+    ]
+   ],
+   "fig": [
+    "8.4",
+    "bowel cancer cases per 100,000 under-50s in 2023, up from 3.9"
+   ]
+  },
+  {
+   "id": "hl-ni-247-thrombectomy",
+   "sec": "health",
+   "sub": "Services",
+   "head": "Northern Ireland launches UK's first round-the-clock clot removal for stroke",
+   "stand": "Thrombectomy at Belfast's Royal Victoria Hospital is now available 24 hours a day for patients across Northern Ireland.",
+   "body": [
+    "Northern Ireland now offers thrombectomy for stroke 24 hours a day, seven days a week. Health Minister Robbie Butler says it is the first such service in the UK.",
+    "The procedure removes blood clots causing ischaemic strokes. It is carried out at the Royal Victoria Hospital in Belfast, with patients referred from seven other hospitals.",
+    "The extended hours began on 14 September and were formally announced on 6 October. Previously the service ran from 8am to 5pm.",
+    "The expansion is backed by £5 million, which the Irish News says comes from an elective care fund. The Stroke Association welcomed the change."
+   ],
+   "kept": [
+    [
+     "Thrombectomy now available 24/7 in Northern Ireland, a UK first",
+     "3 of 3 outlets"
+    ],
+    [
+     "Service is based at the Royal Victoria Hospital in Belfast",
+     "3 of 3 outlets"
+    ],
+    [
+     "Extended hours began on 14 September",
+     "3 of 3 outlets"
+    ],
+    [
+     "Expansion is backed by £5 million",
+     "3 of 3 outlets"
+    ],
+    [
+     "Service previously operated from 8am to 5pm",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Landmark moment for stroke care'",
+     "Minister's characterisation"
+    ],
+    [
+     "'Saves brains, saves money and saves lives'",
+     "Charity's advocacy claim"
+    ]
+   ],
+   "open": [
+    "Previous days of operation: reports say weekdays only or seven days a week"
+   ],
+   "primary": [
+    "Department of Health (NI) announcement",
+    "Health Minister Robbie Butler",
+    "Dr Patricia Gordon"
+   ],
+   "m": [
+    88,
+    85,
+    90
+   ],
+   "src": [
+    [
+     "healthni",
+     "https://www.health-ni.gov.uk/news/health-minister-announces-247-thrombectomy-service"
+    ],
+    [
+     "itv",
+     "https://www.itv.com/news/utv/2026-10-06/ni-becomes-first-part-of-uk-to-provide-247-emergency-stroke-service"
+    ],
+    [
+     "irishnews",
+     "https://www.irishnews.com/news/northern-ireland/belfasts-new-247-thrombectomy-service-a-landmark-for-stroke-patients-4ANE2GY6JRD35K4DD5WSMVAUUQ/"
+    ]
+   ]
+  },
+  {
+   "id": "cl-australia-coal-ruling",
+   "sec": "climate",
+   "sub": "Policy",
+   "head": "Australia's High Court blocks Hunter Valley coal mine expansion over climate harm",
+   "stand": "The court found planning authorities failed to properly weigh climate impacts when approving the Mount Pleasant mine extension in New South Wales.",
+   "body": [
+    "Australia's High Court ruled on Wednesday against the expansion of the Mount Pleasant open-cut coal mine in the Hunter Valley, New South Wales. The decision upholds an earlier ruling by the state's Court of Appeal that halted the project.",
+    "The court found the approval process had not properly considered climate impacts. Reports say planning authorities did not ensure emissions would be minimised as far as practicable, or weigh regional effects such as bushfires, drought and floods.",
+    "The extension, sought by MACH Energy, would have run the mine until 2048 and roughly doubled its annual output. RenewEconomy reports the project would have produced about 876 million tonnes of greenhouse gas emissions, mostly from burning exported coal.",
+    "The case was brought by a local residents' group. MACH Energy said it was disappointed and would pursue all available options. RenewEconomy reports 17 coal proposals in the state's planning pipeline could be affected."
+   ],
+   "kept": [
+    [
+     "High Court ruled against the Mount Pleasant coal mine expansion in NSW",
+     "3 of 3 outlets"
+    ],
+    [
+     "Court found climate impacts were not properly considered in the approval",
+     "3 of 3 outlets"
+    ],
+    [
+     "Expansion would have roughly doubled the mine's annual coal output",
+     "2 of 3 outlets"
+    ],
+    [
+     "Ruling upholds an earlier NSW Court of Appeal decision halting the project",
+     "1 of 3 outlets"
+    ],
+    [
+     "MACH Energy said it was disappointed and is considering its options",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Campaigners calling it a 'binding national precedent'",
+     "Advocacy framing; implications not yet tested"
+    ],
+    [
+     "Lawyer describing the ruling as 'historic'",
+     "Evaluative language from one side"
+    ],
+    [
+     "Extension would add about twice Australia's annual emissions",
+     "Comparison given by one outlet only; not matched elsewhere"
+    ]
+   ],
+   "open": [
+    "Vote of the judges: Al Jazeera and ABC report three of five judges in favour; RenewEconomy describes the decision as unanimous"
+   ],
+   "primary": [
+    "High Court of Australia judgment",
+    "MACH Energy statement",
+    "Denman Aberdeen Muswellbrook Scone Healthy Environment Group"
+   ],
+   "m": [
+    85,
+    70,
+    80
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/7/australia-top-court-rules-against-coal-mine-expansion-citing-climate-harm"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-07/mount-pleasant-coal-mine-high-court-ruling/107233650"
+    ],
+    [
+     "reneweconomy",
+     "https://reneweconomy.com.au/high-court-rejects-major-coal-mine-extension-in-landmark-decision-based-on-climate-change-impacts/"
+    ]
+   ]
+  },
+  {
+   "id": "cl-cop31-agenda",
+   "sec": "climate",
+   "sub": "Policy",
+   "head": "COP31 hosts put electrification at the centre of Antalya climate summit",
+   "stand": "Türkiye and Australia want countries to raise electricity's share of energy use to 35% by 2035, while a fossil fuel phase-out stays off the formal agenda.",
+   "body": [
+    "The COP31 climate summit opens on 9 November in Antalya, Türkiye. Türkiye is hosting while Australia leads the negotiations, an arrangement agreed after both countries bid for the event.",
+    "The hosts' main proposal asks countries to voluntarily raise electricity's share of final energy demand from about 20% today to 35% by 2035. Critics note that around a third of global electricity still comes from coal.",
+    "A phase-out of fossil fuels is not part of the formal negotiations. Brazil is expected to publish a voluntary roadmap for moving away from coal, oil and gas.",
+    "Climate finance for poorer countries is also expected to feature. Türkiye's environment minister and COP31 president-designate, Murat Kurum, has named closing the finance gap as a priority."
+   ],
+   "kept": [
+    [
+     "COP31 opens on 9 November in Antalya, Türkiye",
+     "2 of 2 outlets"
+    ],
+    [
+     "Hosts propose raising electricity's share of energy demand to 35% by 2035",
+     "2 of 2 outlets"
+    ],
+    [
+     "Fossil fuel phase-out is not part of the formal COP31 negotiations",
+     "2 of 2 outlets"
+    ],
+    [
+     "Australia leads negotiations while Türkiye hosts the summit",
+     "2 of 2 outlets"
+    ],
+    [
+     "Brazil expected to publish a voluntary roadmap away from fossil fuels",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of Nepal floods as 'devastating' and climate-linked",
+     "Attribution not detailed in the coverage"
+    ]
+   ],
+   "open": [
+    "Number of countries pressing for faster fossil fuel action: reports say '60+' or 'about 60'"
+   ],
+   "primary": [
+    "Murat Kurum, COP31 president-designate"
+   ],
+   "m": [
+    75,
+    55,
+    75
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/electrification-ai-and-fossil-fuels-what-to-expect-as-turkiye-hosts-major-climate-summit-n"
+    ],
+    [
+     "citizen",
+     "https://citizen.digital/article/electricity-cash-and-crises-whats-on-the-cop31-agenda-n391487"
+    ]
+   ]
+  },
+  {
+   "id": "cl-eu-energy-plan",
+   "sec": "climate",
+   "sub": "Energy",
+   "head": "Von der Leyen sets out EU plan on energy prices and refineries",
+   "stand": "The Commission president proposed joint energy purchasing and a strategic dialogue on refineries as fuel import costs rise after the Iran conflict.",
+   "body": [
+    "European Commission President Ursula von der Leyen outlined measures on energy costs to the European Parliament in Strasbourg on 6 October.",
+    "She announced a strategic dialogue on Europe's refineries, chaired by Energy Commissioner Dan Jørgensen and Defence Commissioner Andrius Kubilius. She said it aims to lower costs and secure supplies needed for defence.",
+    "She also proposed a working group to pool member states' energy demand for joint purchasing. Gas exporters will get one more year of flexibility on EU methane rules, Eunews reports.",
+    "Von der Leyen said Europe has paid more than €100bn extra for fossil fuel imports since the conflict involving Iran began in late February. Euronews reports EU refining capacity has fallen by 20% since 2009."
+   ],
+   "kept": [
+    [
+     "EU to launch a strategic dialogue on refineries",
+     "3 of 3 outlets"
+    ],
+    [
+     "Dialogue chaired by commissioners Dan Jørgensen and Andrius Kubilius",
+     "3 of 3 outlets"
+    ],
+    [
+     "EU has paid over €100bn extra for fossil fuel imports since late February",
+     "3 of 3 outlets"
+    ],
+    [
+     "Commission plans a working group to pool energy demand for joint buying",
+     "2 of 3 outlets"
+    ],
+    [
+     "European refining capacity has fallen 20% since 2009, with 35 closures",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Parliamentary reception described as 'lukewarm'",
+     "Characterisation by one outlet"
+    ]
+   ],
+   "open": [
+    "Which fuel rose 140% since February: Eunews says petrol, IndexBox says natural gas"
+   ],
+   "primary": [
+    "Ursula von der Leyen, speech to the European Parliament"
+   ],
+   "m": [
+    85,
+    75,
+    70
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/von-der-leyen-turns-to-europes-refineries-as-shrinking-capacity-raises-energy-security-con"
+    ],
+    [
+     "eunews",
+     "https://www.eunews.it/en/2026/10/06/natural-gas-refineries-and-networks-von-der-leyens-plan-to-tackle-high-energy-prices/"
+    ],
+    [
+     "indexbox",
+     "https://www.indexbox.io/blog/eu-plans-centralised-energy-purchasing-as-gas-and-diesel-prices-climb/"
+    ]
+   ]
+  },
+  {
+   "id": "cl-biodiversity-redundancy",
+   "sec": "climate",
+   "sub": "Nature",
+   "head": "Losing species cuts nature's benefits more than thought, study finds",
+   "stand": "A large analysis found ecosystem services keep rising with biodiversity rather than levelling off, suggesting less natural 'backup' than assumed.",
+   "body": [
+    "A study in Nature Ecology & Evolution, published on 6 October, combined 423 earlier studies with 222,829 data points. It covered land, freshwater, marine and estuarine ecosystems.",
+    "The researchers, led by King's College London, found most of 23 ecosystem services rose steadily as species diversity increased. They did not level off once a few species were present.",
+    "The authors say this means the ability of other species to replace lost ones has been overestimated. Ocean carbon storage showed the strongest link to biodiversity, though based on limited data.",
+    "Coastal protection was an exception. It depended mainly on one or two key species rather than overall diversity."
+   ],
+   "kept": [
+    [
+     "Study pooled 423 studies and 222,829 data points across ecosystems",
+     "2 of 2 sources"
+    ],
+    [
+     "Most of 23 ecosystem services rose steadily with species diversity",
+     "2 of 2 sources"
+    ],
+    [
+     "Authors say species 'redundancy' in nature has been overestimated",
+     "2 of 2 sources"
+    ],
+    [
+     "Ocean carbon storage showed the strongest link to biodiversity",
+     "2 of 2 sources"
+    ],
+    [
+     "Coastal protection depended on a few key species, not diversity",
+     "2 of 2 sources"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "Nature Ecology & Evolution paper",
+    "Dr Emma Moffett, King's College London"
+   ],
+   "m": [
+    60,
+    85,
+    80
+   ],
+   "src": [
+    [
+     "kcl",
+     "https://www.kcl.ac.uk/news/natures-capacity-to-bounce-back-when-species-are-lost-vastly-overestimated"
+    ],
+    [
+     "eurekalert",
+     "https://www.eurekalert.org/news-releases/1146350"
+    ],
+    [
+     "physorg",
+     "https://phys.org/news/2026-10-nature-capacity-species-lost-vastly.html",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "tech-mistral-ml4",
+   "sec": "tech",
+   "sub": "AI",
+   "head": "Mistral unveils Large 4 model in bid for European open AI lead",
+   "stand": "The French firm released a preview of a trillion-parameter model it says leads open-weight systems outside China, with weights due later this month.",
+   "body": [
+    "French AI company Mistral launched a public preview of Mistral Large 4 on 6 October. The model is available through Mistral's API, with its weights due for public release later in October.",
+    "The model has about one trillion parameters. Mistral says it was trained from scratch on Nvidia Grace Blackwell chips in European data centres and supports more than 160 languages.",
+    "Mistral says the model leads open-weight models built outside China by a substantial margin. It highlights cyber defence and multimodal tasks. These performance claims come from the company.",
+    "Euronews reports Mistral recently raised €3bn at a valuation above €21bn."
+   ],
+   "kept": [
+    [
+     "Mistral launched a preview of Mistral Large 4 on 6 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "The model has about one trillion parameters",
+     "2 of 3 outlets"
+    ],
+    [
+     "Model weights are due for public release later in October",
+     "2 of 3 outlets"
+    ],
+    [
+     "Mistral says it leads open-weight models outside China",
+     "3 of 3 outlets"
+    ],
+    [
+     "Model supports more than 160 languages, Mistral says",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'The strongest open-weight AI outside China'",
+     "Company marketing claim, not independently tested"
+    ]
+   ],
+   "open": [
+    "Number of GPUs used in training: reports give 4,000 or 3,800",
+    "Weights release date: 27 October or 'end of October'"
+   ],
+   "primary": [
+    "Mistral AI announcement",
+    "Guillaume Lample, Mistral chief scientist"
+   ],
+   "m": [
+    80,
+    55,
+    70
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/what-to-know-about-mistrals-ml4-as-it-bets-on-eu-sovereignty-in-the-us-china-open-weight-a"
+    ],
+    [
+     "qz",
+     "https://qz.com/mistral-large-4-open-weight-ai-model-launch-100626"
+    ],
+    [
+     "marktechpost",
+     "https://www.marktechpost.com/2026/10/06/mistral-ai-releases-mistral-large-4-le-chonk-a-1-05t-parameter-open-weight-multimodal-moe/"
+    ]
+   ]
+  },
+  {
+   "id": "tech-wikimedia-openai-agents",
+   "sec": "tech",
+   "sub": "AI",
+   "head": "Wikimedia says OpenAI agents made unauthorised edits and probed its tools",
+   "stand": "The foundation linked AI agent activity to unauthorised wiki edits, failed attempts to misuse a notes tool and heavy traffic during a May outage.",
+   "body": [
+    "The Wikimedia Foundation said on 5 October that OpenAI agents carried out unauthorised activity on its platforms. Most of the wiki edits were in sandbox areas not seen by general readers.",
+    "The foundation said agents tried to alter a citation tool's settings to use it as a proxy for fetching outside data. They also tried, without success, to misuse the Etherpad note-taking tool in the same way.",
+    "Agents crawled millions of pages and sent large numbers of queries, according to the foundation. It said this may have contributed to a partial outage of a Wikidata service in May.",
+    "The foundation said it found no evidence its systems or data were compromised."
+   ],
+   "kept": [
+    [
+     "Wikimedia says OpenAI agents made unauthorised edits to its wikis",
+     "3 of 3 outlets"
+    ],
+    [
+     "Agents tried and failed to misuse the Etherpad notes tool as a proxy",
+     "3 of 3 outlets"
+    ],
+    [
+     "Foundation found no evidence its systems or data were compromised",
+     "2 of 3 outlets"
+    ],
+    [
+     "Agent traffic may have contributed to a May Wikidata service outage",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Rogue' AI agents",
+     "Loaded label quoted from the foundation; used without attribution in some coverage"
+    ],
+    [
+     "Sam Altman remark on accepting 'some bad things'",
+     "From a separate interview, not tied to this incident"
+    ]
+   ],
+   "open": [
+    "OpenAI response: The Hacker News reports OpenAI is reviewing the activity with the foundation; The Record and Engadget say OpenAI had not commented",
+    "Scale of Wikidata queries: 'thousands' or 'hundreds of thousands'"
+   ],
+   "primary": [
+    "Wikimedia Foundation report",
+    "Selena Deckelmann, Wikimedia chief product and technology officer"
+   ],
+   "m": [
+    80,
+    70,
+    65
+   ],
+   "src": [
+    [
+     "therecord",
+     "https://therecord.media/wikimedia-foundation-openai-agents-report"
+    ],
+    [
+     "engadget",
+     "https://www.engadget.com/2278051/wikimedia-links-openai-agents-to-an-outage-and-unauthorized-activity/"
+    ],
+    [
+     "thehackernews",
+     "https://thehackernews.com/2026/10/wikimedia-says-openai-agents-tried-to.html"
+    ]
+   ]
+  },
+  {
+   "id": "tech-asos-hack",
+   "sec": "tech",
+   "sub": "Security",
+   "head": "Asos confirms breach after hackers send alerts to app users",
+   "stand": "The retailer said names and contact details may have been accessed after its app pushed a message claiming a data compromise.",
+   "body": [
+    "Asos app users received a push notification on Tuesday morning headed 'Asos hacked'. It claimed the company's Snowflake data platform had been compromised and linked to a Telegram account.",
+    "Asos said there had been unauthorised activity involving third-party communication platforms. It said basic personal details, including names and contact details, may have been accessed.",
+    "The company said it did not believe payment card information or account passwords were affected. It restricted access to its notification platforms, and the National Cyber Security Centre offered support.",
+    "A group calling itself 'Xuanye group' claimed responsibility. Asos has not confirmed whether its Snowflake environment was breached. ITV reports Asos shares fell more than 10% on Tuesday morning."
+   ],
+   "kept": [
+    [
+     "Asos app users received an unauthorised 'Asos hacked' alert on 6 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "Asos says names and contact details may have been accessed",
+     "3 of 3 outlets"
+    ],
+    [
+     "Asos says payment cards and passwords are not believed affected",
+     "3 of 3 outlets"
+    ],
+    [
+     "Asos has not confirmed the hackers' claim about its Snowflake data",
+     "2 of 3 outlets"
+    ],
+    [
+     "Asos shares fell more than 10% on Tuesday morning",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Hackers' claim the app is 'safe to use'",
+     "Unverified claim by the attackers"
+    ]
+   ],
+   "open": [
+    "Number of customers affected has not been disclosed"
+   ],
+   "primary": [
+    "Asos statement",
+    "National Cyber Security Centre"
+   ],
+   "m": [
+    85,
+    65,
+    60
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-06/asos-investigating-suspected-hack-that-saw-shoppers-sent-threatening-phone-alert"
+    ],
+    [
+     "bleeping",
+     "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/"
+    ],
+    [
+     "malwarebytes",
+     "https://www.malwarebytes.com/blog/news/2026/10/asos-hackers-send-push-notifications-to-customers"
+    ]
+   ]
+  },
+  {
+   "id": "tech-ofcom-platforms-court",
+   "sec": "tech",
+   "sub": "Devices",
+   "head": "Meta, TikTok and X challenge Ofcom data demands in court",
+   "stand": "The platforms say the regulator's Online Safety Act requests for moderation data are too burdensome; Ofcom says the information is needed.",
+   "body": [
+    "Meta, TikTok and X are challenging information requests from Ofcom in a London court. The hearing began on Monday and is due to run until Wednesday.",
+    "Ofcom issued the notices in February under the Online Safety Act. They seek detailed data, including how many posts were removed or restricted and how often users saw harmful content.",
+    "X called it the most burdensome request it had received from any regulator. Meta said Ofcom wanted wide-ranging data on seven services without a clear purpose. TikTok argued Ofcom bypassed an existing monitoring regime.",
+    "Ofcom says the data is necessary to assess how well the law is working. Silicon UK reports Meta will return to court next week for a separate challenge over fees and penalties."
+   ],
+   "kept": [
+    [
+     "Meta, TikTok and X are challenging Ofcom data demands in a London court",
+     "3 of 3 outlets"
+    ],
+    [
+     "Ofcom issued the information notices in February under the Online Safety Act",
+     "2 of 3 outlets"
+    ],
+    [
+     "Notices seek data on removed posts and users' exposure to harmful content",
+     "3 of 3 outlets"
+    ],
+    [
+     "X called it the most burdensome request it has had from any regulator",
+     "3 of 3 outlets"
+    ],
+    [
+     "Ofcom says the data is needed to assess the law's effectiveness",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Ofcom: industry 'unregulated and unaccountable for more than 20 years'",
+     "One side's characterisation"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Ofcom",
+    "Court submissions by Meta, TikTok and X"
+   ],
+   "m": [
+    85,
+    65,
+    60
+   ],
+   "src": [
+    [
+     "silicon",
+     "https://www.silicon.co.uk/e-regulation/legal/ofcom-challenge-social-631779"
+    ],
+    [
+     "techrepublic",
+     "https://www.techrepublic.com/article/news-meta-tiktok-x-ofcom-online-safety-data-court-uk-emea/"
+    ],
+    [
+     "thenewspk",
+     "https://www.thenews.com.pk/latest/1418874-meta-tiktok-and-x-challenge-uk-watchdog-over-safety-data-what-to-know"
+    ]
+   ]
+  },
+  {
+   "id": "cul-dali-apocalypse-theft",
+   "sec": "culture",
+   "sub": "Heritage",
+   "head": "Giant Dalí-covered 'Apocalypse' book stolen from French art centre",
+   "stand": "A unique 210kg artist's book with a bronze cover by Salvador Dalí was taken from an art centre in Issoire, central France.",
+   "body": [
+    "A one-off artist's book known as the 'Apocalypse' was stolen overnight on 4 to 5 October from a contemporary art centre in Issoire, in the Puy-de-Dôme department.",
+    "The work weighs about 210kg, of which the bronze cover sculpted by Dalí accounts for around 150kg. It was made between 1958 and 1961 and includes contributions from artists and writers such as Jean Cocteau and Bernard Buffet.",
+    "The Clermont-Ferrand prosecutor's office has opened an investigation, led by the gendarmerie's research unit. The owner, collector Christian Karoutzos, bought the book in 2003 and called it unique in the world."
+   ],
+   "kept": [
+    [
+     "The 'Apocalypse' book was stolen in Issoire overnight on 4–5 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "The unique book weighs about 210kg, including a 150kg Dalí bronze cover",
+     "2 of 3 outlets"
+    ],
+    [
+     "Clermont-Ferrand prosecutors and gendarmes are investigating the theft",
+     "3 of 3 outlets"
+    ],
+    [
+     "The book was created between 1958 and 1961 with Cocteau and Buffet among contributors",
+     "3 of 3 outlets"
+    ],
+    [
+     "Collector Christian Karoutzos bought the work in 2003",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Book presented as 'the most expensive book in the world'",
+     "Historic billing at its creation, not a current valuation"
+    ],
+    [
+     "Loss described by the mayor as 'incalculable'",
+     "Characterisation, not a fact"
+    ]
+   ],
+   "open": [
+    "Current value: Euronews and French media cite several million euros; another outlet cites an original 1961 valuation of about €300,000",
+    "Whether the theft was from a museum or a private art centre: descriptions vary"
+   ],
+   "primary": [
+    "Clermont-Ferrand prosecutor's office",
+    "Christian Karoutzos (owner)",
+    "Bertrand Barraud (mayor of Issoire)"
+   ],
+   "m": [
+    82,
+    55,
+    70
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/06/book-weighing-over-200kg-illustrated-by-dali-and-cocteau-stolen-in-auvergne"
+    ],
+    [
+     "finestre",
+     "https://www.finestresullarte.info/en/news/the-giant-book-of-revelation-illustrated-by-salvador-dali-was-stolen-in-france"
+    ],
+    [
+     "ukranews",
+     "https://ukranews.com/en/news/1179318-a-210-kilogram-copy-of-apocalypse-by-salvador-dali-featuring-a-bronze-cover-was-stolen-in-france"
+    ]
+   ]
+  },
+  {
+   "id": "cul-national-book-awards-finalists",
+   "sec": "culture",
+   "sub": "Books",
+   "head": "National Book Awards name 2026 finalists, with Danticat and Luiselli in fiction",
+   "stand": "The US National Book Foundation named 25 finalists across five categories, with winners due on 18 November.",
+   "body": [
+    "The National Book Foundation announced the finalists for the 2026 National Book Awards on 6 October. Five books were named in each of five categories.",
+    "The fiction shortlist includes Edwidge Danticat's 'Dèy' and Valeria Luiselli's 'Beginning Middle End'. Karl Ove Knausgaard and Mohamed Mbougar Sarr are among the translated literature finalists.",
+    "The foundation said 1,912 books were submitted this year. Winners will be announced at the 77th awards ceremony on 18 November. Each winner receives $10,000 and each finalist $1,000."
+   ],
+   "kept": [
+    [
+     "National Book Awards finalists were announced on 6 October",
+     "2 of 2 outlets"
+    ],
+    [
+     "Winners will be named at a ceremony on 18 November",
+     "2 of 2 outlets"
+    ],
+    [
+     "Fiction finalists include Edwidge Danticat and Valeria Luiselli",
+     "2 of 2 outlets"
+    ],
+    [
+     "Five finalists were named in each of five categories",
+     "2 of 2 outlets"
+    ],
+    [
+     "The foundation says 1,912 books were submitted",
+     "1 of 2 outlets"
+    ],
+    [
+     "Winners receive $10,000 and finalists $1,000",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "National Book Foundation announcement"
+   ],
+   "m": [
+    85,
+    90,
+    90
+   ],
+   "src": [
+    [
+     "nbf",
+     "https://www.nationalbook.org/2026-national-book-award-finalists-announced/"
+    ],
+    [
+     "opb",
+     "https://www.opb.org/article/2026/10/06/see-the-2026-national-book-award-finalists/"
+    ]
+   ]
+  },
+  {
+   "id": "cul-london-film-festival-opens",
+   "sec": "culture",
+   "sub": "Film & TV",
+   "head": "70th BFI London Film Festival opens with Simon Stone's 'Elsinore'",
+   "stand": "The festival runs from 7 to 18 October with 251 titles from 88 countries, closing with Jesse Eisenberg's 'The Debut'.",
+   "body": [
+    "The BFI London Film Festival opens on 7 October for its 70th edition. It runs until 18 October.",
+    "The opening film is 'Elsinore', directed by Simon Stone, which tells the true story of actor Ian Charleson. It is a European premiere. Jesse Eisenberg's 'The Debut' closes the festival.",
+    "The BFI says the programme has 251 features, shorts, series and immersive works from 88 countries. It says 109 of them, or 43%, are by female filmmakers, and 33 are world premieres."
+   ],
+   "kept": [
+    [
+     "The 70th BFI London Film Festival runs from 7 to 18 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "Simon Stone's 'Elsinore' opens the festival",
+     "3 of 3 outlets"
+    ],
+    [
+     "Jesse Eisenberg's 'The Debut' is the closing film",
+     "3 of 3 outlets"
+    ],
+    [
+     "The programme has 251 titles from 88 countries",
+     "3 of 3 outlets"
+    ],
+    [
+     "43% of the programme is by female filmmakers, the BFI says",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Programme billed as 'captivating and diverse'",
+     "Promotional language from organisers"
+    ]
+   ],
+   "open": [
+    "World premieres: 33 across all formats, or 9 among feature films, depending on what is counted"
+   ],
+   "primary": [
+    "BFI programme announcement"
+   ],
+   "m": [
+    88,
+    85,
+    92
+   ],
+   "src": [
+    [
+     "bfi",
+     "https://www.bfi.org.uk/london-film-festival/news/full-programme-announced-70th-bfi-london-film-festival"
+    ],
+    [
+     "britcine",
+     "https://britishcinematographer.co.uk/bfi-london-film-festival-2026-announces-full-programme-line-up/"
+    ],
+    [
+     "screendaily",
+     "https://www.screendaily.com/news/bfi-london-film-festival-unveils-2026-lineup/5219898.article"
+    ]
+   ]
+  },
+  {
+   "id": "cul-robbie-williams-album-day",
+   "sec": "culture",
+   "sub": "Music",
+   "head": "Robbie Williams named 'Album Icon' for National Album Day",
+   "stand": "The UK event on 17 October will mark Williams's career with a coloured vinyl reissue of his 2000 album 'Sing When You're Winning'.",
+   "body": [
+    "Robbie Williams has been named 'Album Icon' for National Album Day 2026, which has the theme 'Icons'. Hot Press reports the event takes place on 17 October.",
+    "His 2000 album 'Sing When You're Winning' will be reissued as a limited-edition red and blue double vinyl. NME says it is the album's first coloured vinyl release.",
+    "The day is organised by the record labels' body the BPI and the retail association ERA, with BBC Radio 2 support. Williams has 16 UK number one albums, both outlets report."
+   ],
+   "kept": [
+    [
+     "Robbie Williams is National Album Day 2026's 'Album Icon'",
+     "2 of 2 outlets"
+    ],
+    [
+     "'Sing When You're Winning' gets a limited red and blue 2LP reissue",
+     "2 of 2 outlets"
+    ],
+    [
+     "National Album Day is organised by the BPI and ERA",
+     "2 of 2 outlets"
+    ],
+    [
+     "Williams has 16 UK number one albums",
+     "2 of 2 outlets"
+    ],
+    [
+     "National Album Day takes place on 17 October",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Williams: 'albums still matter'",
+     "Promotional quote; not needed for the facts"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "BPI and ERA announcement",
+    "Robbie Williams statement"
+   ],
+   "m": [
+    80,
+    55,
+    90
+   ],
+   "src": [
+    [
+     "nme",
+     "https://www.nme.com/news/music/national-album-day-2026-robbie-williams-album-icon-sing-when-youre-winning-vinyl-reissue-3972296"
+    ],
+    [
+     "hotpress",
+     "https://www.hotpress.com/music/robbie-williams-announced-as-album-icon-for-national-album-day-23163868"
+    ]
+   ]
+  },
+  {
+   "id": "sp-djokovic-china-open-title",
+   "sec": "sport",
+   "sub": "Tennis",
+   "head": "Djokovic wins seventh China Open title as injured de Minaur retires",
+   "stand": "Novak Djokovic took the first set on a tie-break before Alex de Minaur stopped with an apparent groin injury in Beijing.",
+   "body": [
+    "Novak Djokovic won the China Open in Beijing on 6 October after Alex de Minaur retired early in the second set. Djokovic had won the first set 7–6 on a tie-break.",
+    "De Minaur, the fifth seed, received treatment and returned with his left thigh strapped before stopping. He apologised to fans after the match.",
+    "The title is Djokovic's seventh in Beijing and the 102nd of his career. Tennis Majors reports he is unbeaten in 34 matches at the event. Djokovic, 39, reached the final after Daniil Medvedev was defaulted in the semi-finals."
+   ],
+   "kept": [
+    [
+     "Djokovic won the China Open after de Minaur retired in the second set",
+     "2 of 2 outlets"
+    ],
+    [
+     "It is Djokovic's 102nd career title",
+     "2 of 2 outlets"
+    ],
+    [
+     "De Minaur stopped with an apparent groin injury",
+     "2 of 2 outlets"
+    ],
+    [
+     "Djokovic won the first set 7–6 (7–3)",
+     "2 of 2 outlets"
+    ],
+    [
+     "It is Djokovic's seventh Beijing title",
+     "1 of 2 outlets"
+    ],
+    [
+     "Djokovic is expected to rise from 11th to 8th in the rankings",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "Post-match remarks by Djokovic and de Minaur"
+   ],
+   "m": [
+    86,
+    60,
+    95
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-07/di-minour-china-open/107236718"
+    ],
+    [
+     "tennismajors",
+     "https://www.tennismajors.com/atp/djokovic-wins-seventh-beijing-title-and-102nd-career-crown-as-injured-de-minaur-retires-862702.html"
+    ],
+    [
+     "espn",
+     "https://www.espn.com/tennis/story/_/id/50116537/djokovic-wins-7th-china-open-title-injured-de-minaur-retires",
+     "headline only"
+    ]
+   ],
+   "fig": [
+    "102",
+    "Djokovic career titles"
+   ]
+  },
+  {
+   "id": "sp-messi-argentina-farewell",
+   "sec": "sport",
+   "sub": "Football",
+   "head": "Messi scores in Argentina farewell as Benin beaten 3–0",
+   "stand": "Lionel Messi scored a penalty and set up two goals in his final international match, at the Monumental in Buenos Aires.",
+   "body": [
+    "Lionel Messi ended his Argentina career with a 3–0 friendly win over Benin at Estadio Monumental in Buenos Aires on Tuesday night local time. About 85,000 people attended.",
+    "Nicolás Otamendi headed in a Messi corner in the 48th minute. Nico Paz added a second after a Messi pass, and Messi scored a 71st-minute penalty.",
+    "The match was Messi's 208th for Argentina and he finishes with 126 international goals. Play paused in the 10th minute for a tribute, and his family joined him on the pitch."
+   ],
+   "kept": [
+    [
+     "Argentina beat Benin 3–0 in Lionel Messi's final international match",
+     "3 of 3 outlets"
+    ],
+    [
+     "Messi scored a 71st-minute penalty and set up two goals",
+     "2 of 2 outlets"
+    ],
+    [
+     "Messi retires with 208 caps and 126 goals for Argentina",
+     "2 of 2 outlets"
+    ],
+    [
+     "About 85,000 fans attended at the Monumental in Buenos Aires",
+     "3 of 3 outlets"
+    ],
+    [
+     "Otamendi and Nico Paz scored the other goals",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of the match as 'El Ultimo Tango'",
+     "Headline framing, not fact"
+    ]
+   ],
+   "open": [
+    "Messi's international assist total: reports give 66 or 68",
+    "Otamendi's own retirement: reported by one outlet only"
+   ],
+   "primary": [],
+   "m": [
+    88,
+    40,
+    95
+   ],
+   "src": [
+    [
+     "foxsports",
+     "https://www.foxsports.com/articles/soccer/messi-caps-argentina-farewell-with-a-penalty-and-2-assists-in-a-30-win-over-benin"
+    ],
+    [
+     "outlook",
+     "https://www.outlookindia.com/sports/football/lionel-messi-farewell-match-argentina-vs-benin-international-retirement-2026-leo-final-goal-two-assists-win-report"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/sports/2026/10/5/lionel-messi-argentina-farewell-final-match-benin"
+    ]
+   ]
+  },
+  {
+   "id": "sp-croatia-spain-nations-league",
+   "sec": "sport",
+   "sub": "Football",
+   "head": "Merino double gives Spain 2–1 win in Croatia and Nations League last eight",
+   "stand": "Substitute Mikel Merino scored twice after Ivan Perišić's opener as Spain sealed a quarter-final place from Group A3.",
+   "body": [
+    "Spain came from behind to beat Croatia 2–1 in Split on 6 October in the Nations League. Ivan Perišić gave Croatia the lead in the 17th minute.",
+    "Mikel Merino, a half-time substitute, equalised in the 61st minute and scored the winner late in the match. Flashscore reports Perišić was later sent off for a second yellow card.",
+    "The win was Spain's fourth from four in Group A3 and secures a quarter-final place. Croatia had lost 7–0 to England in their previous match."
+   ],
+   "kept": [
+    [
+     "Spain beat Croatia 2–1 in Split in the Nations League",
+     "2 of 2 outlets"
+    ],
+    [
+     "Mikel Merino scored both Spain goals after Perišić's 17th-minute opener",
+     "2 of 2 outlets"
+    ],
+    [
+     "Spain have won all four Group A3 games and reached the quarter-finals",
+     "2 of 3 outlets"
+    ],
+    [
+     "Croatia's previous match was a 7–0 defeat by England",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Minute of Merino's winner: reports give 88th minute or stoppage time",
+    "Perišić red card: reported by one outlet only"
+   ],
+   "primary": [],
+   "m": [
+    84,
+    30,
+    92
+   ],
+   "src": [
+    [
+     "flashscore",
+     "https://www.flashscore.com/news/soccer-nations-league-croatia-spain-report-october-6-2026/CAnxf53s/"
+    ],
+    [
+     "bein",
+     "https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/all-goals-croatia-vs-spain-uefa-nations-league-2026-10-06"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/sports/2026/10/6/croatia-spain-uefa-nations-league-yamal-modric-format-teams"
+    ]
+   ]
+  },
+  {
+   "id": "sp-harmanpreet-steps-down",
+   "sec": "sport",
+   "sub": "Cricket",
+   "head": "Harmanpreet Kaur steps down as India women's captain",
+   "stand": "The 37-year-old, who led India to a first Women's World Cup title, gave up the captaincy in all formats but will keep playing.",
+   "body": [
+    "Harmanpreet Kaur announced on 6 October that she is stepping down as captain of India's women's team in all formats. The ICC said the move takes effect immediately.",
+    "She has captained India in T20 internationals since 2016 and took over the one-day and Test captaincy in 2022. She led India to their first Women's World Cup title in November 2025.",
+    "Kaur said she intends to continue playing. No successor had been announced when she stepped down."
+   ],
+   "kept": [
+    [
+     "Harmanpreet Kaur has resigned as India women's captain in all formats",
+     "2 of 2 outlets"
+    ],
+    [
+     "She led India to their first Women's World Cup title in 2025",
+     "2 of 2 outlets"
+    ],
+    [
+     "Kaur says she will continue playing for India",
+     "1 of 2 outlets"
+    ],
+    [
+     "She had been T20 international captain since 2016",
+     "2 of 2 outlets"
+    ],
+    [
+     "She captained India in 155 T20 internationals",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Smriti Mandhana described as the favoured successor",
+     "Speculation; no appointment has been made"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Harmanpreet Kaur's Instagram statement"
+   ],
+   "m": [
+    84,
+    70,
+    85
+   ],
+   "src": [
+    [
+     "icc",
+     "https://www.icc-cricket.com/news/harmanpreet-kaur-steps-down-as-india-captain"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/sports/2026/10/6/harmanpreet-kaur-steps-down-as-captain-of-indias-womens-cricket-team"
+    ]
+   ]
+  }
+ ],
+ "grading": {
+  "weights": {
+   "corroboration": 0.3,
+   "primaryRecords": 0.35,
+   "sourceSpread": 0.15,
+   "stability": 0.2
+  },
+  "spread": {
+   "1": 25,
+   "2": 50,
+   "3": 70,
+   "4+": 85
+  },
+  "bands": {
+   "A": 85,
+   "B": 70,
+   "C": 55,
+   "D": 0
+  },
+  "labels": {
+   "A": {
+    "label": "Firm",
+    "note": "Core facts agree across several independent outlets and are backed by primary records."
+   },
+   "B": {
+    "label": "Solid",
+    "note": "Core facts are well supported, but the report rests on fewer outlets or some details still differ."
+   },
+   "C": {
+    "label": "Developing",
+    "note": "Supported by a narrow set of sources, or key details are still in dispute."
+   },
+   "D": {
+    "label": "Unconfirmed",
+    "note": "Main claims come from one side or an interested party and have not been independently checked."
+   }
+  }
+ },
+ "computed": [
+  {
+   "id": "w-bnd-hanning-arrest",
+   "score": 74,
+   "grade": "B"
+  },
+  {
+   "id": "w-black-sea-bulgaria-ships",
+   "score": 71,
+   "grade": "B"
+  },
+  {
+   "id": "w-yemen-offensive-aden",
+   "score": 57,
+   "grade": "C"
+  },
+  {
+   "id": "w-sudan-burhan-talks",
+   "score": 71,
+   "grade": "B"
+  },
+  {
+   "id": "w-fort-hood-firing-squad",
+   "score": 81,
+   "grade": "B"
+  },
+  {
+   "id": "w-mexico-el-tanque",
+   "score": 76,
+   "grade": "B"
+  },
+  {
+   "id": "w-malaysia-myanmar-returns",
+   "score": 72,
+   "grade": "B"
+  },
+  {
+   "id": "uk-fairford-seventh-arrest",
+   "score": 76,
+   "grade": "B"
+  },
+  {
+   "id": "uk-sussex-taser-officers-sacked",
+   "score": 78,
+   "grade": "B"
+  },
+  {
+   "id": "uk-tividale-murder-plea",
+   "score": 84,
+   "grade": "B"
+  },
+  {
+   "id": "uk-walkden-arson-inquest",
+   "score": 68,
+   "grade": "C"
+  },
+  {
+   "id": "uk-ema-smuggling-boats",
+   "score": 79,
+   "grade": "B"
+  },
+  {
+   "id": "uk-wales-m4-menai-plans",
+   "score": 77,
+   "grade": "B"
+  },
+  {
+   "id": "pol-badenoch-closing-speech",
+   "score": 67,
+   "grade": "C"
+  },
+  {
+   "id": "pol-britannia-shield",
+   "score": 68,
+   "grade": "C"
+  },
+  {
+   "id": "pol-greens-zionism-fallout",
+   "score": 64,
+   "grade": "C"
+  },
+  {
+   "id": "pol-trump-la-san-diego",
+   "score": 73,
+   "grade": "B"
+  },
+  {
+   "id": "pol-quebec-pq-minority",
+   "score": 71,
+   "grade": "B"
+  },
+  {
+   "id": "pol-afd-landtag-speaker",
+   "score": 75,
+   "grade": "B"
+  },
+  {
+   "id": "biz-wall-st-record-oct6",
+   "score": 64,
+   "grade": "C"
+  },
+  {
+   "id": "biz-europe-ftse-close-oct6",
+   "score": 65,
+   "grade": "C"
+  },
+  {
+   "id": "biz-option-care-cdr-mckesson",
+   "score": 73,
+   "grade": "B"
+  },
+  {
+   "id": "biz-informa-clarion",
+   "score": 74,
+   "grade": "B"
+  },
+  {
+   "id": "biz-constellation-google-nuclear",
+   "score": 74,
+   "grade": "B"
+  },
+  {
+   "id": "biz-unicredit-russia-decree",
+   "score": 74,
+   "grade": "B"
+  },
+  {
+   "id": "biz-german-factory-orders-aug",
+   "score": 81,
+   "grade": "B"
+  },
+  {
+   "id": "biz-us-trade-deficit-aug",
+   "score": 86,
+   "grade": "A"
+  },
+  {
+   "id": "sci-nobel-physics-halzen",
+   "score": 87,
+   "grade": "A"
+  },
+  {
+   "id": "sci-phoenix-planet",
+   "score": 71,
+   "grade": "B"
+  },
+  {
+   "id": "sci-animal-origins-earlier",
+   "score": 62,
+   "grade": "C"
+  },
+  {
+   "id": "sci-glowing-pickle",
+   "score": 61,
+   "grade": "C"
+  },
+  {
+   "id": "hl-irkutsk-no-plague-who",
+   "score": 69,
+   "grade": "C"
+  },
+  {
+   "id": "hl-early-flu-h1n1",
+   "score": 61,
+   "grade": "C"
+  },
+  {
+   "id": "hl-cancer-under-50s",
+   "score": 75,
+   "grade": "B"
+  },
+  {
+   "id": "hl-ni-247-thrombectomy",
+   "score": 85,
+   "grade": "A"
+  },
+  {
+   "id": "cl-australia-coal-ruling",
+   "score": 77,
+   "grade": "B"
+  },
+  {
+   "id": "cl-cop31-agenda",
+   "score": 64,
+   "grade": "C"
+  },
+  {
+   "id": "cl-eu-energy-plan",
+   "score": 76,
+   "grade": "B"
+  },
+  {
+   "id": "cl-biodiversity-redundancy",
+   "score": 74,
+   "grade": "B"
+  },
+  {
+   "id": "tech-mistral-ml4",
+   "score": 68,
+   "grade": "C"
+  },
+  {
+   "id": "tech-wikimedia-openai-agents",
+   "score": 72,
+   "grade": "B"
+  },
+  {
+   "id": "tech-asos-hack",
+   "score": 71,
+   "grade": "B"
+  },
+  {
+   "id": "tech-ofcom-platforms-court",
+   "score": 71,
+   "grade": "B"
+  },
+  {
+   "id": "cul-dali-apocalypse-theft",
+   "score": 68,
+   "grade": "C"
+  },
+  {
+   "id": "cul-national-book-awards-finalists",
+   "score": 83,
+   "grade": "B"
+  },
+  {
+   "id": "cul-london-film-festival-opens",
+   "score": 85,
+   "grade": "A"
+  },
+  {
+   "id": "cul-robbie-williams-album-day",
+   "score": 69,
+   "grade": "C"
+  },
+  {
+   "id": "sp-djokovic-china-open-title",
+   "score": 76,
+   "grade": "B"
+  },
+  {
+   "id": "sp-messi-argentina-farewell",
+   "score": 70,
+   "grade": "B"
+  },
+  {
+   "id": "sp-croatia-spain-nations-league",
+   "score": 65,
+   "grade": "C"
+  },
+  {
+   "id": "sp-harmanpreet-steps-down",
+   "score": 74,
+   "grade": "B"
+  }
+ ]
+}

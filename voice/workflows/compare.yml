@@ -1,0 +1,29 @@
+name: Voice comparison
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Record the test clips
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python compare.py
+      - name: Save them
+        if: always()
+        run: |
+          git config user.name "daily-receipts-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add compare
+          git diff --cached --quiet || git commit -m "Voice comparison clips"
+          git pull --rebase && git push

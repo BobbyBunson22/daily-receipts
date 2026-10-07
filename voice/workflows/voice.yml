@@ -1,0 +1,45 @@
+name: Record today's bulletin
+
+on:
+  push:
+    paths: ["scripts/edition.json", "voice.json"]
+  workflow_dispatch:
+    inputs:
+      max_stories:
+        description: "Only voice the first N stories (0 = all)"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: voice
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Make the clips
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          MAX_STORIES: ${{ inputs.max_stories || vars.MAX_STORIES || '0' }}
+        run: python make_audio.py
+      - name: Keep the last 3 editions only
+        if: always()
+        run: |
+          ls -d audio/[0-9]* 2>/dev/null | sort -t/ -k2 -n | head -n -3 | xargs -r git rm -rq
+      - name: Save the clips and the run note
+        if: always()
+        run: |
+          git config user.name "daily-receipts-bot"
+          git config user.email "bot@users.noreply.github.com"
+          [ -f status.json ] && git add status.json
+          [ -d audio ] && git add audio
+          git diff --cached --quiet || git commit -m "Voice run for edition $(python -c 'import json;print(json.load(open("scripts/edition.json"))["issue"])')"
+          git push
