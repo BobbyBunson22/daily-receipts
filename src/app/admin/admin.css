@@ -1,0 +1,45 @@
+/* Beta dashboard: same navy frame and paper slips, laid out for reading numbers. */
+.adm{max-width:960px;margin:0 auto;padding-block:0 40px}
+.adm-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--navy-3);margin-bottom:22px}
+.adm-tag{font-family:var(--f-mono);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-2);border:1px solid var(--navy-3);border-radius:999px;padding:5px 10px}
+.adm-head{color:var(--on-navy);margin:0 2px 22px}
+.adm-head h1{font-family:var(--f-disp);font-weight:800;font-size:clamp(28px,6vw,40px);letter-spacing:-.03em;margin:0 0 6px}
+.adm-head p{margin:0;color:var(--on-navy-2);font-size:16px}
+.rcpt.pad{padding:20px 22px 24px}
+.rcpt h1{font-family:var(--f-disp);font-weight:800;font-size:28px;color:var(--navy);margin:0 0 8px}
+.rcpt h2{font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:0 0 14px;padding-bottom:10px;border-bottom:1.5px dashed var(--dash)}
+.rcpt h3{font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:20px 0 8px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{display:grid;gap:2px;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px}
+.tile-k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.tile-v{font-family:var(--f-disp);font-weight:800;font-size:30px;line-height:1.1;color:var(--navy);font-variant-numeric:tabular-nums}
+.tile-n{font-size:14px;color:var(--ink-2)}
+.bars{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:4px;align-items:end;height:190px;padding-top:22px;border-bottom:1.5px solid var(--line)}
+.bar{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;outline:none}
+.bar i{display:block;width:min(100%,26px);min-height:2px;background:var(--navy);border-radius:4px 4px 0 0}
+.bar:hover i,.bar:focus-visible i{background:var(--navy-3)}
+.bar-v{font-family:var(--f-mono);font-size:11px;color:var(--ink-2);margin-bottom:3px;font-variant-numeric:tabular-nums}
+.bar-d{position:absolute;bottom:-20px;font-family:var(--f-mono);font-size:10.5px;color:var(--ink-2)}
+.bar-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--navy);color:var(--on-navy);font-family:var(--f-mono);font-size:11.5px;line-height:1.4;padding:6px 9px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;z-index:2}
+.bar:hover .bar-tip,.bar:focus-visible .bar-tip{opacity:1}
+.bar:first-child .bar-tip{left:0;transform:none}.bar:last-child .bar-tip{left:auto;right:0;transform:none}
+details{margin-top:30px}
+summary{cursor:pointer;font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+.scrollx{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);text-align:left;font-weight:600;padding:6px 8px;border-bottom:1.5px dashed var(--dash);white-space:nowrap}
+td{padding:8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.wrapcell{white-space:normal;min-width:220px;max-width:420px}
+td small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--ink-2);text-transform:uppercase}
+.split{display:grid;gap:6px}
+.split-row{display:grid;grid-template-columns:110px minmax(0,1fr) 80px;gap:10px;align-items:center;font-size:15px}
+.split-row i{display:block;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.split-row b{display:block;height:100%;background:var(--navy);border-radius:4px}
+.split-row em{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+.fblist{list-style:none;margin:0;padding:0}
+.fblist li{padding:12px 0;border-bottom:1px solid var(--line)}
+.fb-meta{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.fb-meta b{font-family:var(--f-disp);font-weight:700;overflow-wrap:anywhere}
+.fb-meta span,.fb-ans{font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+.fblist p{margin:6px 0 0;font-style:italic}
+@media (max-width:480px){.split-row{grid-template-columns:80px minmax(0,1fr) 64px}.bar-v{font-size:9.5px}}

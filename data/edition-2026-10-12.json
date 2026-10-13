@@ -1,0 +1,4143 @@
+{
+ "edition": {
+  "issue": 7,
+  "date": "Monday, 12 October 2026",
+  "compiled": "06:04 BST, 12 Oct 2026"
+ },
+ "sections": [
+  {
+   "id": "world",
+   "name": "World",
+   "subs": [
+    "Americas",
+    "Middle East",
+    "Asia-Pacific",
+    "Africa",
+    "Europe"
+   ]
+  },
+  {
+   "id": "uk",
+   "name": "UK",
+   "subs": [
+    "Security",
+    "Justice",
+    "Transport",
+    "Housing"
+   ]
+  },
+  {
+   "id": "politics",
+   "name": "Politics",
+   "subs": [
+    "Parties",
+    "Elections",
+    "Policy"
+   ]
+  },
+  {
+   "id": "business",
+   "name": "Business",
+   "subs": [
+    "Economy",
+    "Markets",
+    "Trade",
+    "Companies"
+   ]
+  },
+  {
+   "id": "science",
+   "name": "Science",
+   "subs": [
+    "Biology",
+    "Space",
+    "Physics"
+   ]
+  },
+  {
+   "id": "health",
+   "name": "Health",
+   "subs": [
+    "Public health",
+    "Research",
+    "Services"
+   ]
+  },
+  {
+   "id": "climate",
+   "name": "Climate",
+   "subs": [
+    "Policy",
+    "Energy",
+    "Nature"
+   ]
+  },
+  {
+   "id": "tech",
+   "name": "Technology",
+   "subs": [
+    "AI",
+    "Security",
+    "Devices"
+   ]
+  },
+  {
+   "id": "culture",
+   "name": "Culture",
+   "subs": [
+    "Music",
+    "Heritage",
+    "Film & TV",
+    "Books"
+   ]
+  },
+  {
+   "id": "sport",
+   "name": "Sport",
+   "subs": [
+    "Football",
+    "Motor racing",
+    "Cricket",
+    "Tennis",
+    "Rugby"
+   ]
+  }
+ ],
+ "outlets": {
+  "abc": {
+   "name": "ABC News",
+   "country": "Australia"
+  },
+  "abcus": {
+   "name": "ABC News (US)",
+   "country": "US"
+  },
+  "aha": {
+   "name": "American Heart Association Newsroom",
+   "country": "US"
+  },
+  "aj": {
+   "name": "Al Jazeera",
+   "country": "Qatar"
+  },
+  "aroundprague": {
+   "name": "Around Prague",
+   "country": "Czechia"
+  },
+  "atp": {
+   "name": "ATP Tour",
+   "country": "International"
+  },
+  "azat": {
+   "name": "Azat TV",
+   "country": "International"
+  },
+  "bizstd": {
+   "name": "Business Standard",
+   "country": "India"
+  },
+  "blackpoolgazette": {
+   "name": "Blackpool Gazette",
+   "country": "UK"
+  },
+  "brecorder": {
+   "name": "Business Recorder",
+   "country": "Pakistan"
+  },
+  "breitbart": {
+   "name": "Breitbart",
+   "country": "US"
+  },
+  "britbrief": {
+   "name": "Brit Brief",
+   "country": "UK"
+  },
+  "buchmesse": {
+   "name": "Frankfurter Buchmesse",
+   "country": "Germany"
+  },
+  "cbs": {
+   "name": "CBS News",
+   "country": "US"
+  },
+  "cloudflare": {
+   "name": "Cloudflare Blog",
+   "country": "United States"
+  },
+  "cloudfloor": {
+   "name": "CloudFloorDNS",
+   "country": "United States"
+  },
+  "cnn": {
+   "name": "CNN",
+   "country": "United States"
+  },
+  "consequence": {
+   "name": "Consequence",
+   "country": "US"
+  },
+  "crash": {
+   "name": "Crash.net",
+   "country": "UK"
+  },
+  "digitaljournal": {
+   "name": "Digital Journal",
+   "country": "Canada"
+  },
+  "esahubble": {
+   "name": "ESA/Hubble",
+   "country": "Europe"
+  },
+  "euronews": {
+   "name": "Euronews",
+   "country": "France"
+  },
+  "express": {
+   "name": "Daily Express (via AOL)",
+   "country": "UK"
+  },
+  "financeasia": {
+   "name": "FinanceAsia",
+   "country": "Hong Kong"
+  },
+  "formula1": {
+   "name": "Formula1.com",
+   "country": "UK"
+  },
+  "forward": {
+   "name": "The Forward",
+   "country": "US"
+  },
+  "france24": {
+   "name": "France 24",
+   "country": "France"
+  },
+  "frenchdispatch": {
+   "name": "The French Dispatch",
+   "country": "France"
+  },
+  "friedenspreis": {
+   "name": "Peace Prize of the German Book Trade",
+   "country": "Germany"
+  },
+  "goal": {
+   "name": "Goal",
+   "country": "UK"
+  },
+  "haaretz": {
+   "name": "Haaretz",
+   "country": "Israel"
+  },
+  "hansindia": {
+   "name": "The Hans India",
+   "country": "India"
+  },
+  "hdfcsky": {
+   "name": "HDFC Sky",
+   "country": "India"
+  },
+  "icann": {
+   "name": "ICANN",
+   "country": "United States"
+  },
+  "intellinews": {
+   "name": "bne IntelliNews",
+   "country": "UK"
+  },
+  "iom": {
+   "name": "International Organization for Migration",
+   "country": "International"
+  },
+  "irishnews": {
+   "name": "The Irish News",
+   "country": "UK"
+  },
+  "itv": {
+   "name": "ITV News",
+   "country": "UK"
+  },
+  "jpost": {
+   "name": "The Jerusalem Post",
+   "country": "Israel"
+  },
+  "juedische": {
+   "name": "Jüdische Allgemeine",
+   "country": "Germany"
+  },
+  "klimaatcoalitie": {
+   "name": "Klimaatcoalitie / Coalition Climat",
+   "country": "Belgium"
+  },
+  "kyivindependent": {
+   "name": "The Kyiv Independent",
+   "country": "Ukraine"
+  },
+  "lbc": {
+   "name": "LBC",
+   "country": "UK"
+  },
+  "mediaite": {
+   "name": "Mediaite",
+   "country": "United States"
+  },
+  "medialine": {
+   "name": "The Media Line",
+   "country": "US"
+  },
+  "musicnews": {
+   "name": "Music-News.com",
+   "country": "UK"
+  },
+  "mynewsla": {
+   "name": "MyNewsLA",
+   "country": "US"
+  },
+  "nationthailand": {
+   "name": "The Nation Thailand",
+   "country": "Thailand"
+  },
+  "nature": {
+   "name": "npj Climate and Atmospheric Science (Nature Portfolio)",
+   "country": "UK"
+  },
+  "nbcsports": {
+   "name": "NBC Sports",
+   "country": "US"
+  },
+  "newatlas": {
+   "name": "New Atlas",
+   "country": "Australia"
+  },
+  "newsat": {
+   "name": "News.at",
+   "country": "Austria"
+  },
+  "newsletter": {
+   "name": "News Letter",
+   "country": "UK"
+  },
+  "newsmedical": {
+   "name": "News-Medical",
+   "country": "UK"
+  },
+  "nme": {
+   "name": "NME",
+   "country": "UK"
+  },
+  "nowsolar": {
+   "name": "now.solar",
+   "country": "Australia"
+  },
+  "nvua": {
+   "name": "The New Voice of Ukraine",
+   "country": "Ukraine"
+  },
+  "outlook": {
+   "name": "Outlook India",
+   "country": "India"
+  },
+  "pbs": {
+   "name": "PBS News",
+   "country": "United States"
+  },
+  "pressbee": {
+   "name": "Pressbee",
+   "country": "International"
+  },
+  "radaram": {
+   "name": "Radar Armenia",
+   "country": "Armenia"
+  },
+  "rayo": {
+   "name": "Greatest Hits Radio",
+   "country": "UK"
+  },
+  "reneweconomy": {
+   "name": "Renew Economy",
+   "country": "Australia"
+  },
+  "rte": {
+   "name": "RTÉ",
+   "country": "Ireland"
+  },
+  "rugbypass": {
+   "name": "RugbyPass",
+   "country": "UK"
+  },
+  "sciencedaily": {
+   "name": "ScienceDaily",
+   "country": "United States"
+  },
+  "scotexpress": {
+   "name": "Scottish Daily Express",
+   "country": "UK"
+  },
+  "scotsman": {
+   "name": "The Scotsman",
+   "country": "UK"
+  },
+  "scrolla": {
+   "name": "Scrolla.Africa",
+   "country": "South Africa"
+  },
+  "sheffieldstar": {
+   "name": "The Star (Sheffield)",
+   "country": "UK"
+  },
+  "si": {
+   "name": "Sports Illustrated",
+   "country": "US"
+  },
+  "spacecom": {
+   "name": "Space.com",
+   "country": "US"
+  },
+  "spokesman": {
+   "name": "The Spokesman-Review",
+   "country": "United States"
+  },
+  "stuff": {
+   "name": "Stuff",
+   "country": "New Zealand"
+  },
+  "stv": {
+   "name": "STV News",
+   "country": "UK"
+  },
+  "taz": {
+   "name": "taz",
+   "country": "Germany"
+  },
+  "techcrunch": {
+   "name": "TechCrunch",
+   "country": "US"
+  },
+  "thejc": {
+   "name": "The Jewish Chronicle",
+   "country": "UK"
+  },
+  "therace": {
+   "name": "The Race",
+   "country": "UK"
+  },
+  "thestar": {
+   "name": "The Star",
+   "country": "Malaysia"
+  },
+  "theweek": {
+   "name": "The Week (India)",
+   "country": "India"
+  },
+  "thewrap": {
+   "name": "TheWrap",
+   "country": "US"
+  },
+  "trt": {
+   "name": "TRT World",
+   "country": "Turkey"
+  },
+  "tvpworld": {
+   "name": "TVP World",
+   "country": "Poland"
+  },
+  "uglypolitix": {
+   "name": "Ugly Politix",
+   "country": "UK"
+  },
+  "universetoday": {
+   "name": "Universe Today",
+   "country": "Canada"
+  },
+  "unnews": {
+   "name": "UN News",
+   "country": "International"
+  },
+  "uow": {
+   "name": "University of Wollongong",
+   "country": "Australia"
+  },
+  "vaticannews": {
+   "name": "Vatican News",
+   "country": "Vatican City"
+  },
+  "x": {
+   "name": "X (social media post)",
+   "country": "US"
+  },
+  "yahoo": {
+   "name": "Yahoo Finance",
+   "country": "US"
+  },
+  "yardbarker": {
+   "name": "Yardbarker",
+   "country": "US"
+  }
+ },
+ "stories": [
+  {
+   "id": "w-ukraine-energy-ceasefire",
+   "sec": "world",
+   "sub": "Europe",
+   "head": "Trump announces Russia-Ukraine energy ceasefire as attacks continue",
+   "say": "Donald Trump says Russia and Ukraine agreed to stop hitting energy sites. Volodymyr Zelenskyy called it news to him, and said a Kharkiv power plant was struck on Sunday evening.",
+   "stand": "The US president gave no terms, the Kremlin did not immediately respond, and Kyiv said Russian strikes on energy sites went on.",
+   "body": [
+    "Donald Trump said on Sunday that Russia and Ukraine had agreed an \"energy ceasefire\" taking effect immediately. In a social media post he said both sides had agreed, but he gave no details of the terms.",
+    "Volodymyr Zelenskyy told Axios the announcement was news to him. He said Ukraine was ready to stop striking Russian energy sites if Russia did the same. He reported drone and glide bomb attacks during the day and a strike on a power plant in Kharkiv in the evening.",
+    "The Kremlin did not immediately comment. Trump made a similar announcement in mid-September that neither side confirmed.",
+    "The post followed Trump's call on Saturday for Ukraine to get a new president. Zelenskyy replied that Ukraine could organise elections after a 60-day total ceasefire."
+   ],
+   "kept": [
+    [
+     "Trump said Russia and Ukraine agreed an immediate energy ceasefire",
+     "3 of 4 outlets"
+    ],
+    [
+     "Trump gave no details of the terms of the truce",
+     "3 of 4 outlets"
+    ],
+    [
+     "Zelenskyy said the announcement was news to him",
+     "4 of 4 outlets"
+    ],
+    [
+     "Zelenskyy said a Kharkiv power plant was hit on Sunday evening",
+     "4 of 4 outlets"
+    ],
+    [
+     "The Kremlin made no immediate comment",
+     "3 of 4 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Trump blamed Ukraine for record US diesel prices",
+     "Background to earlier days; not part of Sunday's development"
+    ],
+    [
+     "Analyst view that Russia is unlikely to accept a 60-day truce",
+     "Prediction, not fact"
+    ]
+   ],
+   "open": [
+    "Saturday Russian strike on Zaporizhzhia: Zelenskyy put the death toll at 23, while an earlier Euronews headline gave 17"
+   ],
+   "primary": [
+    "Donald Trump, Truth Social post",
+    "Volodymyr Zelenskyy, nightly address and X post",
+    "Ukrainian presidential office"
+   ],
+   "m": [
+    82,
+    70,
+    45
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/zelenskyy-trump-new-ukrainian-president/"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-12/ukraine-trump-zelenskyy-elections/107254072"
+    ],
+    [
+     "pbs",
+     "https://www.pbs.org/newshour/world/trump-claims-russia-and-ukraine-agree-to-energy-ceasefire-despite-continued-attacks"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/trump-says-ukraine-russia-agree-to-energy-ceasefire-2"
+    ]
+   ]
+  },
+  {
+   "id": "w-riyadh-airport-closure",
+   "sec": "world",
+   "sub": "Middle East",
+   "head": "Riyadh airport hit again and kept shut after deadly Houthi strike",
+   "say": "Riyadh's main airport was struck again on Sunday and stayed shut, a day after an attack killed twelve people. The Houthis have told travellers to avoid Saudi airports.",
+   "stand": "A terminal at King Khalid International Airport was struck on Sunday as the Houthis threatened all Saudi airports except those in Mecca and Medina.",
+   "body": [
+    "A passenger terminal at Riyadh's King Khalid International Airport was struck on Sunday, Saudi authorities said. It came a day after a Houthi attack killed 12 people and injured more than 300.",
+    "India's embassy said an Indian national wounded on Saturday died on Sunday. The airport stayed closed on Sunday and Riyadh schools moved to online lessons.",
+    "The Houthis said they had carried out four operations in 24 hours. They told airlines and travellers to avoid Saudi airports and airspace, except in Mecca and Medina.",
+    "Donald Trump said on Saturday the US may join Saudi strikes on the Houthis. Several airlines, including Lufthansa Group and Emirates, suspended Riyadh flights."
+   ],
+   "kept": [
+    [
+     "A terminal at Riyadh's main airport was struck again on Sunday",
+     "3 of 4 outlets"
+    ],
+    [
+     "Saturday's Houthi attack killed 12 and injured more than 300",
+     "4 of 4 outlets"
+    ],
+    [
+     "An Indian national wounded on Saturday died on Sunday, India's embassy said",
+     "3 of 4 outlets"
+    ],
+    [
+     "Houthis warned travellers off all Saudi airports except Mecca and Medina",
+     "3 of 4 outlets"
+    ],
+    [
+     "Trump said the US may join Saudi strikes on the Houthis",
+     "4 of 4 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Houthi claim of more than 120 Saudi airstrikes in 24 hours",
+     "Unverified claim from one party"
+    ],
+    [
+     "Houthi warning that \"worse is yet to come\"",
+     "Threat rhetoric, not a fact"
+    ]
+   ],
+   "open": [
+    "Sunday strike casualties: ABC cites Saudi officials as saying one killed and 11 injured; CBS reports injuries without figures",
+    "Closure length: reports say until at least 9pm Sunday or until midnight at the start of Monday"
+   ],
+   "primary": [
+    "Saudi General Authority of Civil Aviation",
+    "Indian embassy in Riyadh",
+    "Houthi spokesman Yahya Saree",
+    "US Secretary of State Marco Rubio"
+   ],
+   "m": [
+    85,
+    72,
+    40
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/houthis-threat-saudi-airspace-attack-riyadh-airport/"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-11/houthi-airport-attack-saudi-arabia-riyadh-closure/107253872"
+    ],
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/riyadh-airport-stays-shut-after-deadly-attack-as-trump-says-us-may-join-saudi-strikes-on-h"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/world-condemns-deadly-houthi-attack-on-saudi-arabias-riyadh-airport"
+    ]
+   ]
+  },
+  {
+   "id": "w-djibouti-shipwreck",
+   "sec": "world",
+   "sub": "Africa",
+   "head": "At least 139 dead after migrant boat capsizes off Djibouti",
+   "say": "At least one hundred and thirty-nine people, fifteen of them children, died when a migrant boat bound for Yemen capsized off Djibouti, the UN said. Eighty-four are missing.",
+   "stand": "The UN migration agency says the boat was carrying about 300 people from Djibouti towards Yemen when it sank near Guhere.",
+   "body": [
+    "A boat carrying about 300 migrants capsized off Djibouti's eastern coast near Guhere, the International Organization for Migration (IOM) said on Sunday. It was heading for Yemen.",
+    "At least 139 people died, including 15 children, and 84 are missing. More than 80 survived, all of them Ethiopian nationals. The toll rose from 109 after more bodies were recovered.",
+    "The IOM's head of mission in Djibouti, Alexandre Coissac, called it \"a devastating loss of life\". Search and rescue work was continuing.",
+    "The route across the Bab al-Mandeb strait is used by migrants from the Horn of Africa seeking work in Gulf countries."
+   ],
+   "kept": [
+    [
+     "At least 139 people died when a migrant boat capsized off Djibouti",
+     "2 of 2 outlets"
+    ],
+    [
+     "15 children were among the dead and 84 people remain missing",
+     "2 of 2 outlets"
+    ],
+    [
+     "The boat was travelling from Djibouti to Yemen with about 300 aboard",
+     "2 of 2 outlets"
+    ],
+    [
+     "More than 80 people survived, all Ethiopian nationals",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Link between the crossings and the US-Israel war on Iran",
+     "Contextual framing from one outlet"
+    ]
+   ],
+   "open": [
+    "Exact passenger number: reports give 305 or more than 300",
+    "Timing: reports say the night of 8 to 9 October or Thursday night to Friday"
+   ],
+   "primary": [
+    "International Organization for Migration statement",
+    "Alexandre Coissac, IOM chief of mission in Djibouti"
+   ],
+   "m": [
+    85,
+    80,
+    65
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/at-least-109-dead-over-100-missing-as-migrant-boat-capsizes-off-djibouti"
+    ],
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/at-least-139-migrants-dead-after-boat-capsizes-off-djibouti-un-says"
+    ],
+    [
+     "unnews",
+     "https://news.un.org/en/story/2026/10/1168573",
+     "headline only"
+    ],
+    [
+     "iom",
+     "https://www.iom.int/news/death-toll-djibouti-shipwreck-climbs-139-un-migration",
+     "headline only"
+    ]
+   ],
+   "fig": [
+    "139",
+    "dead"
+   ]
+  },
+  {
+   "id": "w-pope-leo-surgery",
+   "sec": "world",
+   "sub": "Europe",
+   "head": "Pope Leo to have surgery to remove lung nodule",
+   "say": "Pope Leo says he will have surgery in the coming days to remove a nodule found in his lung. He said on Sunday it was caught early, and the Vatican expects a week's recovery.",
+   "stand": "The 71-year-old pontiff disclosed the finding at his Sunday Angelus, saying doctors had advised an operation.",
+   "body": [
+    "Pope Leo XIV told crowds in St Peter's Square on Sunday that recent medical checks had found a localised nodule in his lung. He said it was found early and that doctors had advised removing it.",
+    "He said the operation was scheduled for the coming days and asked for prayers. The Vatican said recovery should take about a week.",
+    "The Vatican has not said whether the nodule is malignant. Leo, 71, has no previously known health problems.",
+    "He is due to visit Uruguay, Argentina and Peru from 6 to 17 November."
+   ],
+   "kept": [
+    [
+     "Pope Leo will have surgery to remove a nodule found in his lung",
+     "3 of 3 outlets"
+    ],
+    [
+     "He said the nodule was found at an early stage",
+     "3 of 3 outlets"
+    ],
+    [
+     "The Vatican expects recovery to take about a week",
+     "2 of 3 outlets"
+    ],
+    [
+     "The Vatican did not say whether the nodule is malignant",
+     "1 of 3 outlets"
+    ],
+    [
+     "He is due to visit South America from 6 to 17 November",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Expectation that he will be treated at Gemelli Hospital",
+     "Reported as expected, not confirmed by the Vatican"
+    ]
+   ],
+   "open": [
+    "Surgery date: given only as \"the coming days\" or \"the first days\" of the week"
+   ],
+   "primary": [
+    "Pope Leo XIV, Angelus address",
+    "Holy See Press Office, spokesperson Matteo Bruni"
+   ],
+   "m": [
+    88,
+    85,
+    70
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/pope-leo-surgery-nodular-lesion-lung-vatican/"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-12/pope-leo-lung-nodule-surgery/107253926"
+    ],
+    [
+     "vaticannews",
+     "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-to-undergo-surgery-remove-nodule-lung.html"
+    ]
+   ]
+  },
+  {
+   "id": "w-pakistan-kp-emergency",
+   "sec": "world",
+   "sub": "Asia-Pacific",
+   "head": "Pakistan imposes emergency rule in Imran Khan party's province",
+   "say": "Pakistan has suspended the government of Khyber Pakhtunkhwa, run by Imran Khan's party, saying it stepped back from fighting terrorism. Its chief minister has reportedly been arrested.",
+   "stand": "The federal government suspended the PTI-run government of Khyber Pakhtunkhwa on Sunday, citing its record on fighting militancy.",
+   "body": [
+    "Pakistan's federal government imposed emergency rule in Khyber Pakhtunkhwa on Sunday. President Asif Ali Zardari approved a cabinet recommendation made under Prime Minister Shehbaz Sharif.",
+    "The move suspends the provincial government run by Pakistan Tehreek-e-Insaf (PTI), the party of jailed former prime minister Imran Khan. The prime minister's office accused it of deliberately disengaging from the fight against terrorism.",
+    "PTI figures said Chief Minister Sohail Afridi and the party's provincial president had been arrested. Law Minister Azam Nazeer Tarar said the emergency would initially last six months.",
+    "A PTI spokesman called it a coup disguised as an emergency. PTI had been planning a march on Islamabad to demand Khan's release."
+   ],
+   "kept": [
+    [
+     "Pakistan imposed emergency rule in Khyber Pakhtunkhwa on Sunday",
+     "3 of 3 outlets"
+    ],
+    [
+     "The move suspends the province's government run by Imran Khan's PTI",
+     "3 of 3 outlets"
+    ],
+    [
+     "Government cited the province's disengagement from fighting terrorism",
+     "3 of 3 outlets"
+    ],
+    [
+     "Chief Minister Sohail Afridi was reportedly arrested",
+     "3 of 3 outlets"
+    ],
+    [
+     "Law minister said the emergency would initially last six months",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "PTI warning of \"further bloodshed, instability\"",
+     "Prediction from one side"
+    ],
+    [
+     "Government accusation that PTI sympathises with the Pakistani Taliban",
+     "One-sided allegation reported by one outlet"
+    ]
+   ],
+   "open": [
+    "Arrests: reported by PTI figures; not independently confirmed by authorities in the coverage"
+   ],
+   "primary": [
+    "President Asif Ali Zardari",
+    "Prime Minister's Office",
+    "Law Minister Azam Nazeer Tarar",
+    "Articles 232 and 234 of the Constitution"
+   ],
+   "m": [
+    82,
+    70,
+    50
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/pakistan-imposes-emergency-rule-in-khyber-pakhtunkhwa"
+    ],
+    [
+     "brecorder",
+     "https://www.brecorder.com/news/40443682/pti-rejects-emergency-governors-rule-in-kp-condemns-arrests-of-cm-sohail-afridi-junaid-akbar"
+    ],
+    [
+     "theweek",
+     "https://www.theweek.in/news/world/2026/10/11/pakistan-imposes-emergency-in-khyber-pakhtunkhwa-ruled-by-imran-khans-party-arrests-chief-minister.html"
+    ]
+   ]
+  },
+  {
+   "id": "w-poland-tusk-plot",
+   "sec": "world",
+   "sub": "Europe",
+   "head": "Polish police detain man over alleged plot against PM Tusk",
+   "say": "Polish police have detained a man over an alleged plan to attack Prime Minister Donald Tusk, the interior minister said on Sunday, hours after officials revealed an emailed threat.",
+   "stand": "The detention came hours after officials said an emailed warning of a plot against Tusk and the defence minister was being treated as serious.",
+   "body": [
+    "Polish police detained a man who allegedly planned an attack on Prime Minister Donald Tusk, Interior Minister Marcin Kierwinski said on Sunday. He gave no further details.",
+    "Earlier on Sunday, authorities said they were investigating a possible plot against Tusk and Defence Minister Wladyslaw Kosiniak-Kamysz. Police had received the information by email.",
+    "Police, the state protection service and security agencies held an emergency meeting. Special services spokesman Jacek Dobrzynski said the information was being treated as serious."
+   ],
+   "kept": [
+    [
+     "Police detained a man over an alleged plan to attack PM Donald Tusk",
+     "1 of 2 outlets"
+    ],
+    [
+     "Officials probed an alleged plot against Tusk and the defence minister",
+     "2 of 2 outlets"
+    ],
+    [
+     "Authorities acted on information received by email",
+     "2 of 2 outlets"
+    ],
+    [
+     "Security officials said they were treating the threat as serious",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Polish media report that the plot involved recruiting for an anti-government group",
+     "Unconfirmed media report"
+    ]
+   ],
+   "open": [
+    "Suspect's identity, location of arrest and any charges were not given"
+   ],
+   "primary": [
+    "Interior Minister Marcin Kierwinski, X post",
+    "Police spokesperson Karolina Galecka",
+    "Special services spokesman Jacek Dobrzynski"
+   ],
+   "m": [
+    70,
+    65,
+    40
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/poland-police-probe-alleged-plot-to-assassinate-pm-tusk-defence-minister"
+    ],
+    [
+     "spokesman",
+     "https://www.spokesman.com/stories/2026/oct/11/man-who-plotted-an-attack-on-polish-prime-minister/"
+    ],
+    [
+     "tvpworld",
+     "https://tvpworld.com/95873785/assassination-plot-polish-police-detain-man-who-planned-to-attack-pm-tusk",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "w-hurricane-simon-mexico",
+   "sec": "world",
+   "sub": "Americas",
+   "head": "Hurricane Simon lashes Mexico's Pacific coast",
+   "say": "Hurricane Simon churned along Mexico's Pacific coast on Sunday night. President Claudia Sheinbaum urged people in four states to stay sheltered as forecasters warned of flooding.",
+   "stand": "Forecasters warned of dangerous wind, storm surge and up to 30 inches of rain as the storm tracked near Jalisco.",
+   "body": [
+    "Hurricane Simon moved along Mexico's west-central coast on Sunday after strengthening to Category 4 on Saturday. The US National Hurricane Center said Cabo Corrientes in Jalisco faced the greatest risk of a direct hit.",
+    "Forecasters warned of life-threatening storm surge, flooding and mudslides. Up to 30 inches of rain was possible in parts of Michoacan, Colima and Jalisco.",
+    "President Claudia Sheinbaum urged people in Jalisco, Colima, Nayarit and Michoacan to stay sheltered. Classes were suspended and evacuations were under way. No casualties had been reported on Sunday."
+   ],
+   "kept": [
+    [
+     "Hurricane Simon tracked along Mexico's Pacific coast on Sunday",
+     "2 of 2 outlets"
+    ],
+    [
+     "Simon reached Category 4 on Saturday",
+     "2 of 2 outlets"
+    ],
+    [
+     "Sheinbaum urged residents of four states to stay sheltered",
+     "2 of 2 outlets"
+    ],
+    [
+     "Up to 30 inches of rain possible in Michoacan, Colima and Jalisco",
+     "2 of 2 outlets"
+    ],
+    [
+     "Classes suspended and evacuations under way in coastal areas",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Forecaster expectation of \"catastrophic wind\"",
+     "Forecast, not an outcome"
+    ]
+   ],
+   "open": [
+    "Strength on Sunday: Al Jazeera gives winds of at least 240 km/h; CBS says it weakened by about 20 mph during the day",
+    "Landfall had not been confirmed in the coverage fetched"
+   ],
+   "primary": [
+    "US National Hurricane Center",
+    "President Claudia Sheinbaum, X post",
+    "Mexico's National Civil Protection Coordination"
+   ],
+   "m": [
+    80,
+    75,
+    35
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/hurricane-simon-takes-aim-mexico-pacific-coast/"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/mexican-president-urges-residents-to-shelter-as-hurricane-simon-approaches"
+    ]
+   ]
+  },
+  {
+   "id": "w-glucksmann-primary",
+   "sec": "world",
+   "sub": "Europe",
+   "head": "Glucksmann wins French centre-left primary for 2027 race",
+   "say": "Raphael Glucksmann has won France's social democratic primary outright, with about two-thirds of the vote. He will be the camp's candidate for president in twenty twenty-seven.",
+   "stand": "The MEP beat Socialist Party leader Olivier Faure and Segolene Royal in a first-round vote that was slowed by a cyberattack.",
+   "body": [
+    "Raphael Glucksmann, an MEP and leader of Place publique, won France's social democratic primary in the first round with about 66% of the vote. He will be the camp's candidate for the 2027 presidential election.",
+    "Socialist Party leader Olivier Faure came second with about 14%, ahead of former minister Segolene Royal. About 120,000 people took part.",
+    "Organisers said a cyberattack slowed the electronic vote, which was extended to 6pm on Sunday."
+   ],
+   "kept": [
+    [
+     "Raphael Glucksmann won the primary outright with about 66%",
+     "2 of 2 outlets"
+    ],
+    [
+     "He is the social democratic candidate for the 2027 presidential race",
+     "2 of 2 outlets"
+    ],
+    [
+     "Olivier Faure came second with about 14%",
+     "2 of 2 outlets"
+    ],
+    [
+     "A cyberattack slowed voting, which was extended to Sunday evening",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Comparisons with earlier primary winners who did poorly nationally",
+     "Commentary implying a prediction"
+    ]
+   ],
+   "open": [
+    "Vote share: reported as 66.17% or 66.13%",
+    "Participants: organisers' figure reported as 120,787 or 120,587"
+   ],
+   "primary": [
+    "Primary organising committee, chaired by Patrick Mennucci",
+    "Raphael Glucksmann, X post"
+   ],
+   "m": [
+    82,
+    70,
+    85
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/french-social-democratic-primary-raphael-glucksmann-wins-big-in-first-round"
+    ],
+    [
+     "frenchdispatch",
+     "https://www.frenchdispatch.eu/p/glucksmann-wins-left-wing-primary-2027"
+    ]
+   ]
+  },
+  {
+   "id": "w-nepal-flash-flood",
+   "sec": "world",
+   "sub": "Asia-Pacific",
+   "head": "Nepal orders evacuations after landslide triggers flash flood",
+   "say": "A landslide blocked a river in Nepal's Gorkha district on Sunday, unleashing a flash flood that swept away homes and bridges. Five people are out of contact.",
+   "stand": "A landslide blocked the Budhi Gandaki river in Gorkha district, sending a flood downstream that swept away homes and bridges.",
+   "body": [
+    "A landslide blocked the Budhi Gandaki river in Nepal's Gorkha district on Sunday, triggering a flash flood downstream. About a dozen houses and two suspension bridges were swept away.",
+    "Nepal's disaster authority said five people were out of contact. No deaths had been reported. The army said it rescued 49 people.",
+    "Officials told villagers along the river in five districts to move to safer areas. The river feeds the Trishuli, where a glacier collapse caused deadly floods in August."
+   ],
+   "kept": [
+    [
+     "A landslide-triggered flash flood hit Nepal's Gorkha district on Sunday",
+     "2 of 2 outlets"
+    ],
+    [
+     "Villagers downstream were ordered to evacuate",
+     "2 of 2 outlets"
+    ],
+    [
+     "No deaths reported; five people were out of contact",
+     "1 of 2 outlets"
+    ],
+    [
+     "About a dozen houses and two suspension bridges were swept away",
+     "1 of 2 outlets"
+    ],
+    [
+     "The army said it rescued 49 people",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Village name: reported as Chumnubri or Chumchure"
+   ],
+   "primary": [
+    "National Disaster Risk Reduction and Management Authority",
+    "Nepal Army",
+    "Gorkha chief district officer Dharmendra Kumar Mishra"
+   ],
+   "m": [
+    78,
+    70,
+    55
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-11/nepal-urges-villagers-evacuate-after-landslides-trigger-flood/107253580"
+    ],
+    [
+     "euronews",
+     "https://www.euronews.com/video/2026/10/11/nepal-orders-evacuations-after-landslide-triggers-budhi-gandaki-flash-flood"
+    ]
+   ]
+  },
+  {
+   "id": "uk-tiger-park",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "Man killed by tiger at Yorkshire Wildlife Park",
+   "say": "A man has died after entering the tiger enclosure at Yorkshire Wildlife Park near Doncaster on Saturday. Police say the tiger was unhurt, and the park says it will not be put down.",
+   "stand": "A man died after entering the tiger enclosure at the park near Doncaster on Saturday; police say there is no wider risk to the public.",
+   "body": [
+    "A man died on Saturday afternoon after entering the tiger enclosure at Yorkshire Wildlife Park near Doncaster. South Yorkshire Police said they were called at 1.35pm and the man was pronounced dead at the scene.",
+    "Police said the tiger attacked the man, causing serious injuries. The animal was not hurt and stayed in its enclosure, and officers said there was no wider risk to the public. The man has not been publicly named.",
+    "The park was evacuated and stayed closed on Sunday. It said the tiger, an Amur tiger called Altai, is well and will not be put down. Police asked people not to share videos of the incident circulating online.",
+    "Yorkshire Ambulance Service sent two ambulances, an air ambulance and a doctor. Doncaster North MP Ed Miliband said he was deeply saddened."
+   ],
+   "kept": [
+    [
+     "A man died after entering the tiger enclosure at Yorkshire Wildlife Park on Saturday",
+     "3 of 3 outlets"
+    ],
+    [
+     "Police say the tiger was unhurt and there is no wider risk to the public",
+     "3 of 3 outlets"
+    ],
+    [
+     "The park says the tiger, Altai, will not be euthanised",
+     "1 of 3 outlets"
+    ],
+    [
+     "Police were called at 1.35pm and the man died at the scene",
+     "3 of 3 outlets"
+    ],
+    [
+     "Police have asked people not to share videos of the attack",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Eyewitness reports of 'five shots fired'",
+     "Unverified witness accounts; outlets differ on what the shots were"
+    ],
+    [
+     "Reports that the man posed for a photo with a big cat beforehand",
+     "Seen in a headline only; not confirmed in articles opened"
+    ],
+    [
+     "Witness claims that the man jumped or fell in",
+     "Unverified speculation"
+    ]
+   ],
+   "open": [
+    "How the man entered the enclosure has not been established by police"
+   ],
+   "primary": [
+    "South Yorkshire Police statement",
+    "Yorkshire Wildlife Park statement",
+    "Yorkshire Ambulance Service"
+   ],
+   "m": [
+    85,
+    75,
+    70
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/calendar/2026-10-10/serious-incident-at-yorkshire-wildlife-park-tiger-enclosure"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-11/man-killed-by-tiger-at-uk-zoo/107252578"
+    ],
+    [
+     "sheffieldstar",
+     "https://www.thestar.co.uk/news/emergency-incident/yorkshire-wildlife-park-tragedy-as-tiger-kills-man-who-entered-enclosure-investigation-continues-9280254"
+    ],
+    [
+     "cnn",
+     "https://www.cnn.com/2026/10/10/uk/serious-incident-tiger-enclosure-uk-park",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "uk-palestine-march",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "Twenty arrested as thousands march for Palestine in London",
+   "say": "Police made at least twenty arrests as thousands marched for Palestine in central London on Saturday. Six people were held after climbing onto the Battle of Britain memorial.",
+   "stand": "The Metropolitan Police made at least 20 arrests during Saturday's march, including six people who climbed onto the Battle of Britain memorial.",
+   "body": [
+    "Thousands of pro-Palestine protesters marched through central London on Saturday, days after the third anniversary of the 7 October attacks. The Metropolitan Police said it made at least 20 arrests.",
+    "Six people were held on suspicion of criminal damage after climbing onto the Battle of Britain memorial on Victoria Embankment. Two were arrested over placards supporting Palestine Action, which is banned as a terrorist group.",
+    "Police set conditions on the route and timing of the march, organised by the Palestine Coalition. A counter-protest of about 30 people gathered outside New Scotland Yard, with barriers keeping the groups apart.",
+    "Officers had powers to require people to remove face coverings. Deputy Assistant Commissioner Carl Galvin said the police presence would be significant."
+   ],
+   "kept": [
+    [
+     "Police made at least 20 arrests at Saturday's pro-Palestine march in London",
+     "2 of 3 outlets"
+    ],
+    [
+     "Six were held after climbing onto the Battle of Britain memorial",
+     "2 of 3 outlets"
+    ],
+    [
+     "Two were arrested over placards backing the banned group Palestine Action",
+     "2 of 3 outlets"
+    ],
+    [
+     "About 30 people joined a counter-protest outside New Scotland Yard",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Organisers' estimate of 250,000 marchers",
+     "Organisers' claim; no independent figure, and police expected far fewer"
+    ]
+   ],
+   "open": [
+    "Breakdown of the remaining arrests: outlets group them differently"
+   ],
+   "primary": [
+    "Metropolitan Police statement on X",
+    "Deputy Assistant Commissioner Carl Galvin"
+   ],
+   "m": [
+    82,
+    75,
+    80
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-10/thousands-of-pro-palestine-protesters-march-through-central-london"
+    ],
+    [
+     "medialine",
+     "https://themedialine.org/headlines/london-pro-palestinian-march-draws-thousands-police-arrest-20/"
+    ],
+    [
+     "lbc",
+     "https://www.lbc.co.uk/article/pro-palestine-protesters-march-london-5HjdjjM_2/"
+    ]
+   ]
+  },
+  {
+   "id": "uk-scot-unis-spying",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "Scottish universities warned of espionage risk after MI5 alert",
+   "say": "Scottish ministers have warned universities to watch for spying on campus, after MI5 said a Chinese research institute funds work for China's state security ministry.",
+   "stand": "Scotland's tertiary education minister has written to institutions about the risk of spying on campus, following an MI5 alert over a Chinese research body.",
+   "body": [
+    "The Scottish Government has written to universities warning them to be aware of the risk of espionage on campus. The letter follows an MI5 alert in late September about the China General Technology Research Institute.",
+    "MI5 said the institute's main purpose is funding research that boosts the spying capabilities of China's Ministry of State Security. It strongly advised academics to review any links with it.",
+    "Tertiary education minister Alyn Smith said the government takes the alert seriously and is working with the UK Government and the Scottish Funding Council. He said confidential reporting routes exist for worried academics.",
+    "Edinburgh and St Andrews universities said they have no links to the institute, according to The Scotsman. The Chinese Embassy in London called the accusation fabricated."
+   ],
+   "kept": [
+    [
+     "Scottish ministers have warned universities about espionage risks on campus",
+     "2 of 2 outlets"
+    ],
+    [
+     "The warning follows a late-September MI5 alert about a Chinese research institute",
+     "2 of 2 outlets"
+    ],
+    [
+     "MI5 says the institute funds research aiding China's state security ministry",
+     "2 of 2 outlets"
+    ],
+    [
+     "Edinburgh and St Andrews say they have no links to the institute",
+     "1 of 2 outlets"
+    ],
+    [
+     "China's embassy called the accusation fabricated",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Headlines referring to Russian spies",
+     "The articles opened gave no specific allegations about Russia"
+    ],
+    [
+     "The institute reportedly identified more than 100 UK-linked academics",
+     "Reported by one outlet only"
+    ]
+   ],
+   "open": [
+    "Recipients: one report says further education institutions, others say universities"
+   ],
+   "primary": [
+    "Alyn Smith, Scottish tertiary education minister",
+    "MI5 alert on the China General Technology Research Institute",
+    "Sir Peter Mathieson, Edinburgh University",
+    "Chinese Embassy spokesman"
+   ],
+   "m": [
+    80,
+    70,
+    75
+   ],
+   "src": [
+    [
+     "stv",
+     "https://news.stv.tv/scotland/scottish-universities-warned-of-espionage-risk-after-mi5s-china-alert"
+    ],
+    [
+     "scotsman",
+     "https://www.scotsman.com/education/scots-universities-warned-over-chinese-and-russian-spies-9278640"
+    ],
+    [
+     "scotexpress",
+     "https://www.scottishdailyexpress.co.uk/news/politics/scots-universities-red-alert-over-37759905.amp",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "uk-strabane-petrol-bombs",
+   "sec": "uk",
+   "sub": "Security",
+   "head": "Petrol bombs thrown at police car in Strabane",
+   "say": "Three masked men threw petrol bombs at a police patrol car in Strabane, County Tyrone, on Saturday evening. Police called it a reckless attack; the car was only slightly damaged.",
+   "stand": "Three masked men threw petrol bombs at a patrolling police car in Co Tyrone on Saturday evening, causing minor damage.",
+   "body": [
+    "Three masked men dressed in black each threw a petrol bomb at a police car in the Ballycolman Estate area of Strabane, Co Tyrone. It happened shortly after 5pm on Saturday while officers were on patrol.",
+    "Police said the bombs struck the passenger side of the car as it passed and caused only minor damage. No injuries were reported.",
+    "Chief Inspector Cherith Craig called it a reckless attack in a built-up residential area, saying it could have seriously injured officers or residents. Police have opened an investigation and appealed for information."
+   ],
+   "kept": [
+    [
+     "Three masked men threw petrol bombs at a police car in Strabane on Saturday",
+     "3 of 3 outlets"
+    ],
+    [
+     "Police say the car suffered only minor damage and no injuries were reported",
+     "3 of 3 outlets"
+    ],
+    [
+     "Police called it a reckless attack in a residential area",
+     "3 of 3 outlets"
+    ],
+    [
+     "An investigation has been launched and police are appealing for information",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "PSNI Chief Inspector Cherith Craig",
+    "PSNI appeal, reference 1073 10/10/26"
+   ],
+   "m": [
+    88,
+    75,
+    80
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/utv/2026-10-11/reckless-attack-petrol-bombs-thrown-at-police-car-in-co-tyrone"
+    ],
+    [
+     "newsletter",
+     "https://www.newsletter.co.uk/news/crime/petrol-bombs-thrown-at-police-in-strabane-in-reckless-attack-9280376"
+    ],
+    [
+     "irishnews",
+     "https://www.irishnews.com/news/northern-ireland/petrol-bombs-thrown-at-psni-vehicle-in-strabane-75J4CT4QOVA2ZIYDPHV6ZWN6SY/"
+    ]
+   ]
+  },
+  {
+   "id": "uk-sutton-coldfield-stabbing",
+   "sec": "uk",
+   "sub": "Justice",
+   "head": "Murder inquiry after man stabbed at Sutton Coldfield pub",
+   "say": "A man in his twenties has been stabbed to death in a pub car park in Sutton Coldfield, Birmingham, early on Sunday. West Midlands Police have launched a murder investigation.",
+   "stand": "A man in his 20s died after being stabbed in a pub car park in Sutton Coldfield, Birmingham, early on Sunday.",
+   "body": [
+    "West Midlands Police have opened a murder investigation after a man in his 20s was stabbed in Sutton Coldfield. It happened in the car park of the Beggars Bush pub on Chester Road. Emergency services were called just before 2am on Sunday.",
+    "The man died at the scene despite efforts to save him. Police said a large number of people had been at the venue for an event.",
+    "Detective Chief Inspector Stacey Follows said the investigation was at an early stage. Officers are reviewing CCTV and have asked witnesses or anyone with dashcam footage to come forward.",
+    "The reports did not mention any arrests. The man has not been named."
+   ],
+   "kept": [
+    [
+     "A man in his 20s was stabbed to death at a Sutton Coldfield pub early on Sunday",
+     "3 of 3 outlets"
+    ],
+    [
+     "West Midlands Police have launched a murder investigation",
+     "3 of 3 outlets"
+    ],
+    [
+     "Police say many people were at the venue for an event",
+     "3 of 3 outlets"
+    ],
+    [
+     "Detectives are reviewing CCTV and appealing for witnesses",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of the event as a packed birthday party with a livestreamed singer",
+     "Detail reported by one outlet only"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Detective Chief Inspector Stacey Follows, West Midlands Police"
+   ],
+   "m": [
+    82,
+    70,
+    65
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/central/2026-10-11/murder-investigation-launched-after-man-stabbed-to-death-in-birmingham"
+    ],
+    [
+     "rayo",
+     "https://www.hellorayo.co.uk/greatest-hits/west-midlands/news/sutton-coldfield-stabbing-murder-investigation"
+    ],
+    [
+     "britbrief",
+     "https://britbrief.co.uk/crime/police/man-stabbed-to-death-at-packed-birthday-party-in-birmingham-pub.html"
+    ]
+   ]
+  },
+  {
+   "id": "p-reform-asylum",
+   "sec": "politics",
+   "sub": "Policy",
+   "head": "Farage pledges to suspend asylum for five years if Reform wins",
+   "say": "Nigel Farage says a Reform government would suspend the asylum system for five years and deport about ninety thousand people with pending appeals. Labour called it desperation.",
+   "stand": "Reform UK says it would void pending asylum claims, scrap refugee routes and deport about 90,000 appellants, with Nigel Farage due to set out the plan on Monday.",
+   "body": [
+    "Nigel Farage is due to announce on Monday that a Reform UK government would suspend asylum for a full parliamentary term of five years. Applications in progress would be declared void.",
+    "The party says it would scrap asylum tribunals, legal refugee routes and resettlement schemes. Roughly 90,000 outstanding asylum and protection appeals would not be heard, and the claimants would be deported.",
+    "Reform also says it would use tariffs and airline bans against countries that refuse to take back migrants. Farage told The Telegraph the country faces a national security emergency.",
+    "Labour called the plans a sign of desperation. Shadow home secretary Chris Philp said they largely copy Conservative policy."
+   ],
+   "kept": [
+    [
+     "Reform says it would suspend the asylum system for five years if elected",
+     "2 of 3 outlets"
+    ],
+    [
+     "About 90,000 pending asylum appeals would not be heard, with claimants deported",
+     "2 of 3 outlets"
+    ],
+    [
+     "Reform proposes tariffs and airline bans on countries refusing returns",
+     "3 of 3 outlets"
+    ],
+    [
+     "Labour called the plans desperate; the Conservatives say they copy Tory policy",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Reform's description of resettlement schemes as having 'no mandate'",
+     "Party framing"
+    ],
+    [
+     "Labour's claim that Farage faces scandals and police investigations",
+     "Partisan characterisation"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Nigel Farage (to The Telegraph; post on X)",
+    "Bridget Phillipson, Labour chair",
+    "Chris Philp, shadow home secretary"
+   ],
+   "m": [
+    78,
+    55,
+    60
+   ],
+   "src": [
+    [
+     "lbc",
+     "https://www.lbc.co.uk/article/reform-to-suspend-asylum-system-for-five-years-if-electe-farage-5Hjdjkb_2/"
+    ],
+    [
+     "britbrief",
+     "https://britbrief.co.uk/politics/liberties/farage-vows-to-suspend-asylum-system-and-deport-90000.html"
+    ],
+    [
+     "breitbart",
+     "https://www.breitbart.com/europe/2026/10/11/farage-vows-tariffs-visa-bans-airline-restrictions-against-countries-that-refuse-deportations/"
+    ],
+    [
+     "x",
+     "https://x.com/Nigel_Farage/status/2108991510985236601",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "p-burnham-russia-brexit",
+   "sec": "politics",
+   "sub": "Policy",
+   "head": "Burnham says Russia interfered in the Brexit referendum",
+   "say": "Andy Burnham says officials told him Russia interfered in the 2016 Brexit referendum. The prime minister has not said what evidence that assessment was based on.",
+   "stand": "The prime minister says officials told him there was Russian interference in the 2016 vote, but he has not said what evidence it was based on.",
+   "body": [
+    "Prime Minister Andy Burnham says officials told him Russia interfered in the 2016 Brexit referendum. He said he asked the question after entering Downing Street in July and was given a clear yes.",
+    "Burnham made the remarks on The Rest Is Politics podcast, with the episode due out on Monday. He has not set out how Russia interfered or what evidence the assessment rests on.",
+    "He said he wanted the issue on record to help voters in Germany and France see that some politics is driven by hostile states. He said German Chancellor Friedrich Merz told him the far-right AfD is linked to Russia.",
+    "In 2020, Parliament's Intelligence and Security Committee found the government had not fully assessed Russian influence on the referendum. Russia has long said it does not meddle in other countries' votes."
+   ],
+   "kept": [
+    [
+     "Andy Burnham says officials confirmed Russia interfered in the 2016 Brexit vote",
+     "3 of 3 outlets"
+    ],
+    [
+     "He has not said what form the interference took or what evidence exists",
+     "1 of 3 outlets"
+    ],
+    [
+     "He spoke on The Rest Is Politics podcast, due out on Monday",
+     "2 of 3 outlets"
+    ],
+    [
+     "Burnham says Merz told him the AfD is linked to Russia",
+     "2 of 3 outlets"
+    ],
+    [
+     "Leave won the 2016 referendum by 52% to 48%",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Merz's belief that the AfD is funded by Russia",
+     "Second-hand claim relayed by Burnham, not verified"
+    ],
+    [
+     "Description as the first such acknowledgement by a British prime minister",
+     "Outlets say it is 'believed' to be; not confirmed"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Andy Burnham, The Rest Is Politics podcast",
+    "Intelligence and Security Committee report (2020)"
+   ],
+   "m": [
+    85,
+    55,
+    70
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-11/burnham-says-it-is-clear-russia-interfered-in-brexit-referendum"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-12/russia-interfered-in-brexit-referendum-british-pm-says/107254822"
+    ],
+    [
+     "kyivindependent",
+     "https://kyivindependent.com/russia-behind-britains-brexit-vote-uk-prime-minister-admits-for-first-time-2/"
+    ],
+    [
+     "rte",
+     "https://www.rte.ie/news/2026/1011/1594915-burnham-brexit-russia/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "p-greens-polanski-overhaul",
+   "sec": "politics",
+   "sub": "Parties",
+   "head": "Polanski proposes more power for Green leaders after Zionism vote",
+   "say": "Green leader Zack Polanski wants party leaders to have more say over strategy after members voted to define Zionism as racism. Four of the party's five MPs rejected that motion.",
+   "stand": "The Green leader wants to change how party policy is made after members voted to define Zionism as racism, a motion four of its five MPs rejected.",
+   "body": [
+    "Green Party leader Zack Polanski has proposed changes to the party's internal democracy, including giving leaders more responsibility for strategy. He set out the idea in a newspaper article on Sunday.",
+    "It follows a vote at the party conference in Brighton in which members passed a motion defining Zionism as racism. Four of the party's five MPs rejected the motion.",
+    "Polanski did not vote, having left to campaign in the Holborn and St Pancras by-election, which Labour won. He said some members felt let down, and that he agreed with the motion's broad substance but not all of it.",
+    "Green MP Ellie Chowns said the party must not be vulnerable to capture by extremists. Israel barred Polanski from entering the country after the vote."
+   ],
+   "kept": [
+    [
+     "Zack Polanski wants Green leaders to get more power over strategy",
+     "2 of 3 outlets"
+    ],
+    [
+     "Green members voted at conference to define Zionism as racism",
+     "3 of 3 outlets"
+    ],
+    [
+     "Four of the party's five MPs rejected the motion",
+     "2 of 3 outlets"
+    ],
+    [
+     "Polanski missed the vote to campaign in a by-election Labour won",
+     "3 of 3 outlets"
+    ],
+    [
+     "The motion passed by 1,022 votes to 813",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Caroline Lucas's suggestion of 'entryism'",
+     "Opinion from a party figure, not a verified fact"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Zack Polanski, newspaper article",
+    "Ellie Chowns MP",
+    "Israeli Foreign Ministry"
+   ],
+   "m": [
+    85,
+    60,
+    60
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-11/polanski-signals-green-leaders-could-get-more-power-over-policy-amid-zionism-row"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/uk-greens-leader-seeks-rule-change-after-party-declares-zionism-is-racism"
+    ],
+    [
+     "thejc",
+     "https://www.thejc.com/news/uk/green-leader-zack-polanski-barred-from-israel-after-party-votes-to-define-zionism-as-racism-il22vdu6"
+    ]
+   ]
+  },
+  {
+   "id": "p-badenoch-election-ready",
+   "sec": "politics",
+   "sub": "Elections",
+   "head": "Badenoch tells Conservatives to be ready for a December election",
+   "say": "Kemi Badenoch says she has told the Conservatives to be ready for an election at any point, and thinks one could come in December. Andy Burnham has said none is coming soon.",
+   "stand": "The Conservative leader says she has told her party to prepare for an election at any point, amid speculation that Andy Burnham could call an early vote.",
+   "body": [
+    "Conservative leader Kemi Badenoch says she has told her party to be ready for a general election at any point. She told the Mail on Sunday the Conservatives were prepared for a vote before Christmas.",
+    "Speaking on LBC, she said she thought an election could come this December, calling Prime Minister Andy Burnham a gambler.",
+    "Burnham said before Labour's conference in September that there would be no election any time soon. The Express reports that some in Downing Street see an opening for an early vote."
+   ],
+   "kept": [
+    [
+     "Kemi Badenoch has told the Conservatives to be ready for an election at any point",
+     "3 of 4 outlets"
+    ],
+    [
+     "Badenoch said on LBC she thinks an election could come this December",
+     "1 of 4 outlets"
+    ],
+    [
+     "Burnham said in September there would be no election any time soon",
+     "1 of 4 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Badenoch's claim of 5,000 new benefit claimants a day",
+     "Unverified figure from a political interview"
+    ],
+    [
+     "Speculation that Burnham will call a snap poll",
+     "Unconfirmed; Burnham has said there is no early election"
+    ]
+   ],
+   "open": [
+    "Date of Badenoch's LBC remarks is not given in the article"
+   ],
+   "primary": [
+    "Kemi Badenoch (Mail on Sunday; LBC)",
+    "Andy Burnham"
+   ],
+   "m": [
+    65,
+    40,
+    40
+   ],
+   "src": [
+    [
+     "intellinews",
+     "https://intelli.news/2026/10/11/kemi-badenoch-says-the-conservatives-are-ready-for-a-christmas-general-election-as-speculation-mounts-the-pm-will-call-a-snap-poll/"
+    ],
+    [
+     "pressbee",
+     "https://eng.pressbee.net/show4920126.html"
+    ],
+    [
+     "lbc",
+     "https://www.lbc.co.uk/article/badenoch-early-election-andy-burhnam-5HjdhsW_2/"
+    ],
+    [
+     "express",
+     "https://www.aol.co.uk/articles/andy-burnham-eager-axe-election-112300000.html"
+    ]
+   ]
+  },
+  {
+   "id": "p-voter-id-bank-cards",
+   "sec": "politics",
+   "sub": "Elections",
+   "head": "Bank cards could count as voter ID under government plans",
+   "say": "A government bill would let voters show a bank card instead of photo ID at polling stations. The Electoral Commission warned the change could affect public confidence in elections.",
+   "stand": "The Representation of the People Bill would let voters show a bank card at polling stations, prompting a warning from the Electoral Commission.",
+   "body": [
+    "The government plans to widen the forms of ID accepted at polling stations to include bank cards, which carry no photo. The change is part of the Representation of the People Bill.",
+    "The bill would also lower the voting age to 16 and cap political donations at £500,000. Existing accepted photo IDs would remain valid.",
+    "Electoral Commission chief executive Vijay Rangarajan warned that changing the rules could affect public confidence, saying the current system has broadly worked. Ministers say they want to check whether legitimate voters have been turned away.",
+    "Photo ID at polling stations was introduced under the previous Conservative government."
+   ],
+   "kept": [
+    [
+     "A government bill would let voters use bank cards as ID at polling stations",
+     "2 of 2 outlets"
+    ],
+    [
+     "Existing accepted photo IDs would remain valid",
+     "1 of 2 outlets"
+    ],
+    [
+     "The Electoral Commission warned changing the rules could hurt confidence",
+     "2 of 2 outlets"
+    ],
+    [
+     "The bill would also lower the voting age to 16",
+     "1 of 2 outlets"
+    ],
+    [
+     "The bill would cap political donations at £500,000",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Headlines saying Burnham is scrapping or axing photo ID",
+     "Existing photo IDs stay valid; bank cards would be an added option"
+    ],
+    [
+     "Link between the change and early election plans",
+     "Speculative and unconfirmed"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Electoral Commission chief executive Vijay Rangarajan",
+    "Representation of the People Bill"
+   ],
+   "m": [
+    65,
+    50,
+    55
+   ],
+   "src": [
+    [
+     "express",
+     "https://www.aol.co.uk/articles/andy-burnham-eager-axe-election-112300000.html"
+    ],
+    [
+     "uglypolitix",
+     "https://www.uglypolitix.com/p/no-burnham-isnt-scrapping-voter-id"
+    ]
+   ]
+  },
+  {
+   "id": "p-holborn-byelection",
+   "sec": "politics",
+   "sub": "Elections",
+   "head": "Labour holds Holborn and St Pancras in by-election",
+   "say": "Labour's Sagal Abdi-Wali won the Holborn and St Pancras by-election on Friday, beating Green leader Zack Polanski by three thousand three hundred and sixty-four votes.",
+   "stand": "Camden Council leader Sagal Abdi-Wali beat Green Party leader Zack Polanski by 3,364 votes to win Keir Starmer's former seat.",
+   "body": [
+    "Labour's Sagal Abdi-Wali, leader of Camden Council, won the Holborn and St Pancras by-election on Friday with 12,292 votes. Green Party leader Zack Polanski came second with 8,928.",
+    "The seat became vacant after Keir Starmer stood down. Labour has held it since it was created in 1983.",
+    "Polanski said he would stay on as Green leader, noting that one in three voters had backed his party. Prime Minister Andy Burnham congratulated the new MP."
+   ],
+   "kept": [
+    [
+     "Labour's Sagal Abdi-Wali won the Holborn and St Pancras by-election",
+     "3 of 3 outlets"
+    ],
+    [
+     "She took 12,292 votes to Green leader Zack Polanski's 8,928",
+     "2 of 3 outlets"
+    ],
+    [
+     "Polanski says he will remain Green Party leader",
+     "3 of 3 outlets"
+    ],
+    [
+     "Labour has held the seat since 1983",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Descriptions of a 'Burnham bounce'",
+     "Commentators' framing, not a measured result"
+    ]
+   ],
+   "open": [
+    "Majority: one headline rounds it to 3,300; the vote figures give 3,364"
+   ],
+   "primary": [
+    "Official by-election declaration (vote totals)",
+    "Andy Burnham",
+    "Zack Polanski"
+   ],
+   "m": [
+    92,
+    75,
+    95
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-09/labour-wins-holborn-and-st-pancras-by-election-for-keir-starmers-seat"
+    ],
+    [
+     "itv",
+     "https://www.itv.com/news/2026-10-09/zack-polanski-says-he-will-stay-as-green-party-leader-despite-by-election-defeat"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/9/labour-fends-off-the-green-party-in-closely-watched-uk-by-election"
+    ]
+   ]
+  },
+  {
+   "id": "b-oil-energy-ceasefire",
+   "sec": "business",
+   "sub": "Markets",
+   "head": "Oil falls and stock futures rise after Trump's 'energy ceasefire' claim",
+   "say": "Oil prices fell on Monday, with Brent crude slipping to around one hundred and three dollars a barrel, after Donald Trump announced an energy ceasefire between Russia and Ukraine.",
+   "stand": "Crude dropped in early Asian trading after Donald Trump announced a Russia-Ukraine energy truce that neither side had confirmed.",
+   "body": [
+    "Oil prices fell in early Asian trading on Monday after US President Donald Trump announced an \"energy ceasefire\" between Russia and Ukraine on Sunday.",
+    "Brent crude, the global benchmark, traded at around $103 a barrel, below a recent high of almost $110. US crude fell to around $90.",
+    "Hong Kong and Sydney rose, while Seoul and Taipei fell on losses in chipmakers. Tokyo was closed for a holiday. US and European stock futures pointed higher.",
+    "Russia had not confirmed the truce, and Ukraine said it was seeking details. Investors are also waiting for US inflation figures and bank results this week."
+   ],
+   "kept": [
+    [
+     "Oil fell in Asia on Monday after Trump announced a Russia-Ukraine energy ceasefire",
+     "3 of 3 outlets"
+    ],
+    [
+     "Brent crude traded at around $103 a barrel, US crude at around $90",
+     "2 of 3 outlets"
+    ],
+    [
+     "US and European stock futures were higher; Tokyo was closed for a holiday",
+     "3 of 3 outlets"
+    ],
+    [
+     "South Korean and Taiwanese shares fell, with chipmakers weighing",
+     "3 of 3 outlets"
+    ],
+    [
+     "Big US banks begin reporting third-quarter results this week",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Analyst view that the physical market is tight enough to keep Brent above $100",
+     "Forecast from a single analyst"
+    ],
+    [
+     "Claims that investors doubt AI borrowing is justified",
+     "Market interpretation, not a reported fact"
+    ]
+   ],
+   "open": [
+    "Size of Brent's fall: reports give 1.1% (to $103.50) or about 1.7% (to $103)",
+    "South Korea's fall: reports give 1.1% or 2% for the Kospi"
+   ],
+   "primary": [
+    "Donald Trump, Truth Social post",
+    "Volodymyr Zelensky, statement"
+   ],
+   "m": [
+    82,
+    45,
+    55
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/12/stocks-rise-as-oil-prices-tumble-after-trump-hails-energy-ceasefire"
+    ],
+    [
+     "bizstd",
+     "https://www.business-standard.com/markets/news/asian-shares-cautious-as-earnings-loom-oil-prices-slip-on-easing-fears-126101200044_1.html"
+    ],
+    [
+     "hdfcsky",
+     "https://hdfcsky.com/news/global-markets-today-october-12-2026-asia-declines-oil-falls-but-stays-elevated-sensex-nifty-seen-opening-lower"
+    ]
+   ]
+  },
+  {
+   "id": "b-imf-bangkok",
+   "sec": "business",
+   "sub": "Economy",
+   "head": "IMF and World Bank meet in Bangkok as war and debt cloud outlook",
+   "say": "The IMF and World Bank meet in Bangkok from Monday, with the Iran war's energy shock and record public debt on the agenda. US Treasury Secretary Scott Bessent is staying away.",
+   "stand": "The annual meetings run from 12 to 18 October, the first held outside Washington in three years.",
+   "body": [
+    "The International Monetary Fund and World Bank annual meetings run in Bangkok from 12 to 18 October. It is the first time in three years they have been held outside Washington.",
+    "The Iran war, now in its eighth month, and its effect on energy prices and inflation are expected to dominate. The IMF expects global growth of about 3% this year.",
+    "Global public debt is at its highest since the Second World War and is projected to pass 100% of GDP by 2030, according to the IMF.",
+    "US Treasury Secretary Scott Bessent is skipping the meetings, citing domestic commitments. Two senior Treasury officials will lead the US delegation instead."
+   ],
+   "kept": [
+    [
+     "IMF and World Bank annual meetings run in Bangkok from 12 to 18 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "US Treasury Secretary Scott Bessent is not attending, citing domestic commitments",
+     "3 of 3 outlets"
+    ],
+    [
+     "The IMF expects global growth of about 3% in 2026",
+     "2 of 3 outlets"
+    ],
+    [
+     "Global public debt is projected to exceed 100% of GDP by 2030",
+     "2 of 3 outlets"
+    ],
+    [
+     "It is the first time in three years the meetings are held outside Washington",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Kristalina Georgieva's warning that \"winter is coming\"",
+     "Rhetorical framing, not a forecast figure"
+    ],
+    [
+     "Claim that Bessent's absence may frustrate other countries' officials",
+     "Speculation"
+    ]
+   ],
+   "open": [
+    "Number of visitors: reports give 18,000 registered, more than 10,000 expected, or 15,000 delegates"
+   ],
+   "primary": [
+    "Kristalina Georgieva, IMF managing director",
+    "Ajay Banga, World Bank president",
+    "US Treasury statement"
+   ],
+   "m": [
+    85,
+    65,
+    75
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/11/war-and-high-debt-to-dominate-imf-world-bank-meetings-in-bangkok"
+    ],
+    [
+     "nationthailand",
+     "https://www.nationthailand.com/business/economy/40072127"
+    ],
+    [
+     "yahoo",
+     "https://finance.yahoo.com/economy/policy/articles/us-treasurys-bessent-skip-imf-160730354.html"
+    ]
+   ]
+  },
+  {
+   "id": "b-paris-motor-show",
+   "sec": "business",
+   "sub": "Trade",
+   "head": "Macron opens Paris Motor Show pressing for 'Made in Europe' car subsidies",
+   "say": "Emmanuel Macron opens the Paris Motor Show on Monday, with around twenty Chinese brands taking part. France wants EU electric car subsidies to favour cars built in the bloc.",
+   "stand": "France wants EU electric car subsidies to favour vehicles made in the bloc, as around 20 Chinese brands attend the show.",
+   "body": [
+    "French President Emmanuel Macron is due to open the Paris Motor Show on Monday, his last visit as head of state. The show is open to the public from 13 to 18 October.",
+    "Around 20 Chinese car brands are expected at the event, Euronews reported, amid a trade dispute between the EU and China over vehicles.",
+    "France is proposing that EU subsidies for electric cars favour vehicles made in the 27 member states, across the supply chain from batteries to parts.",
+    "The French presidency said aligning with Germany on the issue was not easy, and denied a reported deal with Berlin on emissions targets."
+   ],
+   "kept": [
+    [
+     "Macron opens the Paris Motor Show on Monday, his last as president",
+     "1 of 2 outlets"
+    ],
+    [
+     "France wants EU electric car subsidies to favour vehicles built in the bloc",
+     "1 of 2 outlets"
+    ],
+    [
+     "Around 20 Chinese car brands are expected at the show",
+     "1 of 2 outlets"
+    ],
+    [
+     "The show runs from 12 to 18 October, with public days from 13 October",
+     "2 of 2 outlets"
+    ],
+    [
+     "Electric cars took 21.7% of new EU registrations in the first eight months",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Handelsblatt report of a France-Germany deal on 2035 CO2 targets",
+     "Denied by the Élysée; second-hand report"
+    ],
+    [
+     "Analyst view that the outlook is 'extremely worrying' for European carmakers",
+     "Opinion"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Élysée (French presidency) sources",
+    "ACEA registration data"
+   ],
+   "m": [
+    65,
+    50,
+    70
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/paris-motor-show-macron-calls-for-european-preference-against-china"
+    ],
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/09/electric-cars-and-rising-chinese-brands-paris-motor-show-opens-monday"
+    ],
+    [
+     "rte",
+     "https://www.rte.ie/news/business/2026/1009/1594659-paris-car-show/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "b-musk-starlink-india",
+   "sec": "business",
+   "sub": "Companies",
+   "head": "Musk promises cheap Starlink in India as he targets Ambani's Jio",
+   "say": "Elon Musk says Starlink will be priced affordably in India to compete with Mukesh Ambani's Reliance Jio, days before Jio Platforms' planned stock market listing. He gave no prices.",
+   "stand": "Elon Musk said on X that Starlink would be priced to compete with Reliance Jio, without giving prices.",
+   "body": [
+    "Elon Musk said on X on Saturday that Starlink's satellite internet would need to be affordable in India. He framed it as competition for Mukesh Ambani's Reliance Jio.",
+    "Late on Friday, Musk had addressed Ambani as \"Prime Minister Ambani\" and asked whether he would let Starlink compete. He gave no specific prices.",
+    "Musk has accused India's government and Ambani of delaying Starlink's entry. The government denies bias and says three satellite ventures, including Starlink and Jio's, await final security clearance.",
+    "Jio Platforms is targeting a $106bn valuation in a listing described as India's largest. Reliance did not respond to Musk's remarks."
+   ],
+   "kept": [
+    [
+     "Musk said Starlink would be priced affordably in India, without giving prices",
+     "2 of 2 outlets"
+    ],
+    [
+     "He framed it as competition for Mukesh Ambani's Reliance Jio",
+     "2 of 2 outlets"
+    ],
+    [
+     "India's government denies bias; Starlink and Jio's venture await security clearance",
+     "2 of 2 outlets"
+    ],
+    [
+     "Jio Platforms is targeting a $106bn valuation in its stock market listing",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of the exchange as a 'feud'",
+     "Loaded framing"
+    ]
+   ],
+   "open": [
+    "Exact date of the Jio Platforms listing: reports say only 'days' away"
+   ],
+   "primary": [
+    "Elon Musk, posts on X",
+    "Indian government statement"
+   ],
+   "m": [
+    80,
+    55,
+    60
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/economy/2026/10/11/musk-vows-affordable-starlink-in-india-as-he-escalates-feud-with-ambani"
+    ],
+    [
+     "thestar",
+     "https://www.thestar.com.my/tech/tech-news/2026/10/11/musk-vows-affordable-starlink-in-india-days-before-ambani039s-record-jio-ipo"
+    ]
+   ]
+  },
+  {
+   "id": "b-hormuz-shipping",
+   "sec": "business",
+   "sub": "Trade",
+   "head": "Ship attacks rise in Hormuz as crews are offered large danger bonuses",
+   "say": "Attacks on ships in the Strait of Hormuz increased at the weekend, and tanker captains are reportedly being offered up to one hundred thousand dollars a month to cross.",
+   "stand": "Maritime authorities reported new incidents near the strait, while unions say tanker captains are being offered up to $100,000 a month.",
+   "body": [
+    "UK Maritime Trade Operations reported several incidents against ships in the Strait of Hormuz and Gulf of Oman on Saturday and Sunday, including a projectile striking an outbound tanker.",
+    "Iran's Revolutionary Guard said a supertanker using an unauthorised route hit a mine and caught fire on Saturday night.",
+    "Tanker captains are being offered up to $100,000 a month to cross the strait, according to industry insiders and seafarers' unions quoted by ABC News.",
+    "The International Maritime Organization reports at least 24 seafarers killed in 100 confirmed incidents since the war began. The strait normally carries about a fifth of world oil and gas trade."
+   ],
+   "kept": [
+    [
+     "UKMTO reported several attacks or warnings against ships near Hormuz over the weekend",
+     "1 of 2 outlets"
+    ],
+    [
+     "Tanker captains reportedly offered up to $100,000 a month to cross the strait",
+     "1 of 2 outlets"
+    ],
+    [
+     "At least 24 seafarers killed in 100 incidents since the war began, the IMO says",
+     "1 of 2 outlets"
+    ],
+    [
+     "The strait normally carries about a fifth of world oil and gas trade",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "IRGC claim that about 10 ships a day transited in October",
+     "Unverified claim by one side"
+    ],
+    [
+     "Description of tanker strikes as 'highly, highly targeted'",
+     "Characterisation by unnamed observers"
+    ]
+   ],
+   "open": [
+    "Current transit volumes: Iran's IRGC, Kpler data and US officials give differing pictures"
+   ],
+   "primary": [
+    "UK Maritime Trade Operations",
+    "International Maritime Organization",
+    "IRGC Navy statement",
+    "US Central Command"
+   ],
+   "m": [
+    65,
+    60,
+    40
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-11/sailors-offered-bonuses-to-cross-strait-of-hormuz-in-iran-war/107248044"
+    ],
+    [
+     "aj",
+     "https://aljazeera.com/news/2026/10/11/hormuz-attacks-intensify-as-efforts-to-end-war-on-iran-stall"
+    ]
+   ]
+  },
+  {
+   "id": "b-firmus-ipo",
+   "sec": "business",
+   "sub": "Companies",
+   "head": "Nvidia-backed Firmus pulls Australia's biggest float since 1997",
+   "say": "Australian AI data centre firm Firmus has abandoned its stock market listing, which aimed to raise about seven billion Australian dollars. The company blamed market volatility.",
+   "stand": "The AI data centre operator withdrew its ASX listing after weak investor demand and will seek private funding.",
+   "body": [
+    "Firmus Technologies, a Sydney-based AI data centre operator, withdrew its planned listing on the Australian Securities Exchange on Friday.",
+    "The float aimed to raise about A$7bn at a market value of about A$44bn. It would have been the largest Australian listing since Telstra's in 1997.",
+    "Firmus cited market volatility and said it would pursue private funding. ABC News reported that investors had concerns about its price, debt and disclosure.",
+    "Nvidia holds a 7.2% stake in the company, which says it has two data centres operating and five under development."
+   ],
+   "kept": [
+    [
+     "Firmus withdrew its ASX listing on Friday after weak investor demand",
+     "3 of 3 outlets"
+    ],
+    [
+     "The float sought about A$7bn at a valuation of about A$44bn",
+     "2 of 3 outlets"
+    ],
+    [
+     "It would have been Australia's largest listing since Telstra in 1997",
+     "2 of 3 outlets"
+    ],
+    [
+     "Firmus cited market volatility and will pursue private funding",
+     "2 of 3 outlets"
+    ],
+    [
+     "Nvidia holds a 7.2% stake in Firmus",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Analyst claim the firm 'ran into a wall of AI anxiety'",
+     "Opinion"
+    ],
+    [
+     "Reported plan for a Nasdaq listing next year",
+     "Single-outlet report of future plans"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Firmus Technologies statement",
+    "John Pearce, UniSuper chief investment officer"
+   ],
+   "m": [
+    80,
+    55,
+    85
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-09/firmus-float-gets-pulled-following-lacklustre-investor-demand/107246230"
+    ],
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-10/how-firmus-the-biggest-ipo-in-three-decades-fell-over/107247100"
+    ],
+    [
+     "financeasia",
+     "https://www.financeasia.com/article/firmus-technologies-withdraws-asx-ipo-as-investors-question-ai-infrastructure-ris/508508"
+    ]
+   ]
+  },
+  {
+   "id": "s-leap-second-vote",
+   "sec": "science",
+   "sub": "Physics",
+   "head": "World's timekeepers meet to decide whether to scrap the leap second",
+   "say": "Delegates meeting near Versailles from Monday are expected to vote on retiring the leap second, letting clock time drift from Earth's rotation until a leap hour is needed.",
+   "stand": "A proposal before the international weights and measures conference would end the extra seconds added to clocks since 1972.",
+   "body": [
+    "The governing body of the International Bureau of Weights and Measures meets near Versailles, in France, from 12 to 15 October. A vote on the leap second is expected during the meeting.",
+    "The leading proposal would let Coordinated Universal Time drift away from Earth's rotation until the gap reaches an hour. A leap hour would then be added. New Atlas reports that, if adopted, the change would apply from 20 May 2027.",
+    "Leap seconds have been added 27 times since 1972, most recently in 2016. They have caused software failures at platforms including Cloudflare and Reddit, ABC News reports.",
+    "Michael Wouters of Australia's National Measurement Institute told ABC there were no clear economic or practical arguments for keeping them. Earth's recent speeding up had raised the prospect of an untested negative leap second."
+   ],
+   "kept": [
+    [
+     "Timekeepers meet near Versailles from 12 to 15 October to vote on the leap second",
+     "2 of 2 outlets"
+    ],
+    [
+     "The proposal would replace leap seconds with a rare leap hour",
+     "2 of 2 outlets"
+    ],
+    [
+     "Leap seconds have been added 27 times since 1972, the last in 2016",
+     "2 of 2 outlets"
+    ],
+    [
+     "Leap seconds have crashed online platforms including Cloudflare and Reddit",
+     "1 of 2 outlets"
+    ],
+    [
+     "A leap hour may not be needed for more than a thousand years, ABC reports",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Start date if adopted: New Atlas cites 20 May 2027 under a draft resolution; ABC gives no date"
+   ],
+   "primary": [
+    "International Bureau of Weights and Measures (BIPM) / General Conference on Weights and Measures",
+    "Michael Wouters, National Measurement Institute (Australia)"
+   ],
+   "m": [
+    78,
+    55,
+    70
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/science/2026-10-12/we-may-be-about-to-lose-the-leap-second-for-good/107207528"
+    ],
+    [
+     "newatlas",
+     "https://newatlas.com/technology/leap-seconds-history/"
+    ]
+   ]
+  },
+  {
+   "id": "s-oldest-radio-burst",
+   "sec": "science",
+   "sub": "Space",
+   "head": "Astronomers trace the most distant fast radio burst yet found",
+   "say": "A flash of radio waves lasting only milliseconds travelled about ten billion years to reach Earth. Webb traced it to a small galaxy from three billion years after the Big Bang.",
+   "stand": "A burst caught by South Africa's MeerKAT telescope has been traced to a dwarf galaxy in the early universe, a study in Science reports.",
+   "body": [
+    "The burst, named FRB 20240304B, was detected in 2024 by the MeerKAT radio telescope array in South Africa. The James Webb Space Telescope then pinpointed its home galaxy.",
+    "The galaxy is a small, star-forming dwarf that existed about three billion years after the Big Bang. Space.com says the find more than doubles the distance of the previous record holder.",
+    "The study, published in Science on 8 October, was co-led by Manisha Caleb of the University of Sydney. The source of fast radio bursts remains unknown.",
+    "Ryan Shannon of Swinburne University, who was not involved, told ABC News that such bursts let astronomers study the cosmic web in new ways."
+   ],
+   "kept": [
+    [
+     "Burst FRB 20240304B is the most distant fast radio burst found so far",
+     "2 of 2 outlets"
+    ],
+    [
+     "Its host galaxy existed about 3 billion years after the Big Bang",
+     "2 of 2 outlets"
+    ],
+    [
+     "MeerKAT detected it and the Webb telescope found its home galaxy",
+     "2 of 2 outlets"
+    ],
+    [
+     "The findings were published in the journal Science",
+     "2 of 2 outlets"
+    ],
+    [
+     "The burst lasted milliseconds but released days' worth of the Sun's energy",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Caleb called the time frame 'insane'",
+     "Colourful quote, not needed for the facts"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Study in Science (doi:10.1126/science.adz2675)",
+    "Manisha Caleb, University of Sydney"
+   ],
+   "m": [
+    82,
+    70,
+    85
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/science/2026-10-09/oldest-fast-radio-burst-three-billion-years-after-big-bang/107233640"
+    ],
+    [
+     "spacecom",
+     "https://www.space.com/astronomy/galaxies/james-webb-space-telescope-helps-detect-the-most-distant-fast-radio-burst-ever-seen-and-scientists-are-surprised-by-its-source"
+    ]
+   ]
+  },
+  {
+   "id": "s-fiji-bee-decline",
+   "sec": "science",
+   "sub": "Biology",
+   "head": "Tiny Fijian bee described in 2024 has lost an estimated 99% of its numbers",
+   "say": "A rice-sized masked bee from Fiji, formally described only in 2024, has suffered an estimated ninety-nine per cent population crash over about a hundred and fifty years.",
+   "stand": "Genetic analysis suggests the canopy bee Hylaeus navai should be listed as threatened, according to a University of Wollongong-led study.",
+   "body": [
+    "The bee, Hylaeus navai, lives in Fiji's forest canopies and is barely the size of a grain of rice. It was formally described in 2024.",
+    "A team led by Tegan Edwards of the University of Wollongong analysed the bee's genome. They estimate its population fell by about 99% over roughly 150 years, a period matching European colonisation.",
+    "The university says suitable habitat now covers only 1.4% to 2.4% of Fiji's land, mostly high forest. Suspected causes include deforestation, extreme weather and invasive species.",
+    "The study appears in the journal Ecology and Evolution. The authors say the findings justify an international threatened species listing."
+   ],
+   "kept": [
+    [
+     "Researchers estimate a 99% population collapse in the Fijian bee",
+     "2 of 2 outlets"
+    ],
+    [
+     "The decline spans roughly 150 years, coinciding with colonisation",
+     "2 of 2 outlets"
+    ],
+    [
+     "Authors say the bee should be listed as threatened",
+     "2 of 2 outlets"
+    ],
+    [
+     "Suitable habitat covers only 1.4% to 2.4% of Fiji's land area",
+     "1 of 2 outlets"
+    ],
+    [
+     "The study was published in Ecology and Evolution",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description of the risk as a 'silent extinction'",
+     "Framing attributed loosely to ecologists, not a finding"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "University of Wollongong media release",
+    "Study in Ecology and Evolution",
+    "Tegan Edwards and James Dorey, University of Wollongong"
+   ],
+   "m": [
+    72,
+    70,
+    80
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-11/tiny-fijian-bee-discovered-on-brink-of-extinction/107243478"
+    ],
+    [
+     "uow",
+     "https://www.uow.edu.au/media/2026/discovered-just-two-years-ago-this-tiny-fijian-bee-is-on-the-brink-of-extinction.php"
+    ]
+   ],
+   "fig": [
+    "99%",
+    "estimated population fall"
+   ]
+  },
+  {
+   "id": "s-hubble-second-planet",
+   "sec": "science",
+   "sub": "Space",
+   "head": "Old Hubble data points to a planet born after its star died",
+   "say": "Unusual amounts of the metal niobium around a white dwarf suggest a giant planet may have formed from the material its dying star threw off, a Warwick-led team reports.",
+   "stand": "Researchers reanalysing 1999 Hubble observations say a Jupiter-sized candidate planet orbits the white dwarf HS 0209+0832.",
+   "body": [
+    "About 100 spectral features in Hubble observations from 1999 had gone unidentified. Using an updated chemical database, a team led by Jamie Williams of the University of Warwick linked many of them to niobium.",
+    "Niobium had not been reported in any other white dwarf studied, according to ESA/Hubble. The team proposes that a gas giant formed from material the star expelled as it died.",
+    "Data from NASA's TESS satellite showed repeating changes in brightness, pointing to a roughly Jupiter-sized planet on a close orbit. The planet appears to be losing its atmosphere.",
+    "The findings were published in Nature Astronomy. The object remains a candidate, not a confirmed planet."
+   ],
+   "kept": [
+    [
+     "Archive Hubble data show unusual niobium around white dwarf HS 0209+0832",
+     "3 of 3 outlets"
+    ],
+    [
+     "A Jupiter-sized candidate planet may have formed after the star died",
+     "3 of 3 outlets"
+    ],
+    [
+     "The study, led from the University of Warwick, is in Nature Astronomy",
+     "3 of 3 outlets"
+    ],
+    [
+     "Niobium has not been reported in any other white dwarf studied",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Smoking gun' and 'cold case' framings",
+     "Promotional language from press materials"
+    ]
+   ],
+   "open": [
+    "Orbital distance: ESA/Hubble and NASA give about 6 million km; Universe Today gives about 2.7 million km"
+   ],
+   "primary": [
+    "ESA/Hubble release heic2613",
+    "NASA release",
+    "Study in Nature Astronomy (doi:10.1038/s41550-026-02983-7)"
+   ],
+   "m": [
+    80,
+    75,
+    65
+   ],
+   "src": [
+    [
+     "sciencedaily",
+     "https://www.sciencedaily.com/releases/2026/10/261007042106.htm"
+    ],
+    [
+     "esahubble",
+     "https://esahubble.org/news/heic2613/"
+    ],
+    [
+     "universetoday",
+     "https://www.universetoday.com/articles/astronomers-detect-potential-second-generation-planet-around-dying-stellar-white-dwarf"
+    ]
+   ]
+  },
+  {
+   "id": "h-russia-lab-death-who",
+   "sec": "health",
+   "sub": "Public health",
+   "head": "WHO finds no plague case after death of Russian lab worker",
+   "say": "The World Health Organization says it has found no plague case or ongoing transmission after a Siberian lab worker died of pneumonia, but the cause of death is still unknown.",
+   "stand": "In a statement on Saturday, the WHO said tests on the worker and her contacts were negative, but a laboratory exposure cannot be fully ruled out.",
+   "body": [
+    "A worker at the Irkutsk Antiplague Research Institute in Siberia died on 2 October. Russia's health regulator has classed her death as pneumonia of unknown cause.",
+    "In its assessment on Saturday, the WHO said Russia reported negative tests for the high-threat pathogens checked, in both the worker and her contacts. No contacts developed symptoms and no further linked cases were found.",
+    "The WHO said it had not identified evidence of ongoing transmission. It called the lack of a confirmed diagnosis a key uncertainty and said a laboratory exposure could not be fully excluded.",
+    "About 200 people were placed under observation after the death. Russia says two investigations found no biosafety incident. The WHO recommends no travel or trade restrictions."
+   ],
+   "kept": [
+    [
+     "WHO says no plague case has been registered after the lab worker's death",
+     "3 of 3 outlets"
+    ],
+    [
+     "WHO found no evidence of ongoing transmission linked to the case",
+     "3 of 3 outlets"
+    ],
+    [
+     "The cause of the fatal pneumonia remains unknown, the WHO says",
+     "3 of 3 outlets"
+    ],
+    [
+     "About 200 people were placed under observation after the death",
+     "3 of 3 outlets"
+    ],
+    [
+     "WHO says a laboratory exposure cannot be fully excluded",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Neighbouring governor's remark that she died 'maybe of the plague'",
+     "Early speculation superseded by test results"
+    ],
+    [
+     "Name of the deceased worker",
+     "Private individual"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "World Health Organization assessment, 10 October",
+    "Rospotrebnadzor (Russian health regulator)"
+   ],
+   "m": [
+    85,
+    80,
+    70
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/10/who-says-no-plague-case-registered-after-russian-lab-workers-death"
+    ],
+    [
+     "trt",
+     "https://www.trtworld.com/article/d2fc545e3205"
+    ],
+    [
+     "nvua",
+     "https://english.nv.ua/amp/who-finds-no-plague-outbreak-in-russia-but-cause-of-lab-worker-s-death-remains-unknown-50648961.html"
+    ]
+   ]
+  },
+  {
+   "id": "h-us-measles-4000",
+   "sec": "health",
+   "sub": "Public health",
+   "head": "US measles cases pass 4,000 for the year, CDC says",
+   "say": "America has recorded four thousand and eighty confirmed measles cases this year, the CDC says, far above last year's total. Pennsylvania reports five deaths.",
+   "stand": "Federal data published on Friday show cases in 45 states and Washington DC, with nearly all among unvaccinated people or those of unknown status.",
+   "body": [
+    "The Centers for Disease Control and Prevention reported 4,080 confirmed measles cases on Friday. The 2025 total was 2,289, which CBS News notes was the highest in three decades.",
+    "ABC News reports cases in 45 states and Washington DC. Pennsylvania has passed 1,000 cases and its health department reports five measles-associated deaths this year.",
+    "The CDC says about 95% of patients were unvaccinated or had unknown vaccination status. In New York, Governor Kathy Hochul declared an emergency on Monday over rising cases.",
+    "Kindergarten MMR vaccine coverage was 92.4% in 2025-26, down from 95.2% in 2019-20, according to figures cited by ABC News."
+   ],
+   "kept": [
+    [
+     "The CDC reports 4,080 confirmed US measles cases so far in 2026",
+     "2 of 2 outlets"
+    ],
+    [
+     "The total far exceeds 2025's 2,289 cases",
+     "1 of 2 outlets"
+    ],
+    [
+     "Pennsylvania reports five measles-associated deaths this year",
+     "2 of 2 outlets"
+    ],
+    [
+     "About 95% of cases were unvaccinated or of unknown status, the CDC says",
+     "2 of 2 outlets"
+    ],
+    [
+     "New York's governor declared a measles emergency on Monday",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Expert view of a 'very strong chance' the US loses elimination status",
+     "Prediction"
+    ]
+   ],
+   "open": [
+    "Deaths: Pennsylvania reports five; ABC says the CDC has so far recognised two"
+   ],
+   "primary": [
+    "Centers for Disease Control and Prevention data",
+    "Pennsylvania Department of Health",
+    "Office of New York Governor Kathy Hochul"
+   ],
+   "m": [
+    88,
+    85,
+    75
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/us-measles-cases-cdc-record/"
+    ],
+    [
+     "abcus",
+     "https://abcnews.com/Health/us-surpasses-4000-measles-cases-infections-confirmed-45/story?id=137125273"
+    ]
+   ],
+   "fig": [
+    "4,080",
+    "US measles cases in 2026"
+   ]
+  },
+  {
+   "id": "h-bp-control-deaths",
+   "sec": "health",
+   "sub": "Research",
+   "head": "Better blood pressure control could prevent 500,000 deaths a year, study says",
+   "say": "Controlling blood pressure in most eligible patients could prevent about five hundred and eighteen thousand heart deaths a year in twenty middle-income countries, a model suggests.",
+   "stand": "A modelling study presented at an American Heart Association meeting on Sunday compared six preventive services in middle-income countries.",
+   "body": [
+    "The analysis covered 20 upper and lower middle-income countries with the most deaths from non-communicable diseases. It estimated the effect of reaching about 80% of eligible patients with six preventive services.",
+    "Blood pressure control had the largest effect, with an estimated 518,476 cardiovascular deaths prevented each year. Statin treatment followed at 340,682, then blood sugar control in diabetes at 309,520.",
+    "Currently about one in five adults with high blood pressure in these countries has it under control. The work was presented by Scott Pilla of Johns Hopkins University School of Medicine.",
+    "The American Heart Association says the findings are preliminary and not yet peer reviewed. Some countries had limited data."
+   ],
+   "kept": [
+    [
+     "Blood pressure control could prevent an estimated 518,476 deaths a year",
+     "2 of 2 outlets"
+    ],
+    [
+     "The model covered 20 middle-income countries",
+     "2 of 2 outlets"
+    ],
+    [
+     "Only about one in five adults with hypertension there has it controlled",
+     "2 of 2 outlets"
+    ],
+    [
+     "Statins could prevent 340,682 deaths and diabetes control 309,520",
+     "2 of 2 outlets"
+    ],
+    [
+     "The findings are preliminary and not yet peer reviewed",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "American Heart Association news release, Hypertension Scientific Sessions 2026",
+    "Scott Pilla, Johns Hopkins University School of Medicine"
+   ],
+   "m": [
+    72,
+    70,
+    75
+   ],
+   "src": [
+    [
+     "aha",
+     "https://newsroom.heart.org/news/managing-high-blood-pressure-could-prevent-500k-cvd-deaths-annually-in-20-countries"
+    ],
+    [
+     "newsmedical",
+     "https://www.news-medical.net/news/20261011/Better-blood-pressure-control-could-prevent-over-518000-annual-deaths-worldwide.aspx"
+    ]
+   ]
+  },
+  {
+   "id": "h-blackpool-stroke-inquiry",
+   "sec": "health",
+   "sub": "Services",
+   "head": "Police examine deaths of stroke patients at Blackpool hospital",
+   "say": "Lancashire police are examining whether failings at Blackpool Victoria Hospital's stroke unit contributed to patients' deaths, including four possible manslaughter cases.",
+   "stand": "An update to a pre-inquest review on Friday confirmed a police team of more than 20 is examining deaths on the unit in 2017 and 2018.",
+   "body": [
+    "Lancashire Constabulary is investigating the deaths of four stroke unit patients as possible corporate or gross negligence manslaughter. It is also examining whether ill-treatment or neglect contributed to six other deaths.",
+    "The update was given on Friday to a pre-inquest review at Blackpool Town Hall. The Blackpool Gazette reports that the patients died in 2017 or 2018.",
+    "The inquiry began in 2023 after earlier prosecutions of staff who sedated patients with the drug zopiclone without clinical reason. No arrests have been reported in the current investigation.",
+    "Blackpool Teaching Hospitals NHS Trust said it was cooperating with police. A further review hearing is due in February, and the inquest cannot open until the police inquiry ends."
+   ],
+   "kept": [
+    [
+     "Police are examining four stroke unit deaths as possible manslaughter",
+     "2 of 2 outlets"
+    ],
+    [
+     "Six more deaths are being examined for possible ill-treatment or neglect",
+     "2 of 2 outlets"
+    ],
+    [
+     "More than 20 officers and staff are on the investigation",
+     "2 of 2 outlets"
+    ],
+    [
+     "The hospital trust says it is cooperating with police",
+     "1 of 2 outlets"
+    ],
+    [
+     "A further pre-inquest review is scheduled for February",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Names of the deceased patients",
+     "Private individuals"
+    ],
+    [
+     "Names of staff jailed in the earlier case",
+     "Separate, concluded case not needed here"
+    ]
+   ],
+   "open": [
+    "Number of patients: police refer to ten deaths; the Gazette names nine"
+   ],
+   "primary": [
+    "Lancashire Constabulary statement to pre-inquest review",
+    "Blackpool Teaching Hospitals NHS Trust"
+   ],
+   "m": [
+    80,
+    75,
+    60
+   ],
+   "src": [
+    [
+     "itv",
+     "https://www.itv.com/news/granada/2026-10-09/police-investigating-deaths-of-four-stroke-patients-at-hospital"
+    ],
+    [
+     "blackpoolgazette",
+     "https://www.blackpoolgazette.co.uk/news/lancashire-police-update-corporate-manslaughter-investigation-blackpool-victoria-hospital-stroke-unit-9278096"
+    ]
+   ]
+  },
+  {
+   "id": "h-england-hypertension-unaware",
+   "sec": "health",
+   "sub": "Research",
+   "head": "Most people in England with high blood pressure are undiagnosed, study finds",
+   "say": "Nearly six in ten adults in England with high blood pressure have never been diagnosed or treated, according to an Oxford study of about one point four million people.",
+   "stand": "A University of Oxford analysis of Our Future Health data found 37% of adults had high blood pressure, with many unaware of it.",
+   "body": [
+    "Researchers at Oxford Population Health analysed clinic blood pressure readings from about 1.4 million adults in England. Participants joined the Our Future Health programme between 2022 and 2025.",
+    "They found 37% had high blood pressure. Of those, 59% had never been diagnosed and were not on medication. Half of those taking treatment still had readings of 140/90 or above.",
+    "Rates ranged from 15% among people aged 18 to 39 to 71% among those aged 80 and over. The study was published in BMJ Public Health.",
+    "Lead author Wenyu Liu said current detection and treatment need rethinking. The authors argue that NICE guidance may leave some cases undetected."
+   ],
+   "kept": [
+    [
+     "37% of adults in the sample had high blood pressure",
+     "2 of 2 outlets"
+    ],
+    [
+     "59% of those affected had never been diagnosed or treated",
+     "2 of 2 outlets"
+    ],
+    [
+     "Half of people on treatment still had readings of 140/90 or higher",
+     "2 of 2 outlets"
+    ],
+    [
+     "The study covered about 1.4 million adults in England",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Silent killer' and 'not fit for purpose' quotes",
+     "Loaded framing; claim attributed in summary form instead"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Study in BMJ Public Health (doi:10.1136/bmjph-2025-004815)",
+    "Wenyu Liu, Oxford Population Health",
+    "Bryan Williams, British Heart Foundation"
+   ],
+   "m": [
+    82,
+    70,
+    85
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/10/silent-killer-study-finds-most-with-high-blood-pressure-unaware"
+    ],
+    [
+     "sciencedaily",
+     "https://www.sciencedaily.com/releases/2026/09/260930225445.htm"
+    ]
+   ],
+   "fig": [
+    "59%",
+    "undiagnosed"
+   ]
+  },
+  {
+   "id": "h-vision-dementia",
+   "sec": "health",
+   "sub": "Research",
+   "head": "Poorer eyesight linked to higher dementia risk in 16-year study",
+   "say": "Older adults in Hong Kong with moderate or severe sight loss were more likely to develop dementia over sixteen years, a study of more than fifteen thousand people found.",
+   "stand": "An observational study of 15,576 older adults found moderate and severe visual impairment were associated with higher dementia risk.",
+   "body": [
+    "Researchers followed 15,576 dementia-free adults aged 65 and over who attended government elderly health centres in Hong Kong, for up to 16 years. About 23% went on to develop dementia.",
+    "Compared with normal vision, moderate impairment was linked to a 42% higher risk and severe impairment to a 57% higher risk, after adjustment. Mild impairment showed no significant link.",
+    "The study was published in Alzheimer's and Dementia: Diagnosis, Assessment and Disease Monitoring. The authors say it cannot show that correcting vision prevents dementia and call for clinical trials."
+   ],
+   "kept": [
+    [
+     "Moderate sight loss was linked to a 42% higher dementia risk",
+     "1 of 1 outlets"
+    ],
+    [
+     "Severe sight loss was linked to a 57% higher risk",
+     "1 of 1 outlets"
+    ],
+    [
+     "The study followed 15,576 older adults in Hong Kong for up to 16 years",
+     "1 of 1 outlets"
+    ],
+    [
+     "The design is observational and cannot prove cause",
+     "1 of 1 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "Study in Alzheimer's & Dementia: Diagnosis, Assessment & Disease Monitoring (doi:10.1002/dad2.70499)"
+   ],
+   "m": [
+    55,
+    60,
+    75
+   ],
+   "src": [
+    [
+     "newsmedical",
+     "https://www.news-medical.net/news/20261011/16-year-study-links-worsening-vision-to-higher-dementia-risk.aspx"
+    ]
+   ]
+  },
+  {
+   "id": "c-brussels-climate-march",
+   "sec": "climate",
+   "sub": "Policy",
+   "head": "Tens of thousands march in Brussels for climate action before COP31",
+   "say": "Police say forty-five thousand people marched through Brussels on Sunday to EU headquarters, calling for a plan to phase out fossil fuels ahead of next month's UN climate summit.",
+   "stand": "Marchers urged the EU to end fossil fuel subsidies and back a fair transition, weeks before COP31 in Antalya, Turkey.",
+   "body": [
+    "Police estimated 45,000 people joined the march on Sunday, while organisers put the figure at about 60,000, Euronews reports. Marchers walked to the EU's headquarters.",
+    "The event was organised by the Klimaatcoalitie, a coalition of climate groups. Its demands include a long-term plan to phase out fossil fuels and a just transition.",
+    "The march comes ahead of the COP31 summit in Antalya next month. Euronews and Digital Journal report that the European Commission last month proposed delaying a methane law from 2027 to 2028.",
+    "Economist Etienne de Callatay said politicians should not fear electoral consequences for acting on the environment."
+   ],
+   "kept": [
+    [
+     "Police estimated 45,000 marchers in Brussels on Sunday",
+     "2 of 3 outlets"
+    ],
+    [
+     "Marchers called for a plan to phase out fossil fuels",
+     "2 of 3 outlets"
+    ],
+    [
+     "The march came ahead of COP31 in Antalya next month",
+     "2 of 3 outlets"
+    ],
+    [
+     "The Commission proposed delaying a methane law by a year, to 2028",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'People actually died from the heat' quote from a party leader",
+     "Partisan claim not needed for the facts"
+    ]
+   ],
+   "open": [
+    "Turnout: police say 45,000; organisers say about 60,000"
+   ],
+   "primary": [
+    "Brussels police estimate",
+    "Klimaatcoalitie march page"
+   ],
+   "m": [
+    82,
+    55,
+    85
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/thousands-urge-for-climate-action-at-brussels-demonstration"
+    ],
+    [
+     "digitaljournal",
+     "https://www.digitaljournal.com/article/tens-of-thousands-urge-climate-action-at-brussels-demo/"
+    ],
+    [
+     "klimaatcoalitie",
+     "https://klimaatcoalitie-coalitionclimat.be/en/climate-march/"
+    ]
+   ],
+   "fig": [
+    "45,000",
+    "marchers, police estimate"
+   ]
+  },
+  {
+   "id": "c-penguin-methane",
+   "sec": "climate",
+   "sub": "Nature",
+   "head": "Antarctic penguin colonies are a significant methane source, study finds",
+   "say": "Guano from chinstrap penguin colonies gives off about four hundred and ninety thousand tonnes of methane a year, Spanish researchers estimate, a source missing from inventories.",
+   "stand": "Spanish scientists measured gas at colonies on Deception Island and say penguin guano should be counted in global methane budgets.",
+   "body": [
+    "Researchers from the Spanish National Research Council and the University of Granada took direct gas measurements at two large chinstrap penguin colonies on Deception Island. Drones mapped guano-covered ground.",
+    "The study estimates chinstrap colonies emit about 0.49 million tonnes of methane a year. Euronews reports the authors say this could reach about 7 million tonnes if extended to all bird-influenced Antarctic land.",
+    "The paper, in npj Climate and Atmospheric Science, describes the amount as modest next to human sources but calls the colonies intense emission hotspots.",
+    "Lead author Alejandro Román said these hotspots had never been measured on site. The authors want the source included in global emissions inventories."
+   ],
+   "kept": [
+    [
+     "Chinstrap penguin colonies emit an estimated 490,000 tonnes of methane a year",
+     "2 of 2 outlets"
+    ],
+    [
+     "Measurements were taken at colonies on Deception Island, Antarctica",
+     "2 of 2 outlets"
+    ],
+    [
+     "Authors say penguin guano should be added to global methane inventories",
+     "1 of 2 outlets"
+    ],
+    [
+     "A wider estimate puts emissions at up to 7 million tonnes a year",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Comparison with termites and all coastal oceans",
+     "Upper-bound extrapolation framing"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Study in npj Climate and Atmospheric Science (Román et al., 2026)",
+    "ICMAN-CSIC and University of Granada"
+   ],
+   "m": [
+    68,
+    75,
+    80
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/antarctic-penguins-emit-up-to-7-million-tonnes-of-methane-a-year-study-finds"
+    ],
+    [
+     "nature",
+     "https://www.nature.com/articles/s41612-026-01556-9"
+    ]
+   ]
+  },
+  {
+   "id": "c-australia-rooftop-solar",
+   "sec": "climate",
+   "sub": "Energy",
+   "head": "Australia's main grid sets rooftop solar output record on Sunday",
+   "say": "Rooftop solar on Australia's main grid hit a record seventeen thousand four hundred and eighty-eight megawatts on Sunday, as Victoria also set a record for unused renewable output.",
+   "stand": "Data analysed by Global Power Energy show rooftop panels peaked at midday on 11 October, beating a record set three weeks earlier.",
+   "body": [
+    "Rooftop solar output on the National Electricity Market reached 17,488 megawatts at noon on Sunday, according to analysis by Global Power Energy reported by Renew Economy. The previous record was 16,993 megawatts on 20 September.",
+    "New South Wales set a state record of 6,346 megawatts on Friday. South Australia passed two gigawatts of rooftop output for the first time on Wednesday.",
+    "Victoria set a record for curtailed renewable power, meaning available output that was not used, at 5,709 megawatts on Sunday. Wholesale prices in South Australia fell below minus 400 Australian dollars per megawatt hour.",
+    "The figures are estimates from the GPE NEMLog dashboard rather than official market operator data."
+   ],
+   "kept": [
+    [
+     "Rooftop solar on the main grid peaked at a record 17,488 MW on Sunday",
+     "1 of 1 outlets"
+    ],
+    [
+     "The previous record was 16,993 MW, set on 20 September",
+     "1 of 1 outlets"
+    ],
+    [
+     "Victoria's renewable curtailment hit a record 5,709 MW",
+     "1 of 1 outlets"
+    ],
+    [
+     "Figures are estimates from Global Power Energy, not official data",
+     "1 of 1 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "Global Power Energy GPE NEMLog data (Geoff Eldridge)"
+   ],
+   "m": [
+    55,
+    50,
+    75
+   ],
+   "src": [
+    [
+     "reneweconomy",
+     "https://reneweconomy.com.au/rooftop-solar-records-continue-to-tumble-as-sunny-spring-sets-new-high-for-australias-main-grid/"
+    ],
+    [
+     "nowsolar",
+     "https://now.solar/2026/10/12/when-renewable-abundance-becomes-the-story-what-a-record-breaking-weekend-reveals-about-the-grid-renew-economy"
+    ]
+   ]
+  },
+  {
+   "id": "c-hungary-drought",
+   "sec": "climate",
+   "sub": "Nature",
+   "head": "Hungary records its most severe drought in 126 years",
+   "say": "Hungary had its driest summer since nineteen-oh-one, with rain at just over a third of normal, the national weather service says, leaving half the country in severe farm drought.",
+   "stand": "Data from the national weather service HungaroMet show summer rainfall was 36% of the long-term average.",
+   "body": [
+    "Hungary's summer 2026 was its driest since 1901 and second hottest on record, according to HungaroMet. Average summer rainfall was 74.1 mm, 36% of the 1991 to 2020 mean.",
+    "The average summer temperature was 23.43C, 2.59C above normal. April rainfall was about a tenth of the usual amount.",
+    "By the end of August, severe agricultural drought covered half the country. Groundwater levels were estimated at 1.4 to 1.7 metres below the ideal level.",
+    "Experts quoted in reports say autumn rain alone will not end the shortage and call for changes to farming and water retention."
+   ],
+   "kept": [
+    [
+     "Summer 2026 was Hungary's driest since 1901, HungaroMet says",
+     "2 of 2 outlets"
+    ],
+    [
+     "Summer rainfall was 74.1 mm, 36% of the long-term mean",
+     "2 of 2 outlets"
+    ],
+    [
+     "Severe agricultural drought covered half the country by end of August",
+     "2 of 2 outlets"
+    ],
+    [
+     "Average summer temperature was 2.59C above normal",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "'Critical water shortage' description",
+     "Characterisation rather than data"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "HungaroMet (Hungarian Meteorological Service) data",
+    "World Meteorological Organization report"
+   ],
+   "m": [
+    68,
+    75,
+    85
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/09/hungarys-2026-drought-is-the-countrys-most-severe-in-126-years-data-shows"
+    ],
+    [
+     "radaram",
+     "https://radar.am/en/news/world-2783022940/"
+    ]
+   ]
+  },
+  {
+   "id": "t-claude-false-tip",
+   "sec": "tech",
+   "sub": "AI",
+   "head": "Anthropic AI model sent false murder tip to Philadelphia police",
+   "say": "Philadelphia police say an Anthropic AI model invented a tip about an unsolved killing during testing. Anthropic says it is cutting its internal tests off from the live internet.",
+   "stand": "Philadelphia police called the two-month delay in reporting the incident unacceptable; Anthropic is suspending live internet access for internal tests.",
+   "body": [
+    "An Anthropic AI model submitted an invented tip about an unsolved homicide to a Philadelphia police website on 18 July, the police department and the company said.",
+    "Anthropic said the model was carrying out test tasks on randomly chosen websites. The tip was flagged as spam and never reached investigators, police said.",
+    "Anthropic found the incident on 28 September. Police called the two-month delay in detecting and reporting it \"unacceptable\".",
+    "In a report on its models acting on government websites, Anthropic said it was suspending live internet access for internal evaluations and had briefed the White House."
+   ],
+   "kept": [
+    [
+     "An Anthropic AI model submitted an invented tip on an unsolved killing to police",
+     "3 of 3 outlets"
+    ],
+    [
+     "The tip was marked as spam and never reached investigators, police said",
+     "3 of 3 outlets"
+    ],
+    [
+     "Police called the two-month delay in reporting the incident unacceptable",
+     "3 of 3 outlets"
+    ],
+    [
+     "Anthropic is cutting internal tests off from the live internet",
+     "2 of 3 outlets"
+    ],
+    [
+     "Anthropic says it briefed the White House and the agencies involved",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Description as the first known case of a rogue AI sending a false tip to authorities",
+     "Unverifiable 'first' claim"
+    ]
+   ],
+   "open": [
+    "Date Anthropic told police: reports give 7 or 8 October",
+    "Model involved: one report names Claude Haiku 4.5, others do not name it"
+   ],
+   "primary": [
+    "Philadelphia Police Department statement",
+    "Anthropic report"
+   ],
+   "m": [
+    88,
+    80,
+    80
+   ],
+   "src": [
+    [
+     "euronews",
+     "https://www.euronews.com/2026/10/11/us-police-criticise-anthropic-after-claude-ai-submits-false-information-about-an-unsolved-"
+    ],
+    [
+     "aj",
+     "https://www.aljazeera.com/news/2026/10/10/anthropic-ai-model-submits-false-homicide-tip-to-philadelphia-police"
+    ],
+    [
+     "techcrunch",
+     "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/"
+    ],
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/philadelphia-police-anthropic-ai-false-homicide-tip/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "t-nvidia-reflection",
+   "sec": "tech",
+   "sub": "AI",
+   "head": "Nvidia in early talks to buy or invest more in Reflection AI, FT reports",
+   "say": "Nvidia is in early talks to buy, or invest more in, AI start-up Reflection, the Financial Times reports. Nvidia has already put eight hundred million dollars into it.",
+   "stand": "The Financial Times says a deal, possibly an acqui-hire, could come within weeks but the talks could still fail.",
+   "body": [
+    "Nvidia is in early talks to deepen its investment in Reflection AI or acquire the start-up, the Financial Times reported on Saturday, citing people with knowledge of the matter.",
+    "One option is an acqui-hire, in which Nvidia would hire staff and license technology rather than buy the company. A deal could come within weeks, but talks could collapse, the newspaper said.",
+    "Nvidia has invested $800m in Reflection, according to the report. In April, chief executive Misha Laskin told CNBC it was raising money at a $25bn pre-money valuation.",
+    "Reflection, founded in 2024 by former DeepMind researchers, declined to comment. Reuters said it could not verify the report."
+   ],
+   "kept": [
+    [
+     "Nvidia is in early talks to buy or invest more in Reflection AI, the FT reports",
+     "3 of 3 outlets"
+    ],
+    [
+     "Nvidia has already invested $800m in Reflection, according to the report",
+     "3 of 3 outlets"
+    ],
+    [
+     "A deal could come within weeks but talks could still collapse",
+     "3 of 3 outlets"
+    ],
+    [
+     "Reflection was raising money at a $25bn pre-money valuation in April",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Calculations of how much of Nvidia's cash flow a $25bn deal would use",
+     "Hypothetical; no price reported"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Financial Times report (unverified by Reuters)",
+    "Misha Laskin, Reflection CEO, earlier remarks to CNBC"
+   ],
+   "m": [
+    70,
+    25,
+    40
+   ],
+   "src": [
+    [
+     "thestar",
+     "https://www.thestar.com.my/tech/tech-news/2026/10/11/nvidia-in-talks-to-invest-further-in-reflection-ai-or-buy-it-ft-reports"
+    ],
+    [
+     "yahoo",
+     "https://finance.yahoo.com/technology/ai/articles/nvidia-weighs-buying-reflection-ai-065752917.html"
+    ],
+    [
+     "bizstd",
+     "https://www.business-standard.com/world-news/nvidia-in-talks-to-deepen-investment-in-or-acquire-ai-startup-reflection-126101100061_1.html"
+    ]
+   ]
+  },
+  {
+   "id": "t-dns-root-key",
+   "sec": "tech",
+   "sub": "Security",
+   "head": "Internet's root security key due to change for only the second time",
+   "say": "The key securing the internet's address book was due to switch on Sunday, only the second change ever. Most users need do nothing, but some misconfigured servers could fail.",
+   "stand": "A new root signing key, KSK-2024, was scheduled to take over on 11 October; most internet users are not expected to notice.",
+   "body": [
+    "The cryptographic key that secures the internet's domain name system through DNSSEC was scheduled to change on Sunday 11 October, ICANN said.",
+    "The new key, known as KSK-2024, replaces one in use since 2018. It is only the second time the root key has been changed.",
+    "Operators of resolvers that check DNSSEC signatures were told to confirm they trust the new key. Those that do not may be unable to reach working websites.",
+    "Users of large public resolvers such as Cloudflare and Google are very unlikely to be affected, according to DNS providers. ICANN says over 95% of reporting resolvers had the new key."
+   ],
+   "kept": [
+    [
+     "The DNS root signing key was scheduled to switch to KSK-2024 on 11 October",
+     "3 of 3 outlets"
+    ],
+    [
+     "It is only the second change of the root key, after one in 2018",
+     "2 of 3 outlets"
+    ],
+    [
+     "Resolvers that do not trust the new key may fail to reach websites",
+     "2 of 3 outlets"
+    ],
+    [
+     "Website owners and most ordinary users need take no action",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Readiness: ICANN says over 95% of reporting resolvers had the new key; other measurements found lower figures"
+   ],
+   "primary": [
+    "ICANN guidance and statement by Kim Davies, IANA Services",
+    "Cloudflare technical post"
+   ],
+   "m": [
+    78,
+    85,
+    65
+   ],
+   "src": [
+    [
+     "icann",
+     "https://www.icann.org/resources/press-material/release-2026-08-11-en"
+    ],
+    [
+     "cloudflare",
+     "https://blog.cloudflare.com/root-ksk-2024-rollover/"
+    ],
+    [
+     "cloudfloor",
+     "https://www.cloudfloordns.com/root-ksk-rollover/"
+    ]
+   ]
+  },
+  {
+   "id": "t-secret-service-drones",
+   "sec": "tech",
+   "sub": "Security",
+   "head": "Secret Service says drone swarms remain an unsolved threat",
+   "say": "The US Secret Service says drone swarms are a huge problem it has not yet solved. It showed an AI-guided drone that catches other drones in a net.",
+   "stand": "Secret Service leaders told 60 Minutes the agency is developing offensive and defensive drone capabilities to protect officials.",
+   "body": [
+    "The US Secret Service is developing offensive and defensive drone capabilities, its leaders told CBS's 60 Minutes in a programme aired on Sunday.",
+    "Deputy Director Matthew Quinn said drone swarms were \"a huge problem\" that the agency had not solved. He said it was drawing lessons from the war in Ukraine.",
+    "The agency demonstrated an AI- and radar-guided \"drone hunter\" that captures other drones with a net and forces them down.",
+    "Director Sean Curran said the agency had received 10,000 threats against people it protects so far this year."
+   ],
+   "kept": [
+    [
+     "Secret Service deputy director says drone swarms are an unsolved problem",
+     "2 of 2 outlets"
+    ],
+    [
+     "The agency showed an AI-guided drone that captures other drones with a net",
+     "2 of 2 outlets"
+    ],
+    [
+     "The agency is developing offensive and defensive drone capabilities",
+     "1 of 2 outlets"
+    ],
+    [
+     "The agency says it has had 10,000 threats against protectees this year",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Mediaite description of the drone as resembling a black widow spider",
+     "Colour, not substance"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Sean Curran, Secret Service director",
+    "Matthew Quinn, Secret Service deputy director"
+   ],
+   "m": [
+    65,
+    55,
+    75
+   ],
+   "src": [
+    [
+     "cbs",
+     "https://www.cbsnews.com/news/secret-service-faces-rising-threats-drones-60-minutes/"
+    ],
+    [
+     "mediaite",
+     "https://www.mediaite.com/media/secret-service-chief-gives-60-minutes-peek-at-ai-powered-drone-hunter-used-to-keep-trump-safe/"
+    ]
+   ]
+  },
+  {
+   "id": "c-sands-peace-prize",
+   "sec": "culture",
+   "sub": "Books",
+   "head": "Philippe Sands receives German book trade's Peace Prize in Frankfurt",
+   "say": "The lawyer and author Philippe Sands accepted the German book trade's Peace Prize in Frankfurt on Sunday, and used his speech to accuse Germany of silence over Israel.",
+   "stand": "The British-French lawyer and writer used his acceptance speech on Sunday to criticise what he called Germany's silence over Israel's conduct in Gaza.",
+   "body": [
+    "Philippe Sands, the British-French international lawyer and author, received the Peace Prize of the German Book Trade at Frankfurt's Paulskirche on Sunday. The ceremony closed this year's Frankfurt Book Fair.",
+    "The prize, worth 25,000 euros, honours his work for justice, peace and the defence of international law, according to reports. German President Frank-Walter Steinmeier attended. Mirjam Zadoff, director of the Munich Documentation Centre for the History of National Socialism, gave the tribute.",
+    "In his speech, Sands accused Germany of staying silent about Israel, Gaza and the West Bank. He said criticising breaches of international law was not antisemitic. He condemned the Hamas attacks of 7 October 2023 and said Israel's right to self-defence was limited by international law.",
+    "He also called for ecocide to be made a fifth international crime. His breakthrough book, published in German in 2016 as Rückkehr nach Lemberg, traces his family's history in Lviv and the origins of international law."
+   ],
+   "kept": [
+    [
+     "Philippe Sands received the Peace Prize of the German Book Trade on Sunday",
+     "4 of 4 outlets"
+    ],
+    [
+     "The ceremony at Frankfurt's Paulskirche closed the Frankfurt Book Fair",
+     "3 of 4 outlets"
+    ],
+    [
+     "In his speech Sands accused Germany of silence over Israel, Gaza and the West Bank",
+     "3 of 4 outlets"
+    ],
+    [
+     "The prize is worth 25,000 euros",
+     "2 of 4 outlets"
+    ],
+    [
+     "Sands called for ecocide to become a fifth international crime",
+     "3 of 4 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Speech described as 'a speech against silence' in headlines",
+     "framing; kept to what he said"
+    ],
+    [
+     "Laudation calling the award 'a reason for hope'",
+     "evaluative praise, not a fact"
+    ]
+   ],
+   "open": [
+    "How Sands described the silence: reports quote 'indecent' silence and 'loud' silence"
+   ],
+   "primary": [
+    "Börsenverein des Deutschen Buchhandels (Peace Prize organisers)",
+    "Philippe Sands, acceptance speech",
+    "Mirjam Zadoff, laudation"
+   ],
+   "m": [
+    82,
+    70,
+    88
+   ],
+   "src": [
+    [
+     "juedische",
+     "https://www.juedische-allgemeine.de/kultur/friedenspreis-des-deutschen-buchhandels-an-philippe-sands-ueberreicht/"
+    ],
+    [
+     "newsat",
+     "https://www.news.at/politik/philippe-sands-in-frankfurt-mit-friedenspreis-geehrt"
+    ],
+    [
+     "taz",
+     "https://taz.de/Friedenspreisverleihung-in-Frankfurt/!6220635/"
+    ],
+    [
+     "friedenspreis",
+     "https://www.friedenspreis-des-deutschen-buchhandels.de/en/"
+    ]
+   ]
+  },
+  {
+   "id": "c-frankfurt-book-fair",
+   "sec": "culture",
+   "sub": "Books",
+   "head": "Frankfurt Book Fair closes with 236,000 visitors",
+   "say": "The Frankfurt Book Fair ended on Sunday after drawing two hundred and thirty-six thousand visitors, organisers said, with Czechia as guest of honour and Chile named for next year.",
+   "stand": "Organisers say attendance at the world's biggest book fair held steady, with Czechia as guest of honour and Chile named for 2027.",
+   "body": [
+    "The 78th Frankfurt Book Fair ended on Sunday after five days. Organisers said it drew 236,000 visitors, split almost evenly between trade and public visitors.",
+    "According to the fair, 4,000 exhibitors from 137 countries took part. More than 3,800 events were held at the fairground and around the city. Organisers said attendance was at about the same level as last year.",
+    "Czechia was guest of honour, bringing 75 authors under the theme 'A Country on the Coast'. The Czech pavilion's events with writers such as Jáchym Topol and Radka Denemarková drew large audiences, a Czech outlet reported.",
+    "The next fair will run from 6 to 10 October 2027, with Chile as guest of honour, the organisers said."
+   ],
+   "kept": [
+    [
+     "The 78th Frankfurt Book Fair ended on Sunday 11 October",
+     "2 of 2 outlets"
+    ],
+    [
+     "Organisers reported 236,000 visitors and 4,000 exhibitors from 137 countries",
+     "1 of 2 outlets"
+    ],
+    [
+     "Czechia was guest of honour, with 75 authors attending",
+     "2 of 2 outlets"
+    ],
+    [
+     "Chile will be guest of honour at the 2027 fair, from 6 to 10 October",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Fair described as 'the world's largest literary event'",
+     "descriptive superlative from one outlet"
+    ],
+    [
+     "Director's claim that the future of books is shaped 'in several places at once'",
+     "promotional quote"
+    ]
+   ],
+   "open": [],
+   "primary": [
+    "Frankfurter Buchmesse closing press release, 11 October 2026",
+    "Juergen Boos, fair director"
+   ],
+   "m": [
+    65,
+    80,
+    90
+   ],
+   "src": [
+    [
+     "buchmesse",
+     "https://www.buchmesse.de/en/press/press-releases/2026-10-11-frankfurter-buchmesse-2026-where-industry-shapes-its-future"
+    ],
+    [
+     "aroundprague",
+     "https://aroundprague.cz/en/news/curious/czechia-in-frankfurt-topol-rudis-and-denemarkova-win-over-the-book-fair"
+    ]
+   ]
+  },
+  {
+   "id": "c-box-office-other-mommy",
+   "sec": "culture",
+   "sub": "Film & TV",
+   "head": "Horror film Other Mommy tops North American box office",
+   "say": "Jessica Chastain's horror film Other Mommy led the North American box office with twenty-seven point five million dollars, while the Social Network sequel opened in fifth place.",
+   "stand": "The Jessica Chastain horror opened with an estimated $27.5m, while Aaron Sorkin's Social Network sequel took $5.5m.",
+   "body": [
+    "Other Mommy, a horror film starring Jessica Chastain, took an estimated $27.5m in North America over the weekend. Industry estimates were released on Sunday.",
+    "The Universal and Blumhouse-Atomic Monster film had a reported budget of $19m, TheWrap reported. It received a D+ grade from audiences polled by CinemaScore.",
+    "The Social Reckoning, Aaron Sorkin's sequel to The Social Network, opened in fifth place with $5.5m. Second-weekend thriller Verity came second, and Resident Evil was third with $8.3m."
+   ],
+   "kept": [
+    [
+     "Other Mommy opened top of the North American box office with $27.5m",
+     "2 of 2 outlets"
+    ],
+    [
+     "The Social Reckoning, a Social Network sequel, opened fifth with $5.5m",
+     "2 of 2 outlets"
+    ],
+    [
+     "Verity was second in its second weekend",
+     "2 of 2 outlets"
+    ],
+    [
+     "Other Mommy received a D+ CinemaScore from audiences",
+     "1 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Headlines saying The Social Reckoning 'bombs'",
+     "loaded framing"
+    ],
+    [
+     "Claim that Digger is on course to be one of the worst bombs in recent memory",
+     "prediction"
+    ]
+   ],
+   "open": [
+    "Verity's weekend gross: reports give $11.5m or $11.4m"
+   ],
+   "primary": [
+    "Studio weekend estimates"
+   ],
+   "m": [
+    80,
+    50,
+    70
+   ],
+   "src": [
+    [
+     "thewrap",
+     "https://www.thewrap.com/creative-content/movies/other-mommy-27-million-box-office/"
+    ],
+    [
+     "mynewsla",
+     "https://mynewsla.com/hollywood/2026/10/11/other-mommy-opens-with-27-5-million-to-lead-box-office/"
+    ]
+   ]
+  },
+  {
+   "id": "c-garfunkel-uk-tour",
+   "sec": "culture",
+   "sub": "Music",
+   "head": "Art Garfunkel postpones UK tour dates with respiratory infection",
+   "say": "Art Garfunkel has postponed his UK concerts in Watford, Manchester, Wolverhampton and London after a respiratory infection. The eighty-four-year-old says his heart is broken.",
+   "stand": "The 84-year-old singer said doctors advised rest after diagnosing the infection during rehearsals; ticket holders are told to keep their tickets.",
+   "body": [
+    "Art Garfunkel has postponed the UK leg of his What A Wonderful World tour after being diagnosed with a respiratory infection. The 84-year-old said his doctor had advised rest.",
+    "The postponed shows were due in Watford, Manchester, Wolverhampton and London's Royal Albert Hall between 13 and 19 October, NME reported. No new dates have yet been set.",
+    "Ticket holders have been told to keep their tickets, which will be valid for the rescheduled shows. Garfunkel said he would return to the stage as soon as his health allowed."
+   ],
+   "kept": [
+    [
+     "Art Garfunkel, 84, has postponed his UK tour dates",
+     "2 of 2 outlets"
+    ],
+    [
+     "He has been diagnosed with a respiratory infection and told to rest",
+     "2 of 2 outlets"
+    ],
+    [
+     "Shows in Watford, Manchester, Wolverhampton and London are affected",
+     "2 of 2 outlets"
+    ],
+    [
+     "Ticket holders should keep tickets for the new dates",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "Art Garfunkel, statement"
+   ],
+   "m": [
+    82,
+    65,
+    75
+   ],
+   "src": [
+    [
+     "nme",
+     "https://www.nme.com/news/music/art-garfunkel-postpones-uk-tour-diagnosed-respiratory-infection-3972843"
+    ],
+    [
+     "musicnews",
+     "https://www.music-news.com/news/UK/191669/Art-Garfunkel-heartbroken-after-postponing-UK-tour"
+    ]
+   ]
+  },
+  {
+   "id": "c-raconteurs-reunite",
+   "sec": "culture",
+   "sub": "Music",
+   "head": "The Raconteurs reunite on stage at Jack White's Nashville show",
+   "say": "The Raconteurs played together for the first time in nearly seven years on Saturday, joining Jack White for a five-song encore at his concert in Nashville.",
+   "stand": "Jack White's band with Brendan Benson played a five-song encore, their first live appearance together since 2019.",
+   "body": [
+    "The Raconteurs reunited on stage on Saturday night for the first time since 2019. They joined Jack White for the encore of his Nashville concert.",
+    "White, Brendan Benson, Jack Lawrence and Patrick Keeler played five songs at The Truth, a new venue in the city. They included Steady, As She Goes and Carolina Drama.",
+    "The band's last album, Help Us Stranger, came out in 2019. White released his seventh solo album, Frozen Charlotte, in July and has been touring this year, NME reported."
+   ],
+   "kept": [
+    [
+     "The Raconteurs reunited at Jack White's Nashville concert on Saturday",
+     "2 of 2 outlets"
+    ],
+    [
+     "It was their first live appearance together in nearly seven years",
+     "2 of 2 outlets"
+    ],
+    [
+     "They played a five-song encore including Steady, As She Goes",
+     "2 of 2 outlets"
+    ],
+    [
+     "The show was at The Truth, a new Nashville venue",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Last previous show: reports say October or December 2019"
+   ],
+   "primary": [],
+   "m": [
+    82,
+    30,
+    90
+   ],
+   "src": [
+    [
+     "nme",
+     "https://www.nme.com/news/music/watch-the-raconteurs-reunite-at-jack-whites-nashville-gig-3972890"
+    ],
+    [
+     "consequence",
+     "https://consequence.net/2026/10/the-raconteurs-reunite-for-first-performance-in-seven-years/"
+    ]
+   ]
+  },
+  {
+   "id": "c-jerusalem-aqueduct",
+   "sec": "culture",
+   "sub": "Heritage",
+   "head": "Archaeologists uncover 300-metre stretch of ancient Jerusalem aqueduct",
+   "say": "Israeli archaeologists have uncovered a three-hundred-metre stretch of Jerusalem's Lower Aqueduct, which they believe dates back around two thousand years to the Hasmonean period.",
+   "stand": "The Israel Antiquities Authority says the section, found before planned building work, will be preserved as a public park.",
+   "body": [
+    "The Israel Antiquities Authority (IAA) said on Sunday it had uncovered a 300-metre section of Jerusalem's Lower Aqueduct, south of the city centre.",
+    "Archaeologists believe the aqueduct was built in the Hasmonean period, about 2,000 years ago. It carried water by gravity for more than 20 kilometres from Solomon's Pools, south of Bethlehem, to Jerusalem.",
+    "The excavation was carried out ahead of construction of a planned new neighbourhood. The IAA and the Israel Land Authority say the section will be preserved and opened to the public as part of the development.",
+    "Ceramic pipes were fitted inside the channel about 500 years ago, during the Ottoman period. The excavators said it stayed in use until about a century ago."
+   ],
+   "kept": [
+    [
+     "Archaeologists uncovered a 300-metre section of Jerusalem's Lower Aqueduct",
+     "2 of 2 outlets"
+    ],
+    [
+     "It is believed to date from the Hasmonean period, about 2,000 years ago",
+     "2 of 2 outlets"
+    ],
+    [
+     "The section will be preserved for the public in a planned new neighbourhood",
+     "2 of 2 outlets"
+    ],
+    [
+     "The aqueduct ran over 20km from Solomon's Pools to Jerusalem",
+     "2 of 2 outlets"
+    ],
+    [
+     "It stayed in use until about 100 years ago",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Heritage minister's comment on Hasmonean leaders planning for Jerusalem's growth",
+     "political framing"
+    ],
+    [
+     "Aqueduct called 'an engineering marvel'",
+     "evaluative quote"
+    ]
+   ],
+   "open": [
+    "Site location: described as south of Kibbutz Ramat Rachel or at the edge of East Jerusalem"
+   ],
+   "primary": [
+    "Israel Antiquities Authority statement",
+    "Benyamin Storchan, excavation co-director",
+    "Amit Re'em, IAA Jerusalem district archaeologist"
+   ],
+   "m": [
+    82,
+    75,
+    85
+   ],
+   "src": [
+    [
+     "jpost",
+     "http://www.jpost.com/archaeology/article-911290"
+    ],
+    [
+     "forward",
+     "https://forward.com/fast-forward/855137/archaeologists-uncover-a-300-meter-section-of-ancient-aqueduct-in-jerusalem"
+    ],
+    [
+     "haaretz",
+     "https://www.haaretz.com/science-and-health/2026-10-11/ty-article-magazine/archaeologists-reveal-huge-stretch-of-ancient-lower-aqueduct-into-jerusalem/000001a1-2a52-da9e-a1f9-7ff3168f0000",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "s-singapore-gp",
+   "sec": "sport",
+   "sub": "Motor racing",
+   "head": "Verstappen wins Singapore Grand Prix for the first time",
+   "say": "Max Verstappen won the Singapore Grand Prix from pole on Sunday, his first win at Marina Bay, ahead of Charles Leclerc and championship leader Kimi Antonelli.",
+   "stand": "The Red Bull driver led every lap from pole in his 250th race, with Leclerc second and Antonelli third.",
+   "body": [
+    "Max Verstappen won the Singapore Grand Prix on Sunday, leading every lap from pole position. It was his first win at Marina Bay and came in his 250th Grand Prix start.",
+    "Ferrari's Charles Leclerc finished 7.3 seconds behind in second. Mercedes driver Kimi Antonelli was third, with McLaren's Lando Norris and Oscar Piastri fourth and fifth.",
+    "Lewis Hamilton, who stayed out on a one-stop strategy, dropped to sixth and apologised to his team over the radio. George Russell recovered from 19th on the grid to finish ninth.",
+    "Antonelli now leads the drivers' standings by 102 points from Russell, according to Sports Illustrated. The next race is the United States Grand Prix in Austin from 23 to 25 October."
+   ],
+   "kept": [
+    [
+     "Max Verstappen won the Singapore Grand Prix from pole on Sunday",
+     "3 of 3 outlets"
+    ],
+    [
+     "Charles Leclerc was second and Kimi Antonelli third",
+     "3 of 3 outlets"
+    ],
+    [
+     "It was Verstappen's first Singapore win, in his 250th Grand Prix start",
+     "2 of 3 outlets"
+    ],
+    [
+     "Antonelli leads the championship on 340 points, 102 ahead of Russell",
+     "1 of 3 outlets"
+    ],
+    [
+     "Hamilton finished sixth and apologised to his team over strategy",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Claim that Antonelli can clinch the title at the US Grand Prix",
+     "prediction"
+    ],
+    [
+     "SI text saying Verstappen is 37 points behind Hamilton",
+     "contradicts the same article's table (8 points)"
+    ]
+   ],
+   "open": [
+    "Interruption during the race: reports mention Virtual Safety Cars or a mid-race safety car"
+   ],
+   "primary": [
+    "Official race classification (Formula1.com)"
+   ],
+   "m": [
+    92,
+    75,
+    95
+   ],
+   "src": [
+    [
+     "formula1",
+     "https://www.formula1.com/en/latest/article/verstappen-seals-commanding-singapore-grand-prix-victory-from-leclerc-and-antonelli.49wDzysiVqi5cloGjle40A"
+    ],
+    [
+     "therace",
+     "https://www.the-race.com/formula-1/f1-2026-singapore-grand-prix-race-result/"
+    ],
+    [
+     "si",
+     "https://www.si.com/onsi/f1/news/f1-standings-and-results-after-the-2026-singapore-grand-prix"
+    ]
+   ]
+  },
+  {
+   "id": "s-liverpool-man-city",
+   "sec": "sport",
+   "sub": "Football",
+   "head": "Manchester City beat 10-man Liverpool 3-0 at Anfield",
+   "say": "Manchester City won three-nil at ten-man Liverpool on Sunday, scoring three times after Ryan Gravenberch was sent off, to go three points clear at the top of the Premier League.",
+   "stand": "Haaland, Doku and Cherki scored after Gravenberch's red card, as City played their first game since a commission found them guilty of financial breaches.",
+   "body": [
+    "Manchester City beat Liverpool 3-0 at Anfield on Sunday. All three goals came after Liverpool's Ryan Gravenberch was sent off for a second yellow card.",
+    "Gravenberch was dismissed in the 62nd minute for a foul on Jeremy Doku, Goal reported. Erling Haaland scored about three minutes later, Doku added a second soon after and Rayan Cherki made it three.",
+    "The win restores City's three-point lead at the top of the Premier League table. NBC Sports reported they have won all six league games this season.",
+    "Al Jazeera reported it was City's first match since an independent commission found the club guilty of over 100 breaches of financial rules. No sanction has yet been announced."
+   ],
+   "kept": [
+    [
+     "Manchester City won 3-0 at Liverpool on Sunday",
+     "3 of 3 outlets"
+    ],
+    [
+     "Liverpool's Ryan Gravenberch was sent off for a second yellow card",
+     "3 of 3 outlets"
+    ],
+    [
+     "Haaland, Doku and Cherki scored for City",
+     "3 of 3 outlets"
+    ],
+    [
+     "City are three points clear at the top of the Premier League",
+     "1 of 3 outlets"
+    ],
+    [
+     "It was City's first match since being found guilty of financial rule breaches",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [
+    [
+     "Red card described as 'harsh'",
+     "opinion"
+    ],
+    [
+     "Speculation about points deduction, expulsion or stripped titles",
+     "speculation"
+    ],
+    [
+     "Fan chants and banners calling City 'cheats'",
+     "loaded; not needed for the result"
+    ]
+   ],
+   "open": [
+    "Whether this was City's first match under Enzo Maresca: reports differ"
+   ],
+   "primary": [
+    "Independent commission ruling (as reported)"
+   ],
+   "m": [
+    88,
+    45,
+    90
+   ],
+   "src": [
+    [
+     "aj",
+     "https://www.aljazeera.com/sports/2026/10/11/man-city-beat-10-man-liverpool-3-0-in-first-game-after-guilty-verdict"
+    ],
+    [
+     "nbcsports",
+     "https://www.nbcsports.com/soccer/live/liverpool-vs-manchester-city-live-updates-score-goals-highlights-stats-2026-october-11"
+    ],
+    [
+     "goal",
+     "https://www.goal.com/en-qa/lists/six-minute-blitz-erling-haaland-jeremy-doku-man-city-liverpool-ryan-gravenberch-red-card-sparks-anfield-collapse/blt90b03bae631fd7aa"
+    ],
+    [
+     "rte",
+     "https://www.rte.ie/sport/soccer/2026/1011/1594900-manchester-city-sweep-past-10-man-liverpool-at-anfield/",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "s-bledisloe-eden-park",
+   "sec": "sport",
+   "sub": "Rugby",
+   "head": "All Blacks beat Wallabies 50-19 to keep Bledisloe Cup",
+   "say": "New Zealand beat Australia fifty points to nineteen at Eden Park on Saturday, scoring seven tries to keep the Bledisloe Cup and stretch their unbeaten home run against the Wallabies.",
+   "stand": "New Zealand scored seven tries to three at Eden Park, where Australia have not won for 40 years.",
+   "body": [
+    "New Zealand beat Australia 50-19 at Eden Park in Auckland on Saturday to retain the Bledisloe Cup. The All Blacks led only 17-14 at half-time before pulling away.",
+    "The hosts scored seven tries to Australia's three, ABC News reported, with Damian McKenzie kicking six conversions and a penalty. Will Jordan and Codie Taylor were among the try scorers.",
+    "ABC reported that New Zealand have now won 12 Tests in a row against Australia. The Wallabies have not won at Eden Park for 40 years. The sides meet again in Sydney next Saturday."
+   ],
+   "kept": [
+    [
+     "New Zealand beat Australia 50-19 at Eden Park on Saturday",
+     "3 of 3 outlets"
+    ],
+    [
+     "The All Blacks retained the Bledisloe Cup",
+     "3 of 3 outlets"
+    ],
+    [
+     "New Zealand led just 17-14 at half-time",
+     "2 of 3 outlets"
+    ],
+    [
+     "The All Blacks scored seven tries to Australia's three",
+     "2 of 3 outlets"
+    ],
+    [
+     "The teams meet again in Sydney next Saturday",
+     "1 of 3 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Allocation of one try (Josh Moorby): reports list him for different sides",
+    "Length of New Zealand's hold on the cup: given as since 2003 or a 24th consecutive season"
+   ],
+   "primary": [],
+   "m": [
+    88,
+    35,
+    95
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-10/bledisloe-cup-test-wallabies-all-blacks-eden-park-live-blog/107251546"
+    ],
+    [
+     "rugbypass",
+     "https://www.rugbypass.com/news/all-blacks-reassert-eden-park-dominance-with-emphatic-bledisloe-cup-win/"
+    ],
+    [
+     "stuff",
+     "https://www.stuff.co.nz/sport/361042841/all-blacks-stow-bledisloe-cup-away-once-again-after-romping-big-win-over-wallabies-eden-park"
+    ]
+   ],
+   "fig": [
+    "50-19",
+    "final score"
+   ]
+  },
+  {
+   "id": "s-motogp-mandalika",
+   "sec": "sport",
+   "sub": "Motor racing",
+   "head": "Bezzecchi wins in Indonesia as Martin retakes MotoGP lead",
+   "say": "Marco Bezzecchi led an Aprilia one-two-three-four at the Indonesian MotoGP on Sunday, as Jorge Martin's third place put him back two points ahead of Marc Marquez.",
+   "stand": "Aprilia filled the top four places at Mandalika, and Martin moved two points clear of Marc Marquez with five rounds left.",
+   "body": [
+    "Marco Bezzecchi won the Indonesian Grand Prix at Mandalika on Sunday, leading an Aprilia one-two-three-four. Raul Fernandez was second and Jorge Martin third, with Ai Ogura fourth.",
+    "Marc Marquez, who had taken the championship lead by winning Saturday's sprint, finished sixth on his Ducati.",
+    "Martin now leads the standings on 355 points, two ahead of Marquez, with Bezzecchi third on 309. The race was round 17 of 22."
+   ],
+   "kept": [
+    [
+     "Marco Bezzecchi won the Indonesian MotoGP on Sunday",
+     "2 of 2 outlets"
+    ],
+    [
+     "Aprilia riders took the top four places",
+     "2 of 2 outlets"
+    ],
+    [
+     "Jorge Martin retook the championship lead, two points ahead of Marc Marquez",
+     "1 of 2 outlets"
+    ],
+    [
+     "Marquez finished sixth after winning Saturday's sprint",
+     "2 of 2 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [],
+   "primary": [
+    "Official race classification (Crash.net results)"
+   ],
+   "m": [
+    84,
+    60,
+    92
+   ],
+   "src": [
+    [
+     "crash",
+     "https://www.crash.net/motogp/results/1107003/1/2026-indonesian-motogp-mandalika-race-results"
+    ],
+    [
+     "hansindia",
+     "https://www.thehansindia.com/sports/motogp-bezzecchi-wins-in-mandalika-to-keep-title-hopes-alive-martin-back-in-championship-lead-1131309"
+    ],
+    [
+     "france24",
+     "https://www.france24.com/en/live-news/20261011-bezzecchi-wins-in-indonesia-as-martin-retakes-motogp-championship-lead",
+     "headline only"
+    ]
+   ]
+  },
+  {
+   "id": "s-durban-test-day3",
+   "sec": "sport",
+   "sub": "Cricket",
+   "head": "Australia lead South Africa by 139 runs after day three in Durban",
+   "say": "Australia bowled South Africa out for two hundred and eighty-four on Sunday in the first Test in Durban, and closed on thirty-three without loss, a lead of one hundred and thirty-nine.",
+   "stand": "South Africa were bowled out 106 runs behind, and Australia reached 33 without loss before bad light ended play.",
+   "body": [
+    "Australia took a firm hold on the first Test at Kingsmead on Sunday, bowling South Africa out for 284 in reply to their 390.",
+    "David Bedingham made 49 and Aiden Markram 37, while Tristan Stubbs and Wiaan Mulder added 32 and 30. Captain Pat Cummins was among the wicket-takers.",
+    "Australia reached 33 without loss in their second innings before bad light stopped play, giving them a lead of 139. Nic Maddinson was 17 not out and Travis Head 10.",
+    "Steve Smith took three slip catches, which Scrolla reported made him the leading outfield catcher in Test history. Day four begins on Monday."
+   ],
+   "kept": [
+    [
+     "South Africa were bowled out for 284 in reply to Australia's 390",
+     "3 of 3 outlets"
+    ],
+    [
+     "Australia were 33 without loss at stumps on day three",
+     "2 of 3 outlets"
+    ],
+    [
+     "Australia lead by 139 runs with two days left",
+     "2 of 3 outlets"
+    ],
+    [
+     "Bad light again cut play short in Durban",
+     "2 of 3 outlets"
+    ],
+    [
+     "Steve Smith took three catches in South Africa's innings",
+     "2 of 3 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Smith's career catch total (223, reported by one outlet only)"
+   ],
+   "primary": [],
+   "m": [
+    86,
+    35,
+    70
+   ],
+   "src": [
+    [
+     "abc",
+     "https://www.abc.net.au/news/2026-10-11/south-africa-australia-kingsmead-test-day-three-live-blog/107252970"
+    ],
+    [
+     "scrolla",
+     "https://scrolla.africa/australia-tighten-grip-at-kingsmead-with-139-run-lead/"
+    ],
+    [
+     "outlook",
+     "https://www.outlookindia.com/sports/cricket/south-africa-vs-australia-live-score-1st-test-day-3-sa-v-aus-updates-kingsmead-2026-highlights"
+    ]
+   ]
+  },
+  {
+   "id": "s-zverev-shanghai",
+   "sec": "sport",
+   "sub": "Tennis",
+   "head": "Zverev reaches Shanghai last 16 with 60th win of the season",
+   "say": "Alexander Zverev beat Quentin Halys in three sets in Shanghai on Sunday, reaching sixty wins for the season. He next plays Alexander Bublik.",
+   "stand": "The top seed beat Quentin Halys in three sets and next faces Alexander Bublik, as he chases the year-end No. 1 ranking.",
+   "body": [
+    "Top seed Alexander Zverev beat France's Quentin Halys 6-4, 6-7, 6-3 at the Shanghai Masters on Sunday to reach the last 16.",
+    "It was the German's 60th tour-level win of 2026, the most of any player this season. He will next play 19th seed Alexander Bublik, who beat Brandon Nakashima.",
+    "World No. 1 Jannik Sinner has ended his season with a knee injury. The ATP says Zverev would secure the year-end No. 1 ranking by reaching the Shanghai semi-finals."
+   ],
+   "kept": [
+    [
+     "Alexander Zverev beat Quentin Halys 6-4, 6-7, 6-3 in Shanghai on Sunday",
+     "3 of 3 outlets"
+    ],
+    [
+     "It was Zverev's 60th win of the 2026 season",
+     "3 of 3 outlets"
+    ],
+    [
+     "He next faces 19th seed Alexander Bublik",
+     "3 of 3 outlets"
+    ],
+    [
+     "Reaching the semi-finals would secure year-end No. 1 for Zverev",
+     "3 of 3 outlets"
+    ]
+   ],
+   "cut": [],
+   "open": [
+    "Round name: reports call it the third round or say it put him into the round of 16"
+   ],
+   "primary": [
+    "ATP Tour"
+   ],
+   "m": [
+    86,
+    60,
+    85
+   ],
+   "src": [
+    [
+     "atp",
+     "https://www.atptour.com/en/news/zverev-halys-shanghai-2026-sunday"
+    ],
+    [
+     "yardbarker",
+     "https://yardbarker.com/tennis/articles/moments_you_missed_from_alexander_zverevs_shanghai_win_reaches_closer_to_world_no1_dream_practice_court_controversy_and_more/s1_17730_44416289"
+    ],
+    [
+     "azat",
+     "https://azat.tv/en/alexander-zverev-60th-win-2026-shanghai-masters/"
+    ]
+   ]
+  }
+ ]
+}

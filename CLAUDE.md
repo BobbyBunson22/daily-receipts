@@ -6,11 +6,11 @@ Read `docs/BRIEF.md` and `docs/ROADMAP.md` before starting a phase. The prototyp
 Trust is the product. Never ship anything that could show a fact, grade or source the edition data doesn't contain. Never invent sample news in UI copy, tests or seed data: use `data/edition-2026-10-07.json`, which is real and sourced. Grades are computed from the edition data with the formula in `docs/ARCHITECTURE.md` (Grading), never hand-set in the client.
 
 ## Stack (see docs/ARCHITECTURE.md for why)
-- App: Expo (React Native) with Expo Router and TypeScript, one codebase for iOS, Android and web.
+- App: Next.js (App Router) and TypeScript, web-first and installable to the home screen (decided 12 October 2026). Keep shared logic in `src/lib` free of React and Next so a native app can reuse it later.
 - Backend: Supabase (Postgres, auth, storage, edge functions, scheduled jobs).
 - Edition writing: the Anthropic API, server-side only.
 - Voice: ElevenLabs, server-side only.
-- Analytics: PostHog. Push: Expo notifications.
+- Analytics: our own `events` table and admin reports for the beta (PostHog later if needed). Push: not in the web beta.
 
 ## Conventions
 - TypeScript strict. Shared types for Edition, Story, Source and Grade live in one place and match `data/edition-*.json`.

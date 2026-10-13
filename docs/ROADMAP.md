@@ -1,47 +1,42 @@
 # Roadmap
 
-Each phase ends with something testers can use. Don't start a phase until the previous one meets its definition of done.
+Web-first (decided 12 October 2026). The question for the beta is whether people come back every morning; a web app answers it at almost no cost. Each phase ends with something testers can use. Don't start a phase until the previous one meets its definition of done.
 
-## Phase 0: Decide and set up (half a day)
-- Confirm the stack (Expo vs installable web app) with Jonathan.
-- Create the Expo project, linting, TypeScript strict, test runner, CI on GitHub Actions.
-- Create the Supabase project (EU region) and the schema from ARCHITECTURE.md with row-level security.
-- Load `data/edition-2026-10-07.json` as seed data.
-**Done when:** the app starts on a phone, reads the seeded edition from Supabase and lists its headlines; CI runs on every push.
+## Phase 0: Set up ✅ (7 to 12 October)
+- Next.js + TypeScript strict, Vitest, ESLint, CI on GitHub Actions.
+- Supabase schema with row-level security; grading computed in the database and tested against the TypeScript formula.
+- Shared types, edition validator, `prepareEdition` clean-ups.
 
-## Phase 1: The reading experience (port the prototype)
-- Shared types and a validator for editions; grade and importance computed server-side, matching the prototype.
-- Swipe deck with three-way swipe, buttons, undo, "start over", fit-to-card headlines.
-- Scroll mode, story sheet with full receipts, mic badge.
-- Settings: topic chips, hold-and-drag order, minimum grade, forget my swipes.
-- Brand: fonts, navy frame, receipt slips, torn-slip logo, app icon and splash.
-**Done when:** a tester can't find a behaviour in the prototype that the app lacks, on a small and a large phone, with screen reader labels on every control.
+## Phase 1: The reading experience on the web ✅ (12 October)
+- Swipe deck (drag, buttons, arrow keys, undo, start over, fit-to-card headlines), scroll mode, receipts sheet, roundup bulletin with device voice and recorded clips, saved list with full snapshots, topics with hold-and-drag, minimum grade, forget my swipes, welcome tour.
+- Brand: fonts, navy frame, receipt slips, torn-slip logo, app icons, home-screen manifest, dated share image.
+- Checked at 360×640, 390×844 and 1280×800 (`e2e/reader.mjs`).
 
-## Phase 2: Accounts, sync and the daily loop
-- Sign in with email link, Apple and Google; an anonymous mode that upgrades to an account without losing data.
-- Reactions, saves (with snapshots), swipes, taste and topic order stored in Supabase and synced across devices.
-- Roundup with the audio bulletin: recorded clips from storage, device voice fallback, a broken-clip fallback.
-- Push notification at a chosen time: "Your receipts are ready".
-- PostHog events: app open, card swiped (action), deck finished, story opened, roundup played (and finished), save, puzzle started/finished, notification opened.
-**Done when:** the same account on two devices shows the same saves and roundup, a notification arrives at the chosen time, and the analytics dashboard shows next-day return.
+## Phase 2: Accounts, feedback and the dashboard (built 12 October; live once deployed)
+- Sign up / sign in by email link or Google; reading needs no account. Signing in merges this browser's likes, saves and topics into the account and keeps them in step.
+- Usage events and the `/admin` dashboard: next-day and 7-day return, daily readers, sign-ups, deck completion, swipes and likes per visit, roundup plays, sections, per-story and per-person tables.
+- Feedback form open to everyone, one answer per reader per edition.
+**Done when:** deployed on the domain; Jonathan signs in and sees the dashboard; a tester signs up on two devices and sees the same saves; the morning edition appears in the web app without anyone touching it.
 
-## Phase 3: Move the edition and voice server-side
-- Port the scheduled Claude task to an edition job calling the Anthropic API, using `docs/edition-prompt.md`; validate output; store; publish.
-- Port the voice job to an edge function writing to Supabase storage; keep the chosen voice settings and fixed intro/sign-off.
-- Run both in parallel with the prototype's pipeline for a week and compare.
-- Admin page: today's edition, a "spot-check" queue of 5 random stories, a button to log a correction.
-**Done when:** a week of editions has been produced by the new job with no manual fixes, and the prototype pipeline can be switched off.
+### To finish Phase 2
+1. Apply `supabase/migrations/20261012110000_web_beta.sql` and add Jonathan's email to `admin_invites`.
+2. Supabase Auth: site URL and redirect URLs for the domain; Google provider; custom SMTP so sign-in emails reach people (Supabase's built-in sender is for testing only).
+3. Vercel: import the repo, set the three `NEXT_PUBLIC_*` variables, attach the domain.
+4. GitHub secrets `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` for the `Load edition` workflow.
+5. Morning task: also push `data/edition-YYYY-MM-DD.json` to this repo (needs Jonathan's go-ahead: it changes the live pipeline).
+6. Voice clips: copy each morning's clips into Supabase storage (`voice` bucket) and `voice_clips` (needs Jonathan's go-ahead: touches the voice repo).
 
-## Phase 4: Puzzles, onboarding and beta
-- Port the crossword and sudoku (seeded generators, five adaptive levels, progress synced to the account).
-- Welcome tour.
-- Public corrections log and a "How grades work" page.
-- TestFlight and Play internal testing for 20-50 testers; feedback form in-app.
-**Done when:** testers have used it daily for two weeks and the success numbers in BRIEF.md are being measured.
+## Phase 3: Beta with 20 to 50 testers (two weeks)
+- Daily "your receipts are ready" email at a time each reader picks (email reaches every phone; web push only works on iPhone after Add to Home Screen).
+- Puzzles: port crossword, sudoku, Rulebook and Sure? with progress in the account.
+- Public corrections log and a "How grades work" page; daily spot-check of 5 random stories.
+**Done when:** testers have used it for two weeks and BRIEF.md's success numbers are on the dashboard.
+
+## Phase 4: Move the edition and voice server-side
+- Port the scheduled Claude task to an edition job calling the Anthropic API with `docs/edition-prompt.md`; validate; store; publish. Run alongside the current task for a week and compare.
+- Port the voice job to an edge function writing to Supabase storage.
+**Done when:** a week of editions comes from the new job with no manual fixes, and the prototype pipeline can be switched off.
 
 ## Later, depending on what testers do
-- Midday refresh for the top stories.
-- More voiced stories (ElevenLabs Creator), or "record on first like" so every liked story is in Jonathan's voice.
-- Shareable receipt card image for a single story.
-- A crossword built from the day's news.
-- Subscriptions (the £39/year question), once there is evidence people would pay.
+- Native app (Expo) if the beta shows notifications are what's missing; `src/lib` is framework-free so it carries over.
+- Midday refresh for the top stories. More voiced stories. Shareable receipt card for a single story. A crossword built from the day's news. Subscriptions (the £39/year question), once there is evidence people would pay.

@@ -1,0 +1,42 @@
+name: Load edition
+
+# Runs when a new data/edition-YYYY-MM-DD.json is pushed (the morning job does this),
+# or by hand from the Actions tab. Validates the edition, then loads it into Supabase.
+# Needs two repository secrets: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.
+
+on:
+  push:
+    branches: [main]
+    paths: ['data/edition-*.json']
+  workflow_dispatch:
+    inputs:
+      file:
+        description: 'Edition file, e.g. data/edition-2026-10-12.json (blank = newest)'
+        required: false
+
+concurrency:
+  group: load-edition
+  cancel-in-progress: false
+
+jobs:
+  load:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Pick the edition
+        id: pick
+        run: |
+          f="${{ github.event.inputs.file }}"
+          if [ -z "$f" ]; then f="$(ls data/edition-*.json | sort | tail -1)"; fi
+          echo "file=$f" >> "$GITHUB_OUTPUT"
+          echo "Loading $f"
+      - name: Load into Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: npm run edition:load -- "${{ steps.pick.outputs.file }}"
