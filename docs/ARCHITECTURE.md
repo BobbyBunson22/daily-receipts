@@ -1,6 +1,18 @@
 # Architecture
 
-## Recommended stack
+## Stack in use (web-first beta, 12 October 2026)
+
+| Layer | Choice |
+|---|---|
+| App | **Next.js 16 (App Router) + TypeScript**, installable to the home screen (manifest + icons). The edition page is cached and refreshed every 5 minutes. |
+| Backend | **Supabase** (EU, Frankfurt): Postgres with row-level security, auth (email link + Google), storage for voice clips. |
+| Usage tracking | `events` table, written by the app with a random id per browser; read only through the `dr_admin_*` reports on `/admin`. |
+| Hosting | Vercel (free tier) on www.dailyreceipts.com (domain registered with Ionos, DNS pointed at Vercel). |
+| Edition loading | `Load edition` GitHub Action → `dr_load_edition(jsonb)` (service role only). Re-running an issue updates stories in place, so readers' likes and saves survive. |
+
+The original native-first recommendation is kept below for when a native app is built.
+
+## Recommended stack (native, later)
 
 | Layer | Choice | Why |
 |---|---|---|
@@ -35,7 +47,10 @@ saves         user_id, story_id, snapshot jsonb, created_at      -- snapshot kee
 swipes        user_id, edition_id, story_id, action (more|less|later), created_at
 puzzle_state  user_id, game ('cw'|'su'), date, level, state jsonb, done, secs, hints, checks
 puzzle_level  user_id, game, level
-feedback      user_id, edition_id, useful, trust, mode, pay, wish, created_at
+feedback      user_id?, anon_id?, edition_id, useful, trust (0 no,1 partly,2 yes), mode, pay, wish, updated_at
+events        id, at, anon_id, user_id?, name, edition_id?, story_id?, props jsonb   -- usage, admin-only reads
+admins        user_id                                              -- who can see /admin
+admin_invites email                                                -- becomes admin on sign-up
 corrections   id, story_id, what_changed, created_at                -- public log
 ```
 Row-level security: readers see published editions and their own rows only. Only server jobs write editions, stories and clips.
