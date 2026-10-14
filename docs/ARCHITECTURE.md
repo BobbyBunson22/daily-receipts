@@ -7,7 +7,7 @@
 | App | **Next.js 16 (App Router) + TypeScript**, installable to the home screen (manifest + icons). The edition page is cached and refreshed every 5 minutes. |
 | Backend | **Supabase** (EU, Frankfurt): Postgres with row-level security, auth (email link + Google), storage for voice clips. |
 | Usage tracking | `events` table, written by the app with a random id per browser; read only through the `dr_admin_*` reports on `/admin`. |
-| Hosting | Vercel (free tier) on the beta domain. |
+| Hosting | Vercel (free tier) on www.dailyreceipts.com (domain registered with Ionos, DNS pointed at Vercel). |
 | Edition loading | `Load edition` GitHub Action → `dr_load_edition(jsonb)` (service role only). Re-running an issue updates stories in place, so readers' likes and saves survive. |
 
 The original native-first recommendation is kept below for when a native app is built.
