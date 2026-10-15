@@ -1,5 +1,6 @@
 /** The daily crossword generator, ported from the prototype. */
 import { CW_BANK_TEXT } from './cw-bank';
+import { CW_BANK_MORE_TEXT } from './cw-bank-more';
 import { rng, seedFrom, shuffled } from './rng';
 
 export interface BankEntry { t: number; w: string; c: string }
@@ -88,22 +89,71 @@ function cwLayout(cands: BankEntry[], cfg: { n: number; size: number }, r: () =>
   return { words, inters, minR, minC, rows: maxR - minR + 1, cols: maxC - minC + 1, score: words.length * 100 + inters * 12 - (maxR - minR + 1) * (maxC - minC + 1) * 0.5 };
 }
 
-export function makeCrossword(level: number, seedStr: string): Crossword {
+/** The larger bank the web app rotates through (prototype bank plus more), without duplicates. */
+export const CW_BANK_ALL: BankEntry[] = (() => {
+  const seen = new Set(CW_BANK.map((e) => e.w));
+  const more = CW_BANK_MORE_TEXT.split('\n').map((l) => {
+    const [t, w, c] = l.split('|');
+    return { t: +t, w, c };
+  }).filter((e) => !seen.has(e.w) && (seen.add(e.w), true));
+  return [...CW_BANK, ...more];
+})();
+
+/** The smallest daily slice of a tier, so every level still has plenty of words to build from. */
+const POOL_MIN = 45;
+
+/**
+ * Today's slice of the bank for one tier: a window sliding along one fixed shuffle of the
+ * tier, a window's width each day, so consecutive days share no bank words.
+ */
+function dailyPool(list: BankEntry[], day: number, tag: string) {
+  const parts = Math.max(1, Math.floor(list.length / POOL_MIN));
+  if (parts < 2) return list;
+  const order = shuffled(list, rng(seedFrom(`cw-order|${tag}`)));
+  const size = Math.floor(order.length / parts), from = (day * size) % order.length;
+  return Array.from({ length: size }, (_, i) => order[(from + i) % order.length]);
+}
+
+export interface DailyOpts {
+  /** Days since a fixed start, so the bank rotates. */
+  day: number;
+  /** Words from today's headlines, placed first when they fit. */
+  news?: { w: string; c: string }[];
+}
+
+export function makeCrossword(level: number, seedStr: string, daily?: DailyOpts): Crossword {
   const cfg = CW_LEVELS[level] ?? CW_LEVELS[1], r = rng(seedFrom(seedStr));
   const byTier: Record<number, BankEntry[]> = {};
-  [1, 2, 3].forEach((t) => (byTier[t] = shuffled(CW_BANK.filter((e) => e.t === t && e.w.length >= 3 && e.w.length <= cfg.max), r)));
-  let best: ReturnType<typeof cwLayout> | null = null;
+  const bank = daily ? CW_BANK_ALL : CW_BANK;
+  [1, 2, 3].forEach((t) => {
+    const list = bank.filter((e) => e.t === t && e.w.length >= 3 && e.w.length <= cfg.max);
+    byTier[t] = shuffled(daily ? dailyPool(list, daily.day, `${t}|${cfg.max}`) : list, r);
+  });
+  const news = (daily?.news ?? []).filter((e) => e.w.length >= 3 && e.w.length <= cfg.max).map((e) => ({ t: 0, ...e }));
+  const newsSet = new Set(news.map((e) => e.w));
+  const tierWords = new Set(cfg.tiers.flatMap((t) => byTier[t].map((e) => e.w)));
+  let best: ReturnType<typeof cwLayout> | null = null, bestScore = -Infinity;
   for (let attempt = 0; attempt < 36; attempt++) {
-    const used = new Set<string>(), cands: BankEntry[] = [];
-    while (cands.length < cfg.n * 5) {
+    const used = new Set<string>(newsSet), cands: BankEntry[] = [];
+    const want = Math.min(cfg.n * 5, [...tierWords].filter((w) => !newsSet.has(w)).length);
+    while (cands.length < want) {
       const t = cfg.tiers[Math.floor(r() * cfg.tiers.length)], list = byTier[t];
       const e = list[Math.floor(r() * list.length)];
       if (!used.has(e.w)) { used.add(e.w); cands.push(e); }
     }
-    const longFirst = cands.slice().sort((a, b) => b.w.length - a.w.length);
-    const start = longFirst.splice(Math.floor(r() * 3), 1)[0];
-    const res = cwLayout([start, ...shuffled(longFirst, r)], cfg, r);
-    if (!best || res.score > best.score) best = res;
+    let order: BankEntry[];
+    if (news.length) {
+      // a headline word anchors the grid; the others go next so they get the first chance to cross it
+      const ns = shuffled(news, r).sort((a, b) => b.w.length - a.w.length);
+      order = [ns[0], ...ns.slice(1), ...shuffled(cands, r)];
+    } else {
+      const longFirst = cands.slice().sort((a, b) => b.w.length - a.w.length);
+      const start = longFirst.splice(Math.floor(r() * 3), 1)[0];
+      order = [start, ...shuffled(longFirst, r)];
+    }
+    const res = cwLayout(order, cfg, r);
+    const score = res.score + res.words.filter((x) => newsSet.has(x.w)).length * 60;
+    if (!best || score > bestScore) { best = res; bestScore = score; }
     if (best.words.length >= cfg.n && attempt >= 12) break;
   }
   const b = best!;

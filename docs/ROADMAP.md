@@ -29,6 +29,7 @@ Web-first (decided 12 October 2026). The question for the beta is whether people
 ## Phase 3: Beta with 20 to 50 testers (two weeks)
 - Daily "your receipts are ready" email at a time each reader picks (email reaches every phone; web push only works on iPhone after Add to Home Screen).
 - Puzzles ✅ (15 October): crossword, sudoku, Rulebook and Sure?, same daily puzzles as the prototype, adaptive levels, plays on the admin dashboard. Progress is per device for now; syncing it to the account is next.
+- Daily-fresh puzzles ✅ (from No. 11, 16 October): the crossword gets 2 to 3 clues from the day's headlines and rotates a 750-word bank so no bank word appears on consecutive days; Sure? asks 2 numbers from the day's kept facts (backed by 2+ outlets, quoted word for word) plus 3 from a 121-question bank that doesn't repeat for 40 days; Rulebook draws from 29 rules, with today's examples taken from the headlines. The web app's puzzles now differ from the prototype's.
 - Public corrections log and a "How grades work" page; daily spot-check of 5 random stories.
 **Done when:** testers have used it for two weeks and BRIEF.md's success numbers are on the dashboard.
 
@@ -39,4 +40,4 @@ Web-first (decided 12 October 2026). The question for the beta is whether people
 
 ## Later, depending on what testers do
 - Native app (Expo) if the beta shows notifications are what's missing; `src/lib` is framework-free so it carries over.
-- Midday refresh for the top stories. More voiced stories. Shareable receipt card for a single story. A crossword built from the day's news. Subscriptions (the £39/year question), once there is evidence people would pay.
+- Midday refresh for the top stories. More voiced stories. Shareable receipt card for a single story. Subscriptions (the £39/year question), once there is evidence people would pay.

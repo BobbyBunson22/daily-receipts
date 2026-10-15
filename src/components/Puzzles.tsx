@@ -2,11 +2,12 @@
 /** The daily puzzles: crossword, sudoku, Rulebook and Sure?, ported from the prototype. */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
-import { cwCells, makeCrossword, type Dir } from '../lib/puzzles/crossword';
-import { RB_MAX, RB_RULES, RB_UNLOCK, makeRulebook } from '../lib/puzzles/rulebook';
+import { CW_LEVELS, cwCells, makeCrossword, type Dir } from '../lib/puzzles/crossword';
+import { dayIndex, headlineWords, isFresh, newsCrosswordWords } from '../lib/puzzles/daily';
+import { RB_MAX, RB_RULES, RB_UNLOCK, makeRulebook, makeRulebookDaily } from '../lib/puzzles/rulebook';
 import * as P from '../lib/puzzles/state';
 import { makeSudoku, suPeers } from '../lib/puzzles/sudoku';
-import { SR_N, SR_Q, srFmt, srNum, srScore, srSet } from '../lib/puzzles/sure';
+import { SR_N, srFmt, srNum, srScore, sureQuestions } from '../lib/puzzles/sure';
 import { track } from '../lib/reader/track';
 import { useReader } from './ReaderContext';
 import { Sheet } from './Sheets';
@@ -234,7 +235,12 @@ function Crossword() {
   const { puz, set } = usePuzzles();
   const finish = useFinish();
   const day = puz.cw.day!;
-  const p = useMemo(() => makeCrossword(day.level, `${ed.date}|cw|${day.level}`), [ed.date, day.level]);
+  const p = useMemo(() => {
+    const seed = `${ed.date}|cw|${day.level}`;
+    if (!isFresh(ed.issue)) return makeCrossword(day.level, seed);
+    const cfg = CW_LEVELS[day.level] ?? CW_LEVELS[1];
+    return makeCrossword(day.level, seed, { day: dayIndex(ed.date), news: newsCrosswordWords(ed.stories, seed, day.level <= 2 ? 2 : 3, cfg.max) });
+  }, [ed.date, ed.issue, ed.stories, day.level]);
   const [sel, setSel] = useState<{ r: number; c: number; dir: Dir }>(() => ({ r: p.words[0].r, c: p.words[0].col, dir: p.words[0].dir }));
   const [confirming, confirm] = useConfirm();
   const inp = useRef<HTMLInputElement>(null);
@@ -523,7 +529,8 @@ function Rulebook() {
   const { ed, toast } = useReader();
   const { puz, set } = usePuzzles();
   const day = puz.rb.day!;
-  const p = useMemo(() => makeRulebook(ed.date), [ed.date]);
+  const fresh = isFresh(ed.issue);
+  const p = useMemo(() => (fresh ? makeRulebookDaily(ed.date, headlineWords(ed.stories)) : makeRulebook(ed.date)), [fresh, ed.date, ed.stories]);
   const [msg, setMsg] = useState('');
   const [word, setWord] = useState('');
   const [confirming, confirm] = useConfirm();
@@ -569,7 +576,7 @@ function Rulebook() {
   return (
     <Sheet label="Rulebook" tall>
       <h2 className="sh-title">Rulebook</h2>
-      <p className="stand">A secret rule decides which words pass. Test words to work it out, then pick it from the list.</p>
+      <p className="stand">A secret rule decides which words pass. Test words to work it out, then pick it from the list.{fresh ? " Today's examples come from today's headlines." : ''}</p>
       {day.done && (
         <div className="pzdone" role="status">
           <h3>{day.done === 'revealed' ? "Here's the rule." : n <= 4 && day.wrong.length === 0 ? 'Sharp deduction.' : day.wrong.length === 0 ? 'Solved.' : 'Got there.'}</h3>
@@ -624,7 +631,8 @@ function Sure() {
   const { ed } = useReader();
   const { puz, set } = usePuzzles();
   const day = puz.sr.day!;
-  const qs = useMemo(() => srSet(ed.issue), [ed.issue]);
+  const qs = useMemo(() => sureQuestions(ed), [ed]);
+  const newsN = qs.filter((x) => x.news).length;
   const [lo, setLo] = useState('');
   const [hi, setHi] = useState('');
   const [msg, setMsg] = useState('');
@@ -661,7 +669,7 @@ function Sure() {
         <h4>Today&apos;s answers</h4>
         <ul className="plain">
           {day.res.map((r, k) => (
-            <li key={k}>{SR_Q[qs[k]][0]} <strong>{srFmt(r.x)}</strong> <span className="muted">· you said {srFmt(r.l)} to {srFmt(r.u)} · {r.hit ? 'inside' : 'outside'} · +{r.pts}</span></li>
+            <li key={k}>{qs[k]?.q} <strong>{srFmt(r.x)}</strong> <span className="muted">· you said {srFmt(r.l)} to {srFmt(r.u)} · {r.hit ? 'inside' : 'outside'} · +{r.pts}</span></li>
           ))}
         </ul>
         <p className="muted">Scoring uses the interval score: you pay the width of your range, plus 20 times how far outside it the answer fell. Over time, the best strategy is ranges that really do catch the answer 90% of the time.</p>
@@ -669,17 +677,17 @@ function Sure() {
     );
   }
 
-  const q = SR_Q[qs[day.i]];
+  const q = qs[day.i];
   if (day.stage === 'ask') {
     const lock = (e: React.FormEvent) => {
       e.preventDefault();
       let l = srNum(lo), u = srNum(hi);
       if (!Number.isFinite(l) || !Number.isFinite(u)) { setMsg('Enter a number in both boxes.'); return; }
       if (l > u) [l, u] = [u, l];
-      const x = q[2];
+      const x = q.x;
       update((d) => {
         const res = d.res.slice();
-        res[d.i] = { l, u, x, hit: x >= l && x <= u, pts: srScore(l, u, x, q[3] ?? Math.abs(x)) };
+        res[d.i] = { l, u, x, hit: x >= l && x <= u, pts: srScore(l, u, x, q.sc) };
         return { ...d, res, stage: 'reveal' };
       });
       setLo(''); setHi(''); setMsg('');
@@ -687,11 +695,12 @@ function Sure() {
     return (
       <Sheet label="Sure?" tall>
         <h2 className="sh-title">Sure?</h2>
-        <p className="stand">Five real-world numbers. For each, give a range you&apos;re 90% sure contains the answer. Tight ranges score more, but a miss costs a lot.</p>
+        <p className="stand">Five real numbers{newsN ? `, ${newsN === 1 ? 'one' : 'two'} from today\u2019s news` : ''}. For each, give a range you&apos;re 90% sure contains the answer. Tight ranges score more, but a miss costs a lot.</p>
         {dots}
         <div className="pzmeta"><span>Question {day.i + 1} of {SR_N}</span><span className="pzr">No. {ed.issue}</span></div>
-        <p className="srq">{q[0]}</p>
-        <p className="muted">Answer in {q[1]}.</p>
+        {q.news && <p className="srtag">From today&apos;s news<span>{q.head}</span></p>}
+        <p className="srq">{q.q}</p>
+        <p className="muted">{q.news ? 'Fill in the missing number.' : q.unit ? `Answer in ${q.unit}.` : 'Answer with a number.'}</p>
         <form onSubmit={lock} noValidate>
           <p className="srprompt">I&apos;m 90% sure it&apos;s between…</p>
           <div className="srin">
@@ -723,7 +732,8 @@ function Sure() {
       <h2 className="sh-title">Sure?</h2>
       {dots}
       <div className="pzmeta"><span>Question {day.i + 1} of {SR_N}</span><span className="pzr">No. {ed.issue}</span></div>
-      <p className="srq">{q[0]}</p>
+      {q.news && <p className="srtag">From today&apos;s news<span>{q.head}</span></p>}
+      <p className="srq">{q.q}</p>
       <div className="srline" role="img" aria-label={`Your range ${srFmt(r.l)} to ${srFmt(r.u)}; the answer is ${srFmt(r.x)}`}>
         <div className="ax" />
         <div className="bd" style={{ left: pos(r.l), width: `calc(${pos(r.u)} - ${pos(r.l)})` }} />
@@ -733,7 +743,7 @@ function Sure() {
         {r.u !== r.l && <span className="lb b" style={{ left: pos(r.u) }}>{srFmt(r.u)}</span>}
       </div>
       <div className="srverdict"><b className={r.hit ? '' : 'miss'}>{r.hit ? 'Inside your range' : 'Outside your range'}</b><span>+{r.pts} pts</span></div>
-      <p className="muted">{q[4]}</p>
+      <p className="muted">{q.note}</p>
       <div className="pzbtns"><button className="pill solid" onClick={next}>{last ? 'See my results' : 'Next question'}</button></div>
     </Sheet>
   );
