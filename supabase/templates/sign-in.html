@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Your Daily Receipts sign-in link</title>
+</head>
+<!--
+  Sign-in email for Supabase (Authentication > Emails > Templates).
+  Use for both "Magic Link" and "Confirm signup". Subject: Your Daily Receipts sign-in link
+  The button goes to /auth/confirm, which verifies the token directly, so it works in any browser.
+-->
+<body style="margin:0;padding:0;background:#0d1836;-webkit-text-size-adjust:100%;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Tap to sign in to Daily Receipts. The link works once and expires in an hour.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0d1836;">
+    <tr>
+      <td align="center" style="padding:32px 16px 40px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:480px;">
+
+          <!-- masthead on the navy frame -->
+          <tr>
+            <td style="padding:0 4px 18px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="vertical-align:middle;padding-right:12px;">
+                    <img src="https://www.dailyreceipts.com/icons/icon-192.png" width="44" height="44" alt="DR" style="display:block;border:0;border-radius:10px;">
+                  </td>
+                  <td style="vertical-align:middle;font-family:'Arial Narrow',Arial,Helvetica,sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.5px;color:#ffffff;">
+                    Daily Receipts
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- the receipt slip -->
+          <tr>
+            <td style="background:#fcfbf8;border-radius:14px 14px 0 0;padding:26px 26px 14px;">
+              <p style="margin:0 0 4px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#5c616e;">Sign-in link</p>
+              <h1 style="margin:0 0 14px;font-family:'Arial Narrow',Arial,Helvetica,sans-serif;font-size:28px;line-height:1.1;font-weight:800;letter-spacing:-0.5px;color:#0d1836;">Your receipts are waiting.</h1>
+              <p style="margin:0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.5;color:#15171c;">Tap the button to sign in. Your roundup, saves and topics will follow you to every device.</p>
+
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 22px;">
+                <tr>
+                  <td style="border-radius:999px;background:#0d1836;">
+                    <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email&amp;next=/"
+                       style="display:inline-block;padding:14px 26px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:999px;">Sign in to Daily Receipts</a>
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr><td style="border-top:2px dashed #c8c4ba;font-size:0;line-height:0;">&nbsp;</td></tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:14px 0 6px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#5c616e;">
+                <tr><td style="padding:3px 0;">Valid for</td><td align="right" style="padding:3px 0;color:#0d1836;font-weight:700;">1 hour · 1 use</td></tr>
+                <tr><td style="padding:3px 0;">Password needed</td><td align="right" style="padding:3px 0;color:#0d1836;font-weight:700;">None</td></tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr><td style="border-top:2px dashed #c8c4ba;font-size:0;line-height:0;">&nbsp;</td></tr>
+              </table>
+
+              <p style="margin:14px 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.5;color:#5c616e;">Button not working? Copy this into your browser:</p>
+              <p style="margin:0 0 18px;font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.5;word-break:break-all;color:#0d1836;">{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email&amp;next=/</p>
+              <p style="margin:0 0 18px;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.5;color:#5c616e;">Didn&rsquo;t ask for this? Ignore it. Nobody can sign in without this email.</p>
+            </td>
+          </tr>
+          <!-- torn edge -->
+          <tr>
+            <td style="font-size:0;line-height:0;"><img src="https://www.dailyreceipts.com/email/torn-edge.png" width="480" height="12" alt="" style="display:block;width:100%;max-width:480px;height:12px;border:0;"></td>
+          </tr>
+
+          <!-- footer on the navy frame -->
+          <tr>
+            <td style="padding:20px 4px 0;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#a9b3d3;">
+              Today&rsquo;s news, with receipts. &middot; <a href="https://www.dailyreceipts.com" style="color:#a9b3d3;">dailyreceipts.com</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
