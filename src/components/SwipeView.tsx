@@ -6,6 +6,7 @@ import { reswipeSaved } from '../lib/reader/state';
 import type { ClientStory, SwipeAction } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel, mastDate, shortDate } from './brand';
 import { EndExtras } from './EndExtras';
+import { usePuzzles } from './Puzzles';
 import { useReader } from './ReaderContext';
 
 const reduced = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -67,6 +68,7 @@ function Card({ s, depth, onGesture }: { s: ClientStory; depth: number; onGestur
 
 export function SwipeView() {
   const { ed, st, swipe, undo, restart, openStory, setOverlay, update, overlay } = useReader();
+  const { anyOn } = usePuzzles();
   const deckRef = useRef<HTMLDivElement>(null);
   const busy = useRef(false);
   const all = visible(st, ed);
@@ -181,6 +183,7 @@ export function SwipeView() {
             <div className="endbtns">
               {nLiked > 0 && <button className="pill solid" onClick={() => setOverlay({ kind: 'roundup' })}>Listen to your roundup ({nLiked})</button>}
               <button className="pill" onClick={restart}>Start over from story 1</button>
+              {anyOn && <button className="pill" onClick={() => setOverlay({ kind: 'puzzles' })}>Today&apos;s puzzles</button>}
               <button className="pill" onClick={() => update((x) => ({ ...x, mode: 'scroll' }))}>Open the full edition</button>
             </div>
           </div>
@@ -199,7 +202,7 @@ export function SwipeView() {
       </div>
       <div className="dtop">
         <p className="dcount" aria-live="polite">{done + 1} of {all.length}<span className="dmin"> · {minutes(deck.length)} min left</span></p>
-        <span className="dpills"><button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Roundup · {nLiked}</button></span>
+        <span className="dpills">{anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}<button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Roundup · {nLiked}</button></span>
       </div>
       <div className="deck" id="deck" ref={deckRef}>
         {deck.slice(0, 3).map((s, i) => ({ s, i })).reverse().map(({ s, i }) => (

@@ -22,7 +22,7 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   await p.waitForSelector('.tour', { timeout: 5000 });
   check(true, `${tag} welcome tour shows on first visit`);
   await p.screenshot({ path: `${OUT}/tour-${tag}.png` });
-  for (let i = 0; i < 5; i++) await p.getByRole('button', { name: 'Next' }).click();
+  while (await p.getByRole('button', { name: 'Next' }).count()) await p.getByRole('button', { name: 'Next' }).click();
   await p.getByRole('button', { name: 'Start swiping' }).click();
   check(!(await p.$('.tour')), `${tag} tour closes`);
 
@@ -132,6 +132,47 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   await p.waitForSelector('.intro h1');
   check(!(await p.$('.tour')), `${tag} tour doesn't come back after reload`);
   check(await p.evaluate(() => JSON.parse(localStorage.getItem('dr.web.v1')).min === 'B'), `${tag} settings kept after reload`);
+
+  // puzzles: list, crossword typing, sudoku entry, Rulebook test, Sure? round
+  await p.getByRole('button', { name: 'Swipe', exact: true }).click();
+  await p.getByRole('button', { name: 'Puzzles' }).first().click();
+  await p.waitForSelector('.pzcard');
+  check((await p.$$('.pzcard')).length === 4, `${tag} four puzzles listed`);
+  await p.getByRole('button', { name: /Crossword/ }).click();
+  await p.waitForSelector('.cwgrid');
+  await p.click('.cwc.sel');
+  await p.keyboard.type('A');
+  check(await p.evaluate(() => [...document.querySelectorAll('.cwc b')].some((b) => b.textContent === 'A')), `${tag} crossword takes a letter`);
+  await p.getByRole('button', { name: 'Reveal all' }).click();
+  await p.getByRole('button', { name: 'Sure? Tap again' }).click();
+  await p.waitForSelector('.pzdone');
+  check(/eases off|stays at/.test(await p.textContent('.pzdone')), `${tag} crossword reveal finishes and sets tomorrow's level`);
+  await p.screenshot({ path: `${OUT}/crossword-${tag}.png` });
+  await p.getByRole('button', { name: 'Back to puzzles' }).click();
+  await p.getByRole('button', { name: /Sudoku/ }).click();
+  await p.waitForSelector('.sugrid');
+  const empty = await p.$('.suc:not(.given)');
+  await empty.click();
+  await p.click('.supad button:not([disabled])');
+  check(await p.evaluate(() => [...document.querySelectorAll('.suc:not(.given)')].some((c) => /^[1-9]$/.test(c.textContent))), `${tag} sudoku takes a number`);
+  check(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth && document.querySelector('.sugrid').getBoundingClientRect().right <= innerWidth), `${tag} sudoku grid fits the screen`);
+  await p.screenshot({ path: `${OUT}/sudoku-${tag}.png` });
+  await p.getByRole('button', { name: 'Close' }).click();
+  await p.getByRole('button', { name: /Rulebook/ }).click();
+  await p.fill('input[aria-label="Word to test"]', 'banana');
+  await p.getByRole('button', { name: 'Test', exact: true }).click();
+  check(/BANANA (passes|fails)/.test(await p.textContent('.sheet')), `${tag} Rulebook tests a word`);
+  await p.getByRole('button', { name: 'Close' }).click();
+  await p.getByRole('button', { name: /Sure\?/ }).click();
+  for (let q = 0; q < 5; q++) {
+    await p.fill('#sr-lo', '1');
+    await p.fill('#sr-hi', '1000000');
+    await p.getByRole('button', { name: 'Lock it in' }).click();
+    await p.getByRole('button', { name: q < 4 ? 'Next question' : 'See my results' }).click();
+  }
+  check(/of 5 inside your range/.test(await p.textContent('.pzdone')), `${tag} Sure? finishes with a score`);
+  await p.getByRole('button', { name: 'Close' }).click();
+  await p.getByRole('button', { name: 'Close' }).click().catch(() => {});
 
   // every button and link has a name
   const unnamed = await p.evaluate(() => [...document.querySelectorAll('button,a')].filter((el) => !(el.getAttribute('aria-label') || el.textContent.trim())).length);

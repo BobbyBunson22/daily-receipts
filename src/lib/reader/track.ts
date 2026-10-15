@@ -10,7 +10,7 @@ export type EventName =
   | 'open' | 'swipe' | 'deck_done' | 'restart' | 'story_open' | 'source_click'
   | 'roundup_open' | 'roundup_play' | 'roundup_done' | 'save' | 'unsave'
   | 'mode' | 'settings' | 'signup_start' | 'signin' | 'signout' | 'feedback'
-  | 'install' | 'share';
+  | 'install' | 'share' | 'puzzle_start' | 'puzzle_done';
 
 const ANON_KEY = 'dr.anon';
 let anonId = '';

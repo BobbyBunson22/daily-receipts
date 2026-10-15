@@ -7,6 +7,7 @@ import type { ClientStory } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel } from './brand';
 import { EndExtras } from './EndExtras';
 import { InstallHint } from './InstallHint';
+import { usePuzzles } from './Puzzles';
 import { useReader } from './ReaderContext';
 
 function Item({ s, why }: { s: ClientStory; why?: string }) {
@@ -34,6 +35,7 @@ function Item({ s, why }: { s: ClientStory; why?: string }) {
 export function ScrollView() {
   const { ed, st, setOverlay, update } = useReader();
   const [more, setMore] = useState<Record<string, boolean>>({});
+  const { anyOn } = usePuzzles();
   const vis = visible(st, ed);
   const top = topStories(st, ed);
   const topIds = new Set(top.map((s) => s.id));
@@ -53,6 +55,7 @@ export function ScrollView() {
         <p className="introbtn">
           <button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Your roundup · {nLiked}</button>
           <button className="rpill" onClick={() => setOverlay({ kind: 'saved' })}>Saved · {st.saves.length}</button>
+          {anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}
         </p>
         <InstallHint />
       </section>
@@ -92,6 +95,7 @@ export function ScrollView() {
               <p>That&apos;s today&apos;s receipts. The next edition drops tomorrow at about 6am.</p>
               <div className="endbtns">
                 {nLiked > 0 && <button className="pill solid" onClick={() => setOverlay({ kind: 'roundup' })}>Listen to your roundup ({nLiked})</button>}
+                {anyOn && <button className="pill" onClick={() => setOverlay({ kind: 'puzzles' })}>Today&apos;s puzzles</button>}
                 <button className="pill" onClick={() => { update((x) => ({ ...x, mode: 'swipe', swiped: [] })); scrollTo(0, 0); }}>Start over in swipe</button>
               </div>
             </div>

@@ -21,6 +21,8 @@ export type Overlay =
   | { kind: 'settings' }
   | { kind: 'account'; reason?: string }
   | { kind: 'tour' }
+  | { kind: 'puzzles' }
+  | { kind: 'game'; game: 'cw' | 'su' | 'rb' | 'sr' }
   | null;
 
 type SyncStatus = 'off' | 'syncing' | 'saved' | 'error';
@@ -214,6 +216,7 @@ export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: 
     setOverlayRaw((o) => {
       if (o?.kind === 'roundup') bulletinRef.current?.stop();
       if (o?.kind === 'story' && o.back) return o.back;
+      if (o?.kind === 'game') return { kind: 'puzzles' };
       return null;
     });
   }, []);

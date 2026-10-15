@@ -77,11 +77,12 @@ export default async function Admin() {
       </Shell>
     );
 
-  const [ov, fb, people, stories] = await Promise.all([
+  const [ov, fb, people, stories, puzzles] = await Promise.all([
     db.rpc('dr_admin_overview', { days: 14 }),
     db.rpc('dr_admin_feedback', { lim: 60 }),
     db.rpc('dr_admin_people', { lim: 200 }),
     db.rpc('dr_admin_stories', {}),
+    db.rpc('dr_admin_puzzles', { days: 14 }),
   ]);
   if (ov.error)
     return (
@@ -160,6 +161,22 @@ export default async function Admin() {
             </table>
           </div>
         ) : <p className="muted">No swipes yet.</p>}
+      </section>
+
+      <section className="rcpt pad" aria-labelledby="h-pz">
+        <h2 id="h-pz">Puzzles, last 14 days</h2>
+        {puzzles.data?.length ? (
+          <div className="scrollx">
+            <table>
+              <thead><tr><th>Puzzle</th><th>Started</th><th>Finished</th><th>Solved</th><th>Revealed</th><th>Players</th><th>Avg time</th></tr></thead>
+              <tbody>
+                {(puzzles.data as { game: string; started: number; finished: number; solved: number; revealed: number; players: number; avg_secs: number | null }[]).map((r) => (
+                  <tr key={r.game}><td>{({ cw: 'Crossword', su: 'Sudoku', rb: 'Rulebook', sr: 'Sure?' } as Record<string, string>)[r.game] ?? r.game}</td><td>{r.started}</td><td>{r.finished}</td><td>{r.solved}</td><td>{r.revealed}</td><td>{r.players}</td><td>{r.avg_secs == null ? '–' : `${Math.floor(r.avg_secs / 60)}:${String(Math.round(r.avg_secs % 60)).padStart(2, '0')}`}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : <p className="muted">No puzzles played yet.</p>}
       </section>
 
       <section className="rcpt pad" aria-labelledby="h-fb">

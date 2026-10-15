@@ -28,7 +28,7 @@ Web-first (decided 12 October 2026). The question for the beta is whether people
 
 ## Phase 3: Beta with 20 to 50 testers (two weeks)
 - Daily "your receipts are ready" email at a time each reader picks (email reaches every phone; web push only works on iPhone after Add to Home Screen).
-- Puzzles: port crossword, sudoku, Rulebook and Sure? with progress in the account.
+- Puzzles ✅ (15 October): crossword, sudoku, Rulebook and Sure?, same daily puzzles as the prototype, adaptive levels, plays on the admin dashboard. Progress is per device for now; syncing it to the account is next.
 - Public corrections log and a "How grades work" page; daily spot-check of 5 random stories.
 **Done when:** testers have used it for two weeks and BRIEF.md's success numbers are on the dashboard.
 

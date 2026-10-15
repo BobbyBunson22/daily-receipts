@@ -23,6 +23,8 @@ export function Tour() {
       art: <><div className="ta-audio"><span className="ta-play"><Icon.heart /></span><span className="ta-bars">{Array.from({ length: 9 }, (_, k) => <i key={k} />)}</span></div><span className="ta-mono">Your roundup · play bulletin</span></> },
     { h: 'Saved for later', p: "Stories you swipe up stay in your saved list, even after the day's edition changes. Tap Start over any time to see every story again.",
       art: <div className="ta-list"><b>Saved for later</b><span><em>Today</em>3 stories</span><span><em>Yesterday</em>2 stories</span><span><em>Last week</em>5 stories</span></div> },
+    { h: 'Four daily puzzles', p: 'A crossword, a sudoku, Rulebook and Sure?, fresh with every edition. The crossword and sudoku get harder as you improve. Switch any of them off in settings.',
+      art: <div className="ta-pz"><div className="ta-cw">{'R,E,C,E,I,P,T,#,#,A,#,#,#,#,#,C,#,#,#,#,F,A,C,T,S'.split(',').map((x, k) => (x === '#' ? <i key={k} className="b" /> : <i key={k}>{x}</i>))}</div><div className="ta-su">{'5,3,,6,,9,,9,8'.split(',').map((x, k) => <i key={k}>{x}</i>)}</div></div> },
     { h: 'Make it yours', p: user ? 'Tap the topics you want, then hold and drag to put your favourites first. Your top three get the most stories.' : 'Pick your topics and put your favourites first. Sign up free, any time, to keep everything on every device.',
       art: <div className="ta-topics">{st.order.slice(0, 4).map((id, k) => <span key={id}><b>{k + 1}</b>{ed.sections.find((s) => s.id === id)?.name}<em className="tgrip"><i /><i /><i /></em></span>)}</div> },
   ];

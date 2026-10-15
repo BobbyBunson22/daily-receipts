@@ -6,6 +6,7 @@ import { deckList, visible } from '../lib/reader/personalise';
 import { track } from '../lib/reader/track';
 import type { ClientEdition } from '../lib/reader/types';
 import { Icon, Logo } from './brand';
+import { GameSheet, PuzzleProvider, PuzzlesSheet } from './Puzzles';
 import { ReaderProvider, useReader } from './ReaderContext';
 import { ScrollView } from './ScrollView';
 import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } from './Sheets';
@@ -53,6 +54,8 @@ function Overlays() {
     case 'settings': return <SettingsSheet />;
     case 'account': return <AccountSheet reason={overlay.reason} />;
     case 'tour': return <Tour />;
+    case 'puzzles': return <PuzzlesSheet />;
+    case 'game': return <GameSheet key={overlay.game} game={overlay.game} />;
   }
 }
 
@@ -80,7 +83,9 @@ function Body() {
 export function App({ edition }: { edition: ClientEdition }) {
   return (
     <ReaderProvider ed={edition}>
-      <Body />
+      <PuzzleProvider>
+        <Body />
+      </PuzzleProvider>
     </ReaderProvider>
   );
 }

@@ -12,10 +12,11 @@ import { spreadFor } from '../lib/grading';
 import { AuthForm } from './AuthForm';
 import { Facts, Grade, Icon, VoiceBadge } from './brand';
 import { useReader } from './ReaderContext';
+import { PuzzleSettings } from './Puzzles';
 import { SavedList } from './SavedList';
 
 /** Bottom sheet dialog: focus moves in, Escape or the scrim closes, the page behind stays put. */
-export function Sheet({ label, children }: { label: string; children: React.ReactNode }) {
+export function Sheet({ label, children, tall = false }: { label: string; children: React.ReactNode; tall?: boolean }) {
   const { closeOverlay, overlay } = useReader();
   const ref = useRef<HTMLDivElement>(null);
   const opener = useRef<Element | null>(null);
@@ -49,7 +50,7 @@ export function Sheet({ label, children }: { label: string; children: React.Reac
   return (
     <>
       <div className="scrim" onClick={closeOverlay} aria-hidden="true" />
-      <div className="sheet" role="dialog" aria-modal="true" aria-label={label} ref={ref}>
+      <div className={`sheet${tall ? ' tall' : ''}`} role="dialog" aria-modal="true" aria-label={label} ref={ref}>
         <button className="xbtn" onClick={closeOverlay} aria-label="Close"><Icon.close /></button>
         {children}
       </div>
@@ -324,6 +325,8 @@ export function SettingsSheet() {
           <button className="pill" onClick={() => { update(resetTaste); toast('Your feed has been reset'); }}>Forget my swipes</button>
         </>
       ) : <p className="muted">Nothing yet. Tap the heart or cross on stories, or swipe, and your feed adjusts.</p>}
+      <h4>Daily puzzles</h4>
+      <PuzzleSettings />
       <h4>Lowest grade to show</h4>
       <div className="addrow">
         {([['A', 'A only'], ['B', 'A–B'], ['C', 'A–C'], ['D', 'All grades']] as const).map(([g, t]) => (
