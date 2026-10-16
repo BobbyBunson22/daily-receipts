@@ -1,4 +1,5 @@
 'use client';
+import { outboundUrl } from '../lib/reader/outbound';
 import { useEffect, useRef, useState } from 'react';
 
 import { GRADE_LABELS } from '../lib/grading';
@@ -104,7 +105,7 @@ export function StorySheet({ id }: { id: number }) {
       <ul className="srcs">
         {s.src.map((x, i) => (
           <li key={i}>
-            <a href={x.url} target="_blank" rel="noopener noreferrer" onClick={() => track('source_click', { outlet: x.key }, s.id)}>{x.name}</a>
+            <a href={outboundUrl(x.url)} target="_blank" rel="noopener" onClick={() => track('source_click', { outlet: x.key }, s.id)}>{x.name}</a>
             {x.note && <em>{x.note}</em>}
             <span>{x.country}</span>
           </li>
