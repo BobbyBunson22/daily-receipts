@@ -1,97 +1,524 @@
 {
   "about": "Outlets the morning edition starts from. Each feed gives headlines and links only; facts still come from article pages the edition task can open. lean is a rough guide for balance, not a rating. Spanish outlets are read in Spanish and written up in English.",
-  "groups": ["uk", "us", "europe", "mideast", "asia", "africa", "latam", "spanish", "science", "official"],
+  "groups": [
+    "uk",
+    "us",
+    "europe",
+    "mideast",
+    "asia",
+    "africa",
+    "latam",
+    "spanish",
+    "science",
+    "official"
+  ],
   "outlets": [
-    { "key": "bbc", "name": "BBC News", "group": "uk", "country": "UK", "lang": "en", "lean": "centre",
-      "feeds": ["https://feeds.bbci.co.uk/news/rss.xml", "https://feeds.bbci.co.uk/news/world/rss.xml", "https://feeds.bbci.co.uk/news/business/rss.xml", "https://feeds.bbci.co.uk/news/politics/rss.xml", "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml", "https://feeds.bbci.co.uk/news/health/rss.xml", "https://feeds.bbci.co.uk/news/technology/rss.xml", "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"] },
-    { "key": "bbcsport", "name": "BBC Sport", "group": "uk", "country": "UK", "lang": "en", "lean": "centre",
-      "feeds": ["https://feeds.bbci.co.uk/sport/rss.xml"] },
-    { "key": "sky", "name": "Sky News", "group": "uk", "country": "UK", "lang": "en", "lean": "centre",
-      "feeds": ["https://feeds.skynews.com/feeds/rss/home.xml", "https://feeds.skynews.com/feeds/rss/world.xml", "https://feeds.skynews.com/feeds/rss/business.xml", "https://feeds.skynews.com/feeds/rss/politics.xml"] },
-    { "key": "itv", "name": "ITV News", "group": "uk", "country": "UK", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.itv.com/news/rss"] },
-    { "key": "guardian", "name": "The Guardian", "group": "uk", "country": "UK", "lang": "en", "lean": "centre-left",
-      "feeds": ["https://www.theguardian.com/uk/rss", "https://www.theguardian.com/world/rss", "https://www.theguardian.com/uk/business/rss", "https://www.theguardian.com/science/rss", "https://www.theguardian.com/environment/rss"] },
-    { "key": "telegraph", "name": "The Telegraph", "group": "uk", "country": "UK", "lang": "en", "lean": "centre-right",
-      "feeds": ["https://www.telegraph.co.uk/rss.xml", "https://www.telegraph.co.uk/news/rss.xml", "https://www.telegraph.co.uk/business/rss.xml"] },
-    { "key": "independent", "name": "The Independent", "group": "uk", "country": "UK", "lang": "en", "lean": "centre-left",
-      "feeds": ["https://www.independent.co.uk/news/uk/rss", "https://www.independent.co.uk/news/world/rss"] },
-    { "key": "cityam", "name": "City AM", "group": "uk", "country": "UK", "lang": "en", "lean": "centre-right",
-      "feeds": ["https://www.cityam.com/feed/"] },
-
-    { "key": "npr", "name": "NPR", "group": "us", "country": "US", "lang": "en", "lean": "centre-left",
-      "feeds": ["https://feeds.npr.org/1001/rss.xml", "https://feeds.npr.org/1004/rss.xml"] },
-    { "key": "cbs", "name": "CBS News", "group": "us", "country": "US", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.cbsnews.com/latest/rss/main", "https://www.cbsnews.com/latest/rss/world"] },
-    { "key": "fox", "name": "Fox News", "group": "us", "country": "US", "lang": "en", "lean": "right",
-      "feeds": ["https://moxie.foxnews.com/google-publisher/latest.xml", "https://moxie.foxnews.com/google-publisher/world.xml", "https://moxie.foxnews.com/google-publisher/politics.xml"] },
-    { "key": "thehill", "name": "The Hill", "group": "us", "country": "US", "lang": "en", "lean": "centre",
-      "feeds": ["https://thehill.com/feed/"] },
-    { "key": "cnbc", "name": "CNBC", "group": "us", "country": "US", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.cnbc.com/id/100003114/device/rss/rss.html", "https://www.cnbc.com/id/100727362/device/rss/rss.html"] },
-
-    { "key": "euronews", "name": "Euronews", "group": "europe", "country": "EU", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.euronews.com/rss?format=mrss&level=theme&name=news"] },
-    { "key": "dw", "name": "DW", "group": "europe", "country": "Germany", "lang": "en", "lean": "centre",
-      "feeds": ["https://rss.dw.com/rdf/rss-en-all"] },
-    { "key": "france24", "name": "France 24", "group": "europe", "country": "France", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.france24.com/en/rss"] },
-    { "key": "politicoeu", "name": "Politico Europe", "group": "europe", "country": "EU", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.politico.eu/feed/"] },
-
-    { "key": "aj", "name": "Al Jazeera", "group": "mideast", "country": "Qatar", "lang": "en", "lean": "state-funded (Qatar)",
-      "feeds": ["https://www.aljazeera.com/xml/rss/all.xml"] },
-    { "key": "toi", "name": "The Times of Israel", "group": "mideast", "country": "Israel", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.timesofisrael.com/feed/"] },
-
-    { "key": "abc", "name": "ABC News", "group": "asia", "country": "Australia", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.abc.net.au/news/feed/51120/rss.xml"] },
-    { "key": "cna", "name": "CNA", "group": "asia", "country": "Singapore", "lang": "en", "lean": "state-owned (Singapore)",
-      "feeds": ["https://www.channelnewsasia.com/rssfeeds/8395986"] },
-    { "key": "ndtv", "name": "NDTV", "group": "asia", "country": "India", "lang": "en", "lean": "centre",
-      "feeds": ["https://feeds.feedburner.com/ndtvnews-top-stories", "https://feeds.feedburner.com/ndtvnews-world-news"] },
-    { "key": "nhk", "name": "NHK World", "group": "asia", "country": "Japan", "lang": "en", "lean": "public broadcaster (Japan)",
-      "feeds": ["https://www3.nhk.or.jp/nhkworld/en/news/rss.xml"] },
-
-    { "key": "news24", "name": "News24", "group": "africa", "country": "South Africa", "lang": "en", "lean": "centre",
-      "feeds": ["https://feeds.news24.com/articles/news24/TopStories/rss"] },
-    { "key": "africanews", "name": "Africanews", "group": "africa", "country": "Africa", "lang": "en", "lean": "centre",
-      "feeds": ["https://www.africanews.com/feed/rss", "https://www.africanews.com/feed/"] },
-
-    { "key": "mercopress", "name": "MercoPress", "group": "latam", "country": "Uruguay", "lang": "en", "lean": "centre",
-      "feeds": ["https://en.mercopress.com/rss"] },
-
-    { "key": "bbcmundo", "name": "BBC Mundo", "group": "spanish", "country": "UK (Spanish service)", "lang": "es", "lean": "centre",
-      "feeds": ["https://feeds.bbci.co.uk/mundo/rss.xml"] },
-    { "key": "elpais", "name": "El País", "group": "spanish", "country": "Spain", "lang": "es", "lean": "centre-left",
-      "feeds": ["https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada"] },
-    { "key": "elmundo", "name": "El Mundo", "group": "spanish", "country": "Spain", "lang": "es", "lean": "centre-right",
-      "feeds": ["https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml", "https://e00-elmundo.uecdn.es/elmundo/rss/internacional.xml"] },
-    { "key": "infobae", "name": "Infobae", "group": "spanish", "country": "Argentina", "lang": "es", "lean": "centre-right",
-      "feeds": ["https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml"] },
-    { "key": "eluniversal", "name": "El Universal", "group": "spanish", "country": "Mexico", "lang": "es", "lean": "centre",
-      "feeds": ["https://www.eluniversal.com.mx/arc/outboundfeeds/rss/?outputType=xml"] },
-    { "key": "eltiempo", "name": "El Tiempo", "group": "spanish", "country": "Colombia", "lang": "es", "lean": "centre",
-      "feeds": ["https://www.eltiempo.com/rss/mundo.xml", "https://www.eltiempo.com/rss/colombia.xml"] },
-
-    { "key": "stat", "name": "STAT", "group": "science", "country": "US", "lang": "en", "lean": "specialist",
-      "feeds": ["https://www.statnews.com/feed/"] },
-    { "key": "ars", "name": "Ars Technica", "group": "science", "country": "US", "lang": "en", "lean": "specialist",
-      "feeds": ["https://feeds.arstechnica.com/arstechnica/index"] },
-    { "key": "verge", "name": "The Verge", "group": "science", "country": "US", "lang": "en", "lean": "specialist",
-      "feeds": ["https://www.theverge.com/rss/index.xml"] },
-    { "key": "sciencedaily", "name": "ScienceDaily", "group": "science", "country": "US", "lang": "en", "lean": "specialist",
-      "feeds": ["https://www.sciencedaily.com/rss/top/science.xml", "https://www.sciencedaily.com/rss/top/health.xml"] },
-
-    { "key": "govuk", "name": "GOV.UK", "group": "official", "country": "UK", "lang": "en", "lean": "official",
-      "feeds": ["https://www.gov.uk/search/news-and-communications.atom"] },
-    { "key": "ons", "name": "Office for National Statistics", "group": "official", "country": "UK", "lang": "en", "lean": "official",
-      "feeds": ["https://www.ons.gov.uk/releasecalendar?rss", "https://www.ons.gov.uk/rss"] },
-    { "key": "boe", "name": "Bank of England", "group": "official", "country": "UK", "lang": "en", "lean": "official",
-      "feeds": ["https://www.bankofengland.co.uk/rss/news"] },
-    { "key": "who", "name": "World Health Organization", "group": "official", "country": "International", "lang": "en", "lean": "official",
-      "feeds": ["https://www.who.int/rss-feeds/news-english.xml"] },
-    { "key": "nasa", "name": "NASA", "group": "official", "country": "US", "lang": "en", "lean": "official",
-      "feeds": ["https://www.nasa.gov/news-release/feed/"] }
+    {
+      "key": "bbc",
+      "name": "BBC News",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://feeds.bbci.co.uk/news/rss.xml",
+        "https://feeds.bbci.co.uk/news/world/rss.xml",
+        "https://feeds.bbci.co.uk/news/business/rss.xml",
+        "https://feeds.bbci.co.uk/news/politics/rss.xml",
+        "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+        "https://feeds.bbci.co.uk/news/health/rss.xml",
+        "https://feeds.bbci.co.uk/news/technology/rss.xml",
+        "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"
+      ]
+    },
+    {
+      "key": "bbcsport",
+      "name": "BBC Sport",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://feeds.bbci.co.uk/sport/rss.xml"
+      ]
+    },
+    {
+      "key": "sky",
+      "name": "Sky News",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://feeds.skynews.com/feeds/rss/home.xml",
+        "https://feeds.skynews.com/feeds/rss/world.xml",
+        "https://feeds.skynews.com/feeds/rss/business.xml",
+        "https://feeds.skynews.com/feeds/rss/politics.xml"
+      ]
+    },
+    {
+      "key": "itv",
+      "name": "ITV News",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.itv.com/news/rss",
+        "https://www.itv.com/news/rss.xml",
+        "https://www.itv.com/news/feed"
+      ]
+    },
+    {
+      "key": "guardian",
+      "name": "The Guardian",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre-left",
+      "feeds": [
+        "https://www.theguardian.com/uk/rss",
+        "https://www.theguardian.com/world/rss",
+        "https://www.theguardian.com/uk/business/rss",
+        "https://www.theguardian.com/science/rss",
+        "https://www.theguardian.com/environment/rss"
+      ]
+    },
+    {
+      "key": "telegraph",
+      "name": "The Telegraph",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre-right",
+      "feeds": [
+        "https://www.telegraph.co.uk/rss.xml",
+        "https://www.telegraph.co.uk/news/rss.xml",
+        "https://www.telegraph.co.uk/business/rss.xml"
+      ]
+    },
+    {
+      "key": "independent",
+      "name": "The Independent",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre-left",
+      "feeds": [
+        "https://www.independent.co.uk/news/uk/rss",
+        "https://www.independent.co.uk/news/world/rss"
+      ]
+    },
+    {
+      "key": "cityam",
+      "name": "City AM",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre-right",
+      "feeds": [
+        "https://www.cityam.com/feed/"
+      ]
+    },
+    {
+      "key": "npr",
+      "name": "NPR",
+      "group": "us",
+      "country": "US",
+      "lang": "en",
+      "lean": "centre-left",
+      "feeds": [
+        "https://feeds.npr.org/1001/rss.xml",
+        "https://feeds.npr.org/1004/rss.xml"
+      ]
+    },
+    {
+      "key": "cbs",
+      "name": "CBS News",
+      "group": "us",
+      "country": "US",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.cbsnews.com/latest/rss/main",
+        "https://www.cbsnews.com/latest/rss/world"
+      ]
+    },
+    {
+      "key": "fox",
+      "name": "Fox News",
+      "group": "us",
+      "country": "US",
+      "lang": "en",
+      "lean": "right",
+      "feeds": [
+        "https://moxie.foxnews.com/google-publisher/latest.xml",
+        "https://moxie.foxnews.com/google-publisher/world.xml",
+        "https://moxie.foxnews.com/google-publisher/politics.xml"
+      ]
+    },
+    {
+      "key": "thehill",
+      "name": "The Hill",
+      "group": "us",
+      "country": "US",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://thehill.com/feed/"
+      ]
+    },
+    {
+      "key": "cnbc",
+      "name": "CNBC",
+      "group": "us",
+      "country": "US",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+        "https://www.cnbc.com/id/100727362/device/rss/rss.html"
+      ]
+    },
+    {
+      "key": "euronews",
+      "name": "Euronews",
+      "group": "europe",
+      "country": "EU",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.euronews.com/rss?format=mrss&level=theme&name=news"
+      ]
+    },
+    {
+      "key": "dw",
+      "name": "DW",
+      "group": "europe",
+      "country": "Germany",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://rss.dw.com/rdf/rss-en-all"
+      ]
+    },
+    {
+      "key": "france24",
+      "name": "France 24",
+      "group": "europe",
+      "country": "France",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.france24.com/en/rss"
+      ]
+    },
+    {
+      "key": "politicoeu",
+      "name": "Politico Europe",
+      "group": "europe",
+      "country": "EU",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.politico.eu/feed/"
+      ]
+    },
+    {
+      "key": "aj",
+      "name": "Al Jazeera",
+      "group": "mideast",
+      "country": "Qatar",
+      "lang": "en",
+      "lean": "state-funded (Qatar)",
+      "feeds": [
+        "https://www.aljazeera.com/xml/rss/all.xml"
+      ]
+    },
+    {
+      "key": "jpost",
+      "name": "The Jerusalem Post",
+      "group": "mideast",
+      "country": "Israel",
+      "lang": "en",
+      "lean": "centre-right",
+      "feeds": [
+        "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+        "https://www.jpost.com/rss/rssfeedsheadlines.aspx"
+      ]
+    },
+    {
+      "key": "abc",
+      "name": "ABC News",
+      "group": "asia",
+      "country": "Australia",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.abc.net.au/news/feed/51120/rss.xml"
+      ]
+    },
+    {
+      "key": "cna",
+      "name": "CNA",
+      "group": "asia",
+      "country": "Singapore",
+      "lang": "en",
+      "lean": "state-owned (Singapore)",
+      "feeds": [
+        "https://www.channelnewsasia.com/rssfeeds/8395986"
+      ]
+    },
+    {
+      "key": "ndtv",
+      "name": "NDTV",
+      "group": "asia",
+      "country": "India",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://feeds.feedburner.com/ndtvnews-top-stories",
+        "https://feeds.feedburner.com/ndtvnews-world-news"
+      ]
+    },
+    {
+      "key": "nhk",
+      "name": "NHK World",
+      "group": "asia",
+      "country": "Japan",
+      "lang": "en",
+      "lean": "public broadcaster (Japan)",
+      "feeds": [
+        "https://www3.nhk.or.jp/nhkworld/en/news/rss.xml",
+        "https://www3.nhk.or.jp/nhkworld/data/en/news/rss.xml",
+        "https://www3.nhk.or.jp/nhkworld/en/news/list/rss.xml"
+      ]
+    },
+    {
+      "key": "japantimes",
+      "name": "The Japan Times",
+      "group": "asia",
+      "country": "Japan",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.japantimes.co.jp/feed/",
+        "https://www.japantimes.co.jp/feed/topstories/"
+      ]
+    },
+    {
+      "key": "dm",
+      "name": "Daily Maverick",
+      "group": "africa",
+      "country": "South Africa",
+      "lang": "en",
+      "lean": "centre-left",
+      "feeds": [
+        "https://www.dailymaverick.co.za/dmrss/"
+      ]
+    },
+    {
+      "key": "mg",
+      "name": "Mail & Guardian",
+      "group": "africa",
+      "country": "South Africa",
+      "lang": "en",
+      "lean": "centre-left",
+      "feeds": [
+        "https://mg.co.za/feed/"
+      ]
+    },
+    {
+      "key": "africanews",
+      "name": "Africanews",
+      "group": "africa",
+      "country": "Africa",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://www.africanews.com/feed/rss",
+        "https://www.africanews.com/feed/"
+      ]
+    },
+    {
+      "key": "mercopress",
+      "name": "MercoPress",
+      "group": "latam",
+      "country": "Uruguay",
+      "lang": "en",
+      "lean": "centre",
+      "feeds": [
+        "https://en.mercopress.com/rss"
+      ]
+    },
+    {
+      "key": "bbcmundo",
+      "name": "BBC Mundo",
+      "group": "spanish",
+      "country": "UK (Spanish service)",
+      "lang": "es",
+      "lean": "centre",
+      "feeds": [
+        "https://feeds.bbci.co.uk/mundo/rss.xml"
+      ]
+    },
+    {
+      "key": "elpais",
+      "name": "El País",
+      "group": "spanish",
+      "country": "Spain",
+      "lang": "es",
+      "lean": "centre-left",
+      "feeds": [
+        "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+        "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada"
+      ]
+    },
+    {
+      "key": "elmundo",
+      "name": "El Mundo",
+      "group": "spanish",
+      "country": "Spain",
+      "lang": "es",
+      "lean": "centre-right",
+      "feeds": [
+        "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml",
+        "https://e00-elmundo.uecdn.es/elmundo/rss/internacional.xml"
+      ]
+    },
+    {
+      "key": "infobae",
+      "name": "Infobae",
+      "group": "spanish",
+      "country": "Argentina",
+      "lang": "es",
+      "lean": "centre-right",
+      "feeds": [
+        "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml"
+      ]
+    },
+    {
+      "key": "eluniversal",
+      "name": "El Universal",
+      "group": "spanish",
+      "country": "Mexico",
+      "lang": "es",
+      "lean": "centre",
+      "feeds": [
+        "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/?outputType=xml"
+      ]
+    },
+    {
+      "key": "eltiempo",
+      "name": "El Tiempo",
+      "group": "spanish",
+      "country": "Colombia",
+      "lang": "es",
+      "lean": "centre",
+      "feeds": [
+        "https://www.eltiempo.com/rss/mundo.xml",
+        "https://www.eltiempo.com/rss/colombia.xml"
+      ]
+    },
+    {
+      "key": "stat",
+      "name": "STAT",
+      "group": "science",
+      "country": "US",
+      "lang": "en",
+      "lean": "specialist",
+      "feeds": [
+        "https://www.statnews.com/feed/"
+      ]
+    },
+    {
+      "key": "ars",
+      "name": "Ars Technica",
+      "group": "science",
+      "country": "US",
+      "lang": "en",
+      "lean": "specialist",
+      "feeds": [
+        "https://feeds.arstechnica.com/arstechnica/index"
+      ]
+    },
+    {
+      "key": "verge",
+      "name": "The Verge",
+      "group": "science",
+      "country": "US",
+      "lang": "en",
+      "lean": "specialist",
+      "feeds": [
+        "https://www.theverge.com/rss/index.xml"
+      ]
+    },
+    {
+      "key": "sciencedaily",
+      "name": "ScienceDaily",
+      "group": "science",
+      "country": "US",
+      "lang": "en",
+      "lean": "specialist",
+      "feeds": [
+        "https://www.sciencedaily.com/rss/top/science.xml",
+        "https://www.sciencedaily.com/rss/top/health.xml"
+      ]
+    },
+    {
+      "key": "govuk",
+      "name": "GOV.UK",
+      "group": "official",
+      "country": "UK",
+      "lang": "en",
+      "lean": "official",
+      "feeds": [
+        "https://www.gov.uk/search/news-and-communications.atom"
+      ]
+    },
+    {
+      "key": "ons",
+      "name": "Office for National Statistics",
+      "group": "official",
+      "country": "UK",
+      "lang": "en",
+      "lean": "official",
+      "feeds": [
+        "https://www.ons.gov.uk/releasecalendar?rss"
+      ]
+    },
+    {
+      "key": "boe",
+      "name": "Bank of England",
+      "group": "official",
+      "country": "UK",
+      "lang": "en",
+      "lean": "official",
+      "feeds": [
+        "https://www.bankofengland.co.uk/rss/news"
+      ]
+    },
+    {
+      "key": "who",
+      "name": "World Health Organization",
+      "group": "official",
+      "country": "International",
+      "lang": "en",
+      "lean": "official",
+      "feeds": [
+        "https://www.who.int/rss-feeds/news-english.xml"
+      ]
+    },
+    {
+      "key": "nasa",
+      "name": "NASA",
+      "group": "official",
+      "country": "US",
+      "lang": "en",
+      "lean": "official",
+      "feeds": [
+        "https://www.nasa.gov/news-release/feed/"
+      ]
+    }
   ]
 }

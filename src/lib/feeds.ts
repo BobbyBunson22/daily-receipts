@@ -76,16 +76,23 @@ tiene tienen será sido fueron puede pueden según años nuevo nueva más hace c
 
 const words = (t: string) => t.match(/[\p{L}][\p{L}'’-]*/gu) ?? [];
 
-/** Significant words in a headline, with names (capitalised, not the first word) flagged. */
+/**
+ * Significant words in a headline. A word that is capitalised and not the first word is
+ * part of a name; neighbouring name words share a number, so "Saudi Arabia" is one name.
+ * The value is that name's number, or -1 for an ordinary word.
+ */
 export function keywords(title: string) {
   const ws = words(title);
-  const keys = new Map<string, boolean>();
+  const keys = new Map<string, number>();
+  let phrase = 0, prevName = false;
   ws.forEach((w, i) => {
+    const name = i > 0 && /^\p{Lu}/u.test(w) && w !== w.toUpperCase();
+    if (name && !prevName) phrase++;
+    prevName = name;
     const base = w.replace(/['’]s$/i, '').toLowerCase();
     if (base.length < 4 || STOP.has(base)) return;
     const k = base.replace(/(?<=\w{4})s$/, '');
-    const name = i > 0 && /^\p{Lu}/u.test(w) && w !== w.toUpperCase();
-    keys.set(k, (keys.get(k) ?? false) || name);
+    if (!keys.has(k) || name) keys.set(k, name ? phrase : -1);
   });
   return keys;
 }
@@ -93,35 +100,46 @@ export function keywords(title: string) {
 export interface Cluster { outlets: string[]; groups: string[]; langs: string[]; items: FeedItem[] }
 
 /**
- * Groups headlines from different outlets that share enough words to look like one story:
- * three shared words, or two when one is a name. A hint for the edition, not a verdict.
+ * Groups headlines from different outlets that look like one story. Words that turn up in
+ * many headlines (Trump, Ukraine, White House) count half, so they can't join stories on their
+ * own. Each story is built around one headline and only takes headlines that match it directly,
+ * so unrelated stories can't chain together. A hint for the edition, not a verdict.
  */
 export function clusterItems(items: FeedItem[], groupOf: Record<string, string>, cap = 30): Cluster[] {
   const keys = items.map((x) => keywords(x.t));
-  const parent = items.map((_, i) => i), size = items.map(() => 1);
-  const find = (i: number): number => (parent[i] === i ? i : (parent[i] = find(parent[i])));
-  for (let i = 0; i < items.length; i++)
-    for (let j = i + 1; j < items.length; j++) {
-      if (items[i].o === items[j].o) continue;
-      let shared = 0, names = 0;
-      for (const [k, n] of keys[i]) if (keys[j].has(k)) { shared++; if (n || keys[j].get(k)) names++; }
-      // across languages only names carry over
-      const ok = items[i].lang === items[j].lang ? shared >= 3 || (shared >= 2 && names >= 1) : names >= 2;
-      if (!ok) continue;
-      const a = find(i), b = find(j);
-      if (a === b || size[a] + size[b] > cap) continue;
-      parent[b] = a;
-      size[a] += size[b];
+  const df = new Map<string, number>();
+  keys.forEach((k) => k.forEach((_, w) => df.set(w, (df.get(w) ?? 0) + 1)));
+  const common = Math.max(6, items.length * 0.012);
+  const linked = (i: number, j: number) => {
+    if (items[i].o === items[j].o) return false;
+    let score = 0;
+    const names = new Set<number>();
+    for (const [k, pi] of keys[i]) {
+      const pj = keys[j].get(k);
+      if (pj === undefined) continue;
+      const rare = (df.get(k) ?? 0) <= common;
+      score += rare ? 1 : 0.5;
+      // a name only when both headlines capitalise it
+      if (rare && pi >= 0 && pj >= 0) names.add(pi);
     }
-  const byRoot = new Map<number, FeedItem[]>();
-  items.forEach((x, i) => byRoot.set(find(i), [...(byRoot.get(find(i)) ?? []), x]));
-  return [...byRoot.values()]
-    .map((its) => ({
-      outlets: [...new Set(its.map((x) => x.o))],
-      groups: [...new Set(its.map((x) => groupOf[x.o]))],
-      langs: [...new Set(its.map((x) => x.lang))],
-      items: its,
-    }))
-    .filter((c) => c.outlets.length >= 2)
-    .sort((a, b) => b.outlets.length - a.outlets.length || b.groups.length - a.groups.length);
+    // across languages only names carry over
+    if (items[i].lang !== items[j].lang) return names.size >= 2;
+    return score >= 3 || (score >= 2 && names.size >= 2);
+  };
+  const nbrs = items.map(() => [] as number[]);
+  for (let i = 0; i < items.length; i++)
+    for (let j = i + 1; j < items.length; j++) if (linked(i, j)) { nbrs[i].push(j); nbrs[j].push(i); }
+  const taken = new Set<number>();
+  const out: Cluster[] = [];
+  const seeds = items.map((_, i) => i).sort((a, b) => new Set(nbrs[b].map((j) => items[j].o)).size - new Set(nbrs[a].map((j) => items[j].o)).size);
+  for (const s of seeds) {
+    if (taken.has(s)) continue;
+    const members = [s, ...nbrs[s].filter((j) => !taken.has(j))].slice(0, cap);
+    const its = members.map((i) => items[i]);
+    const outlets = [...new Set(its.map((x) => x.o))];
+    if (outlets.length < 2) continue;
+    members.forEach((i) => taken.add(i));
+    out.push({ outlets, groups: [...new Set(its.map((x) => groupOf[x.o]))], langs: [...new Set(its.map((x) => x.lang))], items: its });
+  }
+  return out.sort((a, b) => b.outlets.length - a.outlets.length || b.groups.length - a.groups.length);
 }

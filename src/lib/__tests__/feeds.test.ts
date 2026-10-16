@@ -39,7 +39,9 @@ describe('grouping headlines into stories', () => {
   it('flags names but not the first word', () => {
     const k = keywords(s1.head);
     expect([...k.keys()].length).toBeGreaterThan(2);
-    expect(k.get(s1.head.split(' ')[0].toLowerCase())).not.toBe(true);
+    expect(k.get(s1.head.split(' ')[0].toLowerCase()) ?? -1).toBe(-1);
+    // "Strait of Hormuz": Strait and Hormuz are names
+    expect(k.get('strait')).toBeGreaterThan(0);
   });
 
   it("joins a story's headline and standfirst from two outlets, and keeps different stories apart", () => {
@@ -51,9 +53,9 @@ describe('grouping headlines into stories', () => {
     const cs = clusterItems(items, { a: 'uk', b: 'us' });
     // every cluster holds one story only
     for (const c of cs) expect(new Set(c.items.map((x) => x.u.split('/').pop())).size).toBe(1);
-    // pairs sharing a name and another word are found (Hormuz: Strait + attacks; Greenland: Trump + Greenland)
+    // the pair sharing two names is found (Greenland: Trump and Greenland)
     const found = cs.map((c) => c.items[0].u.split('/').pop());
-    expect(found).toEqual(expect.arrayContaining([ed.stories[0].id, ed.stories[6].id]));
+    expect(found).toContain(ed.stories[6].id);
     expect(cs.every((c) => c.outlets.length === 2 && c.groups.length === 2)).toBe(true);
   });
 
