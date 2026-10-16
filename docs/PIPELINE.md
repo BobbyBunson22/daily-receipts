@@ -1,10 +1,15 @@
 # How an edition is made today
 
+## 0. The feed list (04:35 UK time, 03:35 in winter)
+The GitHub Action "Fetch feeds" (`.github/workflows/fetch-feeds.yml`) reads the RSS and Atom feeds of the outlets in `data/feeds.json`: 40 outlets across the UK, US, Europe, the Middle East, Asia-Pacific, Africa, Latin America, Spanish-language outlets, science and tech, and official sources (GOV.UK, ONS, Bank of England, WHO, NASA). It keeps headlines and links from the last 36 hours, with no article text, groups headlines that look like the same story (`src/lib/feeds.ts`), and publishes `latest.json` on the `feeds` branch, with a health report in that branch's README. The edition task starts from it.
+
+The groups are leads, not sources: facts still come only from article pages the edition task can open. Some outlets refuse the edition task's web reader (BBC, Guardian, Sky, Independent, DW); their headlines can only be listed as "headline only". Spanish-language outlets are read in Spanish and written up in English, with the source marked "translated from Spanish". To add or drop an outlet, edit `data/feeds.json`; the Action reports any feed that fails.
+
 ## 1. The edition (05:49 UK time)
 A scheduled Claude task ("Daily Receipts edition") runs every morning. It:
 1. Reads the live prototype page and keeps everything except the edition data.
 2. Reads invited testers' taste scores from the page's shared database and gives sections they like 2 extra stories.
-3. Finds the last 24-36 hours of news, opening at least one article per story and a second or third outlet where possible.
+3. Reads the feed list, then finds the last 24-36 hours of news, preferring stories that several outlets from different regions cover, opening at least one article per story and a second or third outlet where possible.
 4. Writes each story to the rules in `edition-prompt.md`: headline, standfirst, 3+ kept facts with support counts, a spoken `say` line, cut claims with reasons, open questions, sources, and the three scores (corroboration, primary records, stability).
 5. Checks the data, publishes the page, then runs the voice step below, and messages Jonathan a summary.
 

@@ -57,19 +57,6 @@
       ]
     },
     {
-      "key": "itv",
-      "name": "ITV News",
-      "group": "uk",
-      "country": "UK",
-      "lang": "en",
-      "lean": "centre",
-      "feeds": [
-        "https://www.itv.com/news/rss",
-        "https://www.itv.com/news/rss.xml",
-        "https://www.itv.com/news/feed"
-      ]
-    },
-    {
       "key": "guardian",
       "name": "The Guardian",
       "group": "uk",
@@ -282,19 +269,6 @@
       ]
     },
     {
-      "key": "nhk",
-      "name": "NHK World",
-      "group": "asia",
-      "country": "Japan",
-      "lang": "en",
-      "lean": "public broadcaster (Japan)",
-      "feeds": [
-        "https://www3.nhk.or.jp/nhkworld/en/news/rss.xml",
-        "https://www3.nhk.or.jp/nhkworld/data/en/news/rss.xml",
-        "https://www3.nhk.or.jp/nhkworld/en/news/list/rss.xml"
-      ]
-    },
-    {
       "key": "japantimes",
       "name": "The Japan Times",
       "group": "asia",
@@ -315,17 +289,6 @@
       "lean": "centre-left",
       "feeds": [
         "https://www.dailymaverick.co.za/dmrss/"
-      ]
-    },
-    {
-      "key": "mg",
-      "name": "Mail & Guardian",
-      "group": "africa",
-      "country": "South Africa",
-      "lang": "en",
-      "lean": "centre-left",
-      "feeds": [
-        "https://mg.co.za/feed/"
       ]
     },
     {
