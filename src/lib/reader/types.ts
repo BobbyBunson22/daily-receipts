@@ -12,6 +12,12 @@ export interface ClientSource {
   note?: string | null;
 }
 
+export interface ClientAlso {
+  key: string;
+  name: string;
+  url: string;
+}
+
 export interface ClientStory {
   /** Database id (stable across re-runs of the same edition). */
   id: number;
@@ -27,6 +33,8 @@ export interface ClientStory {
   primary: string[];
   m: Meters;
   src: ClientSource[];
+  /** Other outlets' coverage, for further reading. Not sources and not graded. */
+  also?: ClientAlso[];
   fig?: Figure | null;
   say?: string | null;
   sources: number;
@@ -76,7 +84,8 @@ export interface ReaderState {
   /** Story ids swiped in the current edition, in order. */
   swiped: number[];
   saves: SavedEntry[];
-  toured: boolean;
+  /** Version of the welcome tour this reader has seen; 0 = never. */
+  toured: number;
   /** Day streak: last London day opened and how many in a row. */
   streak: { last: string; n: number };
 }

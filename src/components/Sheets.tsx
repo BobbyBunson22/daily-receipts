@@ -17,6 +17,26 @@ import { PuzzleSettings } from './Puzzles';
 import { SavedList } from './SavedList';
 
 /** Bottom sheet dialog: focus moves in, Escape or the scrim closes, the page behind stays put. */
+/** Other outlets' coverage of the story, for further reading. Not sources, not graded. */
+export function AlsoReported({ story, compact }: { story: ClientStory; compact?: boolean }) {
+  const also = story.also ?? [];
+  if (!also.length) return null;
+  const links = also.map((a) => (
+    <a key={a.key} className="alink" href={outboundUrl(a.url)} target="_blank" rel="noopener"
+      onClick={() => track('source_click', { outlet: a.key, kind: 'also' }, story.id)}>
+      {a.name}<span aria-hidden="true"> ↗</span><span className="sr-only"> (opens their article)</span>
+    </a>
+  ));
+  if (compact) return <p className="also compact"><span className="also-k">Also reported by</span>{links}</p>;
+  return (
+    <>
+      <h4>Also reported by</h4>
+      <p className="also">{links}</p>
+      <p className="muted also-note">Their coverage, if you want to read further. We didn&apos;t take facts from these, and they don&apos;t count towards the grade.</p>
+    </>
+  );
+}
+
 export function Sheet({ label, children, tall = false }: { label: string; children: React.ReactNode; tall?: boolean }) {
   const { closeOverlay, overlay } = useReader();
   const ref = useRef<HTMLDivElement>(null);
@@ -105,12 +125,13 @@ export function StorySheet({ id }: { id: number }) {
       <ul className="srcs">
         {s.src.map((x, i) => (
           <li key={i}>
-            <a href={outboundUrl(x.url)} target="_blank" rel="noopener" onClick={() => track('source_click', { outlet: x.key }, s.id)}>{x.name}</a>
+            <a href={outboundUrl(x.url)} target="_blank" rel="noopener" onClick={() => track('source_click', { outlet: x.key, kind: 'receipt' }, s.id)}>{x.name}</a>
             {x.note && <em>{x.note}</em>}
             <span>{x.country}</span>
           </li>
         ))}
       </ul>
+      <AlsoReported story={s} />
       {live ? (
         <div className="sh-react">
           <span>Want more like this?</span>

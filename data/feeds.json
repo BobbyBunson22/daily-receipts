@@ -97,6 +97,31 @@
       ]
     },
     {
+      "key": "dailymail",
+      "name": "Daily Mail",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "right",
+      "feeds": [
+        "https://www.dailymail.co.uk/news/index.rss",
+        "https://www.dailymail.co.uk/home/index.rss"
+      ]
+    },
+    {
+      "key": "thetimes",
+      "name": "The Times",
+      "group": "uk",
+      "country": "UK",
+      "lang": "en",
+      "lean": "centre-right",
+      "feeds": [
+        "https://www.thetimes.com/rss",
+        "https://www.thetimes.com/uk/rss",
+        "https://www.thetimes.co.uk/rss"
+      ]
+    },
+    {
       "key": "cityam",
       "name": "City AM",
       "group": "uk",

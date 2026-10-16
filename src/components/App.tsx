@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 
 import { deckList, visible } from '../lib/reader/personalise';
+import { needsTour } from '../lib/reader/state';
 import { track } from '../lib/reader/track';
 import type { ClientEdition } from '../lib/reader/types';
 import { Icon, Logo } from './brand';
@@ -11,6 +12,7 @@ import { ReaderProvider, useReader } from './ReaderContext';
 import { ScrollView } from './ScrollView';
 import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } from './Sheets';
 import { SwipeView } from './SwipeView';
+import { InstallSheet } from './Install';
 import { Tour } from './Tour';
 
 function Header() {
@@ -54,6 +56,7 @@ function Overlays() {
     case 'settings': return <SettingsSheet />;
     case 'account': return <AccountSheet reason={overlay.reason} />;
     case 'tour': return <Tour />;
+    case 'install': return <InstallSheet />;
     case 'puzzles': return <PuzzlesSheet />;
     case 'game': return <GameSheet key={overlay.game} game={overlay.game} />;
   }
@@ -62,11 +65,11 @@ function Overlays() {
 function Body() {
   const { st, ready, toastMsg, overlay, setOverlay } = useReader();
   useEffect(() => {
-    if (ready && !st.toured && !overlay) {
+    if (ready && needsTour(st) && !overlay) {
       const t = setTimeout(() => setOverlay({ kind: 'tour' }), 500);
       return () => clearTimeout(t);
     }
-  }, [ready, st.toured, overlay, setOverlay]);
+  }, [ready, st, overlay, setOverlay]);
   return (
     <>
       <a className="skip" href="#app">Skip to the stories</a>

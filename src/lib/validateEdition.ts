@@ -104,6 +104,15 @@ export function validateEdition(input: unknown): ValidationResult {
           if (src.length === 3 && !isText(src[2])) fail(`${at}: src[${j}] note must be text`);
         });
 
+      if (s.also !== undefined) {
+        if (!Array.isArray(s.also)) fail(`${at}: also must be a list of [outlet, url]`);
+        else
+          s.also.forEach((x, j) => {
+            if (!Array.isArray(x) || x.length !== 2) return fail(`${at}: also[${j}] must be [outlet, url]`);
+            if (!outlets || !isText(x[0]) || !(x[0] in outlets)) fail(`${at}: also[${j}] outlet "${String(x[0])}" is not in outlets`);
+            if (!isHttpsUrl(x[1])) fail(`${at}: also[${j}] url must be https`);
+          });
+      }
       if (s.say != null && !isText(s.say)) fail(`${at}: say must be text or absent`);
       if (s.fig != null && !isPair(s.fig)) fail(`${at}: fig must be [value, caption] or absent`);
     });

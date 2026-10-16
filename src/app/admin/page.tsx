@@ -77,12 +77,14 @@ export default async function Admin() {
       </Shell>
     );
 
-  const [ov, fb, people, stories, puzzles] = await Promise.all([
+  const [ov, fb, people, stories, puzzles, out30, outAll] = await Promise.all([
     db.rpc('dr_admin_overview', { days: 14 }),
     db.rpc('dr_admin_feedback', { lim: 60 }),
     db.rpc('dr_admin_people', { lim: 200 }),
     db.rpc('dr_admin_stories', {}),
     db.rpc('dr_admin_puzzles', { days: 14 }),
+    db.rpc('dr_admin_outlets', { days: 30 }),
+    db.rpc('dr_admin_outlets', { days: 3650 }),
   ]);
   if (ov.error)
     return (
@@ -163,6 +165,8 @@ export default async function Admin() {
         ) : <p className="muted">No swipes yet.</p>}
       </section>
 
+      <OutletTraffic d30={(out30.data ?? []) as OutletRow[]} all={(outAll.data ?? []) as OutletRow[]} waiting={!!out30.error} />
+
       <section className="rcpt pad" aria-labelledby="h-pz">
         <h2 id="h-pz">Puzzles, last 14 days</h2>
         {puzzles.data?.length ? (
@@ -231,5 +235,41 @@ export default async function Admin() {
         </div>
       </section>
     </Shell>
+  );
+}
+
+interface OutletRow { outlet: string; name: string; offered: number; clicks: number; also_clicks: number; readers: number }
+
+/** The outlets Daily Receipts wants as partners: shown first, even with no traffic yet. */
+const PITCH = ['bbc', 'guardian', 'sky', 'independent', 'dailymail', 'thetimes', 'telegraph'];
+const PITCH_NAMES: Record<string, string> = { bbc: 'BBC News', guardian: 'The Guardian', sky: 'Sky News', independent: 'The Independent', dailymail: 'Daily Mail', thetimes: 'The Times', telegraph: 'The Telegraph' };
+
+function OutletTraffic({ d30, all, waiting }: { d30: OutletRow[]; all: OutletRow[]; waiting: boolean }) {
+  const n = (v: number | string | undefined) => Number(v ?? 0);
+  const ctr = (r?: OutletRow) => (r && n(r.offered) ? `${((n(r.clicks) / n(r.offered)) * 100).toFixed(1)}%` : '–');
+  const by = (rows: OutletRow[]) => new Map(rows.map((r) => [r.outlet, r]));
+  const m30 = by(d30), mAll = by(all);
+  const row = (key: string, name: string) => {
+    const a = m30.get(key), b = mAll.get(key);
+    return (
+      <tr key={key}>
+        <td>{name}</td>
+        <td>{n(a?.offered)}</td><td>{n(a?.clicks)}</td><td>{ctr(a)}</td><td>{n(a?.also_clicks)}</td><td>{n(a?.readers)}</td>
+        <td>{n(b?.clicks)}</td><td>{n(b?.readers)}</td>
+      </tr>
+    );
+  };
+  const head = <thead><tr><th>Outlet</th><th>Offered</th><th>Clicks</th><th>Click rate</th><th>Via also</th><th>Readers</th><th>Clicks, all time</th><th>Readers, all time</th></tr></thead>;
+  const rest = d30.filter((r) => !PITCH.includes(r.outlet) && n(r.clicks) > 0).slice(0, 25);
+  return (
+    <section className="rcpt pad" aria-labelledby="h-out">
+      <h2 id="h-out">Traffic sent to outlets, last 30 days</h2>
+      <p className="muted">Offered: how many times readers opened a story linking that outlet. Clicks: how many times they went through to the outlet&apos;s article (tagged utm_source=dailyreceipts, so the outlet can see it too). Via also: clicks from &quot;Also reported by&quot;.</p>
+      {waiting && <p className="muted"><b>Waiting for a database update</b> (migration 20261016110000) before this report can count. Clicks are being recorded meanwhile.</p>}
+      <h3>Pitch list</h3>
+      <div className="scrollx"><table>{head}<tbody>{PITCH.map((k) => row(k, m30.get(k)?.name ?? mAll.get(k)?.name ?? PITCH_NAMES[k]))}</tbody></table></div>
+      <h3>Other outlets readers clicked</h3>
+      {rest.length ? <div className="scrollx"><table>{head}<tbody>{rest.map((r) => row(r.outlet, r.name))}</tbody></table></div> : <p className="muted">No clicks to other outlets yet.</p>}
+    </section>
   );
 }

@@ -23,8 +23,10 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   check(true, `${tag} welcome tour shows on first visit`);
   await p.screenshot({ path: `${OUT}/tour-${tag}.png` });
   while (await p.getByRole('button', { name: 'Next' }).count()) await p.getByRole('button', { name: 'Next' }).click();
-  await p.getByRole('button', { name: 'Start swiping' }).click();
+  check(await p.getByRole('button', { name: 'Sign up free' }).count() === 1, `${tag} tour ends by offering free sign-up`);
+  await p.getByRole('button', { name: 'Not now' }).click();
   check(!(await p.$('.tour')), `${tag} tour closes`);
+  check(await p.getByRole('button', { name: 'How it works' }).count() >= 1, `${tag} the tour can be reopened`);
 
   // the deck
   await p.waitForSelector('#topcard');

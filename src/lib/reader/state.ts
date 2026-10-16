@@ -10,6 +10,13 @@ export const STORAGE_KEY = 'dr.web.v1';
 
 const clamp = (x: number) => Math.max(-10, Math.min(10, x));
 
+/**
+ * Bump when the welcome tour changes enough that everyone should see it again: every reader
+ * whose stored version is lower gets it once on their next visit.
+ */
+export const TOUR_VERSION = 2;
+export const needsTour = (st: ReaderState) => st.toured < TOUR_VERSION;
+
 export function initialState(ed: ClientEdition): ReaderState {
   return {
     v: 1,
@@ -21,7 +28,7 @@ export function initialState(ed: ClientEdition): ReaderState {
     react: {},
     swiped: [],
     saves: [],
-    toured: false,
+    toured: 0,
     streak: { last: '', n: 0 },
   };
 }
@@ -47,7 +54,8 @@ export function normalise(raw: unknown, ed: ClientEdition): ReaderState {
       : {},
     swiped: sameIssue && Array.isArray(r.swiped) ? r.swiped.filter((id, i, a) => ids.has(id) && a.indexOf(id) === i) : [],
     saves: Array.isArray(r.saves) ? r.saves.filter((e) => e && typeof e.id === 'number' && e.s && typeof e.s.head === 'string') : [],
-    toured: r.toured === true,
+    // a stored `true` is from before tours had versions: it counts as version 1
+    toured: typeof r.toured === 'number' ? r.toured : r.toured === true ? 1 : 0,
     streak: r.streak && typeof r.streak.last === 'string' && typeof r.streak.n === 'number' ? r.streak : base.streak,
   };
 }

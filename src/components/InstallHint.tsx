@@ -1,43 +1,27 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import { track } from '../lib/reader/track';
-
-interface InstallPrompt extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-}
+import { offerInstall, useInstall } from './Install';
 
 const KEY = 'dr.install.dismissed';
 
-/** Suggests adding the app to the home screen on phones, once the reader has come back. */
+/** A tip at the top of the scroll view suggesting the home screen, until the reader hides it. */
 export function InstallHint() {
-  const [show, setShow] = useState<null | 'ios' | 'prompt'>(null);
-  const [evt, setEvt] = useState<InstallPrompt | null>(null);
-
+  const { platform, start } = useInstall();
+  const [hidden, setHidden] = useState(true);
   useEffect(() => {
-    const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
-    let dismissed = false;
+    let dismissed = true;
     try {
       dismissed = localStorage.getItem(KEY) === '1';
     } catch {
-      dismissed = true;
+      // storage blocked: don't nag
     }
-    if (standalone || dismissed || !matchMedia('(pointer: coarse)').matches) return;
-    const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) && /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS/.test(navigator.userAgent);
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reads browser-only state after hydration
-    if (ios) setShow('ios');
-    const onPrompt = (e: Event) => {
-      e.preventDefault();
-      setEvt(e as InstallPrompt);
-      setShow('prompt');
-    };
-    addEventListener('beforeinstallprompt', onPrompt);
-    return () => removeEventListener('beforeinstallprompt', onPrompt);
+    setHidden(dismissed);
   }, []);
 
   const dismiss = () => {
-    setShow(null);
+    setHidden(true);
     try {
       localStorage.setItem(KEY, '1');
     } catch {
@@ -45,23 +29,11 @@ export function InstallHint() {
     }
   };
 
-  if (!show) return null;
+  if (hidden || !offerInstall(platform)) return null;
   return (
     <div className="install" role="note">
-      {show === 'ios' ? (
-        <p><b>Make it an app:</b> tap Share, then &ldquo;Add to Home Screen&rdquo;. It opens full screen, like any other app.</p>
-      ) : (
-        <>
-          <p><b>Make it an app:</b> add Daily Receipts to your home screen.</p>
-          <button className="rpill" onClick={async () => {
-            if (!evt) return;
-            await evt.prompt();
-            const { outcome } = await evt.userChoice;
-            track('install', { outcome });
-            dismiss();
-          }}>Add</button>
-        </>
-      )}
+      <p><b>Make it an app:</b> add Daily Receipts to your home screen. It opens full screen with its own icon.</p>
+      <button className="rpill" onClick={() => start('hint')}>{platform === 'prompt' ? 'Add' : 'Show me how'}</button>
       <button className="x" onClick={dismiss} aria-label="Hide this tip">
         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
       </button>

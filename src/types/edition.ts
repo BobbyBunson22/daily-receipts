@@ -29,6 +29,9 @@ export interface Outlet {
 /** [outlet key, url] or [outlet key, url, note], e.g. "headline only". */
 export type Source = [outletKey: string, url: string] | [outletKey: string, url: string, note: string];
 
+/** Another outlet's article on the same story: [outlet key, url]. */
+export type AlsoLink = [outletKey: string, url: string];
+
 /** A fact kept in the story, with how well it is supported, e.g. "3 of 3 outlets". */
 export type KeptFact = [fact: string, support: string];
 
@@ -54,6 +57,11 @@ export interface Story {
   primary: string[];
   m: Meters;
   src: Source[];
+  /**
+   * Other outlets' coverage of the same story, linked for further reading: [outlet key, url].
+   * Not sources: nothing in the story is taken from them and they don't count towards the grade.
+   */
+  also?: AlsoLink[];
   /** Spoken line for the audio bulletin; only on voiced stories. */
   say?: string | null;
   fig?: Figure | null;

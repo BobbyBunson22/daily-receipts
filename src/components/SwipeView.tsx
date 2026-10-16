@@ -6,6 +6,7 @@ import { reswipeSaved } from '../lib/reader/state';
 import type { ClientStory, SwipeAction } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel, mastDate, shortDate } from './brand';
 import { EndExtras } from './EndExtras';
+import { InstallButton } from './Install';
 import { usePuzzles } from './Puzzles';
 import { useReader } from './ReaderContext';
 
@@ -220,6 +221,8 @@ export function SwipeView() {
         <button className="dlink" onClick={restart} disabled={!done}>Start over</button>
         <button className="dlink" onClick={() => setOverlay({ kind: 'saved' })}>Saved for later · {st.saves.length}</button>
         {todaySaved > 0 && done > 0 && <button className="dlink" onClick={() => update((x) => reswipeSaved(x, ed))}>Swipe saved again</button>}
+        <button className="dlink" onClick={() => setOverlay({ kind: 'tour' })}>How it works</button>
+        <InstallButton className="dlink" from="deck" />
       </div>
     </div>
   );

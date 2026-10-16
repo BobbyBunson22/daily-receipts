@@ -25,6 +25,7 @@ const ed: ClientEdition = {
     return {
       ...s, id: 100 + i, slug: s.id, primary: s.primary, fig: s.fig ?? null, say: s.say ?? null,
       src: s.src.map(([key, url, note]) => ({ key, url, note: note ?? null, name: key, country: '' })),
+      also: (s.also ?? []).map(([key, url]) => ({ key, url, name: key })),
       sources: g.sources, score: g.score, grade: g.grade, importance: g.importance, clip: null,
     };
   }),
@@ -184,5 +185,14 @@ describe('roundup bulletin', () => {
       expect(text).toContain(storyScript(s));
       expect(storyScript(s)).not.toContain(s.head);
     }
+  });
+});
+
+describe('welcome tour', () => {
+  it('new readers get it, and so does everyone who saw an older version, once', () => {
+    expect(S.needsTour(fresh())).toBe(true);
+    expect(S.needsTour(S.normalise({ toured: true }, ed))).toBe(true);
+    expect(S.needsTour(S.normalise({ toured: S.TOUR_VERSION }, ed))).toBe(false);
+    expect(S.needsTour({ ...fresh(), toured: S.TOUR_VERSION })).toBe(false);
   });
 });

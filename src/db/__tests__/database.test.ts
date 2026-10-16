@@ -205,3 +205,36 @@ describe('profiles', () => {
     expect(peek.rows).toEqual([]);
   });
 });
+
+describe('"Also reported by" links and the outlet traffic report', () => {
+  // A real link from another story in the same edition, standing in as another outlet's coverage.
+  const s = edition.stories[0];
+  const other = edition.stories.flatMap((t) => t.src).find(([k]) => !s.src.some(([k2]) => k2 === k))!;
+  const withAlso = structuredClone(edition);
+  withAlso.stories[0].also = [[other[0], other[1]]];
+
+  it('stores the links without changing the grade or the source count', async () => {
+    await as('service_role', null, () => load(withAlso));
+    const { rows } = await db.query<{ id: number; also: [string, string][]; sources: number; score: number; grade: string }>(
+      'select id, also, sources, score, grade from public.stories where slug = $1', [s.id]);
+    const g = gradeStory(s);
+    expect(rows[0].also).toEqual([[other[0], other[1]]]);
+    expect([rows[0].sources, rows[0].score, rows[0].grade]).toEqual([g.sources, g.score, g.grade]);
+  });
+
+  it('counts how often each outlet was offered and clicked, for admins only', async () => {
+    const { rows } = await db.query<{ id: number }>('select id from public.stories where slug = $1', [s.id]);
+    const sid = rows[0].id;
+    await db.query(`insert into public.events (anon_id, name, story_id, props) values
+      ('reader-one-aaaa', 'story_open', $1, '{}'), ('reader-two-bbbb', 'story_open', $1, '{}'),
+      ('reader-one-aaaa', 'source_click', $1, $2::jsonb), ('reader-one-aaaa', 'source_click', $1, $3::jsonb)`,
+      [sid, JSON.stringify({ outlet: other[0], kind: 'also' }), JSON.stringify({ outlet: s.src[0][0], kind: 'receipt' })]);
+    await expect(as('authenticated', READER, () => db.query('select * from dr_admin_outlets(30)'))).rejects.toThrow(/not allowed/);
+    const r = await as('authenticated', ADMIN, () => db.query<{ outlet: string; offered: number; clicks: number; also_clicks: number; readers: number }>('select * from dr_admin_outlets(30)'));
+    const also = r.rows.find((x) => x.outlet === other[0])!;
+    expect(Number(also.offered)).toBeGreaterThanOrEqual(2);
+    expect([Number(also.clicks), Number(also.also_clicks), Number(also.readers)]).toEqual([1, 1, 1]);
+    const rec = r.rows.find((x) => x.outlet === s.src[0][0])!;
+    expect([Number(rec.clicks), Number(rec.also_clicks)]).toEqual([1, 0]);
+  });
+});

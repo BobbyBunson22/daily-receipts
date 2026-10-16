@@ -9,6 +9,7 @@ import { EndExtras } from './EndExtras';
 import { InstallHint } from './InstallHint';
 import { usePuzzles } from './Puzzles';
 import { useReader } from './ReaderContext';
+import { AlsoReported } from './Sheets';
 
 function Item({ s, why }: { s: ClientStory; why?: string }) {
   const { ed, st, openStory, react, toggleSave } = useReader();
@@ -28,6 +29,7 @@ function Item({ s, why }: { s: ClientStory; why?: string }) {
           <button className="rb up" onClick={() => react(s, 1)} aria-pressed={r === 1} aria-label={`More like this: ${s.head}`}><Icon.heart /></button>
         </span>
       </div>
+      <AlsoReported story={s} compact />
     </article>
   );
 }
@@ -56,6 +58,7 @@ export function ScrollView() {
           <button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Your roundup · {nLiked}</button>
           <button className="rpill" onClick={() => setOverlay({ kind: 'saved' })}>Saved · {st.saves.length}</button>
           {anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}
+          <button className="rpill" onClick={() => setOverlay({ kind: 'tour' })}>How it works</button>
         </p>
         <InstallHint />
       </section>

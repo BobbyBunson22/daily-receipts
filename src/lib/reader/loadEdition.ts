@@ -36,6 +36,7 @@ interface StoryRow {
   m_primary: number;
   m_stability: number;
   fig: [string, string] | null;
+  also: [string, string][] | null;
   sources: number;
   score: number;
   grade: GradeLetter;
@@ -70,6 +71,20 @@ async function fromDatabase(): Promise<ClientEdition | null> {
   ]);
   if (e1 || e2) throw new Error(`Couldn't read the edition: ${(e1 ?? e2)!.message}`);
 
+  // "Also reported by" links, read separately so the page still loads if the column isn't there yet
+  const alsoById = new Map<number, [string, string][]>();
+  const { data: alsoRows, error: eAlso } = await db.from('stories').select('id, also').eq('edition_id', ed.id);
+  if (eAlso) console.warn(`"Also reported by" links skipped: ${eAlso.message}`);
+  for (const r of (alsoRows ?? []) as { id: number; also: [string, string][] | null }[]) if (r.also?.length) alsoById.set(r.id, r.also);
+  for (const r of rows as unknown as StoryRow[]) r.also = alsoById.get(r.id) ?? [];
+  const alsoKeys = [...new Set([...alsoById.values()].flatMap((a) => a.map((x) => x[0])))];
+  const names = new Map<string, string>();
+  if (alsoKeys.length) {
+    const { data: outs, error: e3 } = await db.from('outlets').select('key, name').in('key', alsoKeys);
+    if (e3) throw new Error(`Couldn't read outlets: ${e3.message}`);
+    for (const o of outs ?? []) names.set(o.key, o.name);
+  }
+
   const stories: ClientStory[] = (rows as unknown as StoryRow[]).map((r) => {
     const clips = r.voice_clips.slice().sort((a, b) => b.created_at.localeCompare(a.created_at));
     return {
@@ -90,6 +105,7 @@ async function fromDatabase(): Promise<ClientEdition | null> {
         .sort((a, b) => a.sort - b.sort)
         .map((s) => ({ key: s.outlet_key, name: s.outlets?.name ?? s.outlet_key, country: s.outlets?.country ?? '', url: s.url, note: s.note })),
       fig: r.fig,
+      also: (r.also ?? []).filter((a) => names.has(a[0])).map(([key, url]) => ({ key, url, name: names.get(key)! })),
       say: r.say,
       sources: r.sources,
       score: r.score,
@@ -134,6 +150,7 @@ export function fromFile(file?: string): ClientEdition {
       m: s.m,
       src: s.src.map(([key, url, note]) => ({ key, url, note: note ?? null, name: edition.outlets[key]?.name ?? key, country: edition.outlets[key]?.country ?? '' })),
       fig: s.fig ?? null,
+      also: (s.also ?? []).map(([key, url]) => ({ key, url, name: edition.outlets[key]?.name ?? key })),
       say: s.say ?? null,
       sources: g.sources,
       score: g.score,
