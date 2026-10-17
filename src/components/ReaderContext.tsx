@@ -22,6 +22,7 @@ export type Overlay =
   | { kind: 'account'; reason?: string }
   | { kind: 'tour' }
   | { kind: 'install' }
+  | { kind: 'daily' }
   | { kind: 'puzzles' }
   | { kind: 'game'; game: 'cw' | 'su' | 'rb' | 'sr' }
   | null;

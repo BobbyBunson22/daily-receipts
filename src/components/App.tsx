@@ -12,6 +12,7 @@ import { ReaderProvider, useReader } from './ReaderContext';
 import { ScrollView } from './ScrollView';
 import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } from './Sheets';
 import { SwipeView } from './SwipeView';
+import { DailyCard, DailySync, dailyDue, markDailySeen } from './Daily';
 import { InstallSheet } from './Install';
 import { Tour } from './Tour';
 
@@ -57,6 +58,7 @@ function Overlays() {
     case 'account': return <AccountSheet reason={overlay.reason} />;
     case 'tour': return <Tour />;
     case 'install': return <InstallSheet />;
+    case 'daily': return <DailyCard />;
     case 'puzzles': return <PuzzlesSheet />;
     case 'game': return <GameSheet key={overlay.game} game={overlay.game} />;
   }
@@ -65,8 +67,17 @@ function Overlays() {
 function Body() {
   const { st, ready, toastMsg, overlay, setOverlay } = useReader();
   useEffect(() => {
-    if (ready && needsTour(st) && !overlay) {
+    if (!ready || overlay) return;
+    // new readers get the tour first; then, once each London day, the daily fact and question
+    if (needsTour(st)) {
       const t = setTimeout(() => setOverlay({ kind: 'tour' }), 500);
+      return () => clearTimeout(t);
+    }
+    if (dailyDue()) {
+      const t = setTimeout(() => {
+        markDailySeen();
+        setOverlay({ kind: 'daily' });
+      }, 400);
       return () => clearTimeout(t);
     }
   }, [ready, st, overlay, setOverlay]);
@@ -78,6 +89,7 @@ function Body() {
         <div className="wrap">{st.mode === 'swipe' ? <SwipeView /> : <ScrollView />}</div>
       </main>
       <Overlays />
+      <DailySync />
       <div className={`toast${toastMsg ? ' on' : ''}`} role="status" aria-live="polite">{toastMsg}</div>
     </>
   );

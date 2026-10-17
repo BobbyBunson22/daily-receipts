@@ -5,6 +5,7 @@ import { affSec, liked, minutes, sectionLists, topStories, visible } from '../li
 import { isSaved } from '../lib/reader/state';
 import type { ClientStory } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel } from './brand';
+import { DailyBadge } from './Daily';
 import { EndExtras } from './EndExtras';
 import { InstallHint } from './InstallHint';
 import { usePuzzles } from './Puzzles';
@@ -55,6 +56,7 @@ export function ScrollView() {
           {st.streak.n > 1 && <span className="hot">Day {st.streak.n} streak</span>}
         </div>
         <p className="introbtn">
+          <DailyBadge />
           <button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Your roundup · {nLiked}</button>
           <button className="rpill" onClick={() => setOverlay({ kind: 'saved' })}>Saved · {st.saves.length}</button>
           {anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}

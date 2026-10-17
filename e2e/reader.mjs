@@ -28,6 +28,17 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   check(!(await p.$('.tour')), `${tag} tour closes`);
   check(await p.getByRole('button', { name: 'How it works' }).count() >= 1, `${tag} the tour can be reopened`);
 
+  // then, once a day: the fact and the question
+  await p.waitForSelector('.daily', { timeout: 5000 });
+  check((await p.textContent('.daily-fact p')).length > 20, `${tag} daily fact shows after the tour`);
+  check(/\?$/.test((await p.textContent('.daily-qt')).trim()), `${tag} daily question shows`);
+  check(await p.evaluate(() => document.querySelector('.daily-card').getBoundingClientRect().right <= innerWidth), `${tag} daily card fits the screen`);
+  await p.screenshot({ path: `${OUT}/daily-${tag}.png` });
+  await p.getByRole('button', { name: "Don't know" }).click();
+  check(/The answer:/.test(await p.textContent('.daily-res')), `${tag} don't know reveals the answer`);
+  await p.getByRole('button', { name: "Read today's news" }).click();
+  check(!(await p.$('.daily')), `${tag} daily card closes`);
+
   // the deck
   await p.waitForSelector('#topcard');
   const fit = await p.evaluate(() => [...document.querySelectorAll('.card')].map((c) => {
@@ -133,6 +144,7 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   await p.reload();
   await p.waitForSelector('.intro h1');
   check(!(await p.$('.tour')), `${tag} tour doesn't come back after reload`);
+  check(!(await p.$('.daily')), `${tag} daily card doesn't come back the same day`);
   check(await p.evaluate(() => JSON.parse(localStorage.getItem('dr.web.v1')).min === 'B'), `${tag} settings kept after reload`);
 
   // puzzles: list, crossword typing, sudoku entry, Rulebook test, Sure? round

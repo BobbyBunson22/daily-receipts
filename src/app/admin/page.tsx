@@ -175,7 +175,7 @@ export default async function Admin() {
               <thead><tr><th>Puzzle</th><th>Started</th><th>Finished</th><th>Solved</th><th>Revealed</th><th>Players</th><th>Avg time</th></tr></thead>
               <tbody>
                 {(puzzles.data as { game: string; started: number; finished: number; solved: number; revealed: number; players: number; avg_secs: number | null }[]).map((r) => (
-                  <tr key={r.game}><td>{({ cw: 'Crossword', su: 'Sudoku', rb: 'Rulebook', sr: 'Sure?' } as Record<string, string>)[r.game] ?? r.game}</td><td>{r.started}</td><td>{r.finished}</td><td>{r.solved}</td><td>{r.revealed}</td><td>{r.players}</td><td>{r.avg_secs == null ? '–' : `${Math.floor(r.avg_secs / 60)}:${String(Math.round(r.avg_secs % 60)).padStart(2, '0')}`}</td></tr>
+                  <tr key={r.game}><td>{({ cw: 'Crossword', su: 'Sudoku', rb: 'Rulebook', sr: 'Sure?', dq: 'Daily question' } as Record<string, string>)[r.game] ?? r.game}</td><td>{r.started}</td><td>{r.finished}</td><td>{r.solved}</td><td>{r.revealed}</td><td>{r.players}</td><td>{r.avg_secs == null ? '–' : `${Math.floor(r.avg_secs / 60)}:${String(Math.round(r.avg_secs % 60)).padStart(2, '0')}`}</td></tr>
                 ))}
               </tbody>
             </table>

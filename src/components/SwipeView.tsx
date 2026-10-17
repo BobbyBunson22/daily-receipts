@@ -5,6 +5,7 @@ import { deckList, leans, liked, minutes, visible } from '../lib/reader/personal
 import { reswipeSaved } from '../lib/reader/state';
 import type { ClientStory, SwipeAction } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel, mastDate, shortDate } from './brand';
+import { DailyBadge } from './Daily';
 import { EndExtras } from './EndExtras';
 import { InstallButton } from './Install';
 import { usePuzzles } from './Puzzles';
@@ -203,7 +204,7 @@ export function SwipeView() {
       </div>
       <div className="dtop">
         <p className="dcount" aria-live="polite">{done + 1} of {all.length}<span className="dmin"> · {minutes(deck.length)} min left</span></p>
-        <span className="dpills">{anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}<button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Roundup · {nLiked}</button></span>
+        <span className="dpills"><DailyBadge />{anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}<button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Roundup · {nLiked}</button></span>
       </div>
       <div className="deck" id="deck" ref={deckRef}>
         {deck.slice(0, 3).map((s, i) => ({ s, i })).reverse().map(({ s, i }) => (

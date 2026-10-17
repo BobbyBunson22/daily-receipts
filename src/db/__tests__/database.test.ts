@@ -238,3 +238,22 @@ describe('"Also reported by" links and the outlet traffic report', () => {
     expect([Number(rec.clicks), Number(rec.also_clicks)]).toEqual([1, 0]);
   });
 });
+
+describe('daily question answers', () => {
+  it('a reader adds and reads only their own, once per day', async () => {
+    await as('authenticated', READER, () => db.query(`insert into public.daily_answers (day, result) values ('2026-10-17', 'correct')`));
+    await expect(as('authenticated', READER, () => db.query(`insert into public.daily_answers (day, result) values ('2026-10-17', 'wrong')`))).rejects.toThrow(/duplicate|unique/);
+    await expect(as('authenticated', READER, () => db.query(`update public.daily_answers set result = 'correct'`))).rejects.toThrow(/permission denied/);
+    await expect(as('authenticated', READER, () => db.query(`insert into public.daily_answers (user_id, day, result) values ('${ADMIN}', '2026-10-17', 'correct')`))).rejects.toThrow(/row-level security/);
+    const mine = await as('authenticated', READER, () => db.query<{ day: string }>('select day::text from public.daily_answers'));
+    expect(mine.rows).toEqual([{ day: '2026-10-17' }]);
+    const theirs = await as('authenticated', ADMIN, () => db.query('select * from public.daily_answers'));
+    expect(theirs.rows).toEqual([]);
+    await expect(as('anon', null, () => db.query('select * from public.daily_answers'))).rejects.toThrow(/permission denied/);
+  });
+
+  it('admins see the daily summary', async () => {
+    const r = await as('authenticated', ADMIN, () => db.query<{ answered: number; correct: number }>('select * from dr_admin_daily(3650)'));
+    expect(r.rows.map((x) => [Number(x.answered), Number(x.correct)])).toEqual([[1, 1]]);
+  });
+});
