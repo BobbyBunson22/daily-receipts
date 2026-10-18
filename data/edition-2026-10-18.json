@@ -1,0 +1,4868 @@
+{
+  "edition": {
+    "issue": 13,
+    "date": "Sunday, 18 October 2026",
+    "compiled": "06:12 BST, 18 Oct 2026"
+  },
+  "sections": [
+    {
+      "id": "world",
+      "name": "World",
+      "subs": [
+        "Americas",
+        "Middle East",
+        "Asia-Pacific",
+        "Africa",
+        "Europe"
+      ]
+    },
+    {
+      "id": "uk",
+      "name": "UK",
+      "subs": [
+        "Security",
+        "Justice",
+        "Transport",
+        "Housing"
+      ]
+    },
+    {
+      "id": "politics",
+      "name": "Politics",
+      "subs": [
+        "Parties",
+        "Elections",
+        "Policy"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "subs": [
+        "Economy",
+        "Markets",
+        "Trade",
+        "Companies"
+      ]
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "subs": [
+        "Biology",
+        "Space",
+        "Physics"
+      ]
+    },
+    {
+      "id": "health",
+      "name": "Health",
+      "subs": [
+        "Public health",
+        "Research",
+        "Services"
+      ]
+    },
+    {
+      "id": "climate",
+      "name": "Climate",
+      "subs": [
+        "Policy",
+        "Energy",
+        "Nature"
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "Technology",
+      "subs": [
+        "AI",
+        "Security",
+        "Devices"
+      ]
+    },
+    {
+      "id": "culture",
+      "name": "Culture",
+      "subs": [
+        "Music",
+        "Heritage",
+        "Film & TV",
+        "Books"
+      ]
+    },
+    {
+      "id": "sport",
+      "name": "Sport",
+      "subs": [
+        "Football",
+        "Motor racing",
+        "Cricket",
+        "Tennis",
+        "Rugby"
+      ]
+    }
+  ],
+  "outlets": {
+    "aap": {
+      "name": "AAP",
+      "country": "Australia"
+    },
+    "abc": {
+      "name": "ABC News",
+      "country": "Australia"
+    },
+    "abcus": {
+      "name": "ABC News (US)",
+      "country": "US"
+    },
+    "aj": {
+      "name": "Al Jazeera",
+      "country": "Qatar"
+    },
+    "alarabiya": {
+      "name": "Al Arabiya",
+      "country": "UAE"
+    },
+    "amcon": {
+      "name": "The American Conservative",
+      "country": "US"
+    },
+    "androidheadlines": {
+      "name": "Android Headlines",
+      "country": "US"
+    },
+    "ani": {
+      "name": "ANI",
+      "country": "India"
+    },
+    "aol": {
+      "name": "AOL (Reuters copy)",
+      "country": "US"
+    },
+    "aoluk": {
+      "name": "AOL UK",
+      "country": "UK"
+    },
+    "arabnewssa": {
+      "name": "Arab News",
+      "country": "Saudi Arabia"
+    },
+    "archyde": {
+      "name": "Archyde",
+      "country": "International"
+    },
+    "artcentron": {
+      "name": "Artcentron",
+      "country": "US"
+    },
+    "artnet": {
+      "name": "Artnet News",
+      "country": "US"
+    },
+    "arynews": {
+      "name": "ARY News",
+      "country": "Pakistan"
+    },
+    "asianet": {
+      "name": "Asianet Newsable",
+      "country": "India"
+    },
+    "atvtoday": {
+      "name": "ATV Today",
+      "country": "UK"
+    },
+    "axios": {
+      "name": "Axios",
+      "country": "USA"
+    },
+    "baltimoresun": {
+      "name": "The Baltimore Sun",
+      "country": "US"
+    },
+    "band": {
+      "name": "Band",
+      "country": "Brazil"
+    },
+    "bangkokpost": {
+      "name": "Bangkok Post",
+      "country": "Thailand"
+    },
+    "bein": {
+      "name": "beIN Sports",
+      "country": "Qatar"
+    },
+    "bernama": {
+      "name": "Bernama",
+      "country": "Malaysia"
+    },
+    "billboard": {
+      "name": "Billboard",
+      "country": "US"
+    },
+    "bleeping": {
+      "name": "BleepingComputer",
+      "country": "United States"
+    },
+    "brecorder": {
+      "name": "Business Recorder",
+      "country": "Pakistan"
+    },
+    "brentfordfc": {
+      "name": "Brentford FC",
+      "country": "UK"
+    },
+    "britbrief": {
+      "name": "Brit Brief",
+      "country": "UK"
+    },
+    "cbd": {
+      "name": "Convention on Biological Diversity",
+      "country": "International"
+    },
+    "chinadaily": {
+      "name": "China Daily",
+      "country": "China"
+    },
+    "cnbc": {
+      "name": "CNBC",
+      "country": "US"
+    },
+    "cnn": {
+      "name": "CNN",
+      "country": "US"
+    },
+    "colombiaone": {
+      "name": "Colombia One",
+      "country": "Colombia"
+    },
+    "complex": {
+      "name": "Complex",
+      "country": "US"
+    },
+    "cornell": {
+      "name": "Cornell Chronicle",
+      "country": "US"
+    },
+    "cricinfo": {
+      "name": "ESPNcricinfo",
+      "country": "UK"
+    },
+    "cryptobriefing": {
+      "name": "Crypto Briefing",
+      "country": "US"
+    },
+    "ctv": {
+      "name": "CTV News (The Canadian Press)",
+      "country": "Canada"
+    },
+    "darkhorizons": {
+      "name": "Dark Horizons",
+      "country": "Australia"
+    },
+    "dawn": {
+      "name": "Dawn",
+      "country": "Pakistan"
+    },
+    "deadline": {
+      "name": "Deadline",
+      "country": "USA"
+    },
+    "debrief": {
+      "name": "The Debrief",
+      "country": "US"
+    },
+    "digitaltrends": {
+      "name": "Digital Trends",
+      "country": "US"
+    },
+    "espn": {
+      "name": "ESPN",
+      "country": "US"
+    },
+    "eunews": {
+      "name": "Eunews",
+      "country": "Italy"
+    },
+    "euronews": {
+      "name": "Euronews",
+      "country": "France"
+    },
+    "eutoday": {
+      "name": "EU Today",
+      "country": "Belgium"
+    },
+    "expressandstar": {
+      "name": "Express & Star",
+      "country": "UK"
+    },
+    "flashscore": {
+      "name": "Flashscore",
+      "country": "Czech Republic"
+    },
+    "foxbusiness": {
+      "name": "Fox Business",
+      "country": "US"
+    },
+    "foxnews": {
+      "name": "Fox News",
+      "country": "USA"
+    },
+    "foxweather": {
+      "name": "Fox Weather",
+      "country": "US"
+    },
+    "france24": {
+      "name": "France 24",
+      "country": "France"
+    },
+    "gazetapovo": {
+      "name": "Gazeta do Povo",
+      "country": "Brazil"
+    },
+    "gbhackers": {
+      "name": "GBHackers",
+      "country": "International"
+    },
+    "gizmochina": {
+      "name": "Gizmochina",
+      "country": "International"
+    },
+    "gizmodo": {
+      "name": "Gizmodo",
+      "country": "US"
+    },
+    "globalnews": {
+      "name": "Global News",
+      "country": "Canada"
+    },
+    "globeandmail": {
+      "name": "The Globe and Mail",
+      "country": "Canada"
+    },
+    "govuk": {
+      "name": "GOV.UK (AAIB)",
+      "country": "UK"
+    },
+    "gsmarena": {
+      "name": "GSMArena",
+      "country": "International"
+    },
+    "gtreport": {
+      "name": "GT Report",
+      "country": "Germany"
+    },
+    "healthline": {
+      "name": "Healthline",
+      "country": "US"
+    },
+    "hellorayo": {
+      "name": "Hits Radio Northamptonshire",
+      "country": "UK"
+    },
+    "hollywoodoutbreak": {
+      "name": "Hollywood Outbreak",
+      "country": "US"
+    },
+    "hollywoodreporter": {
+      "name": "The Hollywood Reporter",
+      "country": "US"
+    },
+    "huffpost": {
+      "name": "HuffPost",
+      "country": "US"
+    },
+    "indiatvnews": {
+      "name": "India TV News",
+      "country": "India"
+    },
+    "internazionale": {
+      "name": "Internazionale (Reuters)",
+      "country": "Italy"
+    },
+    "investing": {
+      "name": "Investing.com",
+      "country": "International"
+    },
+    "irishnews": {
+      "name": "The Irish News",
+      "country": "United Kingdom"
+    },
+    "irishtimes": {
+      "name": "The Irish Times",
+      "country": "Ireland"
+    },
+    "islandecho": {
+      "name": "Island Echo",
+      "country": "UK"
+    },
+    "islapublic": {
+      "name": "Public Radio Guam (Isla Public Media)",
+      "country": "Guam"
+    },
+    "itv": {
+      "name": "ITV News",
+      "country": "UK"
+    },
+    "iwradio": {
+      "name": "Isle of Wight Radio",
+      "country": "UK"
+    },
+    "jalopnik": {
+      "name": "Jalopnik",
+      "country": "US"
+    },
+    "jamaicaobserver": {
+      "name": "Jamaica Observer (AFP)",
+      "country": "Jamaica"
+    },
+    "joe": {
+      "name": "JOE",
+      "country": "UK"
+    },
+    "jpost": {
+      "name": "The Jerusalem Post",
+      "country": "Israel"
+    },
+    "kitco": {
+      "name": "Kitco News (Reuters)",
+      "country": "Canada"
+    },
+    "koaa": {
+      "name": "KOAA News5 (Scripps News)",
+      "country": "US"
+    },
+    "kuwaittimes": {
+      "name": "Kuwait Times",
+      "country": "Kuwait"
+    },
+    "kylantern": {
+      "name": "Kentucky Lantern",
+      "country": "US"
+    },
+    "lbc": {
+      "name": "LBC",
+      "country": "UK"
+    },
+    "lex18": {
+      "name": "LEX18",
+      "country": "US"
+    },
+    "livesci": {
+      "name": "Live Science",
+      "country": "US"
+    },
+    "local12": {
+      "name": "Local 12 (WKRC)",
+      "country": "US"
+    },
+    "mancity": {
+      "name": "Manchester City FC",
+      "country": "UK"
+    },
+    "manilatimes": {
+      "name": "The Manila Times",
+      "country": "Philippines"
+    },
+    "mee": {
+      "name": "Middle East Eye",
+      "country": "UK"
+    },
+    "meonvalley": {
+      "name": "Meon Valley Times",
+      "country": "UK"
+    },
+    "mnd": {
+      "name": "Mexico News Daily",
+      "country": "Mexico"
+    },
+    "mongabay": {
+      "name": "Mongabay",
+      "country": "US"
+    },
+    "moparinsiders": {
+      "name": "MoparInsiders",
+      "country": "US"
+    },
+    "nasa": {
+      "name": "NASA",
+      "country": "USA"
+    },
+    "nationaltribune": {
+      "name": "National Tribune",
+      "country": "Australia"
+    },
+    "nbcnews": {
+      "name": "NBC News",
+      "country": "US"
+    },
+    "newarab": {
+      "name": "The New Arab",
+      "country": "UK"
+    },
+    "newscentralasia": {
+      "name": "News Central Asia",
+      "country": "Turkmenistan"
+    },
+    "newsnation": {
+      "name": "NewsNation",
+      "country": "US"
+    },
+    "nhm": {
+      "name": "Natural History Museum",
+      "country": "UK"
+    },
+    "nme": {
+      "name": "NME",
+      "country": "UK"
+    },
+    "nnjournal": {
+      "name": "NN Journal",
+      "country": "UK"
+    },
+    "nrl": {
+      "name": "NRL.com",
+      "country": "Australia"
+    },
+    "outlook": {
+      "name": "Outlook India",
+      "country": "India"
+    },
+    "pbs": {
+      "name": "PBS NewsHour",
+      "country": "US"
+    },
+    "perfecttennis": {
+      "name": "Perfect Tennis",
+      "country": "UK"
+    },
+    "physorg": {
+      "name": "Phys.org",
+      "country": "UK"
+    },
+    "planetf1": {
+      "name": "PlanetF1",
+      "country": "UK"
+    },
+    "poder360": {
+      "name": "Poder360",
+      "country": "Brazil"
+    },
+    "portsnews": {
+      "name": "The News (Portsmouth)",
+      "country": "UK"
+    },
+    "postguam": {
+      "name": "The Guam Daily Post",
+      "country": "Guam"
+    },
+    "rferl": {
+      "name": "Radio Free Europe/Radio Liberty",
+      "country": "Czech Republic"
+    },
+    "riotimes": {
+      "name": "The Rio Times",
+      "country": "Brazil"
+    },
+    "rn365": {
+      "name": "RacingNews365",
+      "country": "Netherlands"
+    },
+    "rollingstone": {
+      "name": "Rolling Stone",
+      "country": "US"
+    },
+    "rttnews": {
+      "name": "RTTNews",
+      "country": "US"
+    },
+    "sciencedaily": {
+      "name": "ScienceDaily",
+      "country": "US"
+    },
+    "scmp": {
+      "name": "South China Morning Post",
+      "country": "Hong Kong"
+    },
+    "scotsman": {
+      "name": "The Scotsman",
+      "country": "UK"
+    },
+    "sedaily": {
+      "name": "Seoul Economic Daily",
+      "country": "South Korea"
+    },
+    "semafor": {
+      "name": "Semafor",
+      "country": "US"
+    },
+    "skysports": {
+      "name": "Sky Sports",
+      "country": "UK"
+    },
+    "spacecom": {
+      "name": "Space.com",
+      "country": "US"
+    },
+    "startupfortune": {
+      "name": "Startup Fortune",
+      "country": "International"
+    },
+    "stv": {
+      "name": "STV News",
+      "country": "UK"
+    },
+    "sudantribune": {
+      "name": "Sudan Tribune",
+      "country": "France"
+    },
+    "suntimes": {
+      "name": "Chicago Sun-Times (AP)",
+      "country": "US"
+    },
+    "supplypro": {
+      "name": "Supply Professional (Canadian Press)",
+      "country": "Canada"
+    },
+    "tc": {
+      "name": "TechCrunch",
+      "country": "United States"
+    },
+    "tcw": {
+      "name": "The Climate Watch",
+      "country": "International"
+    },
+    "techinsider": {
+      "name": "Tech Insider",
+      "country": "International"
+    },
+    "telangana": {
+      "name": "Telangana Today",
+      "country": "India"
+    },
+    "tennismajors": {
+      "name": "Tennis Majors",
+      "country": "France"
+    },
+    "thaipbs": {
+      "name": "Thai PBS World",
+      "country": "Thailand"
+    },
+    "theartnewspaper": {
+      "name": "The Art Newspaper",
+      "country": "UK"
+    },
+    "thedrive933": {
+      "name": "93.3 The Drive (Reuters)",
+      "country": "US"
+    },
+    "thehill": {
+      "name": "The Hill",
+      "country": "US"
+    },
+    "thejournal": {
+      "name": "TheJournal.ie",
+      "country": "Ireland"
+    },
+    "thelogic": {
+      "name": "The Logic",
+      "country": "Canada"
+    },
+    "theprint": {
+      "name": "ThePrint (Reuters)",
+      "country": "India"
+    },
+    "thestarmy": {
+      "name": "The Star (Malaysia)",
+      "country": "Malaysia"
+    },
+    "thinklandscape": {
+      "name": "Landscape News (Global Landscapes Forum)",
+      "country": "Germany"
+    },
+    "toi": {
+      "name": "The Times of Israel",
+      "country": "Israel"
+    },
+    "unite": {
+      "name": "Unite.AI",
+      "country": "United States"
+    },
+    "usaartnews": {
+      "name": "USA Art News",
+      "country": "US"
+    },
+    "usnews": {
+      "name": "U.S. News & World Report",
+      "country": "US"
+    },
+    "variety": {
+      "name": "Variety",
+      "country": "USA"
+    },
+    "vaticannews": {
+      "name": "Vatican News",
+      "country": "Vatican City"
+    },
+    "washingtonpost": {
+      "name": "The Washington Post",
+      "country": "US"
+    },
+    "wiley": {
+      "name": "Wiley Rein LLP",
+      "country": "US"
+    },
+    "windsornewstoday": {
+      "name": "Windsor News Today",
+      "country": "Canada"
+    },
+    "wrenews": {
+      "name": "Weekly Real Estate News",
+      "country": "US"
+    },
+    "wsau": {
+      "name": "WSAU (Reuters)",
+      "country": "US"
+    },
+    "xinhua": {
+      "name": "Xinhua",
+      "country": "China"
+    },
+    "yahoofin": {
+      "name": "Yahoo Finance (AFP)",
+      "country": "US"
+    },
+    "yahoouk": {
+      "name": "Yahoo News UK (France 24)",
+      "country": "UK"
+    },
+    "yakimaherald": {
+      "name": "Yakima Herald-Republic (AP)",
+      "country": "US"
+    },
+    "yerepouni": {
+      "name": "Yerepouni Daily News",
+      "country": "Lebanon"
+    }
+  },
+  "stories": [
+    {
+      "id": "w-hormuz-closed",
+      "sec": "world",
+      "sub": "Middle East",
+      "head": "Iran's Revolutionary Guards declare Strait of Hormuz closed",
+      "say": "Iran's Revolutionary Guards say the Strait of Hormuz is closed to ships of all nationalities, after claiming on Saturday that two tankers caught fire after hitting mines.",
+      "stand": "The IRGC Navy says passage through the strait is banned, as reports of tankers hit near the waterway mount.",
+      "body": [
+        "The Islamic Revolutionary Guard Corps Navy said on Saturday that the Strait of Hormuz was closed, according to the state news agency IRNA. It said ships of any nationality were barred from passing through.",
+        "The Guards said two oil tankers caught fire after striking naval mines in the strait. IRNA said the vessels had switched off their tracking systems and tried an unauthorised route. There was no independent confirmation.",
+        "The UK Maritime Trade Operations centre reported at least two other tankers hit off Saudi Arabia's coast, Middle East Eye said. Iran's navy also reported a tanker on fire in the Sea of Oman.",
+        "Iran says it has stepped up attacks in response to the US blockade of its ports. On Wednesday, a container ship and a bulk carrier sank near the strait after being hit by projectiles."
+      ],
+      "kept": [
+        [
+          "IRGC Navy declared the Strait of Hormuz closed on Saturday, IRNA reported",
+          "2 of 4 outlets"
+        ],
+        [
+          "IRGC says two tankers caught fire after hitting mines in the strait",
+          "3 of 4 outlets"
+        ],
+        [
+          "No independent confirmation of Iran's mine claims was reported",
+          "2 of 4 outlets"
+        ],
+        [
+          "Iran says the tankers had switched off tracking and used an unauthorised route",
+          "1 of 4 outlets"
+        ],
+        [
+          "UKMTO reported at least two more tankers hit off Saudi Arabia's coast",
+          "1 of 4 outlets"
+        ],
+        [
+          "Iran's navy said an oil tanker caught fire in the Sea of Oman",
+          "1 of 4 outlets"
+        ],
+        [
+          "A container ship and a bulk carrier sank near the strait on Wednesday",
+          "1 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "IRGC warning that violators would face consequences framed as hostility to the US military",
+          "Threat language; reported without detail"
+        ],
+        [
+          "Araghchi said the choice now rests with the United States over a seven-day reopening plan",
+          "Plan dates from September; only one outlet tied the remark to Saturday"
+        ]
+      ],
+      "open": [
+        "Number of tankers hit in the past day: reports give three or four",
+        "Cargo: state media gave about 2 million barrels, unclear whether per ship or combined",
+        "Names and flags of the vessels were not given"
+      ],
+      "primary": [
+        "IRGC Navy statement via IRNA",
+        "UK Maritime Trade Operations (UKMTO)"
+      ],
+      "m": [
+        70,
+        55,
+        35
+      ],
+      "src": [
+        [
+          "mee",
+          "https://www.middleeasteye.net/live-blog/live-blog-update/irgc-declares-strait-hormuz-closed-after-tankers-hit"
+        ],
+        [
+          "jpost",
+          "http://www.jpost.com/middle-east/article-911972"
+        ],
+        [
+          "amcon",
+          "https://www.theamericanconservative.com/iran-war-day-232-attacks-on-hormuz-shipping-surge-as-iran-says-strait-closed/"
+        ],
+        [
+          "aj",
+          "https://www.aljazeera.com/news/liveblog/2026/10/18/iran-war-live-tankers-hit-in-hormuz-israeli-settlers-attack-eu-diplomats"
+        ],
+        [
+          "newsnation",
+          "https://www.newsnationnow.com/world/oil-tanker-explodes-strait-of-hormuz/",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "w-settlers-diplomats",
+      "sec": "world",
+      "sub": "Middle East",
+      "head": "Israeli settlers attack European diplomats' convoy in West Bank",
+      "say": "Masked Israeli settlers attacked a convoy of French, Belgian and Polish diplomats near Taybeh in the occupied West Bank on Saturday, knocking a French mayor to the ground.",
+      "stand": "Israel's foreign minister condemned the attack during the olive harvest, and police have opened an investigation.",
+      "body": [
+        "Masked settlers confronted a convoy of European diplomats and officials near the village of Taybeh on Saturday. The group had come to visit Palestinian olive harvesters.",
+        "Witnesses said stones were thrown and car windows smashed, including on a Belgian consulate vehicle. Bernard Baudoux, mayor of the French town of Aulnoye-Aymeries, was assaulted and knocked down.",
+        "Foreign Minister Gideon Saar condemned what he called severe violence by Israeli rioters. The military said the tour had not been coordinated with its forces. Israeli police said they had opened an investigation.",
+        "Belgium's foreign minister, Maxime Prevot, said he would push for more EU sanctions, Al Jazeera reported. France's Jean-Noel Barrot urged Israel to arrest those responsible."
+      ],
+      "kept": [
+        [
+          "Masked settlers attacked a European diplomatic convoy near Taybeh on Saturday",
+          "3 of 3 outlets"
+        ],
+        [
+          "French mayor Bernard Baudoux was assaulted and knocked to the ground",
+          "3 of 3 outlets"
+        ],
+        [
+          "The delegation included diplomats from France, Belgium and Poland",
+          "3 of 3 outlets"
+        ],
+        [
+          "Israeli police have opened an investigation into the attack",
+          "3 of 3 outlets"
+        ],
+        [
+          "Foreign Minister Gideon Saar condemned the violence by Israeli rioters",
+          "2 of 3 outlets"
+        ],
+        [
+          "Israel says the visit had not been coordinated with its forces",
+          "2 of 3 outlets"
+        ],
+        [
+          "UN recorded over 200 settler attacks on olive harvesters this season",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Settlers' actions described as part of an 'ongoing West Bank pogrom'",
+          "Loaded framing in a headline"
+        ],
+        [
+          "Baudoux said the attack showed government tolerance of settler violence",
+          "Opinion of one participant"
+        ]
+      ],
+      "open": [
+        "Number of attackers: seven according to Israeli Army Radio, not confirmed elsewhere",
+        "Israel's response: Al Jazeera says Netanyahu's office called the reports 'alleged'; AFP says Israel quickly condemned"
+      ],
+      "primary": [
+        "Gideon Saar, Israeli foreign minister",
+        "Israeli police statement",
+        "Israel Defense Forces statement",
+        "Maxime Prevot, Belgian foreign minister",
+        "Jean-Noel Barrot, French foreign minister"
+      ],
+      "m": [
+        85,
+        65,
+        70
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/several-palestinians-injured-detained-in-ongoing-west-bank-pogrom"
+        ],
+        [
+          "arabnewssa",
+          "https://www.arabnews.com/middle-east/israeli-settlers-attack-european-diplomats-in-west-bank-amid-surge-in-olive-harvest-violence-3006865"
+        ],
+        [
+          "alarabiya",
+          "https://english.alarabiya.net/amp/News/middle-east/2026/10/17/israeli-settlers-attack-diplomatic-cars-in-west-bank-beat-french-mayor-witnesses"
+        ],
+        [
+          "france24",
+          "https://www.france24.com/en/live-news/20261017-israeli-settlers-attack-european-diplomats-beat-french-mayor",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "w-ukraine-strikes",
+      "sec": "world",
+      "sub": "Europe",
+      "head": "Russian strikes kill eight in Ukraine and cut power to a million",
+      "say": "Russian attacks across nine Ukrainian regions on Friday killed at least eight people and injured sixty, officials said, and left more than a million people briefly without power.",
+      "stand": "Drones hit shopping centres and energy sites as the UN warns early October was among the deadliest periods for civilians in years.",
+      "body": [
+        "Russian attacks on Friday killed at least eight people and wounded 60, Ukrainian officials said. Nine regions were hit, including two shopping centres.",
+        "In Kharkiv, governor Oleh Syniehubov said two people died and 12 were wounded. Two were killed in Kramatorsk and two in Dnipropetrovsk region, with one death each in Volyn and Rivne.",
+        "Ukraine's energy ministry said power had been restored to more than a million people cut off by the strikes. Lutsk's mayor warned of a blackout of at least a day.",
+        "UN monitors said at least 328 civilians were killed in September. Russia's defence ministry said it intercepted 644 Ukrainian drones overnight, disrupting Moscow airports."
+      ],
+      "kept": [
+        [
+          "Russian attacks on Friday killed at least eight and injured 60, officials said",
+          "2 of 3 outlets"
+        ],
+        [
+          "Power restored to over a million people after the strikes, energy ministry says",
+          "2 of 3 outlets"
+        ],
+        [
+          "Russian strikes hit nine Ukrainian regions, officials said",
+          "2 of 3 outlets"
+        ],
+        [
+          "Two killed and 12 wounded in Kharkiv, governor Oleh Syniehubov said",
+          "2 of 3 outlets"
+        ],
+        [
+          "Drones hit shopping centres in Rivne and Sumy",
+          "2 of 3 outlets"
+        ],
+        [
+          "UN says at least 328 civilians were killed in Ukraine in September",
+          "2 of 3 outlets"
+        ],
+        [
+          "Russia said it intercepted 644 Ukrainian drones overnight",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Trump said Zelenskyy is 'not a good guy for us to deal with'",
+          "Earlier remark, not part of this event"
+        ]
+      ],
+      "open": [
+        "Volyn outages: 370,000 described as households by one outlet and people by another",
+        "Number of drones and missiles Russia used was not reported"
+      ],
+      "primary": [
+        "Oleh Syniehubov, Kharkiv governor",
+        "Roman Romaniuk, Volyn governor",
+        "Oleksandr Koval, Rivne governor",
+        "Ukraine energy ministry",
+        "Danielle Bell, UN human rights monitoring mission"
+      ],
+      "m": [
+        85,
+        70,
+        65
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/russian-attacks-in-ukraine-kill-at-least-8-cut-power-to-1-million"
+        ],
+        [
+          "internazionale",
+          "https://www.internazionale.it/ultime-notizie-reuters/2026/10/17/russian-drones-kill-3-people-in-ukraine-cut-power-to-hundreds-of-thousands"
+        ],
+        [
+          "pbs",
+          "https://www.pbs.org/newshour/world/russia-strikes-9-ukrainian-regions-as-strain-grows-between-zelenskyy-and-trump"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "w-albania-protests",
+      "sec": "world",
+      "sub": "Europe",
+      "head": "Albanian police fire rubber bullets on fifth day of student protests",
+      "say": "Albanian police fired rubber bullets at protesters in Tirana on Saturday, the fifth day of student-led demonstrations demanding that Prime Minister Edi Rama resign.",
+      "stand": "Seven officers have been suspended as protests over corruption and education spread, while Rama refuses to step down.",
+      "body": [
+        "Police used rubber bullets for the first time in the protests on Saturday, alongside tear gas and water cannon. Demonstrators threw stones and petrol bombs and set vehicles alight.",
+        "National police chief Skender Hita said all means had been used in a limited manner. Seven officers have been suspended over allegations that they exceeded their authority.",
+        "Students cite high fees, poor facilities, joblessness and alleged corruption. The wider movement began with opposition to a coastal resort project linked to Jared Kushner.",
+        "Rama has rejected calls to resign. He said on Saturday that the government respects students' right to protest, and has blamed opponents for encouraging violence."
+      ],
+      "kept": [
+        [
+          "Police fired rubber bullets at protesters in Tirana on Saturday",
+          "2 of 2 outlets"
+        ],
+        [
+          "Student-led protests demanding Rama's resignation reached a fifth day",
+          "2 of 2 outlets"
+        ],
+        [
+          "Seven police officers suspended over allegations of exceeding authority",
+          "2 of 2 outlets"
+        ],
+        [
+          "Police chief Skender Hita said all means were used in a limited manner",
+          "2 of 2 outlets"
+        ],
+        [
+          "Rama refuses to resign but says he respects the right to protest",
+          "2 of 2 outlets"
+        ],
+        [
+          "Protest movement began over a Kushner-linked coastal resort project",
+          "2 of 2 outlets"
+        ],
+        [
+          "Protesters blocked roads with burning barricades in Durres",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Rama blamed 'foreign hands' for the unrest",
+          "Earlier claim without evidence; reported from Thursday"
+        ]
+      ],
+      "open": [
+        "Arrests: AFP gives 167 over five days, Reuters cites 1,067 arrested",
+        "EU membership target: reports give 2028 or 2030",
+        "Injury totals: 132 officers per police chief, protester total unclear"
+      ],
+      "primary": [
+        "Skender Hita, Albanian police chief",
+        "Albanian Ministry of Health and Social Welfare",
+        "Edi Rama, prime minister"
+      ],
+      "m": [
+        82,
+        60,
+        45
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/albanian-police-fire-rubber-bullets-as-protests-against-rama-escalate"
+        ],
+        [
+          "theprint",
+          "https://theprint.in/world/albanian-police-fire-rubber-bullets-as-student-protests-rage/3074885/"
+        ],
+        [
+          "nbcnews",
+          "https://www.nbcnews.com/world/europe/albanian-anti-government-protesters-clash-police-tirana-rcna604009",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "w-mexico-surfers",
+      "sec": "world",
+      "sub": "Americas",
+      "head": "Three men jailed for 158 years over Mexico surfer killings",
+      "say": "A judge in Ensenada has jailed three men for one hundred and fifty-eight years each for killing Australian brothers Callum and Jake Robinson and their American friend Carter Rhoad.",
+      "stand": "The three surfers were shot and their bodies left in a well during a trip to Baja California in April 2024.",
+      "body": [
+        "A judge in Ensenada, Baja California, sentenced three men on Friday to 158 years and nine months each. They were named in court as Jesus Gerardo, Irineo Francisco and Angel Jesus.",
+        "They were convicted a week earlier of homicide and violent robbery offences. The victims were killed on a surfing trip in April 2024, and their bodies were found in a well in May.",
+        "Prosecutors had sought 210 years each, Al Jazeera reported. The judge also ordered reparations to the families, according to ABC News.",
+        "The Robinson brothers' parents said no sentence would bring their sons back. The defence has indicated it will appeal."
+      ],
+      "kept": [
+        [
+          "Three men each jailed for 158 years and nine months in Ensenada on Friday",
+          "3 of 3 outlets"
+        ],
+        [
+          "Victims were Callum and Jake Robinson of Australia and American Carter Rhoad",
+          "3 of 3 outlets"
+        ],
+        [
+          "The three surfers were killed on a trip to Baja California in April 2024",
+          "3 of 3 outlets"
+        ],
+        [
+          "Their bodies were found in a well in May 2024",
+          "3 of 3 outlets"
+        ],
+        [
+          "The men had been convicted a week before sentencing",
+          "3 of 3 outlets"
+        ],
+        [
+          "Prosecutors had sought 210 years for each defendant",
+          "1 of 3 outlets"
+        ],
+        [
+          "The defence has indicated it will appeal",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "One defendant described as a violent hit man",
+          "Characterisation heard at trial, not a finding"
+        ]
+      ],
+      "open": [
+        "Victims' ages: reports give 33 and 30, or 32 and 31, for the brothers",
+        "Court: described as a civil court by one outlet and federal by another"
+      ],
+      "primary": [
+        "Judge Raul Hernandez Arellano",
+        "Baja California State Attorney General's Office",
+        "Prosecutor Maria Elena Andrade"
+      ],
+      "m": [
+        90,
+        75,
+        85
+      ],
+      "src": [
+        [
+          "abc",
+          "https://www.abc.net.au/news/2026-10-17/jake-callum-robinson-mexico-murder-trial-sentence/107271152"
+        ],
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/three-mexicans-jailed-for-158-years-each-for-killing-australian-us-surfers"
+        ],
+        [
+          "foxnews",
+          "https://www.foxnews.com/world/three-men-158-years-murdering-american-australian-surfers-dumping-bodies-mexican-well"
+        ]
+      ],
+      "also": [],
+      "fig": [
+        "158 years",
+        "Sentence for each of three men, Ensenada court"
+      ]
+    },
+    {
+      "id": "w-sudan-nyala",
+      "sec": "world",
+      "sub": "Africa",
+      "head": "Sudan army says it hit RSF in Nyala; RSF says 30 killed at market",
+      "say": "Sudan's army says air strikes on Nyala on Friday killed dozens of RSF fighters. The RSF says a drone hit a livestock market there, killing thirty civilians.",
+      "stand": "The two sides give sharply different accounts of strikes on the South Darfur capital, the seat of the RSF's rival administration.",
+      "body": [
+        "Sudan's army said on Friday that it destroyed RSF command centres in Nyala, the capital of South Darfur. Al Jazeera reported the army's claim that dozens of fighters were killed.",
+        "The RSF said a drone struck a busy livestock market in the city, killing 30 civilians, including 17 women and five children. A hospital source told AFP that 30 died and 47 were wounded.",
+        "The army has not commented on the market strike. The rights group Emergency Lawyers said the market was hit. The RSF has not addressed the army's claim about its fighters.",
+        "The war, which began in April 2023, has killed tens of thousands and displaced more than 11 million people."
+      ],
+      "kept": [
+        [
+          "Army says it struck RSF positions and command centres in Nyala on Friday",
+          "3 of 3 outlets"
+        ],
+        [
+          "RSF says a drone hit a Nyala livestock market, killing 30 civilians",
+          "3 of 3 outlets"
+        ],
+        [
+          "The army has not commented on the market strike",
+          "3 of 3 outlets"
+        ],
+        [
+          "RSF says 17 women and five children were among the dead",
+          "3 of 3 outlets"
+        ],
+        [
+          "Emergency Lawyers says the livestock market was hit",
+          "2 of 3 outlets"
+        ],
+        [
+          "Army claims dozens of RSF fighters were killed",
+          "1 of 3 outlets"
+        ],
+        [
+          "Hospital source told AFP 30 died and 47 were wounded",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "RSF called the strike a 'massacre' and a war crime",
+          "Partisan characterisation"
+        ],
+        [
+          "RSF alleged the drone was launched from a base in Egypt",
+          "Unverified claim by one side"
+        ]
+      ],
+      "open": [
+        "Death toll: no independent count; figures come from the RSF and an anonymous hospital source",
+        "Number of RSF fighters killed: army gave no exact figure"
+      ],
+      "primary": [
+        "Sudanese army statement",
+        "RSF and Tasis coalition statements",
+        "Emergency Lawyers"
+      ],
+      "m": [
+        60,
+        40,
+        40
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/2550"
+        ],
+        [
+          "newarab",
+          "https://www.newarab.com/news/drone-strike-kills-30-cattle-market-sudans-darfur"
+        ],
+        [
+          "sudantribune",
+          "https://sudantribune.com/article/320042"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "w-china-lead-kindergarten",
+      "sec": "world",
+      "sub": "Asia-Pacific",
+      "head": "China jails kindergarten owner for life over lead poisoning of children",
+      "say": "A Chinese court has jailed a kindergarten operator for life after lead-tainted food poisoned more than two hundred children in Tianshui. The principal got fifteen years.",
+      "stand": "Staff added lead-containing paint to food to make it look appealing, the court found, in a case that shocked China in 2025.",
+      "body": [
+        "The Lanzhou Intermediate People's Court sentenced kindergarten operator Li Huifang to life in prison on Friday. Executive principal Zhu Jinglin received 15 years and a 300,000 yuan fine.",
+        "Kitchen workers were jailed for six to eight years, according to state media. The defendants were convicted of producing and selling toxic and harmful food.",
+        "The court found that toxic, lead-containing pigments were added to food to make it look more appealing. Xinhua said 247 of 251 children tested had abnormal blood lead levels.",
+        "Xinhua said provincial disciplinary authorities had investigated 10 local officials over the case at the kindergarten in Tianshui, Gansu province."
+      ],
+      "kept": [
+        [
+          "Kindergarten operator Li Huifang sentenced to life over lead-tainted food",
+          "3 of 3 outlets"
+        ],
+        [
+          "Principal Zhu Jinglin jailed for 15 years and fined 300,000 yuan",
+          "3 of 3 outlets"
+        ],
+        [
+          "Over 200 children at the Tianshui kindergarten were poisoned by lead",
+          "3 of 3 outlets"
+        ],
+        [
+          "Lanzhou Intermediate People's Court delivered the ruling on Friday",
+          "3 of 3 outlets"
+        ],
+        [
+          "Lead-containing paint was added to food to make it look appealing",
+          "3 of 3 outlets"
+        ],
+        [
+          "Kitchen workers were jailed for six to eight years, state media said",
+          "2 of 3 outlets"
+        ],
+        [
+          "Ten local officials were investigated by provincial disciplinary authorities",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Managers allegedly bribed officials to change children's blood test results",
+          "Earlier allegation not confirmed in sentencing coverage"
+        ]
+      ],
+      "open": [
+        "Other defendants: four kitchen workers per state media, five others per SCMP",
+        "Li's 500,000 yuan: described as asset confiscation or as a fine"
+      ],
+      "primary": [
+        "Lanzhou Intermediate People's Court",
+        "CCTV",
+        "Xinhua"
+      ],
+      "m": [
+        90,
+        80,
+        90
+      ],
+      "src": [
+        [
+          "xinhua",
+          "https://english.news.cn/20261017/7017641aafe34e7697acfc1774f99ea8/c.html"
+        ],
+        [
+          "abc",
+          "https://www.abc.net.au/news/2026-10-17/kindergarten-staff-jailed-over-lead-poisoning-in-china/107278660"
+        ],
+        [
+          "scmp",
+          "https://www.scmp.com/news/china/politics/article/3371229/chinese-kindergarten-owner-given-life-sentence-over-lead-paint-poisoning-scandal"
+        ],
+        [
+          "ctv",
+          "https://www.ctvnews.ca/health/article/china-sentences-6-for-lead-tainted-kindergarten-food-that-sickened-over-200-children/",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "uk-hampshire-boat-costs",
+      "sec": "uk",
+      "sub": "Security",
+      "head": "Hampshire police chief seeks £800,000 over small-boat landings",
+      "say": "Hampshire's police and crime commissioner says policing small-boat landings and protests has cost more than eight hundred thousand pounds, and she wants the Home Office to pay.",
+      "stand": "Donna Jones has written twice to the Home Secretary asking for full reimbursement and a halt to landings on the Hampshire coast.",
+      "body": [
+        "Hampshire's police and crime commissioner, Donna Jones, says policing costs linked to small-boat landings in Portsmouth and Gosport have passed £800,000 since September.",
+        "She has written a second time to Home Secretary Shabana Mahmood. She wants the full cost repaid and future deployments funded. She says her first letter received no reply.",
+        "At the latest Gosport landing, police made 12 arrests, four of them for assaulting an officer. Jones also wants details of talks with France about the Normandy-to-Hampshire route.",
+        "The Home Office said there was no excuse for intimidating behaviour at some protests. It says it has contingency plans for arrivals elsewhere."
+      ],
+      "kept": [
+        [
+          "Policing costs tied to Hampshire small-boat landings exceed £800,000",
+          "2 of 2 outlets"
+        ],
+        [
+          "PCC Donna Jones has written to the Home Secretary for a second time",
+          "2 of 2 outlets"
+        ],
+        [
+          "Jones wants full repayment and funding for future deployments",
+          "2 of 2 outlets"
+        ],
+        [
+          "Twelve people were arrested at the latest Gosport landing",
+          "2 of 2 outlets"
+        ],
+        [
+          "Jones says the government has not replied to her concerns",
+          "2 of 2 outlets"
+        ],
+        [
+          "Home Office says over 50,000 crossing attempts prevented since the election",
+          "1 of 2 outlets"
+        ],
+        [
+          "Jones wants details of UK-France talks on the Normandy route",
+          "2 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Home Office claim that closing asylum hotels saved over £1 billion",
+          "Government claim not independently checked; not central to the story"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "Donna Jones, Hampshire Police and Crime Commissioner",
+        "Home Office statement"
+      ],
+      "m": [
+        75,
+        60,
+        65
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/meridian/2026-10-17/police-and-crime-commissioner-demands-extra-funds-to-cover-migrant-landing-costs"
+        ],
+        [
+          "portsnews",
+          "https://www.portsmouth.co.uk/news/crime/donna-jones-asks-home-secretary-answers-cost-illegal-migrant-protests-passes-ps800000-9290243"
+        ],
+        [
+          "islandecho",
+          "https://www.islandecho.co.uk/home-secretary-accused-of-silence-as-small-boat-landings-cost-police-800000/",
+          "headline only"
+        ]
+      ],
+      "also": [
+        [
+          "iwradio",
+          "https://www.iwradio.co.uk/news-post/pcc-calls-for-government-action-over-small-boat-landings"
+        ],
+        [
+          "meonvalley",
+          "https://meonvalleytimes.co.uk/no-reply-from-home-secretary-to-crime-commissioners-800000-migrant-policing-plea/"
+        ]
+      ],
+      "fig": [
+        "£800,000",
+        "Hampshire policing costs from small-boat landings since September"
+      ]
+    },
+    {
+      "id": "uk-brand-trial",
+      "sec": "uk",
+      "sub": "Justice",
+      "head": "Russell Brand trial hears from former flatmate",
+      "say": "Russell Brand's trial has heard a former flatmate describe him as very egotistical and preoccupied with sex. Brand denies all seven charges, including three of rape.",
+      "stand": "The comedian denies rape and sexual assault charges involving six women between 1999 and 2009 at Southwark Crown Court.",
+      "body": [
+        "Russell Brand's trial at Southwark Crown Court has continued, with a former flatmate giving evidence for the prosecution.",
+        "The witness told jurors Brand was very egotistical and erratic, and that sex was a major preoccupation for him on nights out.",
+        "The court also heard statements from two friends of the woman behind the 1999 rape allegation. Brand denies three counts of rape, three of sexual assault and one of indecent assault.",
+        "The defence is expected to argue that consensual encounters have been reimagined in recent years. The trial continues."
+      ],
+      "kept": [
+        [
+          "Russell Brand is on trial at Southwark Crown Court",
+          "2 of 2 outlets"
+        ],
+        [
+          "He denies three rapes, three sexual assaults and one indecent assault",
+          "2 of 2 outlets"
+        ],
+        [
+          "The charges involve six women and date from 1999 to 2009",
+          "2 of 2 outlets"
+        ],
+        [
+          "A former flatmate told the court sex was a major preoccupation for Brand",
+          "2 of 2 outlets"
+        ],
+        [
+          "Statements from two friends of the 1999 complainant were read out",
+          "2 of 2 outlets"
+        ],
+        [
+          "Defence expected to say consensual encounters were later 'reimagined'",
+          "2 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Witness's name",
+          "Private individual, not a public figure"
+        ]
+      ],
+      "open": [
+        "Expected length of the trial: not reported"
+      ],
+      "primary": [
+        "Prosecutor Suki Dhadda (court proceedings)"
+      ],
+      "m": [
+        80,
+        55,
+        55
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-16/egotistical-russell-brand-preoccupied-by-sex-former-flatmate-tells-trial"
+        ],
+        [
+          "thejournal",
+          "https://www.thejournal.ie/russell-brand-trial-7195323-Oct2026/"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "uk-scotland-buses",
+      "sec": "uk",
+      "sub": "Transport",
+      "head": "Swinney pledges to bring Scotland's buses under public control",
+      "say": "John Swinney says Scotland's buses will be brought back under public control by twenty thirty-one, with the two pound fare cap reaching Aberdeen from April.",
+      "stand": "The First Minister told the SNP conference that franchising and regulation would give regional bodies more say over routes and fares.",
+      "body": [
+        "John Swinney told the SNP conference in Aberdeen on Saturday that buses would return to public control by the end of this parliament.",
+        "The change would come through franchising and regulation rather than state ownership, giving regional transport partnerships more control over routes and fares. A Bill is due at Holyrood next year.",
+        "The £2 bus fare cap, now in greater Glasgow and the Highlands and Islands, will extend to Aberdeen and Aberdeenshire from April.",
+        "McGill's Buses, Scotland's largest independent operator, said it would resist the plans. Scottish Labour's Jackie Baillie welcomed the bus pledges."
+      ],
+      "kept": [
+        [
+          "Swinney pledges public control of Scotland's buses by 2031",
+          "4 of 4 outlets"
+        ],
+        [
+          "The change would come through franchising and regulation, not ownership",
+          "4 of 4 outlets"
+        ],
+        [
+          "£2 bus fare cap to extend to Aberdeen and Aberdeenshire from April",
+          "4 of 4 outlets"
+        ],
+        [
+          "A Bill is due to be tabled at Holyrood next year",
+          "2 of 4 outlets"
+        ],
+        [
+          "The government aims to extend the £2 cap nationwide by 2031",
+          "2 of 4 outlets"
+        ],
+        [
+          "McGill's Buses says it will fight the plans",
+          "2 of 4 outlets"
+        ],
+        [
+          "Scottish Labour's Jackie Baillie welcomed the bus pledges",
+          "4 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "McGill's co-owner likening Swinney to authoritarian leaders",
+          "Loaded comparison by an interested party"
+        ],
+        [
+          "Description of the plan as 'theft'",
+          "Partisan framing by an operator; reported only as opposition"
+        ]
+      ],
+      "open": [
+        "Cost of the plans: not reported"
+      ],
+      "primary": [
+        "John Swinney, First Minister",
+        "Ralph Roberts, McGill's Buses chair",
+        "Jackie Baillie, Scottish Labour deputy leader"
+      ],
+      "m": [
+        88,
+        55,
+        70
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/buses-to-be-brought-under-public-control-by-2031-says-john-swinney"
+        ],
+        [
+          "stv",
+          "https://news.stv.tv/politics/buses-to-be-brought-under-public-control-by-2031-says-john-swinney"
+        ],
+        [
+          "scotsman",
+          "https://www.scotsman.com/news/politics/swinney-pledge-to-bring-buses-under-public-control-condemned-as-theft-9294007"
+        ],
+        [
+          "irishnews",
+          "https://www.irishnews.com/news/uk/john-swinney-tells-snp-conference-of-drive-to-deliver-independence-for-his-son-7CLAE3Y6FFLF5J7JHOVYOF26AQ/"
+        ]
+      ],
+      "also": [
+        [
+          "expressandstar",
+          "https://www.expressandstar.com/uk-news/buses-to-be-brought-under-public-control-by-2031-says-john-swinney-9294025"
+        ]
+      ]
+    },
+    {
+      "id": "uk-drymen-air-crash",
+      "sec": "uk",
+      "sub": "Transport",
+      "head": "Boy, 16, and man, 80, killed in light aircraft crash near Loch Lomond",
+      "say": "A sixteen-year-old boy and an eighty-year-old man have died after a light aircraft crashed near Drymen on Friday. Air accident investigators have sent a team to the site.",
+      "stand": "The aircraft had taken off from Glasgow Airport shortly before it came down north-east of the village on Friday afternoon.",
+      "body": [
+        "A 16-year-old boy and an 80-year-old man were pronounced dead after a light aircraft crashed north-east of Drymen, near Loch Lomond, on Friday.",
+        "Emergency services were called at about 4.45pm. The plane had departed from Glasgow Airport, and Police Scotland said next of kin had been told.",
+        "The Air Accidents Investigation Branch has sent a team to gather evidence. Police have placed temporary airspace restrictions, including on drones, around the area."
+      ],
+      "kept": [
+        [
+          "A boy, 16, and a man, 80, died in a light aircraft crash near Drymen",
+          "2 of 3 outlets"
+        ],
+        [
+          "The AAIB has sent a team to the site to investigate",
+          "3 of 3 outlets"
+        ],
+        [
+          "The aircraft had taken off from Glasgow Airport",
+          "2 of 3 outlets"
+        ],
+        [
+          "Emergency services were called at about 4.45pm on Friday",
+          "2 of 3 outlets"
+        ],
+        [
+          "Police have imposed temporary airspace restrictions, including drones",
+          "2 of 3 outlets"
+        ],
+        [
+          "The aircraft was reportedly a Piper Tomahawk II",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [
+        "Council area: reports place the site in Stirling or in West Dunbartonshire"
+      ],
+      "primary": [
+        "Police Scotland",
+        "Air Accidents Investigation Branch",
+        "Gavin Birch-Williams, Glasgow Airport managing director"
+      ],
+      "m": [
+        85,
+        70,
+        70
+      ],
+      "src": [
+        [
+          "irishnews",
+          "https://www.irishnews.com/news/uk/boy-aged-16-and-80-year-old-man-killed-in-light-aircraft-crash-NWHUXZXCH5POLDO6E4S2Z65T2I/"
+        ],
+        [
+          "stv",
+          "https://news.stv.tv/west-central/teen-16-and-80-year-old-man-die-in-light-aircraft-crash-near-loch-lomond"
+        ],
+        [
+          "govuk",
+          "https://www.gov.uk/government/news/the-aaib-has-sent-a-team-to-stirling"
+        ]
+      ],
+      "also": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/boy-aged-16-and-80-year-old-man-killed-in-light-aircraft-crash"
+        ],
+        [
+          "joe",
+          "https://www.joe.co.uk/news/loch-lomond-crash-drymen-552307"
+        ]
+      ]
+    },
+    {
+      "id": "uk-rayner-rough-sleeping",
+      "sec": "uk",
+      "sub": "Housing",
+      "head": "Rayner says rough sleeping pledge is not a Christmas gimmick",
+      "say": "Angela Rayner says she is confident every rough sleeper will be offered a bed, backed by four hundred and forty-two million pounds, and that the offer won't end at Christmas.",
+      "stand": "The housing secretary would not say whether the housing benefit freeze will change at the 28 October Budget.",
+      "body": [
+        "Housing Secretary Angela Rayner says she is confident the pledge to offer every rough sleeper a bed will be met. She accepts not everyone will take it.",
+        "Speaking on the Mirror's YouTube show, she cited £442 million of funding and said the work would continue after Christmas. The latest snapshot counted 4,793 rough sleepers in autumn 2025.",
+        "She would not say whether the housing benefit freeze should change before John Healey's first Budget on 28 October. She said it is reviewed annually."
+      ],
+      "kept": [
+        [
+          "Rayner is confident the pledge to offer rough sleepers a bed will be met",
+          "2 of 2 outlets"
+        ],
+        [
+          "Rayner says the offer will continue beyond Christmas",
+          "2 of 2 outlets"
+        ],
+        [
+          "She declined to say if the housing benefit freeze will change at the Budget",
+          "2 of 2 outlets"
+        ],
+        [
+          "Rayner cites £442 million of funding for the drive",
+          "2 of 2 outlets"
+        ],
+        [
+          "Autumn 2025 count found 4,793 rough sleepers, up 171% on 2010",
+          "2 of 2 outlets"
+        ],
+        [
+          "Chancellor John Healey's first Budget is due on 28 October",
+          "2 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "'Record investment' description of the £442 million",
+          "Minister's own framing"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "Angela Rayner, Housing Secretary",
+        "Official rough sleeping snapshot, autumn 2025"
+      ],
+      "m": [
+        75,
+        55,
+        65
+      ],
+      "src": [
+        [
+          "aoluk",
+          "https://www.aol.co.uk/articles/angela-rayner-andy-burnhams-vow-173306000.html"
+        ],
+        [
+          "britbrief",
+          "https://britbrief.co.uk/business/property/rayner-burnham-rough-sleeping-pledge-not-a-gimmick.html"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "uk-m6-lorry-driver-jailed",
+      "sec": "uk",
+      "sub": "Justice",
+      "head": "Lorry driver who used gambling site at wheel jailed over M6 death",
+      "say": "A lorry driver who logged on to a gambling site while driving has been jailed for eight years and four months after hitting a stationary car on the M6, killing a teenager.",
+      "stand": "Daniel Barlow, 30, was sentenced at Chester Crown Court for causing death and serious injury by dangerous driving.",
+      "body": [
+        "Daniel Barlow, 30, from Whitworth in Lancashire, was jailed at Chester Crown Court on Friday for eight years and four months.",
+        "His lorry hit a car stopped in heavy traffic on the M6 in December 2022 at a steady 55mph. A 19-year-old passenger died and two other people suffered life-changing injuries.",
+        "Police said he had used his phone several times while driving, including to log on to a gambling website. He was banned from driving for 10 years and four months."
+      ],
+      "kept": [
+        [
+          "Daniel Barlow was jailed for eight years and four months",
+          "1 of 1 outlets"
+        ],
+        [
+          "He caused death and serious injury by dangerous driving on the M6",
+          "1 of 1 outlets"
+        ],
+        [
+          "Evidence showed he logged on to a gambling site while driving",
+          "1 of 1 outlets"
+        ],
+        [
+          "His lorry hit a car stopped in traffic at a steady 55mph",
+          "1 of 1 outlets"
+        ],
+        [
+          "A 19-year-old passenger died and two others were badly hurt",
+          "1 of 1 outlets"
+        ],
+        [
+          "He failed to attend his first sentencing hearing on 8 October",
+          "1 of 1 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Victim's name",
+          "Private individual"
+        ],
+        [
+          "Judge calling non-attendance 'cowardice'",
+          "Court remark not needed for the facts"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "Chester Crown Court",
+        "Inspector Andy Dennison"
+      ],
+      "m": [
+        62,
+        70,
+        90
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/granada/2026-10-16/lorry-driver-who-used-gambling-website-at-wheel-jailed-after-killing-teenager"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "p-reform-undercover",
+      "sec": "politics",
+      "sub": "Parties",
+      "head": "Undercover film shows Reform figures calling for migrant camps",
+      "say": "Undercover ITV footage shows an aspiring Reform MP calling for camps for small-boat migrants. Reform says there is no room for racism and some people have been suspended.",
+      "stand": "The year-long investigation, airing on Sunday night, also records councillors talking about executing grooming gang members.",
+      "body": [
+        "An ITV Exposure reporter spent a year undercover inside Reform UK. New footage released on Saturday shows aspiring MP Jason Powell calling for small-boat migrants to be held in camps.",
+        "Hounslow councillor Adam Parkins was recorded saying he would execute grooming gang members. Board member Gawain Towler said he had been racist every day at school, a view he now says appals him.",
+        "Reform says it has improved vetting, that not everyone filmed is a member, and that some people have been suspended. Three councillors have resigned and two have left the party.",
+        "Labour chair Bridget Phillipson said Nigel Farage shares responsibility. The documentary airs on ITV at 10.20pm on Sunday."
+      ],
+      "kept": [
+        [
+          "Aspiring Reform MP Jason Powell was filmed calling for migrant camps",
+          "3 of 3 outlets"
+        ],
+        [
+          "Councillor Adam Parkins spoke of executing grooming gang members",
+          "3 of 3 outlets"
+        ],
+        [
+          "Reform says there is no room for racism and some people are suspended",
+          "3 of 3 outlets"
+        ],
+        [
+          "Board member Gawain Towler admitted being racist daily at school",
+          "3 of 3 outlets"
+        ],
+        [
+          "Three councillors have resigned and two have left the party",
+          "2 of 3 outlets"
+        ],
+        [
+          "Labour chair Bridget Phillipson says Farage shares culpability",
+          "2 of 3 outlets"
+        ],
+        [
+          "The documentary airs on ITV at 10.20pm on Sunday",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "'Bad apples don't fall far from the tree'",
+          "Partisan soundbite from a rival party"
+        ],
+        [
+          "Claims about Farage's schooldays",
+          "Disputed allegation, denied by Farage, not new in this footage"
+        ]
+      ],
+      "open": [
+        "Powell's status: described as both an activist and an aspiring Reform MP"
+      ],
+      "primary": [
+        "Reform UK spokesperson",
+        "Bridget Phillipson, Labour Party chair"
+      ],
+      "m": [
+        80,
+        50,
+        55
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/inside-reform-aspiring-reform-mp-calls-for-concentration-camps-for-migrants"
+        ],
+        [
+          "lbc",
+          "https://www.lbc.co.uk/article/farage-joked-racism-claims-reform-documentary-5Hjdk4x_2/"
+        ],
+        [
+          "britbrief",
+          "https://britbrief.co.uk/politics/scandals/farage-accused-of-sitting-on-his-hands-after-reform-racism-claims.html"
+        ]
+      ],
+      "also": [
+        [
+          "atvtoday",
+          "https://www.atvtoday.co.uk/319181-itv-exposure/"
+        ]
+      ]
+    },
+    {
+      "id": "p-brazil-debate",
+      "sec": "politics",
+      "sub": "Elections",
+      "head": "Lula and Flávio Bolsonaro face first run-off debate",
+      "say": "Lula and Flávio Bolsonaro meet on Sunday in their first televised run-off debate. A poll out on Saturday put Bolsonaro on fifty-one point one per cent to Lula's forty-eight point nine.",
+      "stand": "The two candidates go head to head on the Band network a week before Brazil's presidential run-off on 25 October.",
+      "body": [
+        "President Lula and Senator Flávio Bolsonaro are due to meet on the Band network on Sunday evening, their first direct debate of the campaign.",
+        "Neither attended Band's first-round debate in August. Bolsonaro said on 13 October he would not take part, then reversed the next day after Lula confirmed.",
+        "A Veritá poll released on Saturday gave Bolsonaro 51.1% of valid votes to Lula's 48.9%. Datafolha earlier showed a similar 51% to 49% split.",
+        "The run-off takes place on 25 October."
+      ],
+      "kept": [
+        [
+          "Lula and Flávio Bolsonaro meet in their first run-off TV debate Sunday",
+          "4 of 4 outlets"
+        ],
+        [
+          "Brazil's presidential run-off is on 25 October",
+          "2 of 4 outlets"
+        ],
+        [
+          "Saturday's Veritá poll: Bolsonaro 51.1%, Lula 48.9% of valid votes",
+          "1 of 4 outlets"
+        ],
+        [
+          "Datafolha showed Bolsonaro on 51% and Lula on 49%",
+          "2 of 4 outlets"
+        ],
+        [
+          "The debate on Band starts at 8pm Brasília time",
+          "2 of 4 outlets"
+        ],
+        [
+          "Bolsonaro first said he would skip it, then reversed a day later",
+          "2 of 4 outlets"
+        ],
+        [
+          "Neither candidate attended Band's first-round debate in August",
+          "2 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Prediction-market odds favouring Bolsonaro",
+          "Betting figures, not polls; inconsistent within the source"
+        ],
+        [
+          "Bolsonaro calling his earlier refusal a 'trap'",
+          "Campaign spin"
+        ]
+      ],
+      "open": [
+        "Debate length: reports give about 1 hour 45 minutes or about two hours"
+      ],
+      "primary": [
+        "Instituto Veritá poll (TSE registration BR-01107/2026)",
+        "Datafolha poll",
+        "Band debate rules"
+      ],
+      "m": [
+        82,
+        50,
+        45
+      ],
+      "src": [
+        [
+          "riotimes",
+          "https://www.riotimesonline.com/lula-flavio-band-debate-october-18-runoff-2026/"
+        ],
+        [
+          "riotimes",
+          "https://www.riotimesonline.com/verita-poll-flavio-51-lula-49-runoff-2026"
+        ],
+        [
+          "colombiaone",
+          "https://colombiaone.com/2026/10/16/brazil-presidential-runoff-lula-flavio-bolsonaro-polls/"
+        ],
+        [
+          "band",
+          "https://www.band.com.br/politica/eleicoes/debate-na-band-veja-as-regras-do-confronto-entre-lula-e-flavio-bolsonaro",
+          "translated from Portuguese"
+        ],
+        [
+          "gazetapovo",
+          "https://www.gazetadopovo.com.br/eleicoes/2026/lula-flavio-bolsonaro-debate-band-segundo-turno/",
+          "translated from Portuguese"
+        ]
+      ],
+      "also": [
+        [
+          "poder360",
+          "https://www.poder360.com.br/poder-eleicoes-2026/debate-da-band-com-lula-e-flavio-sera-dia-18-leia-as-regras/"
+        ]
+      ]
+    },
+    {
+      "id": "p-trump-russia-waiver",
+      "sec": "politics",
+      "sub": "Policy",
+      "head": "Trump waives new Russia sanctions, drawing bipartisan criticism",
+      "say": "Donald Trump has waived new sanctions on Russia under the Graham Act just before they took effect. Republican and Democratic senators criticised the move.",
+      "stand": "The late-Friday order suspends tariffs and penalties on Russia and its oil buyers that Congress passed by large margins.",
+      "body": [
+        "President Trump signed an order late on Friday waiving sanctions under the Graham Act. They had been due to take effect on Sunday.",
+        "The law would have imposed steep tariffs on buyers of Russian oil and gas. The White House said enforcing it now would hinder peace negotiations.",
+        "Republican senators Thom Tillis and John Cornyn criticised the move, as did Democratic leader Chuck Schumer. Ukraine's President Zelensky also criticised the waiver.",
+        "Congress is in recess until after the 3 November midterms, so a quick response is unlikely."
+      ],
+      "kept": [
+        [
+          "Trump signed an order on Friday waiving Graham Act sanctions on Russia",
+          "4 of 4 outlets"
+        ],
+        [
+          "Republican senators Tillis and Cornyn criticised the waiver",
+          "3 of 4 outlets"
+        ],
+        [
+          "White House says enforcing sanctions now would hinder peace talks",
+          "2 of 4 outlets"
+        ],
+        [
+          "The law targets buyers of Russian oil and gas with steep tariffs",
+          "4 of 4 outlets"
+        ],
+        [
+          "The sanctions had been due to take effect on Sunday",
+          "2 of 4 outlets"
+        ],
+        [
+          "Democratic leader Chuck Schumer said it props up Russia's economy",
+          "3 of 4 outlets"
+        ],
+        [
+          "Congress is in recess until after the midterm elections",
+          "1 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "'Trump hands Putin major win'",
+          "Loaded headline framing from coverage"
+        ]
+      ],
+      "open": [
+        "Duration: one report calls the waiver indefinite; another says it lasts until the president or secretary of state decides otherwise"
+      ],
+      "primary": [
+        "Executive order and presidential certification to Congress",
+        "Taylor Rogers, White House spokeswoman"
+      ],
+      "m": [
+        90,
+        70,
+        70
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/trumps-decision-to-waive-russian-sanctions-outrages-congress"
+        ],
+        [
+          "axios",
+          "https://www.axios.com/2026/10/17/trump-russia-waiver-putin-republicans-democrats"
+        ],
+        [
+          "abcus",
+          "https://abcnews.com/Politics/trump-signs-order-waiving-graham-act-sanctions-russia/story?id=137341529"
+        ],
+        [
+          "foxbusiness",
+          "https://www.foxbusiness.com/politics/trump-waives-many-russian-sanctions-under-new-law-backed-lindsey-graham"
+        ]
+      ],
+      "also": [
+        [
+          "washingtonpost",
+          "https://www.washingtonpost.com/politics/2026/10/17/trump-signs-executive-order-waiving-sanctions-against-russia/"
+        ],
+        [
+          "thehill",
+          "https://thehill.com/homenews/administration/6155725-trump-waives-russia-sanctions/"
+        ],
+        [
+          "rferl",
+          "https://www.rferl.org/a/trump-waives-graham-act-sanctions-on-russia/33878335.html"
+        ]
+      ]
+    },
+    {
+      "id": "p-us-midterms-kentucky",
+      "sec": "politics",
+      "sub": "Elections",
+      "head": "Trump rallies in Kentucky as No Kings events urge early voting",
+      "say": "Donald Trump rallied Republicans in Kentucky on Saturday, repeating a five-thousand-dollar payment pledge, as No Kings events across the US urged people to vote early.",
+      "stand": "With just over two weeks until the 3 November midterms, both camps used Saturday to try to drive turnout.",
+      "body": [
+        "President Trump held a rally at Northern Kentucky University in Highland Heights on Saturday, backing Senate candidate Andy Barr and House candidate Ed Gallrein.",
+        "He repeated a pledge of $5,000 for every adult if Republicans win both chambers. He also tied a $100 million Kentucky drug plant investment to a Republican win. He called Rep. Thomas Massie a jerk and a loser.",
+        "No Kings rallies across the country urged people to vote early. The Justice Department on Friday warned officials handling ballots from suspected noncitizens that they could face prosecution.",
+        "Kentucky Governor Andy Beshear called Trump's speech a disservice to the state."
+      ],
+      "kept": [
+        [
+          "Trump rallied in Highland Heights, Kentucky, on Saturday",
+          "4 of 6 outlets"
+        ],
+        [
+          "No Kings rallies across the US urged people to vote early",
+          "2 of 6 outlets"
+        ],
+        [
+          "Trump repeated a $5,000-per-adult pledge if the GOP wins both chambers",
+          "2 of 6 outlets"
+        ],
+        [
+          "Trump linked a $100m Kentucky drug plant investment to a GOP win",
+          "2 of 6 outlets"
+        ],
+        [
+          "Trump called Rep. Thomas Massie a 'jerk' and a 'loser'",
+          "2 of 6 outlets"
+        ],
+        [
+          "DOJ warned officials over ballots from suspected noncitizens",
+          "2 of 6 outlets"
+        ],
+        [
+          "The midterm elections are on Tuesday 3 November",
+          "3 of 6 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Trump's claim Democrats want to abolish the Senate and Supreme Court",
+          "Not in the Democratic platform, outlets note"
+        ],
+        [
+          "Trump calling a Democratic candidate a 'lunatic'",
+          "Campaign insult"
+        ]
+      ],
+      "open": [
+        "Number of No Kings events: 'hundreds' in one report, more than 3,000 planned in another"
+      ],
+      "primary": [
+        "Andy Beshear, Kentucky governor",
+        "US Justice Department warning"
+      ],
+      "m": [
+        85,
+        40,
+        60
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/trump-touts-his-power-in-his-second-term-at-kentucky-rally"
+        ],
+        [
+          "kylantern",
+          "https://kentuckylantern.com/2026/10/17/trump-parachutes-to-ky-to-stump-for-republicans-in-safe-seats-give-gop-nod-in-tight-race/"
+        ],
+        [
+          "lex18",
+          "https://www.lex18.com/news/covering-kentucky/gov-andy-beshear-on-trump-kentucky-rally-midterm-elections-oct-17-2026"
+        ],
+        [
+          "foxnews",
+          "https://www.foxnews.com/live-news/fiery-texas-house-race-minnesota-fraud-scandal-2026-midterm-elections-october-17"
+        ],
+        [
+          "pbs",
+          "https://www.pbs.org/newshour/nation/no-kings-rallies-across-u-s-urge-voters-to-cast-ballots-early-ahead-of-midterms"
+        ],
+        [
+          "aj",
+          "https://www.aljazeera.com/gallery/2026/10/17/photos-no-kings-rallies-in-us-urge-midterm-voters-to-cast-ballots-early"
+        ]
+      ],
+      "also": [
+        [
+          "cnn",
+          "https://www.cnn.com/2026/10/17/politics/live-news/midterm-election-congress"
+        ],
+        [
+          "huffpost",
+          "https://www.huffpost.com/entry/election-2026-trump-kentucky_n_6ad3de23e4b0ce24aed9fa43"
+        ],
+        [
+          "thehill",
+          "https://thehill.com/homenews/state-watch/6155983-no-kings-coalition-action-protests/"
+        ],
+        [
+          "local12",
+          "https://local12.com/news/local/president-donald-trump-nku-truist-arena-visits-northern-kentucky-power-rally-energize-voters-ahead-midterms-election-ed-gallrein"
+        ]
+      ]
+    },
+    {
+      "id": "p-snp-conference",
+      "sec": "politics",
+      "sub": "Parties",
+      "head": "Swinney launches new SNP independence drive at conference",
+      "say": "John Swinney closed the SNP conference saying Scotland is ready to be independent, launching a campaign he says has a six-figure budget, plus a thirty million pound anti-racism fund.",
+      "stand": "The First Minister's first keynote since May's election also promised a misogyny offence and wider bus fare caps.",
+      "body": [
+        "John Swinney closed the SNP conference in Aberdeen on Saturday with his first keynote since winning a mandate as First Minister in May.",
+        "He said he was determined to deliver independence and launched a campaign which he said had a six-figure war chest. No referendum timetable was given.",
+        "He announced a three-year £30 million fund for groups countering racism and a Bill to make misogyny-based harassment a specific offence. Members also backed a motion supporting a UK-wide ban on X.",
+        "Scottish Labour's Jackie Baillie called the speech thin. Conservative leader Russell Findlay accused Swinney of a divisive independence agenda."
+      ],
+      "kept": [
+        [
+          "Swinney told the SNP conference he is determined to deliver independence",
+          "2 of 3 outlets"
+        ],
+        [
+          "SNP is launching an independence campaign with a six-figure budget",
+          "2 of 3 outlets"
+        ],
+        [
+          "A three-year £30m fund will support groups countering racism",
+          "2 of 3 outlets"
+        ],
+        [
+          "A Bill will make misogyny-based harassment a specific offence",
+          "2 of 3 outlets"
+        ],
+        [
+          "SNP members backed a motion supporting a UK-wide ban on X",
+          "1 of 3 outlets"
+        ],
+        [
+          "Labour's Jackie Baillie called the speech 'thin and threadbare'",
+          "2 of 3 outlets"
+        ],
+        [
+          "The independence campaign is called Choose Scotland",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "'The most sophisticated campaign that we have ever undertaken'",
+          "Party's own promotional claim"
+        ]
+      ],
+      "open": [
+        "Timing of misogyny Bill: before the summer recess, or before the end of June 2027"
+      ],
+      "primary": [
+        "John Swinney, First Minister",
+        "Jackie Baillie, Scottish Labour",
+        "Russell Findlay, Scottish Conservatives"
+      ],
+      "m": [
+        80,
+        40,
+        70
+      ],
+      "src": [
+        [
+          "irishnews",
+          "https://www.irishnews.com/news/uk/john-swinney-tells-snp-conference-of-drive-to-deliver-independence-for-his-son-7CLAE3Y6FFLF5J7JHOVYOF26AQ/"
+        ],
+        [
+          "scotsman",
+          "https://www.scotsman.com/news/politics/swinney-pledge-to-bring-buses-under-public-control-condemned-as-theft-9294007"
+        ],
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/snp-members-back-resolution-supporting-uk-wide-ban-on-x"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "p-ricketts-russia-threat",
+      "sec": "politics",
+      "sub": "Policy",
+      "head": "Ex-security adviser urges ministers to be frank about Russian threat",
+      "say": "Former national security adviser Lord Ricketts says ministers must be honest with the public about Russia's threat, warning that hybrid attacks could one day cost lives.",
+      "stand": "Lord Ricketts also dismissed the Prime Minister's idea of Britain acting as a bridge between Washington and Kyiv.",
+      "body": [
+        "Lord Ricketts, a former national security adviser, says ministers should be honest with the public about the threat from Russia. He also once ran the Foreign Office.",
+        "Speaking on BBC Radio 4, he warned that Russian hybrid attacks could eventually lead to deaths. He called for stronger resilience in energy, transport and defence.",
+        "He rejected Andy Burnham's idea of the UK as a bridge between the US and Ukraine. He said Britain had little short-term sway over President Trump."
+      ],
+      "kept": [
+        [
+          "Lord Ricketts says ministers must be honest about Russia's threat",
+          "2 of 2 outlets"
+        ],
+        [
+          "He warned Russian hybrid attacks could eventually cost lives",
+          "2 of 2 outlets"
+        ],
+        [
+          "He dismissed Burnham's idea of the UK as a US-Ukraine bridge",
+          "2 of 2 outlets"
+        ],
+        [
+          "Ricketts is a former national security adviser and Foreign Office head",
+          "2 of 2 outlets"
+        ],
+        [
+          "He called for more resilience in energy, transport and defence",
+          "1 of 2 outlets"
+        ],
+        [
+          "He urged more practical support for Ukraine through the winter",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [],
+      "primary": [
+        "Lord Ricketts (interview on BBC Radio 4 Today)"
+      ],
+      "m": [
+        78,
+        40,
+        75
+      ],
+      "src": [
+        [
+          "irishnews",
+          "https://www.irishnews.com/news/uk/ex-national-security-adviser-issues-warning-amid-fraying-us-ukraine-relationship-RIPQODP725LBVALEBQKJYLAV3E/"
+        ],
+        [
+          "aoluk",
+          "https://www.aol.co.uk/articles/ministers-must-honest-russian-threat-101932000.html"
+        ]
+      ],
+      "also": [
+        [
+          "britbrief",
+          "https://britbrief.co.uk/politics/defence/ex-security-adviser-warns-of-russian-threat-as-us-ukraine-ties-fray.html"
+        ]
+      ]
+    },
+    {
+      "id": "b-imf-bangkok-close",
+      "sec": "business",
+      "sub": "Economy",
+      "head": "IMF chief sees 'optimism and worry' as Bangkok meetings end",
+      "say": "Closing the IMF meetings in Bangkok on Saturday, Kristalina Georgieva said poorer countries now spend fourteen per cent of revenue on debt payments, up from eight.",
+      "stand": "Kristalina Georgieva said poorer, oil-importing countries face the hardest squeeze from war-driven energy prices and rising debt costs.",
+      "body": [
+        "The IMF and World Bank annual meetings in Bangkok ended on Saturday. IMF managing director Kristalina Georgieva said talks had been marked by both optimism and worry about the global outlook.",
+        "She cited the economy's resilience, the promise of AI and Asia's growth as reasons for optimism. Her worries included AI, inflation, high debt, wars and climate risks.",
+        "Georgieva said debt repayments by low-income countries had risen from 8% to 14% of government revenue in recent years. The IMF says low-income oil importers are most exposed to energy prices that have risen since the US-Israeli war on Iran began in February.",
+        "She also warned that relying on AI investment as the single driver of growth leaves economies vulnerable. Saudi finance minister Mohammed al-Jadaan, who chairs the IMF's steering committee, warned that conflicts could disrupt key trade routes."
+      ],
+      "kept": [
+        [
+          "Georgieva said the Bangkok meetings showed both optimism and worry",
+          "3 of 3 outlets"
+        ],
+        [
+          "Low-income nations' debt payments rose from 8% to 14% of revenue, she said",
+          "2 of 3 outlets"
+        ],
+        [
+          "IMF says low-income oil importers are most exposed to the energy shock",
+          "3 of 3 outlets"
+        ],
+        [
+          "Her worries included AI, inflation, high debt, wars and climate risks",
+          "3 of 3 outlets"
+        ],
+        [
+          "She warned that relying on AI alone for growth leaves economies vulnerable",
+          "2 of 3 outlets"
+        ],
+        [
+          "IMFC chair al-Jadaan warned conflicts could disrupt key trade routes",
+          "1 of 3 outlets"
+        ],
+        [
+          "The IMF plans to back Iraq's requested loan programme, Georgieva said",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Debate on AI guardrails became 'more urgent' after AI agent incidents",
+          "Outlet's own framing, not attributed to a named official"
+        ],
+        [
+          "Inflation is 'like a tax on the poor'",
+          "Rhetorical framing; kept out of body for neutrality"
+        ]
+      ],
+      "open": [
+        "Debt figure: two outlets say payments rose from 8% to 14% of revenue; Al Jazeera describes it as 8 to 14 percent"
+      ],
+      "primary": [
+        "Kristalina Georgieva, IMF managing director",
+        "Mohammed al-Jadaan, Saudi finance minister and IMFC chair"
+      ],
+      "m": [
+        85,
+        70,
+        80
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/economy/2026/10/17/war-spillovers-debt-threaten-low-income-nations-imf-chief-warns"
+        ],
+        [
+          "brecorder",
+          "https://www.brecorder.com/news/40444769/imf-chief-flags-optimism-worry-after-bangkok-meetings"
+        ],
+        [
+          "thaipbs",
+          "https://www.thaipbsworld.com/world/571206"
+        ],
+        [
+          "france24",
+          "https://www.france24.com/en/live-news/20261017-imf-chief-says-has-optimism-and-worry-after-bangkok-annual-meetings",
+          "headline only"
+        ]
+      ],
+      "also": [
+        [
+          "bangkokpost",
+          "https://www.bangkokpost.com/business/general/3338795/imf-chief-sees-optimism-and-worry-at-bangkok-talks"
+        ],
+        [
+          "kuwaittimes",
+          "https://kuwaittimes.com/article/51756/business/imf-chief-cites-optimism-and-worry-as-bangkok-meetings-close/amp/"
+        ],
+        [
+          "arynews",
+          "https://arynews.tv/imf-chief-says-has-optimism-and-worry-after-bangkok-annual-meetings"
+        ]
+      ]
+    },
+    {
+      "id": "b-warsh-no-signal",
+      "sec": "business",
+      "sub": "Markets",
+      "head": "Fed chair Warsh gives no hint on next rate move",
+      "say": "Speaking in Bangkok on Friday, Kevin Warsh said the Fed does not prejudge meetings, giving no signal on rates. US inflation rose to three point seven per cent in September.",
+      "stand": "Speaking in Bangkok before the Fed's 28 October decision, Kevin Warsh praised the economy's resilience but warned the AI transition would be bumpy.",
+      "body": [
+        "Federal Reserve chair Kevin Warsh gave no signal on interest rates when he spoke at the IMF meetings in Bangkok on Friday. He said the Fed does not prejudge its meetings.",
+        "He said the global economy had held up better than he would have predicted months ago. He called AI a major change but said the path was likely to be very bumpy.",
+        "The Fed raised rates in September, its first increase since 2023. US consumer inflation rose to 3.7% in September and wholesale prices were 6.3% higher than a year earlier.",
+        "The Fed's next decision is due on 28 October. Warsh's pre-meeting quiet period begins on Saturday."
+      ],
+      "kept": [
+        [
+          "Warsh gave no signal on interest rates in Bangkok on Friday",
+          "3 of 3 outlets"
+        ],
+        [
+          "The Fed's next rate decision is due on 28 October",
+          "2 of 3 outlets"
+        ],
+        [
+          "The Fed raised rates in September, its first increase since 2023",
+          "2 of 3 outlets"
+        ],
+        [
+          "Warsh said the AI transition is likely to be very bumpy",
+          "3 of 3 outlets"
+        ],
+        [
+          "US consumer inflation rose to 3.7% in September",
+          "2 of 3 outlets"
+        ],
+        [
+          "US wholesale prices rose 6.3% year on year in September",
+          "2 of 3 outlets"
+        ],
+        [
+          "Warsh's pre-meeting quiet period begins on Saturday",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Warsh 'could surprise us all' with an October hike",
+          "Speculative analysis headline, not reported fact"
+        ]
+      ],
+      "open": [
+        "Market odds of an October hike: figures vary as they moved through the week"
+      ],
+      "primary": [
+        "Kevin Warsh, Federal Reserve chair"
+      ],
+      "m": [
+        82,
+        55,
+        70
+      ],
+      "src": [
+        [
+          "euronews",
+          "https://euronews.com/2026/10/16/feds-warsh-sees-ai-boosting-productivity-but-gives-no-signal-on-next-rate-hike"
+        ],
+        [
+          "archyde",
+          "https://www.archyde.com/fed-withholds-rate-signal-in-bangkok-speech-amid-inflation-pressures/"
+        ],
+        [
+          "kitco",
+          "https://www.kitco.com/news/off-the-wire/2026-10-16/central-bankers-eye-higher-rates-ai-boom-fuels-scramble-cash"
+        ]
+      ],
+      "also": [
+        [
+          "nbcnews",
+          "https://www.nbcnews.com/business/economy/will-fed-raise-interest-rates-kevin-warsh-offer-clues-rcna603661"
+        ],
+        [
+          "cnbc",
+          "https://www.cnbc.com/2026/10/16/feds-warsh-says-ai-development-path-will-be-very-bumpy-.html"
+        ],
+        [
+          "baltimoresun",
+          "https://www.baltimoresun.com/2026/10/16/fed-chair-warsh-imf-interest-rates/"
+        ]
+      ]
+    },
+    {
+      "id": "b-lagarde-bond-selloff",
+      "sec": "business",
+      "sub": "Economy",
+      "head": "Lagarde says bond selloff is tightening eurozone financing",
+      "say": "ECB President Christine Lagarde said on Saturday that rising long-term borrowing costs will curb eurozone growth and, in time, inflation. Markets expect another hike in December.",
+      "stand": "In a statement in Bangkok, the ECB president said financing conditions are now tighter than the bank assumed in its September forecasts.",
+      "body": [
+        "European Central Bank president Christine Lagarde said on Saturday that long-term interest rates had risen notably since the ECB's last meeting. She made the remarks in a statement to the IMF's steering committee in Bangkok.",
+        "Lagarde said tighter financing conditions would weigh on growth and, eventually, inflation. She said they would also make it harder for consumers to absorb fuel prices linked to the Iran war.",
+        "The ECB has raised rates twice in the past four months. Reuters reports that a further rise is expected in December.",
+        "Bundesbank president Joachim Nagel said the fight against inflation was not over. Euro-area inflation was 3.8% in September, according to one report."
+      ],
+      "kept": [
+        [
+          "Lagarde said on Saturday long-term rates had risen notably since the last meeting",
+          "2 of 2 outlets"
+        ],
+        [
+          "Financing conditions are tighter than the ECB assumed in September, she said",
+          "2 of 2 outlets"
+        ],
+        [
+          "Lagarde said tighter conditions will curb growth and ultimately inflation",
+          "1 of 2 outlets"
+        ],
+        [
+          "The ECB has raised interest rates twice in the past four months",
+          "2 of 2 outlets"
+        ],
+        [
+          "A further ECB rate rise is expected in December, Reuters reports",
+          "1 of 2 outlets"
+        ],
+        [
+          "Bundesbank's Joachim Nagel said the inflation fight is not finished",
+          "1 of 2 outlets"
+        ],
+        [
+          "Euro-area inflation was 3.8% in September",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "US mortgage and Treasury figures",
+          "Not about the ECB; included by one outlet as unrelated context"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "Christine Lagarde, ECB president (statement to the IMFC)",
+        "Joachim Nagel, Bundesbank president"
+      ],
+      "m": [
+        72,
+        65,
+        75
+      ],
+      "src": [
+        [
+          "thedrive933",
+          "https://www.933thedrive.com/2026/10/17/ecbs-lagarde-says-bond-selloff-will-slow-inflation/"
+        ],
+        [
+          "wrenews",
+          "https://wrenews.com/ecb-lagarde-october-17-2026-bond-yields-inflation-housing-finance/"
+        ]
+      ],
+      "also": [
+        [
+          "aol",
+          "https://www.aol.com/articles/ecbs-lagarde-says-bond-selloff-080107000.html"
+        ]
+      ]
+    },
+    {
+      "id": "b-china-q3-gdp-preview",
+      "sec": "business",
+      "sub": "Economy",
+      "head": "China's third-quarter growth figures due on Monday",
+      "say": "China publishes third-quarter growth figures on Monday. Economists polled by Reuters and AFP expect four point four per cent, just below Beijing's target range for the year.",
+      "stand": "Economists expect a slight pick-up from the second quarter, though still short of Beijing's 4.5% to 5% target range for 2026.",
+      "body": [
+        "China will publish third-quarter growth figures on Monday 19 October, alongside September data on retail sales, industrial output and investment.",
+        "Economists polled by Reuters and by AFP expect annual growth of 4.4% for July to September. That would be up from 4.3% in the second quarter.",
+        "Both figures are below Beijing's target of 4.5% to 5% for 2026. The Reuters poll expects full-year growth of 4.5%, down from 5% in 2025.",
+        "Economists cited weak domestic demand, especially consumer spending and property investment, while exports remain strong."
+      ],
+      "kept": [
+        [
+          "China publishes third-quarter GDP figures on Monday 19 October",
+          "3 of 3 outlets"
+        ],
+        [
+          "Economists polled by Reuters and AFP expect Q3 growth of 4.4%",
+          "3 of 3 outlets"
+        ],
+        [
+          "Beijing's growth target for 2026 is 4.5% to 5%",
+          "2 of 3 outlets"
+        ],
+        [
+          "China's economy grew 4.3% in the second quarter",
+          "2 of 3 outlets"
+        ],
+        [
+          "Reuters poll sees full-year growth of 4.5%, down from 5% in 2025",
+          "1 of 3 outlets"
+        ],
+        [
+          "Retail sales, industrial output and investment data are also due",
+          "1 of 3 outlets"
+        ],
+        [
+          "Consumer inflation has been below Beijing's 2% target for over three years",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Recent measures described as a 'mini-stimulus'",
+          "Analysts' characterisation, not needed for the facts"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "National Bureau of Statistics release schedule (as reported)"
+      ],
+      "m": [
+        85,
+        40,
+        55
+      ],
+      "src": [
+        [
+          "investing",
+          "https://www.investing.com/news/economy-news/china-q3-growth-set-to-pick-up-on-stimulus-keeping-2026-goal-within-reach-reuters-poll-4950895"
+        ],
+        [
+          "yahoofin",
+          "https://finance.yahoo.com/economy/articles/chinas-economy-seen-missing-target-074025525.html"
+        ],
+        [
+          "chinadaily",
+          "http://global.chinadaily.com.cn/a/202610/17/WS6ad2fac3e4b06d4aa05635b3.html"
+        ]
+      ],
+      "also": [
+        [
+          "sedaily",
+          "https://en.sedaily.com/finance/2026/10/18/bok-rate-call-china-q3-growth-in-focus-this-week"
+        ]
+      ],
+      "fig": [
+        "4.4%",
+        "Forecast China Q3 GDP growth, year on year"
+      ]
+    },
+    {
+      "id": "b-mexico-us-tariffs",
+      "sec": "business",
+      "sub": "Trade",
+      "head": "Mexico still expects US tariff cuts despite reported Lutnick objections",
+      "say": "Mexico's economy minister Marcelo Ebrard told lawmakers on Friday he expects US tariff cuts on steel and cars, after reports that Commerce Secretary Howard Lutnick opposed deep cuts.",
+      "stand": "Talks on US duties of 25% on Mexican cars and 50% on steel and aluminium have reportedly hit resistance in Washington.",
+      "body": [
+        "Mexico's economy minister Marcelo Ebrard told lawmakers on Friday that he expects US tariff cuts on Mexican steel and cars. He said this would come within weeks or months. No deal or date has been announced.",
+        "The Wall Street Journal reported that US Commerce Secretary Howard Lutnick opposed deep cuts to these duties. They are 25% on Mexican cars and 50% on steel and aluminium. Ebrard said Lutnick had never told him he opposed lowering them.",
+        "Officials from both countries denied that the talks had stalled. Mexico wants no carmaker to pay more than 15%, the rate the US applies to South Korean cars, according to one report.",
+        "Agreement would open the way to talks on renewing the US-Mexico-Canada trade agreement, which is under review."
+      ],
+      "kept": [
+        [
+          "US charges 25% on Mexican cars and 50% on steel and aluminium",
+          "4 of 4 outlets"
+        ],
+        [
+          "WSJ reported Commerce Secretary Lutnick opposed deep cuts to those tariffs",
+          "4 of 4 outlets"
+        ],
+        [
+          "Ebrard told lawmakers on Friday Mexico expects US cuts on steel and cars",
+          "1 of 4 outlets"
+        ],
+        [
+          "Officials from both countries denied the talks had stalled",
+          "1 of 4 outlets"
+        ],
+        [
+          "Ebrard said Lutnick never told him he opposed cutting the tariffs",
+          "1 of 4 outlets"
+        ],
+        [
+          "Mexico wants no carmaker to pay more than 15%, the US rate on Korean cars",
+          "1 of 4 outlets"
+        ],
+        [
+          "A deal would open the way to talks on renewing the USMCA",
+          "1 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Weakening the trade pact could 'jeopardize the financial health' of US firms",
+          "Single expert's warning; opinion"
+        ],
+        [
+          "Prediction-market odds on a USMCA extension",
+          "Betting market, not a reported fact about the talks"
+        ]
+      ],
+      "open": [
+        "Mexico's car proposal: reports differ on whether the 15% cap comes with regional-content discounts"
+      ],
+      "primary": [
+        "Marcelo Ebrard, Mexican economy minister"
+      ],
+      "m": [
+        70,
+        45,
+        45
+      ],
+      "src": [
+        [
+          "riotimes",
+          "https://www.riotimesonline.com/mexico-ebrard-us-tariff-cuts-steel-cars-2026/"
+        ],
+        [
+          "mnd",
+          "https://mexiconewsdaily.com/business/us-commerce-secretarys-resistance-cutting-tariffs-stalls-trade-talks-mexico/"
+        ],
+        [
+          "jalopnik",
+          "https://www.jalopnik.com/2288764/u-s-mexico-trade-deal-falls-apart/"
+        ],
+        [
+          "semafor",
+          "https://semafor.com/article/10/16/2026/trade-talks-between-the-us-mexico-in-jeopardy"
+        ]
+      ],
+      "also": [
+        [
+          "investing",
+          "https://ng.investing.com/news/stock-market-news/usmexico-tariff-deal-stalls-over-lutnick-objections-wsj-reports-93CH-2739590"
+        ]
+      ]
+    },
+    {
+      "id": "b-stellantis-canada-strike-vote",
+      "sec": "business",
+      "sub": "Companies",
+      "head": "Stellantis workers in Canada vote on strike mandate",
+      "say": "Unifor members at Stellantis in Canada voted on Saturday and Sunday on a strike mandate. Talks have stalled over the carmaker's plan to sell its idled Brampton plant.",
+      "stand": "Union members at Stellantis Canada are voting this weekend, with results expected on Monday, as talks remain stuck over the idled Brampton plant.",
+      "body": [
+        "Members of the Unifor union at Stellantis plants in Canada voted on Saturday and Sunday on whether to authorise a strike. Results are expected on Monday 19 October.",
+        "Their contract expired on 20 September. Talks broke off on 11 September. That day Stellantis signed a memorandum with defence firm Roshel over a possible sale of its Brampton plant in Ontario.",
+        "The Brampton plant has been idle since 2023. The union says it needs an acceptable outcome for Brampton workers before any deal.",
+        "Unifor says a strike mandate does not automatically mean a strike, calling one a last resort."
+      ],
+      "kept": [
+        [
+          "Unifor members at Stellantis Canada voted on a strike mandate this weekend",
+          "3 of 4 outlets"
+        ],
+        [
+          "Vote results are expected on Monday 19 October",
+          "3 of 4 outlets"
+        ],
+        [
+          "Talks have stalled over Stellantis's plan to sell the idled Brampton plant",
+          "3 of 4 outlets"
+        ],
+        [
+          "The previous collective agreement expired on 20 September",
+          "3 of 4 outlets"
+        ],
+        [
+          "Stellantis signed an MoU with defence firm Roshel over a possible sale",
+          "2 of 4 outlets"
+        ],
+        [
+          "Unifor represents more than 9,000 Stellantis workers in Canada",
+          "1 of 4 outlets"
+        ],
+        [
+          "Unifor says a strike mandate does not mean a strike will happen",
+          "1 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "'Do or die' vote",
+          "Headline framing"
+        ]
+      ],
+      "open": [
+        "Brampton layoffs: reports give more than 2,000 or about 2,200 workers"
+      ],
+      "primary": [
+        "Unifor",
+        "James Stewart, president of Unifor Local 444"
+      ],
+      "m": [
+        85,
+        55,
+        65
+      ],
+      "src": [
+        [
+          "supplypro",
+          "https://www.supplypro.ca/stellantis-workers-set-to-vote-on-potential-strike-action-this-weekend/"
+        ],
+        [
+          "moparinsiders",
+          "https://moparinsiders.com/stellantis-canada-workers-head-toward-strike-vote-today/"
+        ],
+        [
+          "windsornewstoday",
+          "https://windsornewstoday.ca/windsor/news/2026/10/16/strike-vote-for-stellantis-workers-this-weekend"
+        ],
+        [
+          "ctv",
+          "https://ctvnews.ca/windsor/article/do-or-die-stellantis-workers-begin-strike-vote"
+        ]
+      ],
+      "also": [
+        [
+          "globeandmail",
+          "https://theglobeandmail.com/business/article-stellantis-workers-set-to-vote-on-strike-mandate-as-bargaining-stalls"
+        ]
+      ]
+    },
+    {
+      "id": "s-alaska-oldest-dwelling",
+      "sec": "science",
+      "sub": "Biology",
+      "head": "Ice age camp in Alaska may hold the oldest known dwelling in the Americas",
+      "say": "Archaeologists say a camp near Fairbanks in Alaska, first used about thirteen thousand eight hundred years ago, holds what may be the oldest known dwelling in the Americas.",
+      "stand": "A study in Science Advances describes a hearth, pit and post stain at an interior Alaska site with tools resembling ones from Siberia.",
+      "body": [
+        "Researchers led by Kelly Graf of the University of Kansas describe a site south-east of Fairbanks first occupied about 13,800 years ago. The study appeared in Science Advances on 14 October.",
+        "They found a hearth and a pit that the team says may mark the earliest habitation structure in North America. The site's name means \"They Were There\" in an Athabascan language.",
+        "Diamond-shaped stone points at the site resemble tools from the western side of the former Bering land bridge, in today's Russia. Obsidian also appears to have come from the west.",
+        "Live Science reports the finds include eight bone needle fragments, which it describes as the oldest eyed needles in the Western Hemisphere."
+      ],
+      "kept": [
+        [
+          "The Alaska site near Fairbanks was first occupied about 13,800 years ago",
+          "3 of 3 outlets"
+        ],
+        [
+          "Team reports a hearth and pit that may mark North America's earliest dwelling",
+          "2 of 3 outlets"
+        ],
+        [
+          "Diamond-shaped stone points resemble tools from the Siberian side of Beringia",
+          "2 of 3 outlets"
+        ],
+        [
+          "Kelly Graf of the University of Kansas led the study in Science Advances",
+          "2 of 3 outlets"
+        ],
+        [
+          "The site's name means 'They Were There' in an Athabascan language",
+          "2 of 3 outlets"
+        ],
+        [
+          "Finds include eight bone needle fragments",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Authors call the findings \"transformational\"",
+          "Researchers' own framing"
+        ],
+        [
+          "People at the site may have been early dog owners",
+          "Speculative inference"
+        ]
+      ],
+      "open": [
+        "Number of finds: \"tens of thousands of artifacts\" (Live Science) or more than 80,000 specimens (The Debrief)"
+      ],
+      "primary": [
+        "Graf et al., Science Advances, 14 October 2026",
+        "Kelly Graf, University of Kansas",
+        "Spencer Pelton, University of Wyoming (commentary)"
+      ],
+      "m": [
+        82,
+        70,
+        85
+      ],
+      "src": [
+        [
+          "livesci",
+          "https://www.livescience.com/archaeology/americas/archaeologists-discover-the-oldest-dwelling-in-the-western-hemisphere-at-a-13-800-year-old-site-in-alaska"
+        ],
+        [
+          "gizmodo",
+          "https://gizmodo.com/thousands-of-artifacts-unearthed-in-alaska-hint-at-an-even-older-human-presence-in-the-americas-2000826892"
+        ],
+        [
+          "debrief",
+          "https://thedebrief.org/13800-year-old-alaskan-base-camp-yields-new-clues-to-ancient-beringia-land-bridge-mystery/"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "s-isle-of-wight-megaraptor",
+      "sec": "science",
+      "sub": "Biology",
+      "head": "Fossil kept in museum drawer for a century is a new dinosaur species",
+      "say": "A skull fragment from the Isle of Wight, held by the Natural History Museum since nineteen twenty-four, has been named as Europe's first known megaraptor, a long-clawed predator.",
+      "stand": "Researchers say Invictibellatrix amberina lived about 120 million years ago and was roughly the size of a large tiger.",
+      "body": [
+        "Scientists have named a new dinosaur, Invictibellatrix amberina, from part of a skull found on the Isle of Wight's south-west coast. The Natural History Museum acquired it in 1924.",
+        "It is the first megaraptoran, a group of two-legged meat-eaters related to tyrannosaurs, identified in Europe, the researchers say. It lived about 120 million years ago.",
+        "Based on close relatives, it is estimated at 3 to 4 metres long with claws of 10 to 20 cm. The name refers to an \"unconquered female warrior\".",
+        "The study, led by Cassius Morrison of University College London, appeared in Royal Society Open Science."
+      ],
+      "kept": [
+        [
+          "Invictibellatrix amberina is the first megaraptoran dinosaur found in Europe",
+          "4 of 4 outlets"
+        ],
+        [
+          "The Isle of Wight skull fragment entered the museum's collection in 1924",
+          "4 of 4 outlets"
+        ],
+        [
+          "It lived about 120 million years ago, in the Early Cretaceous",
+          "4 of 4 outlets"
+        ],
+        [
+          "It is estimated at 3 to 4 metres long, with claws of 10 to 20 cm",
+          "4 of 4 outlets"
+        ],
+        [
+          "The name refers to an 'unconquered female warrior'",
+          "3 of 4 outlets"
+        ],
+        [
+          "UCL-led study was published in Royal Society Open Science",
+          "4 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "\"For humans this dinosaur would have been more dangerous than a T rex\"",
+          "Colourful comparison, not a finding"
+        ]
+      ],
+      "open": [
+        "Collector's surname: Hooley (Natural History Museum) or Tooley (ITV)",
+        "Whether the fossil was found or only acquired by the museum in 1924"
+      ],
+      "primary": [
+        "Morrison et al., Royal Society Open Science",
+        "Natural History Museum press release",
+        "Prof Paul Barrett, Natural History Museum"
+      ],
+      "m": [
+        85,
+        80,
+        90
+      ],
+      "src": [
+        [
+          "nhm",
+          "https://www.nhm.ac.uk/press-office/press-releases/uk-dinosaur-fossil-identified-as-new-long-clawed-predator.html"
+        ],
+        [
+          "livesci",
+          "https://www.livescience.com/animals/dinosaurs/fossil-of-unconquered-female-warrior-dinosaur-with-long-claws-found-in-uk-museum-drawer-after-100-years"
+        ],
+        [
+          "itv",
+          "https://www.itv.com/news/meridian/2026-10-14/new-species-of-dinosaur-discovered-from-fossil-found-on-isle-of-wight"
+        ],
+        [
+          "sciencedaily",
+          "https://www.sciencedaily.com/releases/2026/10/261014015457.htm"
+        ]
+      ],
+      "also": [
+        [
+          "irishnews",
+          "https://www.irishnews.com/news/uk/new-species-of-dinosaur-discovered-from-fossil-overlooked-for-over-100-years-OMDRHHVU3NMX5IZW2HDTA2L6KE/"
+        ],
+        [
+          "scotsman",
+          "https://scotsman.com/news/national/new-species-of-dinosaur-discovered-from-fossil-overlooked-for-over-100-years-9284276"
+        ],
+        [
+          "lbc",
+          "https://www.lbc.co.uk/article/isle-of-wight-fossil-predator-more-dangerous-trex-5HjdjtB_2/"
+        ]
+      ]
+    },
+    {
+      "id": "s-nasa-super-intelligence",
+      "sec": "science",
+      "sub": "Space",
+      "head": "NASA swaps 'AI' for 'super intelligence' under Trump order",
+      "say": "NASA is relabelling artificial intelligence as super intelligence across its websites and job titles, following an order President Trump signed on the twenty-ninth of September.",
+      "stand": "An internal plan reported by Space.com sets out four phases of changes running to late December.",
+      "body": [
+        "President Trump signed Executive Order 14434 on 29 September. It tells federal agencies to use \"super intelligence\" and \"SI\" in place of \"artificial intelligence\" and \"AI\".",
+        "The order changes wording, not the legal definition of the technology, according to the law firm Wiley Rein and Space.com.",
+        "NASA's own pages now use the new term. Its acting chief data officer, Kevin Murphy, is listed as acting chief data and super intelligence officer.",
+        "Space.com, citing an internal NASA plan, reports four phases of changes, the last due on 23 December. Some employees told it they fear confusion; NASA said it is taking a coordinated approach."
+      ],
+      "kept": [
+        [
+          "Executive Order 14434 tells agencies to say 'super intelligence' instead of 'AI'",
+          "3 of 3 outlets"
+        ],
+        [
+          "President Trump signed the order on 29 September",
+          "3 of 3 outlets"
+        ],
+        [
+          "The order changes terminology, not the legal definition of AI",
+          "2 of 3 outlets"
+        ],
+        [
+          "Kevin Murphy is now listed as acting chief data and super intelligence officer",
+          "2 of 3 outlets"
+        ],
+        [
+          "NASA's internal plan sets four phases, the last due on 23 December",
+          "1 of 3 outlets"
+        ],
+        [
+          "Some NASA staff fear the change will confuse scientists and the public",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "\"We are getting a lot of pressure from the administrator himself\"",
+          "Anonymous employee claim; not verified"
+        ]
+      ],
+      "open": [
+        "Whether the second phase of website changes was brought forward to 16 October (single employee account)"
+      ],
+      "primary": [
+        "Executive Order 14434",
+        "NASA Super Intelligence web page",
+        "NASA statement to Space.com"
+      ],
+      "m": [
+        72,
+        82,
+        75
+      ],
+      "src": [
+        [
+          "spacecom",
+          "https://www.space.com/technology/we-are-getting-a-lot-of-pressure-from-the-administrator-himself-how-nasa-is-racing-to-obey-trumps-super-intelligence-order"
+        ],
+        [
+          "nasa",
+          "https://www.nasa.gov/super-intelligence/"
+        ],
+        [
+          "wiley",
+          "https://www.wiley.law/alert-Executive-Order-Rebrands-AI-as-Super-Intelligence-and-Signals-Potential-Federal-Legislative-Changes"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "s-graphene-sliding-magnetism",
+      "sec": "science",
+      "sub": "Physics",
+      "head": "Voltage makes graphene layers slide and switch on magnetism",
+      "say": "Cornell physicists say applying a voltage to four stacked layers of graphene makes them slide into a magnetic arrangement that stays put after the power is switched off.",
+      "stand": "The Nature Nanotechnology study suggests a new way to rewrite a material's structure, with possible uses in low-power memory.",
+      "body": [
+        "Applying a voltage to a stack of four graphene layers caused the layers to slide into a different atomic arrangement, Cornell University researchers report.",
+        "The common arrangement is non-magnetic, while the shifted one is magnetic. The change persists when the voltage is removed and can be reversed.",
+        "The study, led by Kenji Yasuda with doctoral student Daniel Brandon, appeared in Nature Nanotechnology on 14 October. Researchers from Stanford, Stony Brook and Japan's National Institute for Materials Science took part.",
+        "The team says the approach could lead to memory that keeps data without constant power."
+      ],
+      "kept": [
+        [
+          "Voltage slid four-layer graphene from a non-magnetic to a magnetic stacking",
+          "2 of 2 outlets"
+        ],
+        [
+          "The magnetic state persists after the voltage is removed and can be reversed",
+          "2 of 2 outlets"
+        ],
+        [
+          "The study was published in Nature Nanotechnology on 14 October",
+          "2 of 2 outlets"
+        ],
+        [
+          "Cornell's Kenji Yasuda led the work with doctoral student Daniel Brandon",
+          "2 of 2 outlets"
+        ],
+        [
+          "Researchers say it could lead to memory that needs no constant power",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "\"This provides a fundamentally new way to control matter\"",
+          "Researcher's own assessment"
+        ]
+      ],
+      "open": [
+        "Coverage gives no switching voltage or speed figures"
+      ],
+      "primary": [
+        "Brandon, Yasuda et al., Nature Nanotechnology, 14 October 2026",
+        "Cornell University news release"
+      ],
+      "m": [
+        55,
+        75,
+        85
+      ],
+      "src": [
+        [
+          "cornell",
+          "https://news.cornell.edu/node/333785"
+        ],
+        [
+          "nationaltribune",
+          "https://www.nationaltribune.com.au/electrical-sliding-switches-graphene-between-magnetic-states/"
+        ],
+        [
+          "physorg",
+          "https://phys.org/news/2026-10-electrical-graphene-magnetic-states.html",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "h-kenya-ebola-seven",
+      "sec": "health",
+      "sub": "Public health",
+      "head": "Kenya's Ebola cases rise to seven as health workers test positive",
+      "say": "Kenya has confirmed four more Ebola cases, taking its total to seven. Three are health workers who treated the country's first patient, who died in Nairobi on the fifth of October.",
+      "stand": "Kenya's health ministry says the new cases are the first known infections passed on inside the country, but it sees no community spread.",
+      "body": [
+        "Kenya's Ministry of Health confirmed four new Ebola cases on Saturday, bringing the national total to seven, including the first patient, who died.",
+        "Three of the new cases are health workers who treated that patient and had been in quarantine since 9 October. The fourth is a close male relative, quarantined since 6 October.",
+        "The first patient fell ill in the Democratic Republic of Congo, flew to Nairobi on 3 October and died on 5 October. The ministry says 128 of his 130 contacts are in quarantine and it has found no evidence of community transmission.",
+        "The outbreak is caused by the Bundibugyo strain, for which there is no approved vaccine or treatment. Congolese authorities have recorded 9,066 cases and 4,381 deaths since May."
+      ],
+      "kept": [
+        [
+          "Kenya has confirmed seven Ebola cases, four of them announced on Saturday",
+          "2 of 2 outlets"
+        ],
+        [
+          "Three new cases are health workers who treated Kenya's first patient",
+          "2 of 2 outlets"
+        ],
+        [
+          "128 of the first patient's 130 contacts are in quarantine, the ministry says",
+          "2 of 2 outlets"
+        ],
+        [
+          "Ministry says there is no evidence of community transmission",
+          "2 of 2 outlets"
+        ],
+        [
+          "Kenya's first patient flew to Nairobi on 3 October and died on 5 October",
+          "2 of 2 outlets"
+        ],
+        [
+          "The Bundibugyo strain has no approved vaccine or specific treatment",
+          "2 of 2 outlets"
+        ],
+        [
+          "Congo has recorded 9,066 cases and 4,381 deaths since May, officials say",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Some observers question how the index patient passed arrival screening",
+          "Unattributed claim; no named source"
+        ]
+      ],
+      "open": [
+        "Whether the three health workers are in treatment or still quarantined; reports give no update on their condition"
+      ],
+      "primary": [
+        "Kenya Ministry of Health statement on X",
+        "Congolese health authorities' case data"
+      ],
+      "m": [
+        84,
+        72,
+        55
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/kenya-confirms-four-more-ebola-cases-bringing-total-to-seven"
+        ],
+        [
+          "jamaicaobserver",
+          "https://www.jamaicaobserver.com/2026/10/17/four-ebola-cases-detected-kenya-bringing-total-seven/"
+        ],
+        [
+          "france24",
+          "https://www.france24.com/en/live-news/20261017-four-more-ebola-cases-detected-in-kenya-bringing-total-to-seven",
+          "headline only"
+        ]
+      ],
+      "also": [
+        [
+          "washingtonpost",
+          "https://www.washingtonpost.com/world/2026/10/17/kenya-ebola-congo-uganda/9a81bc1e-ca41-11f1-aefb-abe4112d087e_story.html"
+        ]
+      ],
+      "fig": [
+        "7",
+        "confirmed Ebola cases in Kenya, Saturday"
+      ]
+    },
+    {
+      "id": "h-pope-leo-discharged",
+      "sec": "health",
+      "sub": "Services",
+      "head": "Pope Leo leaves hospital four days after lung cancer surgery",
+      "say": "Pope Leo the Fourteenth has left Rome's Gemelli hospital, four days after surgery to remove part of his right lung, which confirmed a lung cancer called adenocarcinoma.",
+      "stand": "Doctors cleared the 71-year-old pope for discharge on Saturday after tests, with decisions on further treatment awaiting laboratory results.",
+      "body": [
+        "Pope Leo XIV left Rome's Gemelli hospital on Saturday and returned to the Vatican, four days after an operation on Tuesday.",
+        "Surgeons removed the lower lobe of his right lung. The operation confirmed adenocarcinoma, the most common type of lung cancer.",
+        "His doctors said blood tests, a chest X-ray and a clinical assessment showed he was fit to leave. He celebrated Mass in the hospital before departing.",
+        "Further treatment depends on tests of the tumour that are still under way. His surgeon said there was no clinical reason to cancel a planned trip to Latin America from 6 to 17 November."
+      ],
+      "kept": [
+        [
+          "Pope Leo XIV left Gemelli hospital on Saturday and returned to the Vatican",
+          "3 of 3 outlets"
+        ],
+        [
+          "Surgery on Tuesday removed the lower lobe of his right lung",
+          "2 of 3 outlets"
+        ],
+        [
+          "The operation confirmed adenocarcinoma, the most common type of lung cancer",
+          "2 of 3 outlets"
+        ],
+        [
+          "Doctors cited blood tests and a chest X-ray in clearing him for discharge",
+          "3 of 3 outlets"
+        ],
+        [
+          "Further treatment awaits results of tests on the tumour",
+          "2 of 3 outlets"
+        ],
+        [
+          "Surgeon Stefano Margaritora sees no clinical bar to a 6 to 17 November trip",
+          "1 of 3 outlets"
+        ],
+        [
+          "He is due to lead the Angelus prayer on Sunday",
+          "3 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Oncology surgeons generally clear patients to fly after three weeks",
+          "General expert claim, not specific to the pope"
+        ]
+      ],
+      "open": [
+        "Countries on the November trip: one report lists Uruguay, Peru and Argentina; others give only Latin America"
+      ],
+      "primary": [
+        "Holy See Press Office",
+        "Dr Luigi Carbone, papal physician",
+        "Prof Stefano Margaritora, Gemelli thoracic surgeon",
+        "Matteo Bruni, Vatican spokesman"
+      ],
+      "m": [
+        88,
+        78,
+        72
+      ],
+      "src": [
+        [
+          "vaticannews",
+          "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-discharged-from-hospital-lung-surgery.html"
+        ],
+        [
+          "suntimes",
+          "https://chicago.suntimes.com/news/2026/10/17/pope-leo-leaves-romes-gemelli-hospital-4-days-after-lung-cancer-surgery"
+        ],
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/no-clinical-reason-pope-cant-travel-to-latin-america-surgeon-says"
+        ]
+      ],
+      "also": [
+        [
+          "nbcnews",
+          "https://www.nbcnews.com/world/pope-leo-xiv/pope-leo-discharged-hospital-lung-cancer-surgery-rcna604005"
+        ],
+        [
+          "abcus",
+          "https://abcnews.com/International/pope-leo-xiv-discharged-hospital-return-vatican/story?id=137343868"
+        ],
+        [
+          "foxnews",
+          "https://www.foxnews.com/world/pope-leo-xiv-discharged-hospital-return-vatican-surgery-remove-lung-cancer"
+        ]
+      ]
+    },
+    {
+      "id": "h-upf-bowel-cancer-study",
+      "sec": "health",
+      "sub": "Research",
+      "head": "Large study finds no overall link between ultra-processed food and bowel cancer",
+      "say": "A study of over four hundred and sixty thousand older Americans found no overall link between ultra-processed food and bowel cancer, though processed meat was tied to higher risk.",
+      "stand": "US National Cancer Institute researchers say the type of processed food matters more than the total, but the study had important limits.",
+      "body": [
+        "Researchers led by Erikka Loftfield of the US National Cancer Institute analysed data on 461,682 adults aged 50 to 71. The findings appeared in PLOS Medicine on 15 October.",
+        "Participants joined the NIH-AARP Diet and Health Study in 1995 and 1996 and were followed until 2018. There were 10,075 cases of colorectal cancer.",
+        "Total ultra-processed food intake was not linked to colorectal cancer. Whole grains, fibre and dairy from such foods were linked to lower risk, and meat from them to higher risk.",
+        "Diet was measured only once, at enrolment, and most participants were older white Americans. The study was observational, so it cannot show cause and effect."
+      ],
+      "kept": [
+        [
+          "Study of 461,682 US adults found no link between total UPF intake and bowel cancer",
+          "3 of 3 outlets"
+        ],
+        [
+          "Meat from ultra-processed sources was linked to higher colorectal cancer risk",
+          "3 of 3 outlets"
+        ],
+        [
+          "Whole grains and dairy from ultra-processed foods were linked to lower risk",
+          "3 of 3 outlets"
+        ],
+        [
+          "Published in PLOS Medicine; led by Erikka Loftfield of the National Cancer Institute",
+          "2 of 3 outlets"
+        ],
+        [
+          "Participants were aged 50 to 71 and followed for a median of about 19 years",
+          "3 of 3 outlets"
+        ],
+        [
+          "Diet was recorded only once, at the start of the study",
+          "3 of 3 outlets"
+        ],
+        [
+          "Swapping 10% of UPF weight for minimally processed food tied to 2% lower risk",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Colorectal cancer is now the leading cause of cancer death in Americans under 50",
+          "Background from a separate American Cancer Society report, not this study"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "Study in PLOS Medicine (NIH-AARP Diet and Health Study data)",
+        "Erikka Loftfield, National Cancer Institute"
+      ],
+      "m": [
+        86,
+        70,
+        80
+      ],
+      "src": [
+        [
+          "healthline",
+          "https://www.healthline.com/health-news/ultra-processed-food-intake-not-linked-colorectal-cancer-study"
+        ],
+        [
+          "aol",
+          "https://www.aol.com/articles/ultra-processed-foods-studys-surprising-180041000.html"
+        ],
+        [
+          "rttnews",
+          "https://www.rttnews.com/amp/3699861/ultra-processed-foods-not-linked-to-higher-colorectal-cancer-risk-study-finds.aspx"
+        ]
+      ],
+      "also": [
+        [
+          "nbcnews",
+          "https://www.nbcnews.com/health/health-news/ultra-processed-food-no-link-colorectal-cancer-study-rcna603552"
+        ],
+        [
+          "indiatvnews",
+          "https://www.indiatvnews.com/health/can-ultra-processed-foods-raise-colorectal-cancer-risk-what-a-study-of-461-000-adults-found-2026-10-16-1057152"
+        ]
+      ]
+    },
+    {
+      "id": "h-corby-metal-pollution",
+      "sec": "health",
+      "sub": "Public health",
+      "head": "Corby tests find metal pollution in rivers and soil, charity says",
+      "say": "Tests across Corby found at least one metal above levels considered safe for aquatic life at every river site, says Earthwatch Europe, with arsenic high in soil at six sites.",
+      "stand": "Community-led sampling in the Northamptonshire town at the centre of a toxic waste scandal has prompted calls for a clean-up plan.",
+      "body": [
+        "Volunteers coordinated by the charity Earthwatch Europe tested 52 freshwater sites and 28 soil samples in Corby. The results were presented on Saturday.",
+        "Earthwatch says at least one metal or metalloid exceeded its predicted no-effect level at every freshwater site. In soil, arsenic exceeded guideline values at six sites and cadmium at two.",
+        "The charity says long-term exposure could pose a risk to human health. A 2009 High Court case linked birth defects to contamination from decommissioning the town's steelworks.",
+        "Corby MP Lee Barron urged North Northamptonshire Council to publish a plan to make sites safe. The council and the Environment Agency say they are reviewing the report."
+      ],
+      "kept": [
+        [
+          "At least one metal exceeded its no-effect level at all 52 freshwater sites",
+          "2 of 3 outlets"
+        ],
+        [
+          "Arsenic exceeded soil guideline values at six sites and cadmium at two",
+          "2 of 3 outlets"
+        ],
+        [
+          "Earthwatch says long-term exposure could pose a risk to human health",
+          "2 of 3 outlets"
+        ],
+        [
+          "MP Lee Barron asked the council to publish a plan to make sites safe",
+          "3 of 3 outlets"
+        ],
+        [
+          "Environment Agency says monitoring shows no widespread harm to Corby rivers",
+          "2 of 3 outlets"
+        ],
+        [
+          "Council and Environment Agency say they are reviewing the report",
+          "3 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Campaigners believe the Deene Quarry containment cell is leaking",
+          "Campaigners' belief, not established in the report coverage"
+        ]
+      ],
+      "open": [
+        "Number of freshwater samples with elevated cadmium: one report gives six; others give no figure"
+      ],
+      "primary": [
+        "Earthwatch Europe report (Dr Sasha Woods)",
+        "Lee Barron MP",
+        "Environment Agency statement",
+        "North Northamptonshire Council statement"
+      ],
+      "m": [
+        82,
+        70,
+        65
+      ],
+      "src": [
+        [
+          "itv",
+          "https://www.itv.com/news/2026-10-17/corby-pollution-scandal-new-report-finds-toxic-metals-in-rivers-and-soil"
+        ],
+        [
+          "nnjournal",
+          "https://www.nnjournal.co.uk/p/metal-pollution-at-levels-that-could"
+        ],
+        [
+          "hellorayo",
+          "https://www.hellorayo.co.uk/hits-radio/northamptonshire/news/study-metal-rivers-corby"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "c-cop17-yerevan",
+      "sec": "climate",
+      "sub": "Policy",
+      "head": "UN nature talks open in Yerevan with most 2030 goals off track",
+      "say": "Formal UN talks on protecting nature open in Yerevan on Sunday evening, after a UN review found fewer than half of countries' national biodiversity targets are on track.",
+      "stand": "Delegates from 196 parties meet in Armenia until 30 October for the first global review of the 2022 Kunming-Montreal nature deal.",
+      "body": [
+        "The 17th UN biodiversity conference, COP17, runs from 19 to 30 October in Yerevan, Armenia. An opening ceremony for delegates is scheduled for 17:30 on Sunday, according to the convention's website.",
+        "The meeting is the first global review of progress on the Kunming-Montreal framework, agreed in 2022. It sets 23 targets for 2030, including protecting 30% of land and sea.",
+        "A UN report launched before the talks found nearly 90% of the 196 parties have set national targets. But fewer than half of the national targets assessed by governments are on track, it said.",
+        "Finance is expected to dominate. The framework calls for $200bn a year for nature. A Global Landscapes Forum analysis says the Cali Fund for genetic data has received only $6,000."
+      ],
+      "kept": [
+        [
+          "COP17 talks run from 19 to 30 October in Yerevan, Armenia",
+          "5 of 6 outlets"
+        ],
+        [
+          "Fewer than half of assessed national nature targets are on track, UN report says",
+          "3 of 6 outlets"
+        ],
+        [
+          "Nearly 90% of the 196 parties have set national biodiversity targets",
+          "3 of 6 outlets"
+        ],
+        [
+          "Talks are the first global review of the 2022 Kunming-Montreal framework",
+          "4 of 6 outlets"
+        ],
+        [
+          "Delegates' opening ceremony is set for 17:30 on Sunday 18 October",
+          "2 of 6 outlets"
+        ],
+        [
+          "Framework calls for $200bn a year to be mobilised for nature by 2030",
+          "3 of 6 outlets"
+        ],
+        [
+          "Cali Fund for genetic sequence data has received $6,000, analysis says",
+          "1 of 6 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Framework described as a \"Paris Agreement for nature\"",
+          "Promotional label, not a fact"
+        ],
+        [
+          "Guterres: Yerevan is \"our moment of accountability\"",
+          "Rhetoric; no factual content"
+        ],
+        [
+          "Expected adoption of a Yerevan Declaration and new finance pledges",
+          "Prediction by one outlet; not yet happened"
+        ]
+      ],
+      "open": [
+        "Report launch date: reports give Thursday 15 October or the 16 October leaders' summit",
+        "Projected land protection by 2030: Guterres cited 26%, Mongabay reports about 27.5% if pledges are met"
+      ],
+      "primary": [
+        "CBD Secretariat, State of Biodiversity Action report",
+        "UN Secretary-General António Guterres",
+        "UNEP Executive Director Inger Andersen",
+        "CBD COP17 official schedule"
+      ],
+      "m": [
+        82,
+        80,
+        70
+      ],
+      "src": [
+        [
+          "newscentralasia",
+          "https://www.newscentralasia.net/2026/10/17/un-biodiversity-summit-cbd-cop17-leaders-segment/"
+        ],
+        [
+          "mongabay",
+          "https://news.mongabay.com/2026/10/nearly-90-of-countries-adopt-biodiversity-targets-but-most-remain-off-track/"
+        ],
+        [
+          "bernama",
+          "https://www.bernama.com/en/world/news.php?id=2621240"
+        ],
+        [
+          "thinklandscape",
+          "https://thinklandscape.globallandscapesforum.org/108216/cop17-biodiversity-conference-preview/"
+        ],
+        [
+          "cbd",
+          "https://www.cbd.int/conferences/2026"
+        ],
+        [
+          "yerepouni",
+          "https://www.yerepouni-news.com/world-leaders-gather-in-armenias-capital-as-un-biodiversity-summit-opens/"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "c-eu-ets2-summit",
+      "sec": "climate",
+      "sub": "Energy",
+      "head": "EU leaders stop short of delaying carbon price on heating and fuel",
+      "say": "EU leaders did not agree to push back a new carbon market for heating and road fuel, asking Brussels instead to reassess its design and safeguards amid high energy prices.",
+      "stand": "A push led by central European states to delay the ETS2 scheme to 2030 ended in a request for a fresh Commission assessment.",
+      "body": [
+        "EU leaders meeting in Brussels on 15 and 16 October debated the bloc's carbon markets as energy prices stay high.",
+        "ETS2 is a planned carbon market covering building heating and road fuel. Poland, Hungary, Slovakia and the Czech Republic, backed by Italy and Greece, sought to delay it until 2030. The summit did not agree a delay.",
+        "Instead, the conclusions ask the European Commission to update its assessment of ETS2's design and safeguards, according to Euronews and EU Today. Leaders also urged faster work on the Market Stability Reserve.",
+        "Finland, Sweden and Denmark warned in a letter that weakening the carbon market would undermine investment. Czech Prime Minister Andrej Babiš was among its sharpest critics."
+      ],
+      "kept": [
+        [
+          "Visegrad states, backed by Italy and Greece, sought to delay ETS2 to 2030",
+          "2 of 3 outlets"
+        ],
+        [
+          "Summit asked the Commission to reassess ETS2's design and safeguards",
+          "2 of 3 outlets"
+        ],
+        [
+          "Finland, Sweden and Denmark warned weakening the ETS would hurt investment",
+          "3 of 3 outlets"
+        ],
+        [
+          "Leaders urged faster changes to the ETS Market Stability Reserve",
+          "2 of 3 outlets"
+        ],
+        [
+          "Czech PM Andrej Babiš was among the sharpest critics of carbon pricing",
+          "2 of 3 outlets"
+        ],
+        [
+          "Leaders asked for targeted, temporary energy price relief, Euronews reports",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Babiš: \"Someone is making billions\" from carbon pricing",
+          "Unsupported accusation; position kept with attribution"
+        ],
+        [
+          "Babiš calling EU climate policy \"ideological stuff\"",
+          "Loaded language"
+        ]
+      ],
+      "open": [
+        "ETS2 start date: reports give 2028 (EU Today, Eunews) or 2029 (Euronews)",
+        "Delay camp: Eunews also lists Cyprus; Euronews counts six countries"
+      ],
+      "primary": [
+        "European Council conclusions, 15–16 October 2026 (as reported)",
+        "Letter from Finland, Sweden and Denmark",
+        "Czech PM Andrej Babiš",
+        "Greek PM Kyriakos Mitsotakis",
+        "Finnish PM Petteri Orpo"
+      ],
+      "m": [
+        78,
+        62,
+        70
+      ],
+      "src": [
+        [
+          "euronews",
+          "https://www.euronews.com/2026/10/16/ets-splits-eu-leaders-and-tests-blocs-climate-goals"
+        ],
+        [
+          "euronews",
+          "https://www.euronews.com/2026/10/16/eu-leaders-demand-joint-action-to-tackle-soaring-energy-prices"
+        ],
+        [
+          "eutoday",
+          "https://eutoday.net/eu-ets2-delay-carbon-pricing-energy-costs-summit/"
+        ],
+        [
+          "eunews",
+          "https://www.eunews.it/en/2026/10/15/the-27-eu-member-states-deadlocked-over-the-ets-state-aid-is-the-only-solution-to-high-energy-prices/"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "c-typhoon-champi-guam",
+      "sec": "climate",
+      "sub": "Nature",
+      "head": "Typhoon Champi passes just south of Guam",
+      "say": "Typhoon Champi, with winds of about one hundred and forty miles an hour, passed roughly ten miles south of Guam early on Sunday local time, sparing the island a direct hit.",
+      "stand": "The storm's eye stayed offshore, but forecasters warned of dangerous winds and heavy rain as it moved away from the US territory.",
+      "body": [
+        "Typhoon Champi passed about 10 miles south of the Guam village of Malesso' early on Sunday, local time. Public Radio Guam reported this, citing the National Weather Service.",
+        "The storm strengthened rapidly on Saturday and was carrying sustained winds of about 140 mph. Guam's airport recorded gusts of 80 mph as it passed.",
+        "Typhoon warnings covered Guam and Rota. Forecasters had warned that island-wide power cuts could last days or weeks.",
+        "The American Red Cross said Champi was the third strong typhoon to affect the region since April. No damage or injury figures had been reported."
+      ],
+      "kept": [
+        [
+          "Champi's centre passed about 10 miles south of Guam early on Sunday",
+          "1 of 4 outlets"
+        ],
+        [
+          "The typhoon carried sustained winds of about 140 mph",
+          "2 of 4 outlets"
+        ],
+        [
+          "Typhoon warnings were in force for Guam and Rota",
+          "3 of 4 outlets"
+        ],
+        [
+          "Red Cross says it is the third strong typhoon to hit the region since April",
+          "1 of 4 outlets"
+        ],
+        [
+          "Gusts of 80 mph were recorded at Guam's international airport",
+          "1 of 4 outlets"
+        ],
+        [
+          "Forecasters warned island-wide power cuts could last days or weeks",
+          "1 of 4 outlets"
+        ],
+        [
+          "Red Cross opened 13 shelters ahead of the storm",
+          "1 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "\"Devastating damage will occur\"",
+          "Pre-storm forecast warning; not a confirmed outcome"
+        ],
+        [
+          "\"Venturing outside can result in death from flying projectiles\"",
+          "Warning language, not a reported event"
+        ]
+      ],
+      "open": [
+        "Damage, power cuts and injuries: not yet reported",
+        "Weather service officer's first name given as Landon or Brandon Aydlett"
+      ],
+      "primary": [
+        "National Weather Service Guam",
+        "Joint Typhoon Warning Center",
+        "American Red Cross",
+        "Guam Homeland Security"
+      ],
+      "m": [
+        70,
+        70,
+        35
+      ],
+      "src": [
+        [
+          "islapublic",
+          "https://www.islapublic.org/news/2026-10-18/good-news-for-guam-champi-passes-10-miles-south-of-malesso-moves-quickly-away-from-the-island"
+        ],
+        [
+          "postguam",
+          "https://www.postguam.com/news/local/champi-now-a-category-4-as-guam-s-roughest-hours-begin-after-midnight/article_3e0efece-bb37-4272-a42a-fe34771ab606.html"
+        ],
+        [
+          "foxweather",
+          "https://www.foxweather.com/weather-news/typhoon-champi-could-make-rare-landfall-guam-after-rapidly-intensifying-el-nino-enhances-pacific-storms"
+        ],
+        [
+          "koaa",
+          "https://www.koaa.com/weather/guam-faces-third-powerful-typhoon-in-months-as-champi-approaches"
+        ],
+        [
+          "cnbc",
+          "https://www.cnbc.com/2026/10/17/hurricane-trudy-mexico-typhoon-champi-guam.html",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "c-amazon-deforestation-low",
+      "sec": "climate",
+      "sub": "Nature",
+      "head": "Amazon deforestation falls to lowest level on record",
+      "say": "Brazil says about three thousand three hundred square kilometres of Amazon rainforest were cleared in the year to July, down forty-two per cent and the lowest since records began.",
+      "stand": "Satellite data from Brazil's space agency show the smallest annual loss since monitoring began in 1988, with the Cerrado also at a record low.",
+      "body": [
+        "About 3,335 sq km of Brazil's Amazon rainforest was cleared in the 12 months to July. The space research agency Inpe released the data on Friday.",
+        "That is about 42% less than the previous year and the lowest since its Prodes satellite series began in 1988.",
+        "Clearance in the Cerrado savanna fell about 24% to roughly 5,500 sq km, also a record low. The Observatório do Clima network says Amazon losses are down 71.2% over four years.",
+        "The figures come before Brazil's presidential run-off on 25 October, in which President Lula faces Senator Flávio Bolsonaro."
+      ],
+      "kept": [
+        [
+          "About 3,335 sq km of Amazon forest was cleared in the year to July",
+          "3 of 3 outlets"
+        ],
+        [
+          "The figure is about 42% lower than the previous year",
+          "3 of 3 outlets"
+        ],
+        [
+          "It is the lowest since Inpe's satellite records began in 1988",
+          "3 of 3 outlets"
+        ],
+        [
+          "Cerrado clearance fell about 24% to a record low of roughly 5,500 sq km",
+          "3 of 3 outlets"
+        ],
+        [
+          "Amazon deforestation is down 71.2% over four years",
+          "2 of 3 outlets"
+        ],
+        [
+          "Lula faces Flávio Bolsonaro in a presidential run-off on 25 October",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Minister Capobianco: \"an absolutely stratospheric drop\"",
+          "Rhetoric; figures reported directly"
+        ],
+        [
+          "Observatório do Clima: \"a historic achievement\"",
+          "Advocacy framing"
+        ],
+        [
+          "Lower clearance prevented 2.238bn tonnes of emissions",
+          "Single advocacy estimate, not independently checked"
+        ]
+      ],
+      "open": [
+        "Cerrado figure: 5,517 sq km (Reuters, Al Jazeera) or 5,516 sq km (The Climate Watch)"
+      ],
+      "primary": [
+        "Inpe Prodes satellite data",
+        "Environment Minister João Paulo Capobianco",
+        "Márcio Astrini, Observatório do Clima",
+        "President Luiz Inácio Lula da Silva"
+      ],
+      "m": [
+        88,
+        82,
+        85
+      ],
+      "src": [
+        [
+          "aj",
+          "https://www.aljazeera.com/news/2026/10/17/brazils-amazon-deforestation-hits-lowest-level-on-record"
+        ],
+        [
+          "wsau",
+          "https://wsau.com/2026/10/16/deforestation-in-brazils-amazon-falls-to-lowest-on-record-in-2025-26/"
+        ],
+        [
+          "tcw",
+          "https://theclimatewatch.com/amazon-deforestation-falls-to-record-low-in-brazil-in-2026/"
+        ]
+      ],
+      "also": [],
+      "fig": [
+        "3,335 sq km",
+        "Amazon forest cleared, Aug 2025 to Jul 2026"
+      ]
+    },
+    {
+      "id": "t-connectwise-m365-breach",
+      "sec": "tech",
+      "sub": "Security",
+      "head": "ConnectWise shuts backup service after Microsoft 365 tenant breach",
+      "say": "ConnectWise has shut down its Cloud Backup service after hackers used the app's own identity to get into more than a hundred and sixty Microsoft 365 customer tenants.",
+      "stand": "Attackers abused a trusted backup application's credentials to sign in to customer accounts, which researchers say bypassed multi-factor authentication.",
+      "body": [
+        "ConnectWise shut down customer access to its Cloud Backup service, formerly SkyKick, on 17 October. It said it had found unauthorised access to application identities.",
+        "Security firm Huntress confirmed unauthorised sign-ins in at least 162 Microsoft 365 tenants. The attacker signed in as the backup app itself, so multi-factor authentication did not apply.",
+        "Microsoft Threat Intelligence described the incident as an active supply-chain attack. In some tenants, linked apps granted themselves administrator roles.",
+        "ConnectWise says it has no sign that partners' backup data was compromised. It has not said how the credential was obtained or when service will resume."
+      ],
+      "kept": [
+        [
+          "ConnectWise shut customer access to its Cloud Backup service on 17 October",
+          "3 of 3 outlets"
+        ],
+        [
+          "Hackers used the backup app's identity to sign in to Microsoft 365 tenants",
+          "3 of 3 outlets"
+        ],
+        [
+          "Huntress confirmed unauthorised sign-ins in at least 162 tenants",
+          "2 of 3 outlets"
+        ],
+        [
+          "The app-based sign-ins meant multi-factor authentication did not apply",
+          "2 of 3 outlets"
+        ],
+        [
+          "ConnectWise says it has no sign partner backup data was compromised",
+          "3 of 3 outlets"
+        ],
+        [
+          "Microsoft called it an active supply-chain attack",
+          "1 of 3 outlets"
+        ],
+        [
+          "How the attacker obtained the credential has not been disclosed",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [
+        "Tenant count: reports give 162 (Huntress, 16 October) or 173 (as of 17 October)",
+        "Start of attack: reports cite activity from 13, 14 or 15 October"
+      ],
+      "primary": [
+        "ConnectWise statement",
+        "Huntress",
+        "Microsoft Threat Intelligence"
+      ],
+      "m": [
+        85,
+        60,
+        50
+      ],
+      "src": [
+        [
+          "bleeping",
+          "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/"
+        ],
+        [
+          "gbhackers",
+          "https://gbhackers.com/hackers-use-connectwise-skykick-credentials/amp/"
+        ],
+        [
+          "techinsider",
+          "https://tech-insider.org/connectwise-cloud-backup-breach-173-tenants-2026/"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "t-meta-ai-training-terms",
+      "sec": "tech",
+      "sub": "AI",
+      "head": "Meta drops AI-training clause from new business terms",
+      "say": "Meta has removed wording from its new business terms that legal experts said could let it use content from firms' websites to train its AI models.",
+      "stand": "The clause, flagged by Nieman Lab, would have covered websites linked to business accounts on Facebook, Instagram and WhatsApp.",
+      "body": [
+        "Meta has removed language from its updated commercial terms that critics said could allow it to train AI on content from business customers' websites. The terms were due to take effect on 30 October.",
+        "The clause said Meta could use content from a business account's domains and web pages to develop, improve and train its products. Legal experts consulted by Nieman Lab described it as a remarkable provision.",
+        "A Meta spokesperson said the terms only consolidated crawling rules for its ads and business products. The company said they did not change how it uses web crawlers."
+      ],
+      "kept": [
+        [
+          "Meta removed AI-training language from its updated commercial terms",
+          "2 of 2 outlets"
+        ],
+        [
+          "Clause covered content from websites linked to business accounts",
+          "2 of 2 outlets"
+        ],
+        [
+          "The clause allowed use of content to train Meta's products",
+          "2 of 2 outlets"
+        ],
+        [
+          "Meta says the terms did not change how it uses web crawlers",
+          "2 of 2 outlets"
+        ],
+        [
+          "Legal experts consulted by Nieman Lab called it a remarkable provision",
+          "2 of 2 outlets"
+        ],
+        [
+          "The new terms were due to take effect on 30 October",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Meta 'quietly' deleted the clause",
+          "Loaded framing"
+        ]
+      ],
+      "open": [
+        "Replacement wording and date of removal not reported"
+      ],
+      "primary": [
+        "Meta spokesperson statement"
+      ],
+      "m": [
+        75,
+        45,
+        70
+      ],
+      "src": [
+        [
+          "tc",
+          "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/"
+        ],
+        [
+          "startupfortune",
+          "https://startupfortune.com/meta-quietly-deletes-ai-training-clause-from-its-new-business-terms/"
+        ]
+      ],
+      "also": [
+        [
+          "unite",
+          "https://www.unite.ai/meta-rewrites-web-crawling-clause-in-pending-commercial-terms/"
+        ]
+      ]
+    },
+    {
+      "id": "t-anthropic-nova-scotia",
+      "sec": "tech",
+      "sub": "AI",
+      "head": "Anthropic signs first Canadian data centre lease in Nova Scotia",
+      "say": "Anthropic has signed its first Canadian data centre lease, at a planned EverWind campus in Nova Scotia. EverWind plans more than ten billion Canadian dollars of investment.",
+      "stand": "The AI company will lease the first 95-megawatt phase of a campus at Point Tupper, due to come online in late 2027.",
+      "body": [
+        "Anthropic, the maker of Claude, has leased data centre capacity from EverWind at Point Tupper in Nova Scotia. It is the company's first data centre agreement in Canada.",
+        "EverWind plans to invest more than C$10bn in the campus and onshore wind projects. Chief executive Trent Vichie called it the largest private investment in the province's history.",
+        "The first phase, of 95 megawatts, is expected in late 2027, with the full campus planned at 420 megawatts. EverWind expects about 2,000 construction jobs and 215 permanent posts.",
+        "Anthropic's Jacob Glick said the company would protect ratepayers and water resources. Nova Scotia NDP leader Claudia Chender called for regulation of private data centres."
+      ],
+      "kept": [
+        [
+          "Anthropic signed a lease with EverWind at Point Tupper, Nova Scotia",
+          "3 of 3 outlets"
+        ],
+        [
+          "It is Anthropic's first data centre agreement in Canada",
+          "2 of 3 outlets"
+        ],
+        [
+          "EverWind plans to invest more than C$10bn in the campus and wind projects",
+          "3 of 3 outlets"
+        ],
+        [
+          "The first 95-megawatt phase is expected to come online in late 2027",
+          "2 of 3 outlets"
+        ],
+        [
+          "The full campus is planned at 420 megawatts",
+          "2 of 3 outlets"
+        ],
+        [
+          "About 2,000 construction jobs and 215 permanent posts expected",
+          "2 of 3 outlets"
+        ],
+        [
+          "The lease runs for at least 20 years",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Anthropic IPO could value it above $2 trillion",
+          "Separate, unconfirmed context"
+        ]
+      ],
+      "open": [
+        "Financial terms of the lease not disclosed"
+      ],
+      "primary": [
+        "Jacob Glick, Anthropic head of public policy for Canada",
+        "Trent Vichie, EverWind chief executive",
+        "Tim Houston, Nova Scotia premier"
+      ],
+      "m": [
+        85,
+        55,
+        75
+      ],
+      "src": [
+        [
+          "globalnews",
+          "https://globalnews.ca/news/12105095/everwind-nova-scotia-data-centre/"
+        ],
+        [
+          "thestarmy",
+          "https://www.thestar.com.my/tech/tech-news/2026/10/17/anthropic-signs-lease-for-first-canadian-data-center"
+        ],
+        [
+          "cryptobriefing",
+          "https://cryptobriefing.com/anthropic-first-canadian-data-center-everwind/"
+        ]
+      ],
+      "also": [
+        [
+          "globeandmail",
+          "https://www.theglobeandmail.com/business/article-anthropic-signs-onto-10-billion-nova-scotia-data-centre-project/"
+        ],
+        [
+          "thelogic",
+          "https://thelogic.co/news/anthropic-data-centre-cape-breton-nova-scotia-everwind/"
+        ],
+        [
+          "usnews",
+          "https://money.usnews.com/investing/news/articles/2026-10-16/anthropic-signs-lease-for-first-canadian-data-center"
+        ]
+      ]
+    },
+    {
+      "id": "t-qualcomm-overheating-denial",
+      "sec": "tech",
+      "sub": "Devices",
+      "head": "Qualcomm denies reports its flagship chip overheats in Samsung tests",
+      "say": "Qualcomm has rejected a Korean report that its newest flagship chip overheated in Samsung's Galaxy S27 Ultra tests. Its marketing chief said there are no systemic thermal issues.",
+      "stand": "The report suggested Samsung could switch to its own Exynos chips for next year's Galaxy S27 Ultra; Samsung has not commented.",
+      "body": [
+        "Qualcomm has denied a South Korean report that its Snapdragon 8 Elite Extreme Gen 6 chip overheated in Samsung's internal Galaxy S27 Ultra tests.",
+        "Chief marketing officer Don McGuire wrote on X that there are no systemic thermal issues. He said phone makers tune chips to balance performance and power.",
+        "The report said Samsung could use its own Exynos 2700 chip instead. Reviewers noted that McGuire's post named the standard 8 Elite Gen 6, not the Extreme variant at issue.",
+        "No Samsung statement has been reported."
+      ],
+      "kept": [
+        [
+          "Qualcomm denied a report that its newest flagship chip overheats",
+          "3 of 3 outlets"
+        ],
+        [
+          "A Korean report said the chip ran hot in Samsung's Galaxy S27 Ultra tests",
+          "3 of 3 outlets"
+        ],
+        [
+          "CMO Don McGuire said there are no systemic thermal issues",
+          "3 of 3 outlets"
+        ],
+        [
+          "The report said Samsung may use its own Exynos 2700 chip instead",
+          "2 of 3 outlets"
+        ],
+        [
+          "McGuire's post named the standard chip, not the Extreme variant",
+          "2 of 3 outlets"
+        ],
+        [
+          "No Samsung statement has been reported",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Commenter claim of an AnTuTu-related overheating issue",
+          "Unverified reader comment"
+        ],
+        [
+          "Denial 'not fully convincing'",
+          "Outlet's opinion"
+        ]
+      ],
+      "open": [
+        "Name of the Korean outlet that published the report not given"
+      ],
+      "primary": [
+        "Don McGuire, Qualcomm chief marketing officer"
+      ],
+      "m": [
+        80,
+        35,
+        50
+      ],
+      "src": [
+        [
+          "gsmarena",
+          "https://www.gsmarena.com/qualcomm_denies_rumors_about_snapdragon_8_elite_extreme_gen_6_overheating-news-75100.php"
+        ],
+        [
+          "gizmochina",
+          "https://www.gizmochina.com/2026/10/17/qualcomm-denies-snapdragon-8-elite-extreme-gen-6-overheating-allegations-on-galaxy-s27-ultra/"
+        ],
+        [
+          "androidheadlines",
+          "https://www.androidheadlines.com/2026/10/snapdragon-8-elite-gen-6-overheating-galaxy-s27-ultra.html"
+        ]
+      ],
+      "also": [
+        [
+          "digitaltrends",
+          "https://www.digitaltrends.com/phones/qualcomm-snapdragon-8-elite-extreme-gen-6-overheating-denial/"
+        ]
+      ]
+    },
+    {
+      "id": "cu-styles-payne-song",
+      "sec": "culture",
+      "sub": "Music",
+      "head": "Harry Styles debuts song for Liam Payne on anniversary of his death",
+      "say": "Harry Styles marked two years since Liam Payne's death by debuting an unreleased song, What Is Enough, at Madison Square Garden on Friday, saying he wrote it for his friend.",
+      "stand": "The former One Direction star played the unreleased track during his New York residency on the second anniversary of his bandmate's death.",
+      "body": [
+        "Harry Styles performed a new, unreleased song called What Is Enough at Madison Square Garden in New York on Friday 16 October.",
+        "He told the audience he had written it for Liam Payne about two years ago, and that he had lost one of his friends two years ago that day.",
+        "Payne died aged 31 in October 2024 after falling from a hotel balcony in Buenos Aires. Styles is midway through a 30-night residency at the venue, supporting his fourth album."
+      ],
+      "kept": [
+        [
+          "Styles debuted unreleased song What Is Enough at Madison Square Garden on Friday",
+          "2 of 2 outlets"
+        ],
+        [
+          "He said he wrote the song for Liam Payne about two years ago",
+          "2 of 2 outlets"
+        ],
+        [
+          "Friday was the second anniversary of Payne's death",
+          "2 of 2 outlets"
+        ],
+        [
+          "Payne died aged 31 after falling from a hotel balcony in Buenos Aires",
+          "2 of 2 outlets"
+        ],
+        [
+          "Performance was part of Styles' 30-night residency at the New York venue",
+          "2 of 2 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [
+        "Song title: reports give What Is Enough and What Is Enough?",
+        "Whether or when the song will be released: not stated"
+      ],
+      "primary": [],
+      "m": [
+        82,
+        30,
+        85
+      ],
+      "src": [
+        [
+          "nme",
+          "https://www.nme.com/news/music/harry-styles-pays-tribute-to-liam-payne-on-anniversary-of-one-direction-stars-death-with-moving-new-song-what-is-enough-3973408"
+        ],
+        [
+          "complex",
+          "https://www.complex.com/music/a/jadegomez510/harry-styles-what-enough-liam-payne-msg"
+        ]
+      ],
+      "also": [
+        [
+          "variety",
+          "https://variety.com/2026/music/news/harry-styles-liam-payne-song-debut-what-is-enough-msg-1236914863/"
+        ],
+        [
+          "billboard",
+          "https://www.billboard.com/music/music-news/harry-styles-dedicates-song-to-liam-payne-1236362307/"
+        ],
+        [
+          "rollingstone",
+          "https://www.rollingstone.com/music/music-news/harry-styles-liam-payne-new-song-msg-1235644335/"
+        ]
+      ]
+    },
+    {
+      "id": "cu-street-fighter-box-office",
+      "sec": "culture",
+      "sub": "Film & TV",
+      "head": "Street Fighter heads for top spot at North American box office",
+      "say": "Street Fighter is on course to top the North American box office, with an estimated thirty-one million dollars on its opening weekend after taking thirteen million on Friday.",
+      "stand": "The video game adaptation leads the weekend, while an A24 documentary about Elizabeth Holmes runs well ahead of expectations.",
+      "body": [
+        "Street Fighter took about $13m on Friday from 3,575 cinemas in North America and is projected to open with about $31m. Weekend figures are estimates.",
+        "The film is directed by Kitao Sakurai and stars Noah Centineo and Andrew Koji.",
+        "In second place, You Can See Everything, a documentary about Elizabeth Holmes by Nathan Fielder and Lance Oppenheim, is tracking towards about $12m to $13m from 855 cinemas.",
+        "Disney's Whalefall is estimated at about $7m to $7.5m, while last weekend's leader, Other Mommy, fell to around $7.85m."
+      ],
+      "kept": [
+        [
+          "Street Fighter is projected to open with about $31m in North America",
+          "2 of 2 outlets"
+        ],
+        [
+          "The film took about $13m on Friday from 3,575 cinemas",
+          "1 of 2 outlets"
+        ],
+        [
+          "Elizabeth Holmes documentary You Can See Everything is second, from 855 cinemas",
+          "2 of 2 outlets"
+        ],
+        [
+          "Other Mommy, last weekend's leader, is estimated at about $7.85m",
+          "2 of 2 outlets"
+        ],
+        [
+          "Whalefall is estimated at about $7m to $7.5m",
+          "2 of 2 outlets"
+        ],
+        [
+          "Street Fighter is directed by Kitao Sakurai and stars Noah Centineo",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Whalefall 'drowns'",
+          "Loaded framing in a headline"
+        ]
+      ],
+      "open": [
+        "Distributor of Street Fighter: one report names Paramount, another credits 20th Century Studios",
+        "Exact weekend totals: Sunday estimates, final figures due Monday"
+      ],
+      "primary": [],
+      "m": [
+        78,
+        25,
+        45
+      ],
+      "src": [
+        [
+          "hollywoodoutbreak",
+          "https://www.hollywoodoutbreak.com/2026/10/17/street-fighter-dominates-box-office-with-big-31m-debut/"
+        ],
+        [
+          "darkhorizons",
+          "https://www.darkhorizons.com/box-office-street-fighter-hits-whalefall-drowns/"
+        ]
+      ],
+      "also": [
+        [
+          "deadline",
+          "https://deadline.com/2026/10/box-office-street-fighter-you-can-see-everything-1237159320/"
+        ],
+        [
+          "variety",
+          "https://variety.com/2026/film/box-office/box-office-street-fighter-you-can-see-everything-whalefall-1236914827/"
+        ],
+        [
+          "hollywoodreporter",
+          "https://www.hollywoodreporter.com/movies/movie-news/street-fighter-box-office-you-can-see-everything-whalefall-1236734312/"
+        ]
+      ]
+    },
+    {
+      "id": "cu-rooney-sales-surge",
+      "sec": "culture",
+      "sub": "Books",
+      "head": "Irish bookshops report surge in Sally Rooney sales after UK supply halt",
+      "say": "Irish bookshops report soaring sales of Sally Rooney novels, with one Galway shop selling ten times its usual number, after her publisher stopped supplying them in the UK.",
+      "stand": "Booksellers say orders from Britain are rising after Faber stopped supplying the author's books in the UK over her support for Palestine Action.",
+      "body": [
+        "Booksellers in Ireland and Northern Ireland say demand for Sally Rooney's books has jumped since Faber said on Wednesday it would stop supplying them in the UK.",
+        "Kennys Bookshop in Galway told The Irish Times its Rooney sales had risen tenfold, with more orders from the UK. A bookshop in Co Down said sales had more than quadrupled.",
+        "A Belfast shop sold out by Friday morning and restocked from a Dublin wholesaler, the paper reported.",
+        "The Booksellers Association says UK shops may sell existing stock but can no longer order the titles. Faber says UK anti-terrorism law stops it passing on her earnings, as she supports the banned group Palestine Action."
+      ],
+      "kept": [
+        [
+          "A Galway bookshop says its Rooney sales have risen tenfold",
+          "1 of 3 outlets"
+        ],
+        [
+          "Irish shops report rising orders for Rooney's books from Britain",
+          "1 of 3 outlets"
+        ],
+        [
+          "UK shops may sell existing stock but cannot order more, booksellers say",
+          "2 of 3 outlets"
+        ],
+        [
+          "A Co Down bookshop says its Rooney sales have more than quadrupled",
+          "1 of 3 outlets"
+        ],
+        [
+          "Faber says UK terrorism law stops it passing on Rooney's earnings",
+          "3 of 3 outlets"
+        ],
+        [
+          "Some London shops could not restock as distributors had run out",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "The situation amounts to censorship of Rooney's books",
+          "Opinion of a bookseller, not a verified fact"
+        ]
+      ],
+      "open": [],
+      "primary": [
+        "Booksellers Association statement",
+        "Faber statement"
+      ],
+      "m": [
+        62,
+        45,
+        60
+      ],
+      "src": [
+        [
+          "irishtimes",
+          "https://www.irishtimes.com/ireland/2026/10/17/sales-of-sally-rooney-books-surge-in-northern-ireland-after-publisher-stops-distribution/"
+        ],
+        [
+          "yahoouk",
+          "https://uk.news.yahoo.com/uk-bookstores-scramble-sally-rooneys-061510202.html"
+        ],
+        [
+          "yakimaherald",
+          "https://www.yakimaherald.com/news/nation_and_world/world/uk-bookstores-scramble-as-sally-rooneys-novels-are-withdrawn-because-she-supports-palestine-action/article_0ac5af1d-0b76-53e9-a4c2-7564f1f1f52c.html"
+        ]
+      ],
+      "also": [
+        [
+          "toi",
+          "https://www.timesofisrael.com/why-is-sally-rooneys-uk-publisher-halting-sales-of-the-anti-israel-authors-books/"
+        ]
+      ]
+    },
+    {
+      "id": "cu-sothebys-london-sale",
+      "sec": "culture",
+      "sub": "Heritage",
+      "head": "De Kooning sets European record at Sotheby's London sale",
+      "say": "Sotheby's London contemporary evening sale raised forty-five point nine million pounds on Thursday, led by a Willem de Kooning that set the artist's European auction record.",
+      "stand": "The Frieze week auction fell slightly short of last year's total, with records for de Kooning, a Hockney iPad drawing and Michael Andrews.",
+      "body": [
+        "Sotheby's contemporary evening sale in London on 15 October raised £45.9m including fees, against £47.6m at the equivalent sale last year.",
+        "The hammer total of £36.9m fell below the presale low estimate. Of 34 lots offered after three were withdrawn, 28 sold.",
+        "Willem de Kooning's Untitled (1977) made £9.8m with fees, a European auction record for the artist. Gerhard Richter's Abstraktes Bild (1992) fetched £6.7m.",
+        "A David Hockney iPad drawing set a record for his works in that medium, and Michael Andrews's Butterfly Fish sold for £704,000, a record for his works on paper."
+      ],
+      "kept": [
+        [
+          "Sotheby's London evening sale raised £45.9m with fees, down from £47.6m",
+          "3 of 3 outlets"
+        ],
+        [
+          "De Kooning's Untitled (1977) set a European auction record for the artist",
+          "3 of 3 outlets"
+        ],
+        [
+          "The hammer total of £36.9m fell below the presale low estimate",
+          "3 of 3 outlets"
+        ],
+        [
+          "28 of 34 lots offered sold, after three withdrawals",
+          "3 of 3 outlets"
+        ],
+        [
+          "Richter's Abstraktes Bild (1992) sold for £6.7m with fees",
+          "2 of 3 outlets"
+        ],
+        [
+          "A Hockney iPad drawing set a record for his work in that medium",
+          "3 of 3 outlets"
+        ],
+        [
+          "Michael Andrews's Butterfly Fish made £704,000, a record for his works on paper",
+          "2 of 3 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "The sale 'falls flat' and was 'muted'",
+          "Evaluative headline framing"
+        ]
+      ],
+      "open": [
+        "Presale low estimate: reports give £39.5m or £41.7m"
+      ],
+      "primary": [
+        "Sotheby's sale results"
+      ],
+      "m": [
+        88,
+        60,
+        90
+      ],
+      "src": [
+        [
+          "theartnewspaper",
+          "https://www.theartnewspaper.com/2026/10/16/de-kooning-sets-record-but-still-falls-flat-at-muted-sothebys-contemporary-evening-sale"
+        ],
+        [
+          "artcentron",
+          "https://artcentron.com/2026/10/17/sothebys-london-contemporary-art-auction-results/"
+        ],
+        [
+          "artnet",
+          "https://news.artnet.com/market/sothebys-contemporary-evening-london-2026-2824599"
+        ]
+      ],
+      "also": [
+        [
+          "usaartnews",
+          "https://usaartnews.com/auctions/sothebys-london-contemporary-art-sale-fetches-611-million/"
+        ]
+      ]
+    },
+    {
+      "id": "sp-shanghai-spanish-final",
+      "sec": "sport",
+      "sub": "Tennis",
+      "head": "Jodar and Davidovich Fokina set up all-Spanish Shanghai Masters final",
+      "say": "Rafael Jodar, aged twenty, beat Daniil Medvedev in straight sets on Saturday, and will face Alejandro Davidovich Fokina, who came from a set down to beat Alexander Zverev.",
+      "stand": "Two Spaniards seeking a first Masters 1000 title will meet in Sunday's Shanghai final after beating Medvedev and top seed Zverev.",
+      "body": [
+        "Rafael Jodar, 20, beat Daniil Medvedev 6-3, 6-4 in Saturday's first semi-final in Shanghai. It was his first straight-sets win of the week and his first Masters 1000 final.",
+        "Medvedev, the 2019 Shanghai champion, saved four set points in the first set but could not hold on. Jodar began the season ranked 168th.",
+        "Alejandro Davidovich Fokina, 27, beat top seed Alexander Zverev 5-7, 6-4, 6-3. He has now won nine straight matches in China, including a title in Chengdu.",
+        "Zverev said fatigue and ankle discomfort affected him, Dawn reported. He is set to finish the year as world number one regardless."
+      ],
+      "kept": [
+        [
+          "Jodar beat Medvedev 6-3, 6-4 to reach his first Masters 1000 final",
+          "4 of 4 outlets"
+        ],
+        [
+          "Davidovich Fokina beat top seed Zverev 5-7, 6-4, 6-3",
+          "4 of 4 outlets"
+        ],
+        [
+          "Final is the first all-Spanish Masters 1000 final on hard courts",
+          "2 of 4 outlets"
+        ],
+        [
+          "Jodar, 20, is the youngest finalist in Shanghai tournament history",
+          "2 of 4 outlets"
+        ],
+        [
+          "Jodar started 2026 ranked 168th in the world",
+          "3 of 4 outlets"
+        ],
+        [
+          "Davidovich Fokina has won nine straight matches in China",
+          "2 of 4 outlets"
+        ],
+        [
+          "Zverev will finish 2026 as world number one despite the defeat",
+          "2 of 4 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Zverev described as \"future No. 1\" in a headline",
+          "Headline only; ranking status reported from opened sources instead"
+        ]
+      ],
+      "open": [
+        "Jodar's current ranking: reports give 12th (seeding) or 13th",
+        "Medvedev's ranking: reports give fifth (seeding) or sixth"
+      ],
+      "primary": [
+        "Rafael Jodar (post-match comments)",
+        "Alexander Zverev (post-match comments)"
+      ],
+      "m": [
+        90,
+        40,
+        95
+      ],
+      "src": [
+        [
+          "flashscore",
+          "https://www.flashscore.com/news/tennis-shanghai-atp-singles-rising-star-jodar-outclasses-medvedev-to-set-up-all-spanish-final-at-shanghai-masters/Gpxcc8x9/"
+        ],
+        [
+          "perfecttennis",
+          "https://www.perfect-tennis.com/shanghai-masters-2026-day-eleven-semi-final-recap/"
+        ],
+        [
+          "dawn",
+          "https://www.dawn.com/news/2037947/davidovich-fokina-beats-zverev-to-reach-shanghai-final"
+        ],
+        [
+          "tennismajors",
+          "https://www.tennismajors.com/atp/jodar-20-sweeps-past-medvedev-into-first-masters-1000-final-to-set-up-all-spanish-showdown-in-shanghai-863465.html"
+        ],
+        [
+          "espn",
+          "https://www.espn.com/tennis/story/_/id/50200998/davidovich-fokina-upsets-zverev-vs-jodar-shanghai-title",
+          "headline only"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "sp-city-maresca-seven",
+      "sec": "sport",
+      "sub": "Football",
+      "head": "Man City beat Ipswich as Maresca sets Premier League record",
+      "say": "Erling Haaland scored twice as Manchester City beat Ipswich three-two on Saturday, making Enzo Maresca the first Premier League manager to win his first seven games.",
+      "stand": "City stayed top with a seventh straight league win, while Liverpool beat nine-man Brentford and Chelsea won at Everton.",
+      "body": [
+        "Manchester City beat Ipswich Town 3-2 at the Etihad on Saturday. Phil Foden scored first and Erling Haaland added two, taking him to 12 league goals this season.",
+        "Daizen Maeda equalised for Ipswich soon after Foden's opener, and Zian Flemming scored a late penalty. City say Enzo Maresca is the first manager to win his first seven Premier League games in charge.",
+        "Liverpool came from behind to win 2-1 at Brentford, with Victor Munoz and Alexander Isak scoring. Brentford had Yehor Yarmoliuk and Vitaly Janelt sent off and lost for the first time this season.",
+        "Chelsea won 2-0 at Everton, with Pedro Neto scoring both goals, according to ANI."
+      ],
+      "kept": [
+        [
+          "Man City beat Ipswich 3-2 to stay top with seven wins from seven",
+          "3 of 5 outlets"
+        ],
+        [
+          "Maresca is first Premier League manager to win his first seven games",
+          "2 of 5 outlets"
+        ],
+        [
+          "Haaland scored twice and has 12 league goals this season",
+          "2 of 5 outlets"
+        ],
+        [
+          "Liverpool won 2-1 at Brentford with goals from Munoz and Isak",
+          "3 of 5 outlets"
+        ],
+        [
+          "Brentford had Yarmoliuk and Janelt sent off in their first league defeat",
+          "2 of 5 outlets"
+        ],
+        [
+          "Chelsea won 2-0 at Everton with two goals from Pedro Neto",
+          "1 of 5 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [
+        "Brentford midfielder's first name: reports give Vitaly or Mathias Janelt"
+      ],
+      "primary": [
+        "Manchester City FC match report",
+        "Brentford FC match report"
+      ],
+      "m": [
+        88,
+        55,
+        95
+      ],
+      "src": [
+        [
+          "mancity",
+          "https://www.mancity.com/news/mens/man-city-ipswich-premier-league-match-report-october-2026-63927840"
+        ],
+        [
+          "manilatimes",
+          "https://www.manilatimes.net/2026/10/18/sports/haaland-brace-extends-man-citys-winning-start-in-premier-league/2448059"
+        ],
+        [
+          "ani",
+          "https://www.aninews.in/news/sports/football/premier-league-manchester-city-chelsea-liverpool-secure-wins20261017230614/"
+        ],
+        [
+          "bein",
+          "https://www.beinsports.com/en-us/soccer/premier-league/articles/brentford-1-2-liverpool-yarmoliuk-and-janelt-sent-off-as-isak-scores-winner-2026-10-17"
+        ],
+        [
+          "brentfordfc",
+          "https://www.brentfordfc.com/en/news/match-reports-brentford-1-liverpool-2-premier-league-17-11-2026"
+        ]
+      ],
+      "also": [
+        [
+          "skysports",
+          "https://www.skysports.com/football/news/13598864/man-city-3-2-ipswich-erling-haalands-incredible-scoring-run-continues-as-enzo-marescas-side-continue-to-weather-storm"
+        ]
+      ]
+    },
+    {
+      "id": "sp-tonga-beat-england",
+      "sec": "sport",
+      "sub": "Rugby",
+      "head": "Tonga beat England 30-12 in Rugby League World Cup",
+      "say": "Tonga beat England thirty points to twelve in Perth on Saturday, with Haumole Olakau'atu scoring twice, leaving England's hopes of reaching the semi-finals in doubt.",
+      "stand": "Four tries to two in Perth put Tonga in a strong position in their pool and left England needing help from other results.",
+      "body": [
+        "Tonga beat England 30-12 in their Rugby League World Cup opener at HBF Park in Perth on Saturday. The sell-out crowd of 18,302 included Tonga's King Tupou VI.",
+        "Stefano Utoikamanu scored the first try and two Isaiya Katoa penalties gave Tonga a 10-0 half-time lead. Haumole Olakau'atu scored twice and Tolutau Koula once.",
+        "AJ Brimson and Dom Young scored England's tries. Katoa was named player of the match.",
+        "Tonga hold the head-to-head advantage over England in the pool. England still face France and Papua New Guinea, while Tonga play Samoa on 1 November."
+      ],
+      "kept": [
+        [
+          "Tonga beat England 30-12 at HBF Park, Perth, on Saturday",
+          "2 of 2 outlets"
+        ],
+        [
+          "Haumole Olakau'atu scored two of Tonga's four tries",
+          "2 of 2 outlets"
+        ],
+        [
+          "Result leaves England needing other results to reach the semi-finals",
+          "2 of 2 outlets"
+        ],
+        [
+          "Sell-out crowd of 18,302 watched in Perth",
+          "2 of 2 outlets"
+        ],
+        [
+          "Tonga led 10-0 at half-time after Katoa kicked two penalties",
+          "2 of 2 outlets"
+        ],
+        [
+          "Tonga meet Samoa on 1 November in their final group game",
+          "1 of 2 outlets"
+        ]
+      ],
+      "cut": [
+        [
+          "Match described as a \"game of death\"",
+          "Promotional nickname, not a fact"
+        ]
+      ],
+      "open": [
+        "History: NRL.com calls it Tonga's first win over England; AAP cites a 2019 win over Great Britain"
+      ],
+      "primary": [],
+      "m": [
+        82,
+        30,
+        92
+      ],
+      "src": [
+        [
+          "nrl",
+          "https://www.nrl.com/news/2026/10/17/tonga-make-statement-with-historic-win-over-england/"
+        ],
+        [
+          "aap",
+          "https://aapnews.aap.com.au/news/tonga-crush-england-in-world-cup-game-of-death"
+        ]
+      ],
+      "also": [
+        [
+          "skysports",
+          "https://www.skysports.com/rugby-league/england-vs-tonga/64270"
+        ]
+      ]
+    },
+    {
+      "id": "sp-verstappen-portimao-ninth",
+      "sec": "sport",
+      "sub": "Motor racing",
+      "head": "Verstappen recovers to ninth in Portimao GT3 finale after penalty",
+      "say": "Max Verstappen's team took a drive-through penalty in the GT World Challenge finale at Portimao on Saturday, but he fought back from twenty-fourth to finish ninth.",
+      "stand": "GetSpeed's Mercedes won the three-hour season finale, while Verstappen's car recovered from a penalty for a teammate's collision.",
+      "body": [
+        "The number 17 GetSpeed Mercedes of Ralf Aron, Maximilian Gotz and Fabian Schiller won the three-hour GT World Challenge Europe finale at Portimao.",
+        "Two Porsches completed the podium, from Lionspeed GP and Boutsen VDS, finishing about five seconds behind.",
+        "Verstappen shared the number 3 Mercedes with Ben Barnicoat and Chris Lulham. The team was given a drive-through after Lulham made contact with the number 48 Winward Mercedes.",
+        "Verstappen rejoined in 24th place during his final stint and climbed back to ninth."
+      ],
+      "kept": [
+        [
+          "Verstappen finished ninth in the Portimao GT World Challenge finale",
+          "3 of 3 outlets"
+        ],
+        [
+          "His car got a drive-through after co-driver Lulham hit the #48 Mercedes",
+          "2 of 3 outlets"
+        ],
+        [
+          "Verstappen rejoined in 24th and recovered to ninth place",
+          "2 of 3 outlets"
+        ],
+        [
+          "The #17 GetSpeed Mercedes of Aron, Gotz and Schiller won the race",
+          "3 of 3 outlets"
+        ],
+        [
+          "Lionspeed GP and Boutsen VDS Porsches finished second and third",
+          "3 of 3 outlets"
+        ],
+        [
+          "Verstappen shared the #3 Mercedes with Ben Barnicoat and Chris Lulham",
+          "3 of 3 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [
+        "Which driver served the drive-through: one report says Lulham, another says Verstappen"
+      ],
+      "primary": [],
+      "m": [
+        86,
+        30,
+        92
+      ],
+      "src": [
+        [
+          "planetf1",
+          "https://www.planetf1.com/news/full-race-results-gt-world-challenge-portimao"
+        ],
+        [
+          "gtreport",
+          "https://www.gt-report.com/2026/10/18/getspeed-wins-dramatic-portimao-race-as-verstappen-storms-through-the-field/"
+        ],
+        [
+          "rn365",
+          "https://racingnews365.com/max-verstappen-secures-top-10-gt-portimao-finish-after-major-team-penalty"
+        ]
+      ],
+      "also": []
+    },
+    {
+      "id": "sp-india-wi-rain-draw",
+      "sec": "sport",
+      "sub": "Cricket",
+      "head": "Rain washes out India v West Indies decider as T20 series ends 2-2",
+      "say": "Rain ended the fifth Twenty20 between India and West Indies in Bengaluru on Saturday, with India on one hundred and eighteen for five, so the series finished two-all.",
+      "stand": "The deciding match in Bengaluru was cut to nine overs a side and then abandoned, denying West Indies a first series win in India since 2002.",
+      "body": [
+        "The fifth and final Twenty20 international between India and West Indies was abandoned because of rain in Bengaluru on Saturday.",
+        "After a long rain delay, the match was cut to nine overs a side. West Indies won the toss and India reached 118 for five in 7.4 overs before rain returned.",
+        "Ishan Kishan made 30 from 10 balls and Naman Dhir 24 not out from six. The series ended 2-2, and the trophy was shared."
+      ],
+      "kept": [
+        [
+          "Fifth T20 between India and West Indies abandoned due to rain",
+          "3 of 3 outlets"
+        ],
+        [
+          "Five-match T20 series ended level at 2-2",
+          "3 of 3 outlets"
+        ],
+        [
+          "India were 118 for 5 in 7.4 overs when rain stopped play",
+          "3 of 3 outlets"
+        ],
+        [
+          "Match had been reduced to nine overs a side",
+          "3 of 3 outlets"
+        ],
+        [
+          "Ishan Kishan scored 30 from 10 balls",
+          "3 of 3 outlets"
+        ],
+        [
+          "West Indies missed a first series win in India since 2002",
+          "1 of 3 outlets"
+        ]
+      ],
+      "cut": [],
+      "open": [
+        "Whether West Indies' innings had a set target: one outlet cites 85 from five overs, others give none"
+      ],
+      "primary": [],
+      "m": [
+        85,
+        25,
+        95
+      ],
+      "src": [
+        [
+          "telangana",
+          "https://telanganatoday.com/india-vs-west-indies-5th-t20i-abandoned-due-to-rain-as-series-ends-2-2"
+        ],
+        [
+          "outlook",
+          "https://www.outlookindia.com/sports/cricket/india-vs-west-indies-5th-t20i-live-score-today-cricket-latest-updates"
+        ],
+        [
+          "asianet",
+          "https://newsable.asianetnews.com/sports/india-vs-west-indies-rain-washes-out-final-t20i-series-shared-2-2-articleshow-gi1p8xh"
+        ],
+        [
+          "cricinfo",
+          "https://www.cricinfo.com/series/west-indies-in-india-2026-27-1529215/india-vs-west-indies-5th-t20i-1529234/match-report",
+          "headline only"
+        ]
+      ],
+      "also": []
+    }
+  ]
+}
