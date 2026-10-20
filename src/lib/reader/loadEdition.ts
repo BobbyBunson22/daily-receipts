@@ -17,7 +17,8 @@ import { prepareEdition } from '../prepareEdition';
 import { deriveTags } from './tags';
 import { SUPABASE_URL, hasSupabase } from '../supabase/env';
 import { supabasePublic } from '../supabase/server';
-import type { ClientEdition, ClientStory } from './types';
+import type { ClientEdition, ClientStory, Reader } from './types';
+import { READER_BY_VOICE } from './voices';
 
 interface StoryRow {
   id: number;
@@ -43,7 +44,7 @@ interface StoryRow {
   grade: GradeLetter;
   importance: number | string;
   story_sources: { sort: number; outlet_key: string; url: string; note: string | null; outlets: { name: string; country: string } | null }[];
-  voice_clips: { path: string; created_at: string }[];
+  voice_clips: { path: string; created_at: string; voice_id: string }[];
 }
 
 const clipUrl = (path: string) => `${SUPABASE_URL}/storage/v1/object/public/voice/${path.split('/').map(encodeURIComponent).join('/')}`;
@@ -65,7 +66,7 @@ async function fromDatabase(): Promise<ClientEdition | null> {
     db
       .from('stories')
       .select(
-        'id, slug, sort, sec, sub, head, stand, say, body, kept, cut, open, primary_sources, m_corroboration, m_primary, m_stability, fig, sources, score, grade, importance, story_sources(sort, outlet_key, url, note, outlets(name, country)), voice_clips(path, created_at)',
+        'id, slug, sort, sec, sub, head, stand, say, body, kept, cut, open, primary_sources, m_corroboration, m_primary, m_stability, fig, sources, score, grade, importance, story_sources(sort, outlet_key, url, note, outlets(name, country)), voice_clips(path, created_at, voice_id)',
       )
       .eq('edition_id', ed.id)
       .order('sort'),
@@ -90,6 +91,12 @@ async function fromDatabase(): Promise<ClientEdition | null> {
 
   const stories: ClientStory[] = (rows as unknown as StoryRow[]).map((r) => {
     const clips = r.voice_clips.slice().sort((a, b) => b.created_at.localeCompare(a.created_at));
+    const presenter = clips.filter((c) => !c.voice_id.startsWith('kokoro:'));
+    const voices: Partial<Record<Reader, string>> = {};
+    for (const c of clips) {
+      const reader = READER_BY_VOICE[c.voice_id];
+      if (reader && !voices[reader]) voices[reader] = clipUrl(c.path);
+    }
     return {
       id: r.id,
       slug: r.slug,
@@ -114,7 +121,8 @@ async function fromDatabase(): Promise<ClientEdition | null> {
       score: r.score,
       grade: r.grade,
       importance: Number(r.importance),
-      clip: clips[0] ? clipUrl(clips[0].path) : null,
+      clip: presenter[0] ? clipUrl(presenter[0].path) : null,
+      voices,
     };
   });
 
@@ -131,6 +139,7 @@ async function fromDatabase(): Promise<ClientEdition | null> {
     stories,
     outletCount: new Set(stories.flatMap((s) => s.src.map((x) => x.key))).size,
     voice: null,
+    voiceBase: `${SUPABASE_URL}/storage/v1/object/public/voice/kokoro`,
   };
 }
 

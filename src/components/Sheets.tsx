@@ -6,9 +6,10 @@ import { GRADE_LABELS } from '../lib/grading';
 import { bulletinMinutes, canSpeak } from '../lib/reader/bulletin';
 import { liked } from '../lib/reader/personalise';
 import { tagKey } from '../lib/reader/tags';
-import { forgetTag, isSaved, moveTopic, resetTaste, setMin, setSize, toggleTopic } from '../lib/reader/state';
+import { forgetTag, isSaved, moveTopic, resetTaste, setMin, setSize, setVoice, toggleTopic } from '../lib/reader/state';
+import { READER_IDS, READERS, partUrl } from '../lib/reader/voices';
 import { track } from '../lib/reader/track';
-import type { ClientStory } from '../lib/reader/types';
+import type { ClientStory, Reader } from '../lib/reader/types';
 import { supabaseBrowser } from '../lib/supabase/browser';
 import { spreadFor } from '../lib/grading';
 import { AuthForm } from './AuthForm';
@@ -91,7 +92,7 @@ export function StorySheet({ id }: { id: number }) {
   const meters: [string, number][] = [['Corroboration', s.m[0]], ['Primary records', s.m[1]], ['Source spread', spreadFor(s.sources)], ['Stability', s.m[2]]];
   return (
     <Sheet label={s.head}>
-      <div className="meta"><Grade grade={s.grade} /><span>{secName} · {s.sub}</span>{live && <VoiceBadge story={s} name={ed.voice?.name} />}</div>
+      <div className="meta"><Grade grade={s.grade} /><span>{secName} · {s.sub}</span>{live && <VoiceBadge story={s} name={ed.voice?.name} reader={st.voice} />}</div>
       {!live && saved && <p className="archnote">Saved from the edition of {saved.date}</p>}
       <h2 className="sh-title">{s.head}</h2>
       <p className="stand">{s.stand}</p>
@@ -150,13 +151,50 @@ export function StorySheet({ id }: { id: number }) {
   );
 }
 
+/** Choose who reads the roundup, with a short sample of each voice. */
+export function NewsreaderPicker() {
+  const { ed, st, update, bulletin, toast } = useReader();
+  const [playing, setPlaying] = useState<Reader | null>(null);
+  const hear = async (r: Reader) => {
+    const src = partUrl(ed, r, 'sample');
+    setPlaying(r);
+    track('voice_sample', { reader: r });
+    const ok = src && bulletin ? await bulletin.sample(src) : false;
+    setPlaying(null);
+    if (!ok) {
+      if (canSpeak()) {
+        toast(`${READERS[r].name}'s sample isn't ready yet`);
+      } else toast("Audio isn't available in this browser");
+    }
+  };
+  return (
+    <div className="readers" role="radiogroup" aria-label="Newsreader">
+      {READER_IDS.map((r) => (
+        <div key={r} className={`reader${st.voice === r ? ' on' : ''}`}>
+          <button role="radio" aria-checked={st.voice === r} className="pill" onClick={() => {
+            if (st.voice === r) return;
+            bulletin?.stop();
+            update((x) => setVoice(x, r));
+            track('voice_pick', { reader: r });
+            toast(`${READERS[r].name} will read your roundup`);
+          }}>{READERS[r].name}<small>{READERS[r].about}</small></button>
+          <button className="pill hear" onClick={() => hear(r)} disabled={playing !== null} aria-label={`Hear ${READERS[r].name}`}>
+            <Icon.mic /> {playing === r ? 'Playing' : 'Hear'}
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function RoundupSheet() {
   const { ed, st, bulletin, player, react, openStory, closeOverlay } = useReader();
   const list = liked(st, ed);
   const [speak, setSpeak] = useState(true);
   // eslint-disable-next-line react-hooks/set-state-in-effect -- reads browser-only state after hydration
   useEffect(() => setSpeak(canSpeak()), []);
-  const voiced = list.length > 0 && list.every((s) => s.clip);
+  const voiced = list.length > 0 && list.every((s) => s.clip || s.voices?.[st.voice]);
+  const someVoiced = list.some((s) => s.voices?.[st.voice]);
   if (!list.length)
     return (
       <Sheet label="Your roundup">
@@ -166,17 +204,18 @@ export function RoundupSheet() {
         <p><button className="pill solid" onClick={closeOverlay}>Find stories</button></p>
       </Sheet>
     );
-  const voiceLabel = ed.voice ? `read by an AI version of ${ed.voice.name}'s voice` : 'read aloud by your device';
-  const status = !player.playing ? `About ${bulletinMinutes(list, ed)} min · ${voiceLabel}` : player.paused ? 'Paused' : player.story < 0 ? 'Playing' : `Story ${player.story + 1} of ${player.n}`;
+  const name = READERS[st.voice].name;
+  const voiceLabel = someVoiced ? `read by ${name}, AI voice` : ed.voice ? `read by an AI version of ${ed.voice.name}'s voice` : 'read aloud by your device';
+  const status = !player.playing ? `About ${bulletinMinutes(list, ed, st.voice)} min · ${voiceLabel}` : player.paused ? 'Paused' : player.story < 0 ? 'Playing' : `Story ${player.story + 1} of ${player.n}`;
   return (
     <Sheet label="Your roundup">
       <h2 className="sh-title">Your roundup</h2>
-      <p className="stand">The {list.length} {list.length === 1 ? 'story' : 'stories'} you liked today, as a quick bulletin.</p>
+      <p className="stand">The {list.length} {list.length === 1 ? 'story' : 'stories'} you liked today, read in full as your own news bulletin.</p>
       {speak || voiced ? (
         <div className="player">
           <button className="pill solid" onClick={() => {
             if (!player.playing) track('roundup_play', { n: list.length });
-            bulletin?.toggle(list, ed);
+            bulletin?.toggle(list, ed, st.voice);
           }}>{!player.playing ? 'Play bulletin' : player.paused ? 'Resume' : 'Pause'}</button>
           <button className="pill" onClick={() => bulletin?.next()} disabled={!player.playing}>Next story</button>
           <button className="pill" onClick={() => bulletin?.stop()} disabled={!player.playing}>Stop</button>
@@ -193,13 +232,18 @@ export function RoundupSheet() {
             <div className="rbody">
               <button className="hl" onClick={() => openStory(s, 'roundup')}>{s.head}</button>
               <small>{ed.sections.find((x) => x.id === s.sec)?.name} · {s.kept.length} facts checked · Grade {s.grade}</small>
-              <VoiceBadge story={s} name={ed.voice?.name} />
+              <VoiceBadge story={s} name={ed.voice?.name} reader={st.voice} />
             </div>
             <button className="rb up" onClick={() => { bulletin?.stop(); react(s, 1); }} aria-pressed="true" aria-label={`Remove from your roundup: ${s.head}`}><Icon.heart /></button>
           </li>
         ))}
       </ol>
-      <p className="muted">The bulletin reads each story and its key facts{ed.voice ? `. Voice: ${voiceLabel}` : ''}.</p>
+      <h4>Your newsreader</h4>
+      <NewsreaderPicker />
+      <p className="muted">
+        {name} reads each story in full: the headline, then the report. {READERS.george.name} and {READERS.emma.name} are AI voices (Kokoro, open source), not real people.
+        {list.some((s) => !s.voices?.[st.voice]) ? ` Stories ${name} hasn't recorded yet are read by your device's voice.` : ''}
+      </p>
     </Sheet>
   );
 }
@@ -344,6 +388,9 @@ export function SettingsSheet() {
         ))}
       </div>
       <p className="muted">How many stories in your daily deck, from your topics in your order. Want more on the day? Tap &ldquo;Maximum receipts&rdquo; at the end.</p>
+      <h4>Your newsreader</h4>
+      <NewsreaderPicker />
+      <p className="muted">Who reads your roundup. Both are AI voices; tap Hear for a sample.</p>
       <h4>What your swipes have taught us</h4>
       {learned.length ? (
         <>

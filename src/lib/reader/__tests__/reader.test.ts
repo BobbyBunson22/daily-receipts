@@ -5,7 +5,9 @@ import { join } from 'node:path';
 import type { Edition } from '../../../types/edition';
 import { gradeStory } from '../../grading';
 import { prepareEdition } from '../../prepareEdition';
-import { segments, storyScript } from '../bulletin';
+import { bulletinMinutes, segments, spoken, storyScript, VOICE_FIXED } from '../bulletin';
+import { READER_BY_VOICE } from '../voices';
+import edition2026_10_20 from '../../../../data/edition-2026-10-20.json';
 import { DECK_SIZES, MUTED, dealWeight, deckList, extraCount, todays, liked, sectionLists, storyScore, tagAffinity, topStories, visible } from '../personalise';
 import { deriveTags, tagKey } from '../tags';
 import * as S from '../state';
@@ -249,19 +251,58 @@ describe('signing in on a second device', () => {
 });
 
 describe('roundup bulletin', () => {
-  it('reads intro, joins, each story\'s spoken line, and the sign-off; never the headline', () => {
+  const voiced = { ...ed, voiceBase: 'https://x/voice/kokoro' };
+
+  it('reads intro, joins, each story in full (headline, then the report), and the sign-off', () => {
     const list = ed.stories.slice(0, 3);
     const segs = segments(list, ed);
     const text = segs.map((s) => s.t);
-    expect(text[0]).toMatch(/^Here's your Daily Receipts roundup for Monday, 12 October\. 3 stories\.$/);
+    expect(text[0]).toBe(VOICE_FIXED.intro);
     expect(text).toContain('First.');
     expect(text).toContain('Next.');
     expect(text).toContain('Finally.');
     expect(text[text.length - 1]).toMatch(/^And that's the news/);
     for (const s of list) {
-      expect(text).toContain(storyScript(s));
-      expect(storyScript(s)).not.toContain(s.head);
+      const script = storyScript(s);
+      expect(text).toContain(script);
+      expect(script.startsWith(spoken(s.head).replace(/\.$/, ''))).toBe(true);
+      for (const p of s.body) expect(script).toContain(spoken(p));
+      expect(script).not.toContain(`Grade ${s.grade}`);
     }
+    // with nothing recorded, the device voice reads it all
+    expect(segs.every((x) => !x.src)).toBe(true);
+  });
+
+  it('uses the chosen newsreader\'s clips, their own fixed lines, and the device voice for gaps', () => {
+    const [a, b] = ed.stories;
+    const list = [{ ...a, voices: { george: 'g-a.mp3', emma: 'e-a.mp3' } }, { ...b, voices: { george: 'g-b.mp3' } }];
+    const emma = segments(list, voiced, 'emma');
+    expect(emma[0].src).toBe('https://x/voice/kokoro/emma/parts/v1/intro.mp3');
+    expect(emma.filter((x) => x.k === 0).map((x) => x.src)).toEqual(['https://x/voice/kokoro/emma/parts/v1/first.mp3', 'e-a.mp3']);
+    // Emma hasn't recorded story b: the device reads its join and the story
+    expect(emma.filter((x) => x.k === 1).map((x) => x.src)).toEqual([null, null]);
+    const george = segments(list, voiced, 'george');
+    expect(george.filter((x) => x.k >= 0).map((x) => x.src)).toEqual([
+      'https://x/voice/kokoro/george/parts/v1/first.mp3', 'g-a.mp3', 'https://x/voice/kokoro/george/parts/v1/finally.mp3', 'g-b.mp3',
+    ]);
+    expect(george[george.length - 1].src).toBe('https://x/voice/kokoro/george/parts/v1/outro.mp3');
+  });
+
+  it('reads ranges and dashes the way a newsreader would', () => {
+    expect(spoken('Spurs won 3-1 in 2024–25 — at home')).toBe('Spurs won 3 to 1 in 2024 to 25 , at home');
+  });
+
+  it('a five-minute roundup is about five full stories', () => {
+    const today = edition2026_10_20.stories.slice(0, 5) as unknown as ClientStory[];
+    expect(bulletinMinutes(today, ed)).toBeGreaterThanOrEqual(3);
+    expect(bulletinMinutes(today, ed)).toBeLessThanOrEqual(7);
+  });
+
+  it('the newsreaders\' voices are listed by their recording ids', () => {
+    expect(READER_BY_VOICE['kokoro:bm_george']).toBe('george');
+    expect(READER_BY_VOICE['kokoro:bf_emma']).toBe('emma');
+    expect(S.normalise({ voice: 'emma' }, ed).voice).toBe('emma');
+    expect(S.normalise({ voice: 'bob' }, ed).voice).toBe('george');
   });
 });
 

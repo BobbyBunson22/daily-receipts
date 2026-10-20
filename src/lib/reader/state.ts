@@ -5,7 +5,7 @@
 import { tagKey } from './tags';
 import type { GradeLetter } from '../../types/edition';
 import { GRADE_ORDER } from '../grading';
-import type { ClientEdition, ClientStory, DeckSize, Mode, ReaderState, SavedEntry, SwipeAction } from './types';
+import type { ClientEdition, ClientStory, DeckSize, Mode, Reader, ReaderState, SavedEntry, SwipeAction } from './types';
 
 export const STORAGE_KEY = 'dr.web.v1';
 
@@ -37,6 +37,7 @@ export function initialState(ed: ClientEdition): ReaderState {
     min: 'D',
     mode: 'swipe',
     size: 'standard',
+    voice: 'george',
     maxIssue: 0,
     taste: { sec: {}, sub: {}, tag: {} },
     react: {},
@@ -63,6 +64,7 @@ export function normalise(raw: unknown, ed: ClientEdition): ReaderState {
     min: GRADE_ORDER.includes(r.min as GradeLetter) ? (r.min as GradeLetter) : 'D',
     mode: r.mode === 'scroll' ? 'scroll' : 'swipe',
     size: r.size === 'quick' || r.size === 'long' ? r.size : 'standard',
+    voice: r.voice === 'emma' ? 'emma' : 'george',
     maxIssue: sameIssue && r.maxIssue === ed.issue ? ed.issue : 0,
     taste: { sec: num(r.taste?.sec), sub: num(r.taste?.sub), tag: pruneTags(num(r.taste?.tag)) },
     react: sameIssue && r.react && typeof r.react === 'object'
@@ -164,6 +166,7 @@ export function moveTopic(st: ReaderState, from: number, to: number): ReaderStat
 export const setMin = (st: ReaderState, min: GradeLetter): ReaderState => ({ ...st, min });
 export const setMode = (st: ReaderState, mode: Mode): ReaderState => ({ ...st, mode });
 export const setSize = (st: ReaderState, size: DeckSize): ReaderState => ({ ...st, size });
+export const setVoice = (st: ReaderState, voice: Reader): ReaderState => ({ ...st, voice });
 /** Maximum receipts: every story in today's edition, for today only. */
 export const showMax = (st: ReaderState, ed: ClientEdition): ReaderState => ({ ...st, maxIssue: ed.issue });
 /** Forget one learned tag. */

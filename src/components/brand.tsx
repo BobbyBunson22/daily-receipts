@@ -1,6 +1,7 @@
 import type { GradeLetter } from '../types/edition';
 import { GRADE_LABELS } from '../lib/grading';
-import type { ClientStory } from '../lib/reader/types';
+import type { ClientStory, Reader } from '../lib/reader/types';
+import { READERS } from '../lib/reader/voices';
 
 /** The torn-slip "DR" logo with a tick. */
 export function Logo({ inv = false, className = '' }: { inv?: boolean; className?: string }) {
@@ -70,7 +71,15 @@ export function Facts({ story, n = 3 }: { story: Pick<ClientStory, 'kept'>; n?: 
 
 export const cutLabel = (s: Pick<ClientStory, 'cut'>) => (s.cut.length ? `${s.cut.length} ${s.cut.length === 1 ? 'claim' : 'claims'} cut` : 'Nothing cut');
 
-export function VoiceBadge({ story, name }: { story: ClientStory; name?: string }) {
+export function VoiceBadge({ story, name, reader }: { story: ClientStory; name?: string; reader?: Reader }) {
+  const own = reader && story.voices?.[reader];
+  if (own)
+    return (
+      <span className="vbadge" title={`Read in full by ${READERS[reader].name}, an AI newsreader voice, in your roundup`}>
+        <Icon.mic />
+        {READERS[reader].name}
+      </span>
+    );
   if (!story.clip) return null;
   return (
     <span className="vbadge" title={`Read in ${name ?? 'our presenter'}'s AI voice in your roundup`}>

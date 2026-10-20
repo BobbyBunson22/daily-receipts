@@ -6,10 +6,10 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 import type { GradeLetter } from '../../types/edition';
 import { normalise } from './state';
-import type { ClientEdition, Mode, ReaderState, SavedEntry, DeckSize } from './types';
+import type { ClientEdition, Mode, Reader, ReaderState, SavedEntry, DeckSize } from './types';
 
 export interface Remote {
-  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null } | null;
+  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: Reader | null } | null;
   taste: { key: string; score: number }[];
   reactions: { story_id: number; value: 1 | -1 }[];
   swipes: { story_id: number; action: 'more' | 'less' | 'later'; created_at: string }[];
@@ -49,6 +49,7 @@ export function merge(local: ReaderState, remote: Remote, ed: ClientEdition): Re
       min: hasProfile ? remote.profile!.min_grade : local.min,
       mode: hasProfile ? remote.profile!.mode : local.mode,
       size: hasProfile && remote.profile!.deck_size ? remote.profile!.deck_size : local.size,
+      voice: hasProfile && remote.profile!.voice ? remote.profile!.voice : local.voice,
       taste: { sec: tasteSec, sub: tasteSub, tag: tasteTag },
       react,
       swiped,
@@ -95,7 +96,7 @@ export async function push(db: SupabaseClient, uid: string, st: ReaderState, ed:
   const saveRows = st.saves.map((e) => ({ user_id: uid, story_id: e.id, snapshot: e }));
 
   const results = await Promise.all([
-    db.from('profiles').upsert({ user_id: uid, topic_order: st.order, min_grade: st.min, mode: st.mode, deck_size: st.size, updated_at: new Date().toISOString() }),
+    db.from('profiles').upsert({ user_id: uid, topic_order: st.order, min_grade: st.min, mode: st.mode, deck_size: st.size, voice: st.voice, updated_at: new Date().toISOString() }),
     tasteRows.length ? db.from('taste').upsert(tasteRows) : db.from('taste').delete().eq('user_id', uid),
     (async () => {
       const unreacted = editionIds.filter((id) => !(id in st.react));

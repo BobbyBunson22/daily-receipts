@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "readers": {
+    "george": { "name": "George", "kokoro": "bm_george", "about": "British male" },
+    "emma": { "name": "Emma", "kokoro": "bf_emma", "about": "British female" }
+  },
+  "parts": {
+    "intro": "Hello, and welcome to your Daily Receipts roundup. Here are the stories you picked.",
+    "first": "First.",
+    "next": "Next.",
+    "finally": "Finally.",
+    "outro": "And that's the news, with the receipts. Thanks for listening, and see you tomorrow.",
+    "sample": "Hello, I'm your Daily Receipts newsreader. I'll read the stories you pick, in full, with the receipts."
+  }
+}

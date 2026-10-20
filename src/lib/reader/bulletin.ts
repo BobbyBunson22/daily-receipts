@@ -1,24 +1,25 @@
 'use client';
 /**
- * The roundup read aloud as a short bulletin: a fixed intro, "First / Next / Finally",
- * each story's spoken line (never the headline, grade or source counts), and a sign-off.
- * Recorded clips in the presenter's AI voice are used where they exist; the device voice
- * reads the rest, and takes over if a clip fails.
+ * The roundup read aloud as a short bulletin: an intro, "First / Next / Finally", each story
+ * read in full (headline, then the report), and a sign-off. The reader's chosen newsreader
+ * reads wherever their clip is recorded; the device voice reads the rest, and takes over if a
+ * clip fails. Never the grade or source counts.
  */
-import type { ClientEdition, ClientStory } from './types';
+import type { ClientEdition, ClientStory, Reader } from './types';
+import { PARTS, partUrl, readingScript, speakable } from './voices';
 
 export const VOICE_FIXED = {
-  intro: 'Hello, and welcome to your Daily Receipts roundup. Here are the stories you picked.',
-  first: 'First.',
-  next: 'Next.',
-  finally: 'Finally.',
-  outro: "And that's the news, with the receipts. Thanks for listening, and see you tomorrow.",
+  intro: PARTS.intro,
+  first: PARTS.first,
+  next: PARTS.next,
+  finally: PARTS.finally,
+  outro: PARTS.outro,
 } as const;
 
-export const spoken = (t: string) => String(t).replace(/\s*\([^)]*\)/g, '').replace(/–/g, ' to ').replace(/\s+/g, ' ').trim();
+export const spoken = speakable;
 
-/** What gets read for a story: its `say` line, or else its two key facts. */
-export const storyScript = (s: ClientStory) => (s.say ? spoken(s.say) : s.kept.slice(0, 2).map(([f]) => spoken(f) + '.').join(' '));
+/** What gets read for a story: the full version. */
+export const storyScript = (s: ClientStory) => readingScript(s);
 
 export interface Segment {
   t: string;
@@ -27,23 +28,28 @@ export interface Segment {
   k: number;
 }
 
-export function segments(list: ClientStory[], ed: ClientEdition): Segment[] {
-  const parts = ed.voice?.parts ?? {};
-  const day = ed.date.replace(/,?\s*\d{4}$/, '');
-  const segs: Segment[] = [];
-  if (parts.intro) segs.push({ src: parts.intro, t: VOICE_FIXED.intro, k: -1 });
-  else segs.push({ t: `Here's your Daily Receipts roundup for ${day}. ${list.length} ${list.length === 1 ? 'story' : 'stories'}.`, k: -1 });
+/** The clip a reader hears for a story: their newsreader's, else the presenter's, else none. */
+export const clipFor = (s: ClientStory, reader: Reader) => s.voices?.[reader] ?? s.clip ?? null;
+
+export function segments(list: ClientStory[], ed: ClientEdition, reader: Reader = 'george'): Segment[] {
+  const legacy = ed.voice?.parts ?? {};
+  const own = (s: ClientStory) => !!s.voices?.[reader];
+  const part = (key: keyof typeof VOICE_FIXED, s?: ClientStory) =>
+    s ? (own(s) ? partUrl(ed, reader, key) : s.clip ? legacy[key] ?? null : null) : null;
+  const lead = list.find(own) ?? list.find((s) => s.clip);
+  const segs: Segment[] = [{ src: part('intro', lead), t: VOICE_FIXED.intro, k: -1 }];
   list.forEach((s, i) => {
     const key = list.length === 1 ? '' : i === 0 ? 'first' : i === list.length - 1 ? 'finally' : 'next';
-    if (key) segs.push({ src: s.clip ? parts[key] : null, t: VOICE_FIXED[key as keyof typeof VOICE_FIXED], k: i });
-    segs.push({ src: s.clip ?? null, t: storyScript(s), k: i });
+    if (key) segs.push({ src: part(key as keyof typeof VOICE_FIXED, s), t: VOICE_FIXED[key as keyof typeof VOICE_FIXED], k: i });
+    segs.push({ src: clipFor(s, reader), t: storyScript(s), k: i });
   });
-  segs.push({ src: parts.outro ?? null, t: VOICE_FIXED.outro, k: -1 });
+  segs.push({ src: part('outro', lead), t: VOICE_FIXED.outro, k: -1 });
   return segs;
 }
 
-export const bulletinMinutes = (list: ClientStory[], ed: ClientEdition) =>
-  Math.max(1, Math.round(segments(list, ed).map((x) => x.t).join(' ').split(/\s+/).length / 150));
+/** Roughly how long the bulletin runs, at a newsreader's pace (about 165 words a minute). */
+export const bulletinMinutes = (list: ClientStory[], ed: ClientEdition, reader: Reader = 'george') =>
+  Math.max(1, Math.round(segments(list, ed, reader).map((x) => x.t).join(' ').split(/\s+/).length / 165));
 
 export const canSpeak = () => typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
 
@@ -87,17 +93,17 @@ export class Bulletin {
     this.onChange(this.state, event);
   }
 
-  start(list: ClientStory[], ed: ClientEdition) {
+  start(list: ClientStory[], ed: ClientEdition, reader: Reader = 'george') {
     this.stop();
     if (!list.length) return;
-    this.segs = segments(list, ed);
+    this.segs = segments(list, ed, reader);
     this.set({ playing: true, paused: false, story: -1, n: list.length });
     this.speakFrom(0);
   }
 
-  toggle(list: ClientStory[], ed: ClientEdition) {
+  toggle(list: ClientStory[], ed: ClientEdition, reader: Reader = 'george') {
     const seg = this.segs[this.i];
-    if (!this.state.playing) return this.start(list, ed);
+    if (!this.state.playing) return this.start(list, ed, reader);
     if (!this.state.paused) {
       if (seg?.src && this.audio) this.audio.pause();
       else if (canSpeak()) speechSynthesis.cancel();
@@ -114,6 +120,19 @@ export class Bulletin {
     const j = this.segs.findIndex((x, idx) => idx > this.i && x.k > this.state.story);
     this.set({ paused: false });
     this.speakFrom(j < 0 ? this.segs.length - 1 : j);
+  }
+
+  /** Plays one short clip (a newsreader's sample), stopping the bulletin. Resolves false if it can't play. */
+  sample(src: string): Promise<boolean> {
+    this.stop();
+    if (!this.audio) return Promise.resolve(false);
+    const a = this.audio;
+    a.onended = null;
+    return new Promise((done) => {
+      a.onerror = () => done(false);
+      a.src = src;
+      a.play().then(() => done(true), () => done(false));
+    });
   }
 
   stop(done = false) {
