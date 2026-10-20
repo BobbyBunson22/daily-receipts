@@ -1,0 +1,33 @@
+name: Voice sample
+
+# Records sample clips with Kokoro (free, open-source voices) so voices can be compared by ear.
+# Run by hand from the Actions tab; the clips are attached to the run as "voice-samples".
+
+on:
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: 'Edition file'
+        required: true
+        default: 'data/edition-2026-10-20.json'
+      stories:
+        description: 'Story ids, space separated'
+        required: true
+        default: 'uk-bus-music-fines sci-mmx-phobos sp-spurs-coventry'
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -q && sudo apt-get install -y -q espeak-ng ffmpeg
+      - run: pip install -q "kokoro>=0.9.4" soundfile numpy
+      - run: python scripts/voice/kokoro_sample.py "${{ inputs.edition }}" out ${{ inputs.stories }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voice-samples
+          path: out/*.mp3
