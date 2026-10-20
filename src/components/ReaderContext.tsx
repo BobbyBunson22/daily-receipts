@@ -7,7 +7,7 @@ import type { Session } from '@supabase/supabase-js';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 import { Bulletin, type PlayerState } from '../lib/reader/bulletin';
-import { deckList, liked, visible } from '../lib/reader/personalise';
+import { deckList, liked, todays } from '../lib/reader/personalise';
 import * as S from '../lib/reader/state';
 import { merge, pull, push } from '../lib/reader/sync';
 import { getAnonId, setTrackingEdition, track } from '../lib/reader/track';
@@ -53,6 +53,9 @@ interface Ctx {
 }
 
 const ReaderCtx = createContext<Ctx | null>(null);
+
+/** What a skip teaches, in words: the story's main subject, not its section. */
+const lessMsg = (s: ClientStory) => (s.tags?.[0] ? `Less about ${s.tags[0]} from now on` : 'Fewer stories like this');
 
 export function useReader(): Ctx {
   const c = useContext(ReaderCtx);
@@ -240,9 +243,9 @@ export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: 
     track('swipe', { action, grade: s.grade, sec: s.sec, pos: before.swiped.length + 1 }, s.id);
     if (action === 'later') toast(`Saved for later · ${after.saves.length} in your list`);
     else if (action === 'more') toast('Added to your roundup');
-    else toast(`Less ${ed.sections.find((x) => x.id === s.sec)?.name ?? s.sec} from now on`);
+    else toast(lessMsg(s));
     if (action === 'later') track('save', { from: 'swipe' }, s.id);
-    if (visible(after, ed).length && !deckList(after, ed).length) track('deck_done', { likes: liked(after, ed).length, n: after.swiped.length });
+    if (todays(after, ed).length && !deckList(after, ed).length) track('deck_done', { likes: liked(after, ed).length, n: after.swiped.length });
   }, [ed, toast, update]);
 
   const react = useCallback((s: ClientStory, v: 1 | -1) => {
@@ -250,7 +253,7 @@ export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: 
     update((x) => S.react(x, s, v, true));
     const now = prev === v ? 0 : v;
     if (now === 1) toast('Added to your roundup');
-    else if (now === -1) toast(`Less ${ed.sections.find((x) => x.id === s.sec)?.name ?? s.sec} from now on`);
+    else if (now === -1) toast(lessMsg(s));
     else toast(v === 1 ? 'Removed from your roundup' : 'Skip undone');
     track('swipe', { action: now === 1 ? 'more' : now === -1 ? 'less' : 'clear', via: 'button', grade: s.grade, sec: s.sec }, s.id);
   }, [ed, toast, update]);

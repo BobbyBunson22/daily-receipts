@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
-import { deckList, leans, liked, minutes, visible } from '../lib/reader/personalise';
-import { reswipeSaved } from '../lib/reader/state';
+import { deckList, extraCount, leans, liked, minutes, todays } from '../lib/reader/personalise';
+import { reswipeSaved, showMax } from '../lib/reader/state';
 import type { ClientStory, SwipeAction } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel, mastDate, shortDate } from './brand';
 import { DailyBadge } from './Daily';
@@ -73,7 +73,8 @@ export function SwipeView() {
   const { anyOn } = usePuzzles();
   const deckRef = useRef<HTMLDivElement>(null);
   const busy = useRef(false);
-  const all = visible(st, ed);
+  const all = todays(st, ed);
+  const extra = extraCount(st, ed);
   const deck = deckList(st, ed);
   const done = all.length - deck.length;
   const top = deck[0];
@@ -184,6 +185,7 @@ export function SwipeView() {
             <p>{all.length} stories, done. They&apos;re all here until tomorrow&apos;s edition, so you can start over any time.{ln.length ? ` We'll lean into ${ln.join(', ')} tomorrow.` : ''}</p>
             <div className="endbtns">
               {nLiked > 0 && <button className="pill solid" onClick={() => setOverlay({ kind: 'roundup' })}>Listen to your roundup ({nLiked})</button>}
+              {extra > 0 && <button className="pill solid gold" onClick={() => update((x) => showMax(x, ed))}>Maximum receipts · {extra} more</button>}
               <button className="pill" onClick={restart}>Start over from story 1</button>
               {anyOn && <button className="pill" onClick={() => setOverlay({ kind: 'puzzles' })}>Today&apos;s puzzles</button>}
               <button className="pill" onClick={() => update((x) => ({ ...x, mode: 'scroll' }))}>Open the full edition</button>

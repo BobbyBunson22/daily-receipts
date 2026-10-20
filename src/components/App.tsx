@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-import { deckList, visible } from '../lib/reader/personalise';
+import { deckList, todays } from '../lib/reader/personalise';
 import { needsTour } from '../lib/reader/state';
 import { track } from '../lib/reader/track';
 import type { ClientEdition } from '../lib/reader/types';
@@ -18,7 +18,7 @@ import { Tour } from './Tour';
 
 function Header() {
   const { ed, st, update, setOverlay, user } = useReader();
-  const all = visible(st, ed).length;
+  const all = todays(st, ed).length;
   const progress = st.mode === 'swipe' && all ? (all - deckList(st, ed).length) / all : 0;
   const setMode = (mode: 'swipe' | 'scroll') => {
     if (st.mode === mode) return;

@@ -68,14 +68,33 @@ export function arrange(st: ReaderState, stories: ClientStory[]): ClientStory[] 
   return [...out, ...muted];
 }
 
+/** Number of receipts: stories in a day's deck. */
+export const DECK_SIZES = { quick: 18, standard: 36, long: 54 } as const;
+export const deckLimit = (st: ReaderState, ed: ClientEdition) => (st.maxIssue === ed.issue ? Infinity : DECK_SIZES[st.size]);
+
+/**
+ * Today's receipts: the stories already swiped, then the best of the rest, up to the reader's
+ * number of receipts. Swipes reorder what's left without changing how many there are.
+ */
+export function todays(st: ReaderState, ed: ClientEdition): ClientStory[] {
+  const all = visible(st, ed);
+  const done = new Set(st.swiped);
+  const swiped = all.filter((s) => done.has(s.id));
+  const rest = arrange(st, all.filter((s) => !done.has(s.id)));
+  return [...swiped, ...rest.slice(0, Math.max(0, deckLimit(st, ed) - swiped.length))];
+}
+
+/** Stories in the reader's topics beyond their number of receipts: what "Maximum receipts" adds. */
+export const extraCount = (st: ReaderState, ed: ClientEdition) => visible(st, ed).length - todays(st, ed).length;
+
 /** The cards still to swipe, in order. */
 export function deckList(st: ReaderState, ed: ClientEdition): ClientStory[] {
   const done = new Set(st.swiped);
-  return arrange(st, visible(st, ed).filter((s) => !done.has(s.id)));
+  return todays(st, ed).filter((s) => !done.has(s.id));
 }
 
 export function topStories(st: ReaderState, ed: ClientEdition): ClientStory[] {
-  return arrange(st, visible(st, ed)).slice(0, TOP_N);
+  return arrange(st, todays(st, ed)).slice(0, TOP_N);
 }
 
 /** Scroll mode: the rest of each topic, in the reader's order, with how many to show before "more in". */
@@ -83,7 +102,7 @@ export function sectionLists(st: ReaderState, ed: ClientEdition, exclude: Set<nu
   return st.order
     .map((secId, rank) => {
       const section = ed.sections.find((x) => x.id === secId);
-      const list = visible(st, ed).filter((s) => s.sec === secId && !exclude.has(s.id)).sort(byScore(st));
+      const list = todays(st, ed).filter((s) => s.sec === secId && !exclude.has(s.id)).sort(byScore(st));
       const limit = rank < 3 ? 6 : 3;
       return section && list.length ? { section, list, limit } : null;
     })

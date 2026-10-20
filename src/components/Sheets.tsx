@@ -6,7 +6,7 @@ import { GRADE_LABELS } from '../lib/grading';
 import { bulletinMinutes, canSpeak } from '../lib/reader/bulletin';
 import { liked } from '../lib/reader/personalise';
 import { tagKey } from '../lib/reader/tags';
-import { forgetTag, isSaved, moveTopic, resetTaste, setMin, toggleTopic } from '../lib/reader/state';
+import { forgetTag, isSaved, moveTopic, resetTaste, setMin, setSize, toggleTopic } from '../lib/reader/state';
 import { track } from '../lib/reader/track';
 import type { ClientStory } from '../lib/reader/types';
 import { supabaseBrowser } from '../lib/supabase/browser';
@@ -337,6 +337,13 @@ export function SettingsSheet() {
       <h2 className="sh-title">Your edition</h2>
       <p className="stand">Tap the topics you want, then hold and drag to put your favourites first. Your top three get the most stories.</p>
       <TopicOrder />
+      <h4>Number of receipts</h4>
+      <div className="addrow" role="group" aria-label="Number of receipts">
+        {([['quick', 'Quick', 18], ['standard', 'Standard', 36], ['long', 'Long', 54]] as const).map(([k, t, n]) => (
+          <button key={k} className="pill" aria-pressed={st.size === k} onClick={() => update((x) => setSize(x, k))}>{t} · {n}</button>
+        ))}
+      </div>
+      <p className="muted">How many stories in your daily deck, from your topics in your order. Want more on the day? Tap &ldquo;Maximum receipts&rdquo; at the end.</p>
       <h4>What your swipes have taught us</h4>
       {learned.length ? (
         <>

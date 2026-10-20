@@ -5,7 +5,7 @@
 import { tagKey } from './tags';
 import type { GradeLetter } from '../../types/edition';
 import { GRADE_ORDER } from '../grading';
-import type { ClientEdition, ClientStory, Mode, ReaderState, SavedEntry, SwipeAction } from './types';
+import type { ClientEdition, ClientStory, DeckSize, Mode, ReaderState, SavedEntry, SwipeAction } from './types';
 
 export const STORAGE_KEY = 'dr.web.v1';
 
@@ -36,6 +36,8 @@ export function initialState(ed: ClientEdition): ReaderState {
     order: ed.sections.map((s) => s.id),
     min: 'D',
     mode: 'swipe',
+    size: 'standard',
+    maxIssue: 0,
     taste: { sec: {}, sub: {}, tag: {} },
     react: {},
     swiped: [],
@@ -60,6 +62,8 @@ export function normalise(raw: unknown, ed: ClientEdition): ReaderState {
     order: Array.isArray(r.order) ? r.order.filter((id, i, a) => known.has(id) && a.indexOf(id) === i) : base.order,
     min: GRADE_ORDER.includes(r.min as GradeLetter) ? (r.min as GradeLetter) : 'D',
     mode: r.mode === 'scroll' ? 'scroll' : 'swipe',
+    size: r.size === 'quick' || r.size === 'long' ? r.size : 'standard',
+    maxIssue: sameIssue && r.maxIssue === ed.issue ? ed.issue : 0,
     taste: { sec: num(r.taste?.sec), sub: num(r.taste?.sub), tag: pruneTags(num(r.taste?.tag)) },
     react: sameIssue && r.react && typeof r.react === 'object'
       ? Object.fromEntries(Object.entries(r.react).filter(([k, v]) => ids.has(Number(k)) && (v === 1 || v === -1)))
@@ -159,6 +163,9 @@ export function moveTopic(st: ReaderState, from: number, to: number): ReaderStat
 
 export const setMin = (st: ReaderState, min: GradeLetter): ReaderState => ({ ...st, min });
 export const setMode = (st: ReaderState, mode: Mode): ReaderState => ({ ...st, mode });
+export const setSize = (st: ReaderState, size: DeckSize): ReaderState => ({ ...st, size });
+/** Maximum receipts: every story in today's edition, for today only. */
+export const showMax = (st: ReaderState, ed: ClientEdition): ReaderState => ({ ...st, maxIssue: ed.issue });
 /** Forget one learned tag. */
 export function forgetTag(st: ReaderState, key: string): ReaderState {
   const tag = { ...st.taste.tag };

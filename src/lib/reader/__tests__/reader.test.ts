@@ -6,7 +6,7 @@ import type { Edition } from '../../../types/edition';
 import { gradeStory } from '../../grading';
 import { prepareEdition } from '../../prepareEdition';
 import { segments, storyScript } from '../bulletin';
-import { MUTED, dealWeight, deckList, liked, sectionLists, storyScore, tagAffinity, topStories, visible } from '../personalise';
+import { DECK_SIZES, MUTED, dealWeight, deckList, extraCount, todays, liked, sectionLists, storyScore, tagAffinity, topStories, visible } from '../personalise';
 import { deriveTags, tagKey } from '../tags';
 import * as S from '../state';
 import { merge, type Remote } from '../sync';
@@ -34,7 +34,8 @@ const ed: ClientEdition = {
   }),
 };
 const at = 1_760_000_000_000;
-const fresh = () => S.initialState(ed);
+const fresh = () => ({ ...S.initialState(ed), maxIssue: ed.issue });
+const standard = () => S.initialState(ed);
 const byId = (id: number) => ed.stories.find((s) => s.id === id)!;
 
 describe('deck order', () => {
@@ -157,6 +158,34 @@ describe('deck order', () => {
   });
 });
 
+describe('number of receipts', () => {
+  it('standard is 36, quick 18, long 54 (or everything, if the edition has fewer)', () => {
+    expect(S.initialState(ed).size).toBe('standard');
+    expect(deckList(standard(), ed).length).toBe(Math.min(36, ed.stories.length));
+    expect(deckList(S.setSize(standard(), 'quick'), ed).length).toBe(18);
+    expect(deckList(S.setSize(standard(), 'long'), ed).length).toBe(Math.min(54, ed.stories.length));
+    expect(DECK_SIZES).toEqual({ quick: 18, standard: 36, long: 54 });
+  });
+
+  it('the count stays the same as you swipe, even when swipes reorder what is left', () => {
+    let st = S.setSize(standard(), 'quick');
+    for (const s of deckList(st, ed).slice(0, 5)) st = S.swipe(st, s, 'less', ed, at);
+    expect(todays(st, ed).length).toBe(18);
+    expect(deckList(st, ed).length).toBe(13);
+  });
+
+  it('maximum receipts adds every other story in your topics, for today only', () => {
+    const st = S.setSize(standard(), 'quick');
+    expect(extraCount(st, ed)).toBe(ed.stories.length - 18);
+    const max = S.showMax(st, ed);
+    expect(todays(max, ed).length).toBe(ed.stories.length);
+    expect(extraCount(max, ed)).toBe(0);
+    const tomorrow: ClientEdition = { ...ed, issue: ed.issue + 1 };
+    expect(S.normalise(JSON.parse(JSON.stringify(max)), tomorrow).maxIssue).toBe(0);
+    expect(S.normalise(JSON.parse(JSON.stringify(max)), ed).maxIssue).toBe(ed.issue);
+  });
+});
+
 describe('saved for later', () => {
   it('keeps a full copy of the story, so it outlives the edition', () => {
     const s = ed.stories[3];
@@ -181,7 +210,7 @@ describe('saved for later', () => {
   });
 
   it('survives damaged storage', () => {
-    expect(S.normalise('nonsense', ed)).toEqual(fresh());
+    expect(S.normalise('nonsense', ed)).toEqual(standard());
     const st = S.normalise({ order: ['world', 'nope', 'world'], min: 'Z', react: { 999999: 1 }, saves: [{ bad: true }] }, ed);
     expect(st.order).toEqual(['world']);
     expect(st.min).toBe('D');

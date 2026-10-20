@@ -582,3 +582,5 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .gpill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px 4px 5px}
 .gpill.due{border-color:#f0d27a;box-shadow:0 0 0 2px rgba(242,194,58,.35)}
 @media (prefers-reduced-motion:reduce){.daily-card,.gtoken.spin{animation:none}}
+.pill.gold{background:#f2c23a;border-color:#b8860b;color:var(--navy)}
+.pill.gold:hover{background:#e6b42a;color:var(--navy)}

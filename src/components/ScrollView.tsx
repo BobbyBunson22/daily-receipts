@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 
-import { because, liked, minutes, sectionLists, topStories, visible } from '../lib/reader/personalise';
-import { isSaved } from '../lib/reader/state';
+import { because, extraCount, liked, minutes, sectionLists, todays, topStories } from '../lib/reader/personalise';
+import { isSaved, showMax } from '../lib/reader/state';
 import type { ClientStory } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel } from './brand';
 import { DailyBadge } from './Daily';
@@ -39,7 +39,8 @@ export function ScrollView() {
   const { ed, st, setOverlay, update } = useReader();
   const [more, setMore] = useState<Record<string, boolean>>({});
   const { anyOn } = usePuzzles();
-  const vis = visible(st, ed);
+  const vis = todays(st, ed);
+  const extra = extraCount(st, ed);
   const top = topStories(st, ed);
   const topIds = new Set(top.map((s) => s.id));
   const nLiked = liked(st, ed).length;
@@ -98,6 +99,7 @@ export function ScrollView() {
               <div className="endbtns">
                 {nLiked > 0 && <button className="pill solid" onClick={() => setOverlay({ kind: 'roundup' })}>Listen to your roundup ({nLiked})</button>}
                 {anyOn && <button className="pill" onClick={() => setOverlay({ kind: 'puzzles' })}>Today&apos;s puzzles</button>}
+                {extra > 0 && <button className="pill solid gold" onClick={() => update((x) => showMax(x, ed))}>Maximum receipts · {extra} more</button>}
                 <button className="pill" onClick={() => { update((x) => ({ ...x, mode: 'swipe', swiped: [] })); scrollTo(0, 0); }}>Start over in swipe</button>
               </div>
             </div>

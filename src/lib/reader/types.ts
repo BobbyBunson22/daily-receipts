@@ -72,6 +72,7 @@ export interface SavedEntry {
 
 export type SwipeAction = 'more' | 'less' | 'later';
 export type Mode = 'swipe' | 'scroll';
+export type DeckSize = 'quick' | 'standard' | 'long';
 
 export interface ReaderState {
   v: 1;
@@ -80,6 +81,10 @@ export interface ReaderState {
   order: string[];
   min: GradeLetter;
   mode: Mode;
+  /** Number of receipts: how many stories a day's deck holds. */
+  size: DeckSize;
+  /** The issue for which the reader asked for maximum receipts (every story); 0 when not. */
+  maxIssue: number;
   taste: { sec: Record<string, number>; sub: Record<string, number>; tag: Record<string, number> };
   /** Story id → 1 (more) or -1 (less), for the current edition. */
   react: Record<string, 1 | -1>;
