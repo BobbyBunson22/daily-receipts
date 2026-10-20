@@ -41,6 +41,11 @@ export const speakable = (t: string) =>
 export const readingScript = (s: Pick<ClientStory, 'head' | 'body' | 'spoken'>) =>
   [speakable(s.head).replace(/\.$/, '') + '.', ...(s.spoken?.length ? s.spoken : s.body).filter((p) => p && p.trim()).map(speakable)].join('\n\n');
 
+/** Lines both newsreaders say at once, and where the blended recording lives. */
+export const TOGETHER = LINES.together as Record<'welcome', string>;
+export const togetherUrl = (ed: Pick<ClientEdition, 'voiceBase'>, key: keyof typeof TOGETHER) =>
+  ed.voiceBase ? `${ed.voiceBase}/both/parts/v${LINES.version}/${key}.mp3` : null;
+
 /** A newsreader's recording of one of the fixed lines, when the edition says where they live. */
 export const partUrl = (ed: Pick<ClientEdition, 'voiceBase'>, reader: Reader, key: PartKey) =>
   ed.voiceBase ? `${ed.voiceBase}/${reader}/parts/v${LINES.version}/${key}.mp3` : null;

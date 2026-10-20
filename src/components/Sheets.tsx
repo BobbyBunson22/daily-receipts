@@ -7,7 +7,7 @@ import { bulletinMinutes, canSpeak } from '../lib/reader/bulletin';
 import { liked } from '../lib/reader/personalise';
 import { tagKey } from '../lib/reader/tags';
 import { forgetTag, isSaved, moveTopic, resetTaste, setMin, setSize, setVoice, toggleTopic } from '../lib/reader/state';
-import { READER_IDS, READERS, choiceName, partUrl, readerFor } from '../lib/reader/voices';
+import { READER_IDS, READERS, choiceName, duoLead, otherReader, partUrl, readerFor, togetherUrl } from '../lib/reader/voices';
 import { track } from '../lib/reader/track';
 import type { ClientStory, Reader, VoiceChoice } from '../lib/reader/types';
 import { supabaseBrowser } from '../lib/supabase/browser';
@@ -157,7 +157,8 @@ export function NewsreaderPicker() {
   const [playing, setPlaying] = useState<VoiceChoice | null>(null);
   const hear = async (v: VoiceChoice) => {
     // one reader: their sample; both: the two-handed hello
-    const clips = v === 'both' ? [partUrl(ed, 'george', 'hello'), partUrl(ed, 'emma', 'welcome')] : [partUrl(ed, v, 'sample')];
+    const lead = duoLead(ed);
+    const clips = v === 'both' ? [partUrl(ed, lead, 'hello'), partUrl(ed, otherReader(lead), 'welcome'), togetherUrl(ed, 'welcome')] : [partUrl(ed, v, 'sample')];
     setPlaying(v);
     track('voice_sample', { reader: v });
     let ok = !!bulletin;

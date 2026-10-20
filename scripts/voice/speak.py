@@ -34,6 +34,26 @@ def synth(pipe, voice: str, paras: list[str], speed: float = SPEED) -> np.ndarra
     return np.concatenate(parts) if parts else np.zeros(RATE // 2, dtype=np.float32)
 
 
+def duet(pipe, text: str, voices: list[str]) -> np.ndarray:
+    """Several voices saying the same line at once: each stretched slightly to the same length, then blended."""
+    import soundfile as sf
+
+    takes = [synth(pipe, v, [text]) for v in voices]
+    target = sum(len(t) for t in takes) / len(takes)
+    with tempfile.TemporaryDirectory() as d:
+        ins, chains = [], []
+        for i, t in enumerate(takes):
+            f = Path(d, f"{i}.wav")
+            sf.write(f, t, RATE)
+            ins += ["-i", str(f)]
+            chains.append(f"[{i}]atempo={len(t) / target:.4f}[a{i}]")
+        mix = "".join(f"[a{i}]" for i in range(len(takes))) + f"amix=inputs={len(takes)}:normalize=0,volume={1 / len(takes) ** 0.5:.3f}"
+        out = Path(d, "mix.wav")
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", *ins, "-filter_complex", ";".join(chains) + ";" + mix, str(out)], check=True)
+        audio, _ = sf.read(out, dtype="float32")
+        return audio
+
+
 def mp3(audio: np.ndarray, rate: int = RATE, loud: bool = True) -> bytes:
     """Mono mp3. loud=True evens out volume to podcast level (-16 LUFS), so every clip matches."""
     import soundfile as sf

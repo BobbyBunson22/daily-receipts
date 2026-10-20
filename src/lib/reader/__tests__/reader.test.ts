@@ -277,15 +277,15 @@ describe('roundup bulletin', () => {
     const [a, b] = ed.stories;
     const list = [{ ...a, voices: { george: 'g-a.mp3', emma: 'e-a.mp3' } }, { ...b, voices: { george: 'g-b.mp3' } }];
     const emma = segments(list, voiced, 'emma');
-    expect(emma[0].src).toBe('https://x/voice/kokoro/emma/parts/v3/intro.mp3');
-    expect(emma.filter((x) => x.k === 0).map((x) => x.src)).toEqual(['https://x/voice/kokoro/emma/parts/v3/first.mp3', 'e-a.mp3']);
+    expect(emma[0].src).toBe('https://x/voice/kokoro/emma/parts/v4/intro.mp3');
+    expect(emma.filter((x) => x.k === 0).map((x) => x.src)).toEqual(['https://x/voice/kokoro/emma/parts/v4/first.mp3', 'e-a.mp3']);
     // Emma hasn't recorded story b: the device reads its join and the story
     expect(emma.filter((x) => x.k === 1).map((x) => x.src)).toEqual([null, null]);
     const george = segments(list, voiced, 'george');
     expect(george.filter((x) => x.k >= 0).map((x) => x.src)).toEqual([
-      'https://x/voice/kokoro/george/parts/v3/first.mp3', 'g-a.mp3', 'https://x/voice/kokoro/george/parts/v3/finally.mp3', 'g-b.mp3',
+      'https://x/voice/kokoro/george/parts/v4/first.mp3', 'g-a.mp3', 'https://x/voice/kokoro/george/parts/v4/finally.mp3', 'g-b.mp3',
     ]);
-    expect(george[george.length - 1].src).toBe('https://x/voice/kokoro/george/parts/v3/outro.mp3');
+    expect(george[george.length - 1].src).toBe('https://x/voice/kokoro/george/parts/v4/outro.mp3');
   });
 
   it('both newsreaders take turns, story by story, with a short handover', () => {
@@ -295,22 +295,23 @@ describe('roundup bulletin', () => {
     const duo = { ...voiced, issue: 12 }; // even issue: George leads
     const segs = segments(list, duo, 'both');
     const said = segs.map((x) => x.t);
-    expect(said.slice(0, 3)).toEqual(["Hello, I'm George.", "And I'm Emma. This is your Daily Receipts roundup, with the stories you picked.", 'First.']);
+    expect(said.slice(0, 4)).toEqual(["Hi, I'm George.", "And I'm Emma.", 'Welcome to your Daily Receipts!', 'First.']);
+    expect(segs[2].src).toBe('https://x/voice/kokoro/both/parts/v4/welcome.mp3');
     // story by story: George, then Emma, then George
     expect(segs.filter((x) => x.t === storyScript(list[0]))[0].src).toBe('g.mp3');
     expect(segs.filter((x) => x.t === storyScript(list[1]))[0].src).toBe('e.mp3');
     expect(segs.filter((x) => x.t === storyScript(list[2]))[0].src).toBe('g.mp3');
     // handovers: each line in the speaker's own recording
     expect(segs.filter((x) => x.k === 1 && x.t !== storyScript(list[1])).map((x) => [x.t, x.src])).toEqual([
-      ['Over to you, Emma.', 'https://x/voice/kokoro/george/parts/v3/over1.mp3'],
-      ['Thanks, George.', 'https://x/voice/kokoro/emma/parts/v3/thanks1.mp3'],
+      ['Over to you, Emma.', 'https://x/voice/kokoro/george/parts/v4/over1.mp3'],
+      ['Thanks, George.', 'https://x/voice/kokoro/emma/parts/v4/thanks1.mp3'],
     ]);
     expect(segs.filter((x) => x.k === 2 && x.t !== storyScript(list[2])).map((x) => x.t)).toEqual(['Thank you, Emma.', 'Finally.']);
     expect(said.slice(-2)).toEqual(["And that's the news, with the receipts.", 'Thanks for listening. See you tomorrow.']);
     expect(segs[segs.length - 2].src).toContain('/george/');
     expect(segs[segs.length - 1].src).toContain('/emma/');
     // they swap who leads each day
-    expect(segments(list, { ...duo, issue: 13 }, 'both')[0].t).toBe("Hello, I'm Emma.");
+    expect(segments(list, { ...duo, issue: 13 }, 'both')[0].t).toBe("Hi, I'm Emma.");
     // nothing recorded: the device reads every line
     expect(segments(ed.stories.slice(0, 2), duo, 'both').every((x) => !x.src)).toBe(true);
     expect(S.normalise({ voice: 'both' }, ed).voice).toBe('both');

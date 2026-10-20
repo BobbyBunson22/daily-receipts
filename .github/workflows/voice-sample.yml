@@ -15,7 +15,7 @@ on:
         required: true
         default: 'uk-bus-music-fines sci-mmx-phobos sp-spurs-coventry'
       openings:
-        description: 'Record the candidate openings (scripts/voice/openings.json) instead'
+        description: 'Record the two-handed opening instead'
         type: boolean
         default: false
 
