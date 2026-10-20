@@ -62,6 +62,8 @@ export interface Story {
    * Not sources: nothing in the story is taken from them and they don't count towards the grade.
    */
   also?: AlsoLink[];
+  /** People, organisations, places and topics the story is about (3 to 8), so readers' swipes can teach the feed about them. */
+  tags?: string[];
   /** Spoken line for the audio bulletin; only on voiced stories. */
   say?: string | null;
   fig?: Figure | null;

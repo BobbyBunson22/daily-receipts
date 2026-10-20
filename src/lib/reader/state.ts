@@ -2,6 +2,7 @@
  * A reader's state and every change they can make to it, as pure functions.
  * Stored in the browser for everyone; mirrored to their account when signed in (see sync.ts).
  */
+import { tagKey } from './tags';
 import type { GradeLetter } from '../../types/edition';
 import { GRADE_ORDER } from '../grading';
 import type { ClientEdition, ClientStory, Mode, ReaderState, SavedEntry, SwipeAction } from './types';
@@ -17,6 +18,17 @@ const clamp = (x: number) => Math.max(-10, Math.min(10, x));
 export const TOUR_VERSION = 2;
 export const needsTour = (st: ReaderState) => st.toured < TOUR_VERSION;
 
+/** How much one like or skip moves each of the story's tags (scores run from -10 to 10). */
+export const TAG_STEP = 2;
+const MAX_TAG_KEYS = 300;
+
+/** Keeps the strongest tag scores and drops ones back at zero, so the list stays small. */
+export function pruneTags(tag: Record<string, number>): Record<string, number> {
+  const entries = Object.entries(tag).filter(([, v]) => v !== 0);
+  if (entries.length <= MAX_TAG_KEYS && entries.length === Object.keys(tag).length) return tag;
+  return Object.fromEntries(entries.sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, MAX_TAG_KEYS));
+}
+
 export function initialState(ed: ClientEdition): ReaderState {
   return {
     v: 1,
@@ -24,7 +36,7 @@ export function initialState(ed: ClientEdition): ReaderState {
     order: ed.sections.map((s) => s.id),
     min: 'D',
     mode: 'swipe',
-    taste: { sec: {}, sub: {} },
+    taste: { sec: {}, sub: {}, tag: {} },
     react: {},
     swiped: [],
     saves: [],
@@ -48,7 +60,7 @@ export function normalise(raw: unknown, ed: ClientEdition): ReaderState {
     order: Array.isArray(r.order) ? r.order.filter((id, i, a) => known.has(id) && a.indexOf(id) === i) : base.order,
     min: GRADE_ORDER.includes(r.min as GradeLetter) ? (r.min as GradeLetter) : 'D',
     mode: r.mode === 'scroll' ? 'scroll' : 'swipe',
-    taste: { sec: num(r.taste?.sec), sub: num(r.taste?.sub) },
+    taste: { sec: num(r.taste?.sec), sub: num(r.taste?.sub), tag: pruneTags(num(r.taste?.tag)) },
     react: sameIssue && r.react && typeof r.react === 'object'
       ? Object.fromEntries(Object.entries(r.react).filter(([k, v]) => ids.has(Number(k)) && (v === 1 || v === -1)))
       : {},
@@ -76,11 +88,16 @@ export function react(st: ReaderState, s: ClientStory, v: 1 | -1, toggle = false
   const reactMap = { ...st.react };
   if (next) reactMap[s.id] = next as 1 | -1;
   else delete reactMap[s.id];
+  // What the story is about learns the most; its sub-section a little; its section not at all
+  // (the reader's chosen topics and their order decide the sections).
+  const tag = { ...st.taste.tag };
+  for (const t of new Set((s.tags ?? []).map(tagKey))) if (t) tag[t] = clamp((tag[t] ?? 0) + TAG_STEP * d);
   return {
     ...st,
     taste: {
-      sec: { ...st.taste.sec, [s.sec]: clamp((st.taste.sec[s.sec] ?? 0) + d) },
+      sec: st.taste.sec,
       sub: { ...st.taste.sub, [k]: clamp((st.taste.sub[k] ?? 0) + d) },
+      tag: pruneTags(tag),
     },
     react: reactMap,
     // a liked or skipped story leaves the saved list: it has been dealt with
@@ -142,7 +159,14 @@ export function moveTopic(st: ReaderState, from: number, to: number): ReaderStat
 
 export const setMin = (st: ReaderState, min: GradeLetter): ReaderState => ({ ...st, min });
 export const setMode = (st: ReaderState, mode: Mode): ReaderState => ({ ...st, mode });
-export const resetTaste = (st: ReaderState): ReaderState => ({ ...st, taste: { sec: {}, sub: {} }, react: {} });
+/** Forget one learned tag. */
+export function forgetTag(st: ReaderState, key: string): ReaderState {
+  const tag = { ...st.taste.tag };
+  delete tag[key];
+  return { ...st, taste: { ...st.taste, tag } };
+}
+
+export const resetTaste = (st: ReaderState): ReaderState => ({ ...st, taste: { sec: {}, sub: {}, tag: {} }, react: {} });
 
 /** Saved entries grouped for display: today's edition first, then by day, newest first. */
 export function savedGroups(st: ReaderState, ed: ClientEdition): { label: string; today: boolean; entries: SavedEntry[] }[] {

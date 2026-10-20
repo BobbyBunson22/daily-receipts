@@ -26,9 +26,11 @@ export function merge(local: ReaderState, remote: Remote, ed: ClientEdition): Re
   const hasProfile = !!remote.profile && remote.profile.topic_order.length > 0;
   const tasteSec = { ...local.taste.sec };
   const tasteSub = { ...local.taste.sub };
+  const tasteTag = { ...local.taste.tag };
   for (const t of remote.taste) {
     if (t.key.startsWith('sec:')) tasteSec[t.key.slice(4)] = t.score;
     else if (t.key.startsWith('sub:')) tasteSub[t.key.slice(4)] = t.score;
+    else if (t.key.startsWith('tag:')) tasteTag[t.key.slice(4)] = t.score;
   }
   const react = { ...local.react };
   for (const r of remote.reactions) react[r.story_id] = r.value;
@@ -46,7 +48,7 @@ export function merge(local: ReaderState, remote: Remote, ed: ClientEdition): Re
       order: hasProfile ? remote.profile!.topic_order : local.order,
       min: hasProfile ? remote.profile!.min_grade : local.min,
       mode: hasProfile ? remote.profile!.mode : local.mode,
-      taste: { sec: tasteSec, sub: tasteSub },
+      taste: { sec: tasteSec, sub: tasteSub, tag: tasteTag },
       react,
       swiped,
       saves,
@@ -85,6 +87,7 @@ export async function push(db: SupabaseClient, uid: string, st: ReaderState, ed:
   const tasteRows = [
     ...Object.entries(st.taste.sec).map(([k, score]) => ({ user_id: uid, key: `sec:${k}`, score })),
     ...Object.entries(st.taste.sub).map(([k, score]) => ({ user_id: uid, key: `sub:${k}`, score })),
+    ...Object.entries(st.taste.tag).filter(([k]) => k.length <= 70).map(([k, score]) => ({ user_id: uid, key: `tag:${k}`, score: Math.round(score) })),
   ];
   const actionOf = (id: number) => (st.react[id] === 1 ? 'more' : st.react[id] === -1 ? 'less' : 'later');
   const swipeRows = st.swiped.map((id) => ({ user_id: uid, edition_id: ed.id!, story_id: id, action: actionOf(id) }));

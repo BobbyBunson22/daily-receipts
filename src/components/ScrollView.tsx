@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-import { affSec, liked, minutes, sectionLists, topStories, visible } from '../lib/reader/personalise';
+import { because, liked, minutes, sectionLists, topStories, visible } from '../lib/reader/personalise';
 import { isSaved } from '../lib/reader/state';
 import type { ClientStory } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel } from './brand';
@@ -72,10 +72,7 @@ export function ScrollView() {
         <>
           <section className="rcpt" aria-labelledby="top-h">
             <div className="band"><h2 id="top-h">Top stories</h2><span>{minutes(top.length)} min</span></div>
-            {top.map((s) => {
-              const name = ed.sections.find((x) => x.id === s.sec)?.name;
-              return <Item key={s.id} s={s} why={affSec(st, s.sec) >= 2 && name ? `Because you like ${name}` : ''} />;
-            })}
+            {top.map((s) => <Item key={s.id} s={s} why={because(st, s)} />)}
           </section>
           <p className="between">Done with the top? Keep scrolling for more.</p>
 

@@ -35,6 +35,8 @@ export interface ClientStory {
   src: ClientSource[];
   /** Other outlets' coverage, for further reading. Not sources and not graded. */
   also?: ClientAlso[];
+  /** What the story is about, for learning from swipes. */
+  tags?: string[];
   fig?: Figure | null;
   say?: string | null;
   sources: number;
@@ -78,7 +80,7 @@ export interface ReaderState {
   order: string[];
   min: GradeLetter;
   mode: Mode;
-  taste: { sec: Record<string, number>; sub: Record<string, number> };
+  taste: { sec: Record<string, number>; sub: Record<string, number>; tag: Record<string, number> };
   /** Story id → 1 (more) or -1 (less), for the current edition. */
   react: Record<string, 1 | -1>;
   /** Story ids swiped in the current edition, in order. */

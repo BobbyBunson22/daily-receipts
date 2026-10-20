@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { GRADE_LABELS } from '../lib/grading';
 import { bulletinMinutes, canSpeak } from '../lib/reader/bulletin';
-import { affSec, liked } from '../lib/reader/personalise';
-import { isSaved, moveTopic, resetTaste, setMin, toggleTopic } from '../lib/reader/state';
+import { liked } from '../lib/reader/personalise';
+import { tagKey } from '../lib/reader/tags';
+import { forgetTag, isSaved, moveTopic, resetTaste, setMin, toggleTopic } from '../lib/reader/state';
 import { track } from '../lib/reader/track';
 import type { ClientStory } from '../lib/reader/types';
 import { supabaseBrowser } from '../lib/supabase/browser';
@@ -326,7 +327,11 @@ function TopicOrder() {
 
 export function SettingsSheet() {
   const { ed, st, update, toast, user, signOut, setOverlay, sync } = useReader();
-  const learned = ed.sections.map((s) => ({ s, v: affSec(st, s.id) })).filter((x) => x.v !== 0).sort((a, b) => b.v - a.v);
+  const names = new Map<string, string>();
+  for (const s of ed.stories) for (const t of s.tags ?? []) if (!names.has(tagKey(t))) names.set(tagKey(t), t);
+  const nameOf = (k: string) => names.get(k) ?? k.replace(/\b\p{L}/gu, (c) => c.toUpperCase());
+  const learned = Object.entries(st.taste.tag).filter(([, v]) => v !== 0).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]) || b[1] - a[1]).slice(0, 12)
+    .map(([k, v]) => ({ k, v, name: nameOf(k) })).sort((a, b) => b.v - a.v);
   return (
     <Sheet label="Your edition">
       <h2 className="sh-title">Your edition</h2>
@@ -336,17 +341,18 @@ export function SettingsSheet() {
       {learned.length ? (
         <>
           <div className="learned">
-            {learned.map(({ s, v }) => (
-              <div className="lrow" key={s.id}>
-                <span>{s.name}</span>
+            {learned.map(({ k, v, name }) => (
+              <div className="lrow" key={k}>
+                <span>{name}</span>
                 <i className={v > 0 ? 'pos' : 'neg'}><b style={{ width: `${Math.min(100, Math.abs(v) * 10)}%` }} /></i>
                 <em>{v > 0 ? 'More' : 'Less'}</em>
+                <button className="lx" onClick={() => update((x) => forgetTag(x, k))} aria-label={`Forget ${name}`}>×</button>
               </div>
             ))}
           </div>
           <button className="pill" onClick={() => { update(resetTaste); toast('Your feed has been reset'); }}>Forget my swipes</button>
         </>
-      ) : <p className="muted">Nothing yet. Tap the heart or cross on stories, or swipe, and your feed adjusts.</p>}
+      ) : <p className="muted">Nothing yet. Swipe right on stories you want more like, left on ones you don&apos;t: we learn the people, places and subjects, not just the section.</p>}
       <h4>Daily puzzles</h4>
       <PuzzleSettings />
       <h4>Lowest grade to show</h4>

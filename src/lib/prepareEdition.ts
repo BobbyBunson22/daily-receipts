@@ -21,6 +21,15 @@ export function prepareEdition(input: Edition): Prepared {
         src[1] = 'https://' + src[1].slice('http://'.length);
       }
     }
+    // Tags: up to 8 short, distinct names; anything else is dropped rather than failing the edition.
+    if (story.tags !== undefined) {
+      const seen = new Set<string>();
+      story.tags = (Array.isArray(story.tags) ? story.tags : [])
+        .filter((t): t is string => typeof t === 'string')
+        .map((t) => t.replace(/\s+/g, ' ').trim())
+        .filter((t) => t.length >= 2 && t.length <= 40 && !seen.has(t.toLowerCase()) && (seen.add(t.toLowerCase()), true))
+        .slice(0, 8);
+    }
     // "Also reported by" links are optional extras: drop any that couldn't be shown, rather than
     // holding up the edition. Keep one per outlet, skip outlets already among the sources, at most 8.
     if (story.also !== undefined) {

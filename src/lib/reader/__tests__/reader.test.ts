@@ -6,13 +6,15 @@ import type { Edition } from '../../../types/edition';
 import { gradeStory } from '../../grading';
 import { prepareEdition } from '../../prepareEdition';
 import { segments, storyScript } from '../bulletin';
-import { deckList, forYou, liked, sectionLists, topStories, visible } from '../personalise';
+import { MUTED, dealWeight, deckList, liked, sectionLists, storyScore, tagAffinity, topStories, visible } from '../personalise';
+import { deriveTags, tagKey } from '../tags';
 import * as S from '../state';
 import { merge, type Remote } from '../sync';
-import type { ClientEdition, ClientStory } from '../types';
+import type { ClientEdition, ClientStory, ReaderState } from '../types';
 
 const raw = JSON.parse(readFileSync(join(__dirname, '../../../../data/edition-2026-10-12.json'), 'utf8')) as Edition;
 const { edition } = prepareEdition(raw);
+const derivedTags = deriveTags(edition.stories);
 const ed: ClientEdition = {
   id: 1,
   issue: edition.edition.issue,
@@ -26,6 +28,7 @@ const ed: ClientEdition = {
       ...s, id: 100 + i, slug: s.id, primary: s.primary, fig: s.fig ?? null, say: s.say ?? null,
       src: s.src.map(([key, url, note]) => ({ key, url, note: note ?? null, name: key, country: '' })),
       also: (s.also ?? []).map(([key, url]) => ({ key, url, name: key })),
+      tags: derivedTags[i],
       sources: g.sources, score: g.score, grade: g.grade, importance: g.importance, clip: null,
     };
   }),
@@ -35,25 +38,71 @@ const fresh = () => S.initialState(ed);
 const byId = (id: number) => ed.stories.find((s) => s.id === id)!;
 
 describe('deck order', () => {
-  it('starts with every story, most important first when there is no taste yet', () => {
+  const tagsOf = (s: ClientStory) => (s.tags ?? []).map(tagKey);
+  // a tag shared by two stories in the same topic, to see one swipe affect the other
+  const pair = (() => {
+    for (const a of ed.stories)
+      for (const b of ed.stories)
+        if (a.id < b.id && a.sec === b.sec) {
+          const shared = tagsOf(a).find((t) => tagsOf(b).includes(t));
+          const other = ed.stories.find((c) => c.sec === a.sec && c.id !== a.id && c.id !== b.id && !tagsOf(c).some((t) => tagsOf(a).includes(t)));
+          if (shared && other) return { a, b, other, tag: shared };
+        }
+    throw new Error('no shared tag in the test edition');
+  })();
+  const pos = (st: ReaderState, s: ClientStory) => deckList(st, ed).findIndex((x) => x.id === s.id);
+
+  it('starts with every story; the reader\'s first topic leads, best story first', () => {
     const d = deckList(fresh(), ed);
     expect(d.length).toBe(ed.stories.length);
-    for (let i = 1; i < d.length; i++) expect(forYou(fresh(), d[i - 1])).toBeGreaterThanOrEqual(forYou(fresh(), d[i]));
+    const first = fresh().order[0];
+    expect(d[0].sec).toBe(first);
+    const firstTopic = d.filter((s) => s.sec === first);
+    for (let i = 1; i < firstTopic.length; i++) expect(storyScore(fresh(), firstTopic[i - 1])).toBeGreaterThanOrEqual(storyScore(fresh(), firstTopic[i]));
   });
 
-  it('liking a section moves its stories up', () => {
-    const sport = ed.stories.filter((s) => s.sec === 'sport');
-    const before = deckList(fresh(), ed).findIndex((s) => s.sec === 'sport');
+  it('topics are a hard filter: someone who only picks sport gets only sport, all of it', () => {
+    const st = { ...fresh(), order: ['sport'] };
+    const d = deckList(st, ed);
+    expect(d.length).toBe(ed.stories.filter((s) => s.sec === 'sport').length);
+    expect(d.every((s) => s.sec === 'sport')).toBe(true);
+  });
+
+  it('the topic order decides the mix: the top choice comes first and gets the most cards early on', () => {
+    const order = ['sport', ...fresh().order.filter((x) => x !== 'sport')];
+    const st = { ...fresh(), order };
+    const d = deckList(st, ed);
+    expect(d[0].sec).toBe('sport');
+    const early = d.slice(0, 12);
+    const count = (sec: string) => early.filter((s) => s.sec === sec).length;
+    const sportAvailable = ed.stories.filter((s) => s.sec === 'sport').length;
+    for (const sec of order.slice(2)) expect(count('sport') >= count(sec) || count('sport') === sportAvailable).toBe(true);
+    expect(dealWeight(0)).toBeGreaterThan(dealWeight(1));
+    expect(dealWeight(9)).toBe(1);
+  });
+
+  it('a skip teaches about that story, not its section', () => {
+    const st = S.react(fresh(), pair.a, -1);
+    expect(st.taste.sec).toEqual({});
+    expect(st.taste.tag[pair.tag]).toBe(-S.TAG_STEP);
+    // the other story about the same thing drops; a story in the same topic about something else doesn't
+    expect(storyScore(st, pair.b)).toBeLessThan(storyScore(fresh(), pair.b));
+    expect(tagAffinity(st, pair.other)).toBe(0);
+  });
+
+  it('a like lifts other stories about the same thing', () => {
+    const st = S.react(fresh(), pair.a, 1);
+    expect(storyScore(st, pair.b)).toBeGreaterThan(storyScore(fresh(), pair.b));
+    expect(pos(st, pair.b)).toBeLessThanOrEqual(pos(fresh(), pair.b));
+  });
+
+  it('keep skipping something and its stories go to the back of the deck', () => {
     let st = fresh();
-    for (const s of sport.slice(0, 3)) st = S.react(st, s, 1);
-    const after = deckList(st, ed).findIndex((s) => s.sec === 'sport');
-    expect(after).toBeLessThan(before);
-  });
-
-  it('putting a topic first in the order lifts it', () => {
-    const st = S.moveTopic(fresh(), fresh().order.indexOf('culture'), 0);
-    const culture = ed.stories.find((s) => s.sec === 'culture')!;
-    expect(forYou(st, culture)).toBeGreaterThan(forYou(fresh(), culture));
+    for (let i = 0; i < 4; i++) st = { ...S.react(st, pair.a, -1), react: {} };
+    expect(tagAffinity(st, pair.b)).toBeLessThanOrEqual(MUTED);
+    const d = deckList(st, ed);
+    const tail = d.slice(-ed.stories.filter((s) => tagAffinity(st, s) <= MUTED).length);
+    expect(tail.map((s) => s.id)).toContain(pair.b.id);
   });
 
   it('removing a topic and raising the minimum grade filter the deck', () => {
@@ -79,24 +128,23 @@ describe('deck order', () => {
   it('saving for later is neutral: no change to taste', () => {
     const s = deckList(fresh(), ed)[0];
     const st = S.swipe(fresh(), s, 'later', ed, at);
-    expect(st.taste).toEqual({ sec: {}, sub: {} });
+    expect(st.taste).toEqual({ sec: {}, sub: {}, tag: {} });
   });
 
   it('undo reverses the last swipe exactly', () => {
-    const s = deckList(fresh(), ed)[0];
-    const st = S.swipe(fresh(), s, 'more', ed, at);
+    const st = S.swipe(fresh(), pair.a, 'more', ed, at);
     const { state } = S.undo(st, ed);
     expect(state.react).toEqual({});
     expect(state.swiped).toEqual([]);
-    expect(state.taste.sec[s.sec]).toBe(0);
+    expect(state.taste.tag[pair.tag] ?? 0).toBe(0);
   });
 
-  it('taste is clamped to -10..10', () => {
+  it('taste is clamped to -10..10, and one tag can be forgotten', () => {
     let st = fresh();
-    const s = ed.stories[0];
-    for (let i = 0; i < 15; i++) st = S.react(S.react(st, s, 1), s, 1, true);
-    for (let i = 0; i < 15; i++) st = { ...S.react(st, s, -1), react: {} };
-    expect(st.taste.sec[s.sec]).toBe(-10);
+    for (let i = 0; i < 15; i++) st = { ...S.react(st, pair.a, -1), react: {} };
+    expect(st.taste.tag[pair.tag]).toBe(-10);
+    st = S.forgetTag(st, pair.tag);
+    expect(st.taste.tag[pair.tag]).toBeUndefined();
   });
 
   it('scroll mode shows the top 8, then each topic in order without repeats', () => {

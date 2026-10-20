@@ -61,10 +61,13 @@ Row-level security: readers see published editions and their own rows only. Only
 - A ≥ 85, B ≥ 70, C ≥ 55, else D. Labels: Firm, Solid, Developing, Unconfirmed.
 - importance = sources × 10 + score / 10 (used for "top stories" and which stories get voiced).
 
-## Personalisation (port from prototype)
-- forYou(story) = importance + 6 × affinity + 0.8 × (10 − rank of its section in the reader's order)
-- affinity = taste[sec] + 0.5 × taste[sec/sub]; a like adds 1, a skip subtracts 1, clamped to −10..10.
-- Saving for later is neutral: no taste change.
+## Personalisation (web app, from 20 October 2026)
+- Topics are a hard filter: only the sections a reader picks ever show.
+- The topic order decides the mix: the deck deals from each topic in turn, 5, 4, 3, 2 and then 1 card per round by rank, so the first choice leads and gets the most.
+- Within a topic: storyScore = importance + 3 × tag affinity + sub-section affinity. Tag affinity is the sum of the reader's scores for the story's tags (people, places, organisations, topics), clamped to −10..10.
+- A like adds 2 to each of the story's tags and 1 to its sub-section; a skip subtracts the same. The section itself never changes: the reader's choices drive sections. Saving for later is neutral.
+- Stories whose tag affinity is −6 or lower go to the end of the deck.
+- Tags come from the edition (`tags`, 3 to 8 per story); for editions without them, names are drawn from the headline and kept facts (`src/lib/reader/tags.ts`). Tag scores sync to the account as `taste` rows keyed `tag:<name>`.
 
 ## Server jobs
 1. **Edition job** (05:30 UK): gather, write and check the edition with Claude using `docs/edition-prompt.md`; validate against the schema; save as draft; publish. Optional human approval step later.

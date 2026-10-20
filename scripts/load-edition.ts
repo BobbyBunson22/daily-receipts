@@ -41,7 +41,7 @@ async function main() {
   let links = 0;
   for (const s of edition.stories) {
     const also = s.also ?? [];
-    const { error: e2 } = await db.from('stories').update({ also }).eq('edition_id', data).eq('slug', s.id);
+    const { error: e2 } = await db.from('stories').update({ also, tags: s.tags ?? [] }).eq('edition_id', data).eq('slug', s.id);
     if (e2) {
       console.warn(`"Also reported by" links not saved (${e2.message}); the edition itself is loaded.`);
       break;

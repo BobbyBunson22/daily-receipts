@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import type { Edition, GradeLetter, Meters } from '../../types/edition';
 import { gradeStory } from '../grading';
 import { prepareEdition } from '../prepareEdition';
+import { deriveTags } from './tags';
 import { SUPABASE_URL, hasSupabase } from '../supabase/env';
 import { supabasePublic } from '../supabase/server';
 import type { ClientEdition, ClientStory } from './types';
@@ -73,7 +74,9 @@ async function fromDatabase(): Promise<ClientEdition | null> {
 
   // "Also reported by" links, read separately so the page still loads if the column isn't there yet
   const alsoById = new Map<number, [string, string][]>();
-  const { data: alsoRows, error: eAlso } = await db.from('stories').select('id, also').eq('edition_id', ed.id);
+  const { data: alsoRows, error: eAlso } = await db.from('stories').select('id, also, tags').eq('edition_id', ed.id);
+  const tagsById = new Map<number, string[]>();
+  for (const r of (alsoRows ?? []) as { id: number; tags: string[] | null }[]) if (r.tags?.length) tagsById.set(r.id, r.tags);
   if (eAlso) console.warn(`"Also reported by" links skipped: ${eAlso.message}`);
   for (const r of (alsoRows ?? []) as { id: number; also: [string, string][] | null }[]) if (r.also?.length) alsoById.set(r.id, r.also);
   for (const r of rows as unknown as StoryRow[]) r.also = alsoById.get(r.id) ?? [];
@@ -115,6 +118,10 @@ async function fromDatabase(): Promise<ClientEdition | null> {
     };
   });
 
+  // tags from the edition, or names drawn from each story when the edition has none
+  const derived = deriveTags(stories.map((x) => ({ head: x.head, kept: x.kept, tags: tagsById.get(x.id) ?? null })));
+  stories.forEach((x, i) => (x.tags = derived[i]));
+
   return {
     id: ed.id,
     issue: ed.issue,
@@ -133,6 +140,7 @@ export function fromFile(file?: string): ClientEdition {
   const name = file ?? readdirSync(dir).filter((f) => /^edition-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().pop();
   if (!name) throw new Error('No edition in data/');
   const { edition } = prepareEdition(JSON.parse(readFileSync(join(dir, name), 'utf8')) as Edition);
+  const tags = deriveTags(edition.stories);
   const stories: ClientStory[] = edition.stories.map((s, i) => {
     const g = gradeStory(s);
     return {
@@ -150,6 +158,7 @@ export function fromFile(file?: string): ClientEdition {
       m: s.m,
       src: s.src.map(([key, url, note]) => ({ key, url, note: note ?? null, name: edition.outlets[key]?.name ?? key, country: edition.outlets[key]?.country ?? '' })),
       fig: s.fig ?? null,
+      tags: tags[i],
       also: (s.also ?? []).map(([key, url]) => ({ key, url, name: edition.outlets[key]?.name ?? key })),
       say: s.say ?? null,
       sources: g.sources,

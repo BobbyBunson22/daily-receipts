@@ -171,7 +171,9 @@ a{color:inherit}
 .mv{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--paper);font-size:15px}
 .addrow{display:flex;flex-wrap:wrap;gap:8px}
 .learned{display:grid;gap:8px;margin-bottom:12px}
-.lrow{display:grid;grid-template-columns:110px minmax(0,1fr) 44px;align-items:center;gap:10px;font-family:var(--f-disp);font-size:15px;font-weight:600}
+.lrow{display:grid;grid-template-columns:minmax(0,140px) minmax(0,1fr) 40px 30px;align-items:center;gap:10px;font-family:var(--f-disp);font-size:15px;font-weight:600}
+.lrow span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lx{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);background:var(--paper);color:var(--ink-2);font-size:17px;line-height:1;padding:0}
 .lrow i{margin-top:0}
 .lrow i.neg b{background:var(--ink-2)}
 .lrow em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--ink-2)}
