@@ -121,6 +121,14 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   await p.waitForSelector('.sheet .sh-title');
   check((await p.$$('.rlist li')).length >= 1, `${tag} roundup lists liked stories`);
   check(!!(await p.$('text=Play bulletin')), `${tag} roundup has a play button`);
+  check(await p.getByRole('radio', { name: /George/ }).getAttribute('aria-checked') === 'true', `${tag} George reads by default`);
+  await p.getByRole('radio', { name: /Emma/ }).click();
+  check(await p.getByRole('radio', { name: /Emma/ }).getAttribute('aria-checked') === 'true', `${tag} newsreader can be switched to Emma`);
+  check(await p.evaluate(() => JSON.parse(localStorage.getItem('dr.web.v1') ?? '{}').voice) === 'emma', `${tag} the choice is remembered`);
+  check(await p.getByRole('button', { name: 'Hear Emma' }).count() === 1, `${tag} each newsreader has a sample button`);
+  check(await p.evaluate(() => document.querySelector('.readers').getBoundingClientRect().right <= innerWidth), `${tag} newsreader picker fits the screen`);
+  await p.screenshot({ path: `${OUT}/roundup-${tag}.png` });
+  await p.getByRole('radio', { name: /George/ }).click();
   await p.getByRole('button', { name: 'Close' }).click();
 
   // settings: topic toggle, grade filter

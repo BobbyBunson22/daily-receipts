@@ -224,6 +224,8 @@ export function RoundupSheet() {
       ) : (
         <p className="muted">Audio isn&apos;t available in this browser. Try opening the link in Safari or Chrome.</p>
       )}
+      <h4>Your newsreader</h4>
+      <NewsreaderPicker />
       <h4>In your roundup</h4>
       <ol className="rlist">
         {list.map((s, i) => (
@@ -238,8 +240,6 @@ export function RoundupSheet() {
           </li>
         ))}
       </ol>
-      <h4>Your newsreader</h4>
-      <NewsreaderPicker />
       <p className="muted">
         {name} reads each story in full: the headline, then the report. {READERS.george.name} and {READERS.emma.name} are AI voices (Kokoro, open source), not real people.
         {list.some((s) => !s.voices?.[st.voice]) ? ` Stories ${name} hasn't recorded yet are read by your device's voice.` : ''}
