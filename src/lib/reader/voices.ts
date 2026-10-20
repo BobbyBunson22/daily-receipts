@@ -11,8 +11,9 @@ export const READER_IDS = Object.keys(READERS) as Reader[];
 export type PartKey = keyof typeof LINES.parts;
 export const PARTS = LINES.parts as Record<PartKey, string>;
 
-/** In a two-handed bulletin, who leads: they take turns by day. */
-export const duoLead = (ed: Pick<ClientEdition, 'issue'>): Reader => (ed.issue % 2 === 0 ? 'george' : 'emma');
+/** In a two-handed bulletin, who opens and reads the first story. */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- kept per edition so the lead could rotate by day
+export const duoLead = (_ed?: Pick<ClientEdition, 'issue'>): Reader => LINES.duoLead as Reader;
 
 /** Who reads the i-th story of the roundup. */
 export const readerFor = (voice: VoiceChoice, i: number, ed: Pick<ClientEdition, 'issue'>): Reader =>
@@ -41,10 +42,8 @@ export const speakable = (t: string) =>
 export const readingScript = (s: Pick<ClientStory, 'head' | 'body' | 'spoken'>) =>
   [speakable(s.head).replace(/\.$/, '') + '.', ...(s.spoken?.length ? s.spoken : s.body).filter((p) => p && p.trim()).map(speakable)].join('\n\n');
 
-/** Lines both newsreaders say at once, and where the blended recording lives. */
-export const TOGETHER = LINES.together as Record<'welcome', string>;
-export const togetherUrl = (ed: Pick<ClientEdition, 'voiceBase'>, key: keyof typeof TOGETHER) =>
-  ed.voiceBase ? `${ed.voiceBase}/both/parts/v${LINES.version}/${key}.mp3` : null;
+/** The two-handed opening (the lead's hello and the other's reply), recorded as one clip. */
+export const openingUrl = (ed: Pick<ClientEdition, 'voiceBase'>) => (ed.voiceBase ? `${ed.voiceBase}/both/parts/v${LINES.version}/opening.mp3` : null);
 
 /** A newsreader's recording of one of the fixed lines, when the edition says where they live. */
 export const partUrl = (ed: Pick<ClientEdition, 'voiceBase'>, reader: Reader, key: PartKey) =>

@@ -6,7 +6,7 @@
  * clip fails. Never the grade or source counts.
  */
 import type { ClientEdition, ClientStory, Reader, VoiceChoice } from './types';
-import { PARTS, type PartKey, TOGETHER, duoLead, otherReader, partText, partUrl, readerFor, readingScript, speakable, togetherUrl } from './voices';
+import { PARTS, type PartKey, duoLead, openingUrl, otherReader, partText, partUrl, readerFor, readingScript, speakable } from './voices';
 
 export const VOICE_FIXED = {
   intro: PARTS.intro,
@@ -60,11 +60,11 @@ function duoSegments(list: ClientStory[], ed: ClientEdition): Segment[] {
   const reader = (i: number): Reader => readerFor('both', i, ed);
   const recorded = (r: Reader) => list.some((s) => s.voices?.[r]);
   const line = (key: PartKey, r: Reader, k: number): Segment => ({ src: recorded(r) ? partUrl(ed, r, key) : null, t: partText(key, r), k });
-  const segs: Segment[] = [
-    line('hello', lead, -1),
-    line('welcome', otherReader(lead), -1),
-    { src: recorded(lead) && recorded(otherReader(lead)) ? togetherUrl(ed, 'welcome') : null, t: TOGETHER.welcome, k: -1 },
-  ];
+  const segs: Segment[] = [{
+    src: recorded(lead) && recorded(otherReader(lead)) ? openingUrl(ed) : null,
+    t: `${partText('hello', lead)} ${partText('welcome', otherReader(lead))}`,
+    k: -1,
+  }];
   list.forEach((s, i) => {
     const r = reader(i);
     if (i === 0 && list.length > 1) segs.push(line('first', r, i));
@@ -110,6 +110,7 @@ export class Bulletin {
   private segs: Segment[] = [];
   private i = 0;
   private audio: HTMLAudioElement | null = typeof Audio !== 'undefined' ? new Audio() : null;
+  private preload: HTMLAudioElement | null = null;
   state: PlayerState = { playing: false, paused: false, story: -1, n: 0 };
 
   constructor(private onChange: (s: PlayerState, event?: 'done' | 'error') => void) {
@@ -194,6 +195,13 @@ export class Bulletin {
       if (this.state.playing && !this.state.paused && this.i === i) this.speakFrom(i + 1);
     };
     if (this.state.story !== seg.k) this.set({ story: seg.k });
+    // fetch the next clip now, so handovers don't wait on the network
+    const upcoming = this.segs[i + 1]?.src;
+    if (upcoming && typeof Audio !== 'undefined') {
+      this.preload = new Audio();
+      this.preload.preload = 'auto';
+      this.preload.src = upcoming;
+    }
     if (seg.src && this.audio) {
       const fallback = () => {
         if (this.i !== i || !seg.src || this.state.paused) return;

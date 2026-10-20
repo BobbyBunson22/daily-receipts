@@ -26,7 +26,7 @@ from pathlib import Path
 from kokoro import KPipeline
 
 sys.path.insert(0, str(Path(__file__).parent))
-from speak import duet, mp3, paragraphs, synth, unknown_names  # noqa: E402
+from speak import mp3, opening, paragraphs, synth, unknown_names  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 LINES = json.loads((ROOT / "src/lib/reader/voice-lines.json").read_text())
@@ -95,10 +95,8 @@ def main() -> None:
         text = text.replace("{me}", me).replace("{other}", other)
         upload(f"kokoro/{reader}/parts/v{LINES['version']}/{key}.mp3", mp3(synth(pipe, voice, [text])))
     if shard == 0 and reader == "george":
-        # lines both newsreaders say at once
-        both = [r["kokoro"] for r in LINES["readers"].values()]
-        for key, text in LINES.get("together", {}).items():
-            upload(f"kokoro/both/parts/v{LINES['version']}/{key}.mp3", mp3(duet(pipe, text, both)))
+        # the two-handed opening, both voices in one clip
+        upload(f"kokoro/both/parts/v{LINES['version']}/opening.mp3", mp3(opening(pipe, LINES)))
 
     t0 = time.time()
     names: dict[str, str] = {}

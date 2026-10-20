@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "readers": {
     "george": {
       "name": "George",
@@ -19,16 +19,14 @@
     "finally": "Finally.",
     "outro": "And that's the news, with the receipts. Thanks for listening, and see you tomorrow.",
     "sample": "Hello, I'm your Daily Receipts newsreader. I'll read the stories you pick, in full, with the receipts.",
-    "hello": "Hi, I'm {me}.",
-    "welcome": "And I'm {me}.",
+    "hello": "Hello, and welcome to your Daily Receipts roundup. I'm {me}.",
+    "welcome": "And I'm {me}. Here are the stories you picked, each one checked against its sources.",
     "over1": "Over to you, {other}.",
     "thanks1": "Thanks, {other}.",
     "thanks2": "Thank you, {other}.",
     "signoff1": "And that's the news, with the receipts.",
     "signoff2": "Thanks for listening. See you tomorrow."
   },
-  "_about": "Fixed lines each newsreader records. {me} and {other} are filled in with the reader's own name and the other reader's. 'together' lines are said by both at once (recorded once, as a blend). Bump version when any line or recording setting changes.",
-  "together": {
-    "welcome": "Welcome to your Daily Receipts!"
-  }
+  "_about": "Fixed lines each newsreader records. {me} and {other} are filled in with the reader's own name and the other reader's. In the two-handed bulletin, duoLead says hello and the other reader says welcome, recorded together as one clip (both/parts/v<version>/opening.mp3) so the gap is short. Bump version when any line or recording setting changes.",
+  "duoLead": "emma"
 }

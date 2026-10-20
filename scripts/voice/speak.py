@@ -34,24 +34,29 @@ def synth(pipe, voice: str, paras: list[str], speed: float = SPEED) -> np.ndarra
     return np.concatenate(parts) if parts else np.zeros(RATE // 2, dtype=np.float32)
 
 
-def duet(pipe, text: str, voices: list[str]) -> np.ndarray:
-    """Several voices saying the same line at once: each stretched slightly to the same length, then blended."""
-    import soundfile as sf
-
-    takes = [synth(pipe, v, [text]) for v in voices]
-    target = sum(len(t) for t in takes) / len(takes)
-    with tempfile.TemporaryDirectory() as d:
-        ins, chains = [], []
-        for i, t in enumerate(takes):
-            f = Path(d, f"{i}.wav")
-            sf.write(f, t, RATE)
-            ins += ["-i", str(f)]
-            chains.append(f"[{i}]atempo={len(t) / target:.4f}[a{i}]")
-        mix = "".join(f"[a{i}]" for i in range(len(takes))) + f"amix=inputs={len(takes)}:normalize=0,volume={1 / len(takes) ** 0.5:.3f}"
-        out = Path(d, "mix.wav")
-        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", *ins, "-filter_complex", ";".join(chains) + ";" + mix, str(out)], check=True)
-        audio, _ = sf.read(out, dtype="float32")
+def trim(audio: np.ndarray, threshold: float = 0.01, pad: float = 0.03) -> np.ndarray:
+    """Cuts the silence Kokoro leaves at the start and end of a take."""
+    loud = np.flatnonzero(np.abs(audio) > threshold)
+    if not len(loud):
         return audio
+    p = int(RATE * pad)
+    return audio[max(0, loud[0] - p): loud[-1] + p]
+
+
+OPENING_GAP = 0.12  # seconds between the first newsreader's hello and the second's reply
+
+
+def opening(pipe, lines: dict) -> np.ndarray:
+    """The two-handed opening as one clip: the lead's hello, a short beat, the other's reply."""
+    readers = lines["readers"]
+    lead = lines["duoLead"]
+    other = next(k for k in readers if k != lead)
+    fill = lambda key, me, them: lines["parts"][key].replace("{me}", readers[me]["name"]).replace("{other}", readers[them]["name"])  # noqa: E731
+    return np.concatenate([
+        trim(synth(pipe, readers[lead]["kokoro"], [fill("hello", lead, other)])),
+        np.zeros(int(RATE * OPENING_GAP), dtype=np.float32),
+        trim(synth(pipe, readers[other]["kokoro"], [fill("welcome", other, lead)])),
+    ])
 
 
 def mp3(audio: np.ndarray, rate: int = RATE, loud: bool = True) -> bytes:
