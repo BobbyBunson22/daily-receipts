@@ -15,6 +15,9 @@ on:
         required: true
         default: 'uk-bus-music-fines sci-mmx-phobos sp-spurs-coventry'
 
+permissions:
+  contents: write
+
 jobs:
   record:
     runs-on: ubuntu-latest
@@ -31,3 +34,10 @@ jobs:
         with:
           name: voice-samples
           path: out/*.mp3
+      # also kept on the voice-samples branch (never deployed), for anyone who can't reach artifacts
+      - run: |
+          cd out
+          git init -q -b voice-samples
+          git -c user.name=github-actions -c user.email=actions@github.com add *.mp3
+          git -c user.name=github-actions -c user.email=actions@github.com commit -q -m "Voice samples"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" voice-samples
