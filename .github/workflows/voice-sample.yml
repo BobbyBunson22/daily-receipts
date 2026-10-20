@@ -14,6 +14,10 @@ on:
         description: 'Story ids, space separated'
         required: true
         default: 'uk-bus-music-fines sci-mmx-phobos sp-spurs-coventry'
+      openings:
+        description: 'Record the candidate openings (scripts/voice/openings.json) instead'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -28,8 +32,11 @@ jobs:
         with:
           python-version: '3.11'
       - run: sudo apt-get update -q && sudo apt-get install -y -q espeak-ng ffmpeg
-      - run: pip install -q "kokoro>=0.9.4" soundfile numpy
+      - run: pip install -q torch --index-url https://download.pytorch.org/whl/cpu && pip install -q -r scripts/voice/requirements.txt
       - run: python scripts/voice/kokoro_sample.py "${{ inputs.edition }}" out ${{ inputs.stories }}
+        if: ${{ !inputs.openings }}
+      - run: python scripts/voice/openings_sample.py out
+        if: ${{ inputs.openings }}
       - uses: actions/upload-artifact@v4
         with:
           name: voice-samples

@@ -1,0 +1,14 @@
+[
+  {
+    "lead": "Hello, and welcome to your Daily Receipts roundup. I'm {me}.",
+    "second": "And I'm {me}. Here are the stories you picked, each one checked against its sources."
+  },
+  {
+    "lead": "Hello! This is Daily Receipts, and I'm {me}.",
+    "second": "And I'm {me}. Let's get into the stories you picked."
+  },
+  {
+    "lead": "Hi there, I'm {me}, and welcome to your Daily Receipts roundup.",
+    "second": "And I'm {me}. We've got the stories you picked, with the receipts. Let's get started."
+  }
+]
