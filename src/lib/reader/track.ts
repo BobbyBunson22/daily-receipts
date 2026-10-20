@@ -67,7 +67,11 @@ async function flush() {
 export function track(name: EventName, props: Record<string, unknown> = {}, storyId: number | null = null) {
   if (editionId === null) return; // local preview: nothing to record against
   queue.push({ name, edition_id: editionId, story_id: storyId, props });
-  if (!timer) timer = setTimeout(flush, 2000);
+  // a tap out to an outlet is the moment the page goes away: send it now
+  if (name === 'source_click') {
+    if (timer) clearTimeout(timer);
+    void flush();
+  } else if (!timer) timer = setTimeout(flush, 2000);
 }
 
 if (typeof window !== 'undefined') {
