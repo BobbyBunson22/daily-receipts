@@ -95,6 +95,8 @@ export interface ReaderState {
   size: DeckSize;
   /** Who reads the roundup. */
   voice: VoiceChoice;
+  /** True once the reader has chosen a newsreader; until then they get the default. */
+  voicePicked: boolean;
   /** The issue for which the reader asked for maximum receipts (every story); 0 when not. */
   maxIssue: number;
   taste: { sec: Record<string, number>; sub: Record<string, number>; tag: Record<string, number> };

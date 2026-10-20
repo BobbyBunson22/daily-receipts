@@ -49,7 +49,10 @@ export function merge(local: ReaderState, remote: Remote, ed: ClientEdition): Re
       min: hasProfile ? remote.profile!.min_grade : local.min,
       mode: hasProfile ? remote.profile!.mode : local.mode,
       size: hasProfile && remote.profile!.deck_size ? remote.profile!.deck_size : local.size,
-      voice: hasProfile && remote.profile!.voice ? remote.profile!.voice : local.voice,
+      // the account's choice wins only if it's a real pick (the account default is 'both')
+      ...(hasProfile && remote.profile!.voice && remote.profile!.voice !== 'both' && !local.voicePicked
+        ? { voice: remote.profile!.voice, voicePicked: true }
+        : { voice: local.voice, voicePicked: local.voicePicked }),
       taste: { sec: tasteSec, sub: tasteSub, tag: tasteTag },
       react,
       swiped,

@@ -332,8 +332,17 @@ describe('roundup bulletin', () => {
   it('the newsreaders\' voices are listed by their recording ids', () => {
     expect(READER_BY_VOICE['kokoro:bm_george']).toBe('george');
     expect(READER_BY_VOICE['kokoro:bf_emma']).toBe('emma');
-    expect(S.normalise({ voice: 'emma' }, ed).voice).toBe('emma');
-    expect(S.normalise({ voice: 'bob' }, ed).voice).toBe('george');
+    // both, taking turns, until a reader picks; a pick is kept
+    expect(fresh().voice).toBe('both');
+    expect(S.normalise({ voice: 'george' }, ed).voice).toBe('both');
+    expect(S.normalise({ voice: 'emma', voicePicked: true }, ed).voice).toBe('emma');
+    expect(S.normalise({ voice: 'bob', voicePicked: true }, ed).voice).toBe('both');
+    expect(S.setVoice(fresh(), 'george')).toMatchObject({ voice: 'george', voicePicked: true });
+    const profile = { topic_order: ed.sections.map((x) => x.id), min_grade: 'D' as const, mode: 'swipe' as const };
+    const remote = (voice: 'george' | 'both') => ({ profile: { ...profile, voice }, taste: [], reactions: [], swipes: [], saves: [] });
+    expect(merge(fresh(), remote('george'), ed).voice).toBe('george');
+    expect(merge(fresh(), remote('both'), ed).voice).toBe('both');
+    expect(merge(S.setVoice(fresh(), 'emma'), remote('george'), ed).voice).toBe('emma');
   });
 });
 
