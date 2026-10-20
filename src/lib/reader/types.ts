@@ -81,6 +81,8 @@ export type Mode = 'swipe' | 'scroll';
 export type DeckSize = 'quick' | 'standard' | 'long';
 /** The newsreader who reads the roundup. */
 export type Reader = 'george' | 'emma';
+/** Who reads the roundup: one newsreader, or both taking turns story by story. */
+export type VoiceChoice = Reader | 'both';
 
 export interface ReaderState {
   v: 1;
@@ -92,7 +94,7 @@ export interface ReaderState {
   /** Number of receipts: how many stories a day's deck holds. */
   size: DeckSize;
   /** Who reads the roundup. */
-  voice: Reader;
+  voice: VoiceChoice;
   /** The issue for which the reader asked for maximum receipts (every story); 0 when not. */
   maxIssue: number;
   taste: { sec: Record<string, number>; sub: Record<string, number>; tag: Record<string, number> };

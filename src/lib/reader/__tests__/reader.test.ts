@@ -288,6 +288,34 @@ describe('roundup bulletin', () => {
     expect(george[george.length - 1].src).toBe('https://x/voice/kokoro/george/parts/v3/outro.mp3');
   });
 
+  it('both newsreaders take turns, story by story, with a short handover', () => {
+    const [a, b, c] = ed.stories;
+    const both = { george: 'g.mp3', emma: 'e.mp3' };
+    const list = [{ ...a, voices: both }, { ...b, voices: both }, { ...c, voices: both }];
+    const duo = { ...voiced, issue: 12 }; // even issue: George leads
+    const segs = segments(list, duo, 'both');
+    const said = segs.map((x) => x.t);
+    expect(said.slice(0, 3)).toEqual(["Hello, I'm George.", "And I'm Emma. This is your Daily Receipts roundup, with the stories you picked.", 'First.']);
+    // story by story: George, then Emma, then George
+    expect(segs.filter((x) => x.t === storyScript(list[0]))[0].src).toBe('g.mp3');
+    expect(segs.filter((x) => x.t === storyScript(list[1]))[0].src).toBe('e.mp3');
+    expect(segs.filter((x) => x.t === storyScript(list[2]))[0].src).toBe('g.mp3');
+    // handovers: each line in the speaker's own recording
+    expect(segs.filter((x) => x.k === 1 && x.t !== storyScript(list[1])).map((x) => [x.t, x.src])).toEqual([
+      ['Over to you, Emma.', 'https://x/voice/kokoro/george/parts/v3/over1.mp3'],
+      ['Thanks, George.', 'https://x/voice/kokoro/emma/parts/v3/thanks1.mp3'],
+    ]);
+    expect(segs.filter((x) => x.k === 2 && x.t !== storyScript(list[2])).map((x) => x.t)).toEqual(['Thank you, Emma.', 'Finally.']);
+    expect(said.slice(-2)).toEqual(["And that's the news, with the receipts.", 'Thanks for listening. See you tomorrow.']);
+    expect(segs[segs.length - 2].src).toContain('/george/');
+    expect(segs[segs.length - 1].src).toContain('/emma/');
+    // they swap who leads each day
+    expect(segments(list, { ...duo, issue: 13 }, 'both')[0].t).toBe("Hello, I'm Emma.");
+    // nothing recorded: the device reads every line
+    expect(segments(ed.stories.slice(0, 2), duo, 'both').every((x) => !x.src)).toBe(true);
+    expect(S.normalise({ voice: 'both' }, ed).voice).toBe('both');
+  });
+
   it('reads ranges and dashes the way a newsreader would', () => {
     expect(spoken('Spurs won 3-1 in 2024–25 — at home')).toBe('Spurs won 3 to 1 in 2024 to 25 , at home');
   });

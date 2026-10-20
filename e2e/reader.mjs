@@ -128,6 +128,9 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   check(await p.getByRole('button', { name: 'Hear Emma' }).count() === 1, `${tag} each newsreader has a sample button`);
   check(await p.evaluate(() => document.querySelector('.readers').getBoundingClientRect().right <= innerWidth), `${tag} newsreader picker fits the screen`);
   await p.screenshot({ path: `${OUT}/roundup-${tag}.png` });
+  await p.getByRole('radio', { name: /Both/ }).click();
+  check(await p.getByRole('radio', { name: /Both/ }).getAttribute('aria-checked') === 'true', `${tag} both newsreaders can take turns`);
+  check(/George and Emma/.test(await p.textContent('.bstat')) || /device/.test(await p.textContent('.bstat')), `${tag} roundup says who reads it`);
   await p.getByRole('radio', { name: /George/ }).click();
   await p.getByRole('button', { name: 'Close' }).click();
 

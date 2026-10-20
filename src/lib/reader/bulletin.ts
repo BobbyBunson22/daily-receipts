@@ -5,8 +5,8 @@
  * reads wherever their clip is recorded; the device voice reads the rest, and takes over if a
  * clip fails. Never the grade or source counts.
  */
-import type { ClientEdition, ClientStory, Reader } from './types';
-import { PARTS, partUrl, readingScript, speakable } from './voices';
+import type { ClientEdition, ClientStory, Reader, VoiceChoice } from './types';
+import { PARTS, type PartKey, duoLead, otherReader, partText, partUrl, readerFor, readingScript, speakable } from './voices';
 
 export const VOICE_FIXED = {
   intro: PARTS.intro,
@@ -31,7 +31,11 @@ export interface Segment {
 /** The clip a reader hears for a story: their newsreader's, else the presenter's, else none. */
 export const clipFor = (s: ClientStory, reader: Reader) => s.voices?.[reader] ?? s.clip ?? null;
 
-export function segments(list: ClientStory[], ed: ClientEdition, reader: Reader = 'george'): Segment[] {
+export function segments(list: ClientStory[], ed: ClientEdition, voice: VoiceChoice = 'george'): Segment[] {
+  return voice === 'both' ? duoSegments(list, ed) : soloSegments(list, ed, voice);
+}
+
+function soloSegments(list: ClientStory[], ed: ClientEdition, reader: Reader): Segment[] {
   const legacy = ed.voice?.parts ?? {};
   const own = (s: ClientStory) => !!s.voices?.[reader];
   const part = (key: keyof typeof VOICE_FIXED, s?: ClientStory) =>
@@ -47,9 +51,35 @@ export function segments(list: ClientStory[], ed: ClientEdition, reader: Reader 
   return segs;
 }
 
+/**
+ * Both newsreaders, taking turns story by story, with a short handover between them
+ * ("Over to you, Emma." "Thanks, George."). The chat is fixed lines only: no comment on the news.
+ */
+function duoSegments(list: ClientStory[], ed: ClientEdition): Segment[] {
+  const lead = duoLead(ed);
+  const reader = (i: number): Reader => readerFor('both', i, ed);
+  const recorded = (r: Reader) => list.some((s) => s.voices?.[r]);
+  const line = (key: PartKey, r: Reader, k: number): Segment => ({ src: recorded(r) ? partUrl(ed, r, key) : null, t: partText(key, r), k });
+  const segs: Segment[] = [line('hello', lead, -1), line('welcome', otherReader(lead), -1)];
+  list.forEach((s, i) => {
+    const r = reader(i);
+    if (i === 0 && list.length > 1) segs.push(line('first', r, i));
+    if (i > 0) {
+      // every other handover, the reader handing over says so too
+      if (i % 2 === 1) segs.push(line('over1', reader(i - 1), i));
+      segs.push(line(i % 2 === 1 ? 'thanks1' : 'thanks2', r, i));
+      if (i === list.length - 1 && list.length > 2) segs.push(line('finally', r, i));
+    }
+    segs.push({ src: s.voices?.[r] ?? null, t: storyScript(s), k: i });
+  });
+  const last = reader(Math.max(0, list.length - 1));
+  segs.push(line('signoff1', last, -1), line('signoff2', otherReader(last), -1));
+  return segs;
+}
+
 /** Roughly how long the bulletin runs, at a newsreader's pace (about 165 words a minute). */
-export const bulletinMinutes = (list: ClientStory[], ed: ClientEdition, reader: Reader = 'george') =>
-  Math.max(1, Math.round(segments(list, ed, reader).map((x) => x.t).join(' ').split(/\s+/).length / 165));
+export const bulletinMinutes = (list: ClientStory[], ed: ClientEdition, voice: VoiceChoice = 'george') =>
+  Math.max(1, Math.round(segments(list, ed, voice).map((x) => x.t).join(' ').split(/\s+/).length / 165));
 
 export const canSpeak = () => typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
 
@@ -93,7 +123,7 @@ export class Bulletin {
     this.onChange(this.state, event);
   }
 
-  start(list: ClientStory[], ed: ClientEdition, reader: Reader = 'george') {
+  start(list: ClientStory[], ed: ClientEdition, reader: VoiceChoice = 'george') {
     this.stop();
     if (!list.length) return;
     this.segs = segments(list, ed, reader);
@@ -101,7 +131,7 @@ export class Bulletin {
     this.speakFrom(0);
   }
 
-  toggle(list: ClientStory[], ed: ClientEdition, reader: Reader = 'george') {
+  toggle(list: ClientStory[], ed: ClientEdition, reader: VoiceChoice = 'george') {
     const seg = this.segs[this.i];
     if (!this.state.playing) return this.start(list, ed, reader);
     if (!this.state.paused) {
@@ -122,16 +152,16 @@ export class Bulletin {
     this.speakFrom(j < 0 ? this.segs.length - 1 : j);
   }
 
-  /** Plays one short clip (a newsreader's sample), stopping the bulletin. Resolves false if it can't play. */
+  /** Plays one short clip (a newsreader's sample), stopping the bulletin. Resolves when it ends: false if it couldn't play. */
   sample(src: string): Promise<boolean> {
     this.stop();
     if (!this.audio) return Promise.resolve(false);
     const a = this.audio;
-    a.onended = null;
     return new Promise((done) => {
+      a.onended = () => done(true);
       a.onerror = () => done(false);
       a.src = src;
-      a.play().then(() => done(true), () => done(false));
+      a.play().catch(() => done(false));
     });
   }
 

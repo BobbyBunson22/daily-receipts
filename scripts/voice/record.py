@@ -89,7 +89,10 @@ def main() -> None:
     print(f"Edition {ed['date']}, part {shard + 1} of {shards}: {len(stories)} stories, {len(done)} already recorded in {reader}")
 
     pipe = KPipeline(lang_code="b", repo_id="hexgrad/Kokoro-82M")  # British English
+    me = LINES["readers"][reader]["name"]
+    other = next(r["name"] for k, r in LINES["readers"].items() if k != reader)
     for key, text in (LINES["parts"].items() if shard == 0 else []):
+        text = text.replace("{me}", me).replace("{other}", other)
         upload(f"kokoro/{reader}/parts/v{LINES['version']}/{key}.mp3", mp3(synth(pipe, voice, [text])))
 
     t0 = time.time()

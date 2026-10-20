@@ -6,10 +6,10 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 import type { GradeLetter } from '../../types/edition';
 import { normalise } from './state';
-import type { ClientEdition, Mode, Reader, ReaderState, SavedEntry, DeckSize } from './types';
+import type { ClientEdition, Mode, ReaderState, SavedEntry, DeckSize, VoiceChoice } from './types';
 
 export interface Remote {
-  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: Reader | null } | null;
+  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: VoiceChoice | null } | null;
   taste: { key: string; score: number }[];
   reactions: { story_id: number; value: 1 | -1 }[];
   swipes: { story_id: number; action: 'more' | 'less' | 'later'; created_at: string }[];
