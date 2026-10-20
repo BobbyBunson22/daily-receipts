@@ -3,6 +3,7 @@
  * Nothing here changes what a story says: only how a link is written.
  */
 import type { Edition } from '../types/edition';
+import { checkSpoken } from './spoken';
 
 export interface Prepared {
   edition: Edition;
@@ -29,6 +30,15 @@ export function prepareEdition(input: Edition): Prepared {
         .map((t) => t.replace(/\s+/g, ' ').trim())
         .filter((t) => t.length >= 2 && t.length <= 40 && !seen.has(t.toLowerCase()) && (seen.add(t.toLowerCase()), true))
         .slice(0, 8);
+    }
+    // Spoken scripts are optional: one that says anything the story doesn't is dropped, and the
+    // newsreader reads the written report instead.
+    if (story.spoken !== undefined) {
+      const problems = checkSpoken(story);
+      if (problems.length) {
+        notes.push(`${story.id}: dropped spoken script (${problems.slice(0, 3).join('; ')})`);
+        delete story.spoken;
+      } else story.spoken = story.spoken.map((p) => p.replace(/\s+/g, ' ').trim());
     }
     // "Also reported by" links are optional extras: drop any that couldn't be shown, rather than
     // holding up the edition. Keep one per outlet, skip outlets already among the sources, at most 8.

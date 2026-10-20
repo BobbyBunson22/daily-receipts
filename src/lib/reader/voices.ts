@@ -17,9 +17,9 @@ export const READER_BY_VOICE: Record<string, Reader> = Object.fromEntries(READER
 export const speakable = (t: string) =>
   String(t).replace(/(\d)\s*[–-]\s*(\d)/g, '$1 to $2').replace(/[–—]/g, ', ').replace(/\s+/g, ' ').trim();
 
-/** What the newsreader reads for a story: the headline, then the full report. */
-export const readingScript = (s: Pick<ClientStory, 'head' | 'body'>) =>
-  [speakable(s.head).replace(/\.$/, '') + '.', ...s.body.filter((p) => p && p.trim()).map(speakable)].join('\n\n');
+/** What the newsreader reads for a story: the headline, then the report as written for the ear (or the full report). */
+export const readingScript = (s: Pick<ClientStory, 'head' | 'body' | 'spoken'>) =>
+  [speakable(s.head).replace(/\.$/, '') + '.', ...(s.spoken?.length ? s.spoken : s.body).filter((p) => p && p.trim()).map(speakable)].join('\n\n');
 
 /** A newsreader's recording of one of the fixed lines, when the edition says where they live. */
 export const partUrl = (ed: Pick<ClientEdition, 'voiceBase'>, reader: Reader, key: keyof typeof PARTS) =>

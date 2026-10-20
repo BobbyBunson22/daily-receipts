@@ -76,6 +76,10 @@ async function fromDatabase(): Promise<ClientEdition | null> {
   // "Also reported by" links, read separately so the page still loads if the column isn't there yet
   const alsoById = new Map<number, [string, string][]>();
   const { data: alsoRows, error: eAlso } = await db.from('stories').select('id, also, tags').eq('edition_id', ed.id);
+  // spoken scripts, read on their own so the page still loads without the column
+  const spokenById = new Map<number, string[]>();
+  const { data: spokenRows } = await db.from('stories').select('id, spoken').eq('edition_id', ed.id);
+  for (const r of (spokenRows ?? []) as { id: number; spoken: string[] | null }[]) if (r.spoken?.length) spokenById.set(r.id, r.spoken);
   const tagsById = new Map<number, string[]>();
   for (const r of (alsoRows ?? []) as { id: number; tags: string[] | null }[]) if (r.tags?.length) tagsById.set(r.id, r.tags);
   if (eAlso) console.warn(`"Also reported by" links skipped: ${eAlso.message}`);
@@ -123,6 +127,7 @@ async function fromDatabase(): Promise<ClientEdition | null> {
       importance: Number(r.importance),
       clip: presenter[0] ? clipUrl(presenter[0].path) : null,
       voices,
+      spoken: spokenById.get(r.id) ?? null,
     };
   });
 
@@ -170,6 +175,7 @@ export function fromFile(file?: string): ClientEdition {
       tags: tags[i],
       also: (s.also ?? []).map(([key, url]) => ({ key, url, name: edition.outlets[key]?.name ?? key })),
       say: s.say ?? null,
+      spoken: s.spoken ?? null,
       sources: g.sources,
       score: g.score,
       grade: g.grade,

@@ -39,6 +39,7 @@ jobs:
       - run: sudo apt-get update -q && sudo apt-get install -y -q espeak-ng ffmpeg
       # CPU-only torch: a fraction of the download of the default build
       - run: pip install -q torch --index-url https://download.pytorch.org/whl/cpu && pip install -q -r scripts/voice/requirements.txt
+      - run: python -m unittest discover -s scripts/voice
       - name: Record
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

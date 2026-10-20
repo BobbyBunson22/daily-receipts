@@ -45,6 +45,8 @@ export interface ClientStory {
   importance: number;
   /** Recorded clip in the presenter's AI voice, when there is one. */
   clip?: string | null;
+  /** The story rewritten for the ear, when the edition has one. */
+  spoken?: string[] | null;
   /** The full story recorded by each newsreader, when recorded. */
   voices?: Partial<Record<Reader, string>>;
 }

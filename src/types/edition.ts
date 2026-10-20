@@ -66,6 +66,12 @@ export interface Story {
   tags?: string[];
   /** Spoken line for the audio bulletin; only on voiced stories. */
   say?: string | null;
+  /**
+   * The story rewritten for the ear, which the newsreaders read instead of `body`: the same facts,
+   * shorter sentences, attribution first. Every number, name and quote must be in the story
+   * (checked by src/lib/spoken.ts; a script that fails is dropped).
+   */
+  spoken?: string[];
   fig?: Figure | null;
 }
 

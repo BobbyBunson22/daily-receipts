@@ -106,6 +106,8 @@ export function validateEdition(input: unknown): ValidationResult {
 
       if (s.tags !== undefined && (!Array.isArray(s.tags) || s.tags.length > 8 || !s.tags.every((t) => isText(t) && t.length <= 40)))
         fail(`${at}: tags must be up to 8 short names`);
+      if (s.spoken !== undefined && (!Array.isArray(s.spoken) || !s.spoken.every(isText)))
+        fail(`${at}: spoken must be a list of paragraphs`);
       if (s.also !== undefined) {
         if (!Array.isArray(s.also)) fail(`${at}: also must be a list of [outlet, url]`);
         else

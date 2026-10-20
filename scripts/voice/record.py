@@ -16,23 +16,21 @@ The words read must match readingScript() in src/lib/reader/bulletin.ts.
 import json
 import os
 import re
-import subprocess
 import sys
-import tempfile
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
 
-import numpy as np
-import soundfile as sf
 from kokoro import KPipeline
+
+sys.path.insert(0, str(Path(__file__).parent))
+from speak import mp3, paragraphs, synth, unknown_names  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 LINES = json.loads((ROOT / "src/lib/reader/voice-lines.json").read_text())
-RATE = 24000
-SETTINGS = f"long-v{LINES['version']}"  # change when the words or settings change, to re-record
+SETTINGS = f"long-v{LINES['version']}"  # bump "version" in voice-lines.json when the words or settings change, to re-record
 KEEP_EDITIONS = 2
 
 URL = os.environ["SUPABASE_URL"].rstrip("/")
@@ -55,29 +53,6 @@ def api(method: str, path: str, body=None, headers=None, raw: bytes | None = Non
             if attempt == 3:
                 raise
         time.sleep(2 * (attempt + 1))
-
-
-def spoken(t: str) -> str:
-    t = re.sub(r"(\d)\s*[–-]\s*(\d)", r"\1 to \2", t)  # 3–1, 2024–25
-    return re.sub(r"\s+", " ", t.replace("–", ", ").replace("—", ", ")).strip()
-
-
-def reading_script(story: dict) -> str:
-    body = story["body"] if isinstance(story["body"], list) else [story["body"]]
-    return "\n\n".join([spoken(story["head"]).rstrip(".") + "."] + [spoken(p) for p in body if p and p.strip()])
-
-
-def synth(pipe: KPipeline, voice: str, text: str) -> bytes:
-    pause = np.zeros(int(RATE * 0.45), dtype=np.float32)
-    parts = []
-    for _, _, audio in pipe(text, voice=voice, speed=1.0, split_pattern=r"\n+"):
-        parts += [np.asarray(audio, dtype=np.float32), pause]
-    with tempfile.TemporaryDirectory() as d:
-        wav, mp3 = Path(d, "a.wav"), Path(d, "a.mp3")
-        sf.write(wav, np.concatenate(parts[:-1] or [pause]), RATE)
-        # mono speech: 48 kbps is clear and keeps a day's clips small
-        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(wav), "-ac", "1", "-b:a", "48k", str(mp3)], check=True)
-        return mp3.read_bytes()
 
 
 def upload(path: str, mp3: bytes) -> None:
@@ -106,7 +81,7 @@ def main() -> None:
     voice_id = f"kokoro:{voice}"
     eds = api("GET", f"/rest/v1/editions?status=eq.published&select=id,date&order=issue.desc&limit={KEEP_EDITIONS}")
     ed = eds[0]
-    stories = api("GET", f"/rest/v1/stories?edition_id=eq.{ed['id']}&select=id,slug,head,body,sources,score")
+    stories = api("GET", f"/rest/v1/stories?edition_id=eq.{ed['id']}&select=id,slug,sec,head,body,spoken,sources,score")
     stories.sort(key=lambda s: (-(s["sources"] * 10 + s["score"] / 10), s["id"]))
     stories = stories[shard::shards]
     done = {c["story_id"] for c in api("GET", f"/rest/v1/voice_clips?voice_id=eq.{urllib.parse.quote(voice_id)}&settings_hash=eq.{SETTINGS}"
@@ -115,20 +90,28 @@ def main() -> None:
 
     pipe = KPipeline(lang_code="b", repo_id="hexgrad/Kokoro-82M")  # British English
     for key, text in (LINES["parts"].items() if shard == 0 else []):
-        upload(f"kokoro/{reader}/parts/v{LINES['version']}/{key}.mp3", synth(pipe, voice, text))
+        upload(f"kokoro/{reader}/parts/v{LINES['version']}/{key}.mp3", mp3(synth(pipe, voice, [text])))
 
     t0 = time.time()
+    names: dict[str, str] = {}
     for n, s in enumerate(stories, 1):
         if s["id"] in done:
             continue
-        text = reading_script(s)
+        paras = paragraphs(s)
+        text = "\n\n".join(paras)
+        names.update(unknown_names(pipe, text))
         path = f"kokoro/{ed['date']}/{reader}/{s['slug']}.mp3"
-        upload(path, synth(pipe, voice, text))
+        upload(path, mp3(synth(pipe, voice, paras)))
         api("POST", "/rest/v1/voice_clips?on_conflict=story_id,voice_id,settings_hash",
             {"story_id": s["id"], "voice_id": voice_id, "settings_hash": SETTINGS, "path": path, "chars": len(text)},
             headers={"Prefer": "resolution=merge-duplicates,return=minimal"})
         print(f"{n}/{len(stories)} {s['slug']} ({time.time() - t0:.0f}s)", flush=True)
 
+    if names and reader == "george":
+        # for checking by ear: names the dictionary doesn't know (add fixes to lexicon.json)
+        rows = [{"word": w, "last_seen": ed["date"], "example": ex} for w, ex in sorted(names.items())]
+        api("POST", "/rest/v1/voice_names?on_conflict=word", rows, headers={"Prefer": "resolution=merge-duplicates,return=minimal"})
+        print(f"{len(rows)} names not in the dictionary: {', '.join(sorted(names))[:500]}")
     if shard == 0:
         cleanup(reader, {e["date"] for e in eds})
 
