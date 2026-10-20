@@ -1,6 +1,6 @@
 name: Voice
 
-# Records every story of the newest edition in both newsreader voices (Kokoro, free and
+# Records every story of the newest edition in both newsreader voices, three jobs per voice (Kokoro, free and
 # open-source), after each edition is loaded. Re-runs only fill gaps. Needs the same two
 # secrets as Load edition: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.
 
@@ -23,6 +23,8 @@ jobs:
       fail-fast: false
       matrix:
         reader: [george, emma]
+        # three jobs per voice share the edition: about 25 minutes for a full edition
+        shard: [0, 1, 2]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -41,4 +43,4 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python scripts/voice/record.py ${{ matrix.reader }}
+        run: python scripts/voice/record.py ${{ matrix.reader }} ${{ matrix.shard }} 3

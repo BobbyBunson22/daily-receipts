@@ -1,6 +1,10 @@
 """Records the newest published edition in one newsreader voice, with Kokoro (free, Apache 2.0).
 
-    SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… python scripts/voice/record.py george
+    SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… python scripts/voice/record.py george [shard shards]
+
+With "1 3", this job records every third story starting from the second (most important first),
+so three jobs per voice share the edition and finish together. Shard 0 also records the fixed
+lines and tidies old clips.
 
 For every story (most important first): the headline, then the full report, read in the voice,
 saved as an mp3 in the public "voice" bucket and listed in voice_clips. Also the fixed bulletin
@@ -97,18 +101,20 @@ def cleanup(reader: str, keep: set[str]) -> None:
 
 def main() -> None:
     reader = sys.argv[1]
+    shard, shards = (int(sys.argv[2]), int(sys.argv[3])) if len(sys.argv) > 3 else (0, 1)
     voice = LINES["readers"][reader]["kokoro"]
     voice_id = f"kokoro:{voice}"
     eds = api("GET", f"/rest/v1/editions?status=eq.published&select=id,date&order=issue.desc&limit={KEEP_EDITIONS}")
     ed = eds[0]
     stories = api("GET", f"/rest/v1/stories?edition_id=eq.{ed['id']}&select=id,slug,head,body,sources,score")
-    stories.sort(key=lambda s: -(s["sources"] * 10 + s["score"] / 10))
+    stories.sort(key=lambda s: (-(s["sources"] * 10 + s["score"] / 10), s["id"]))
+    stories = stories[shard::shards]
     done = {c["story_id"] for c in api("GET", f"/rest/v1/voice_clips?voice_id=eq.{urllib.parse.quote(voice_id)}&settings_hash=eq.{SETTINGS}"
                                          f"&story_id=in.({','.join(str(s['id']) for s in stories)})&select=story_id")}
-    print(f"Edition {ed['date']}: {len(stories)} stories, {len(done)} already recorded in {reader}")
+    print(f"Edition {ed['date']}, part {shard + 1} of {shards}: {len(stories)} stories, {len(done)} already recorded in {reader}")
 
     pipe = KPipeline(lang_code="b", repo_id="hexgrad/Kokoro-82M")  # British English
-    for key, text in LINES["parts"].items():
+    for key, text in (LINES["parts"].items() if shard == 0 else []):
         upload(f"kokoro/{reader}/parts/v{LINES['version']}/{key}.mp3", synth(pipe, voice, text))
 
     t0 = time.time()
@@ -123,7 +129,8 @@ def main() -> None:
             headers={"Prefer": "resolution=merge-duplicates,return=minimal"})
         print(f"{n}/{len(stories)} {s['slug']} ({time.time() - t0:.0f}s)", flush=True)
 
-    cleanup(reader, {e["date"] for e in eds})
+    if shard == 0:
+        cleanup(reader, {e["date"] for e in eds})
 
 
 if __name__ == "__main__":
