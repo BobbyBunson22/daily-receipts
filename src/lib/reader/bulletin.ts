@@ -1,6 +1,6 @@
 'use client';
 /**
- * The roundup read aloud as a short bulletin: an intro, "First / Next / Finally", each story
+ * The roundup read aloud as a short bulletin: the jingle, an intro, "First / Next / Finally", each story
  * read in full (headline, then the report), and a sign-off. The reader's chosen newsreader
  * reads wherever their clip is recorded; the device voice reads the rest, and takes over if a
  * clip fails. Never the grade or source counts.
@@ -17,6 +17,9 @@ export const VOICE_FIXED = {
 } as const;
 
 export const spoken = speakable;
+
+/** The Daily Receipts jingle, played before the bulletin (made by scripts/voice/jingle.py). */
+export const JINGLE = '/audio/jingle.mp3';
 
 /** What gets read for a story: the full version. */
 export const storyScript = (s: ClientStory) => readingScript(s);
@@ -131,7 +134,8 @@ export class Bulletin {
   start(list: ClientStory[], ed: ClientEdition, reader: VoiceChoice = 'george') {
     this.stop();
     if (!list.length) return;
-    this.segs = segments(list, ed, reader);
+    // the jingle first; if it can't play, the bulletin simply starts
+    this.segs = [{ src: JINGLE, t: '', k: -1 }, ...segments(list, ed, reader)];
     this.set({ playing: true, paused: false, story: -1, n: list.length });
     this.speakFrom(0);
   }
@@ -214,7 +218,7 @@ export class Bulletin {
       this.audio.play().catch(fallback);
       return;
     }
-    if (!canSpeak()) return next();
+    if (!canSpeak() || !seg.t) return next();
     const u = new SpeechSynthesisUtterance(seg.t);
     const v = pickVoice();
     if (v) {
