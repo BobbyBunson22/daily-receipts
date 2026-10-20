@@ -36,7 +36,11 @@ jobs:
         with:
           python-version: '3.11'
       - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
-      - run: pip install -q chatterbox-tts soundfile
+      # CPU-only torch at the version Chatterbox pins, then Chatterbox itself
+      - run: |
+          pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install "numpy<2" cython wheel
+          pip install chatterbox-tts soundfile
       # 15 seconds of George, recorded this morning by Kokoro (Apache 2.0), as the voice to copy
       - run: |
           curl -sSfL -o george.mp3 "https://klgaxxuwiyurosrawplr.supabase.co/storage/v1/object/public/voice/kokoro/2026-10-20/george/uk-bus-music-fines.mp3"
