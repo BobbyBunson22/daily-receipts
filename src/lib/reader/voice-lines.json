@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "readers": {
     "george": { "name": "George", "kokoro": "bm_george", "about": "British male" },
     "emma": { "name": "Emma", "kokoro": "bf_emma", "about": "British female" }

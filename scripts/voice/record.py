@@ -100,7 +100,7 @@ def main() -> None:
         paras = paragraphs(s)
         text = "\n\n".join(paras)
         names.update(unknown_names(pipe, text))
-        path = f"kokoro/{ed['date']}/{reader}/{s['slug']}.mp3"
+        path = f"kokoro/{ed['date']}/{reader}/{s['slug']}.{SETTINGS}.mp3"  # new settings, new URL: no stale caches
         upload(path, mp3(synth(pipe, voice, paras)))
         api("POST", "/rest/v1/voice_clips?on_conflict=story_id,voice_id,settings_hash",
             {"story_id": s["id"], "voice_id": voice_id, "settings_hash": SETTINGS, "path": path, "chars": len(text)},

@@ -277,15 +277,15 @@ describe('roundup bulletin', () => {
     const [a, b] = ed.stories;
     const list = [{ ...a, voices: { george: 'g-a.mp3', emma: 'e-a.mp3' } }, { ...b, voices: { george: 'g-b.mp3' } }];
     const emma = segments(list, voiced, 'emma');
-    expect(emma[0].src).toBe('https://x/voice/kokoro/emma/parts/v2/intro.mp3');
-    expect(emma.filter((x) => x.k === 0).map((x) => x.src)).toEqual(['https://x/voice/kokoro/emma/parts/v2/first.mp3', 'e-a.mp3']);
+    expect(emma[0].src).toBe('https://x/voice/kokoro/emma/parts/v3/intro.mp3');
+    expect(emma.filter((x) => x.k === 0).map((x) => x.src)).toEqual(['https://x/voice/kokoro/emma/parts/v3/first.mp3', 'e-a.mp3']);
     // Emma hasn't recorded story b: the device reads its join and the story
     expect(emma.filter((x) => x.k === 1).map((x) => x.src)).toEqual([null, null]);
     const george = segments(list, voiced, 'george');
     expect(george.filter((x) => x.k >= 0).map((x) => x.src)).toEqual([
-      'https://x/voice/kokoro/george/parts/v2/first.mp3', 'g-a.mp3', 'https://x/voice/kokoro/george/parts/v2/finally.mp3', 'g-b.mp3',
+      'https://x/voice/kokoro/george/parts/v3/first.mp3', 'g-a.mp3', 'https://x/voice/kokoro/george/parts/v3/finally.mp3', 'g-b.mp3',
     ]);
-    expect(george[george.length - 1].src).toBe('https://x/voice/kokoro/george/parts/v2/outro.mp3');
+    expect(george[george.length - 1].src).toBe('https://x/voice/kokoro/george/parts/v3/outro.mp3');
   });
 
   it('reads ranges and dashes the way a newsreader would', () => {

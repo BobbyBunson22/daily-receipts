@@ -67,6 +67,19 @@ class Normalise(unittest.TestCase):
         self.assertEqual(normalise("from 13 to 18 October"), "from the thirteenth to the eighteenth of October")
         self.assertEqual(normalise("winds of 195km/h"), "winds of one hundred and ninety-five kilometres an hour")
         self.assertEqual(normalise("in A&E"), "in A and E")
+        self.assertEqual(normalise("an H3 rocket, the M25 and F1"), "an H three rocket, the M twenty-five and F one")
+        self.assertEqual(normalise("raise A$7bn"), "raise seven billion Australian dollars")
+        self.assertEqual(normalise("a NT$760.6bn profit"), "a seven hundred and sixty point six billion Taiwan dollars profit")
+        self.assertEqual(normalise("C$5 million"), "five million Canadian dollars")
+        self.assertEqual(normalise("rise 10p to £1.80"), "rise ten p to one pound eighty")
+        self.assertEqual(normalise("was 23.43C, 2.59C above"), "was twenty-three point four three degrees Celsius, two point five nine degrees Celsius above")
+        self.assertEqual(normalise("a man in his 20s"), "a man in his twenties")
+        self.assertEqual(normalise("since the mid-1990s"), "since the mid-nineteen nineties")
+        self.assertEqual(normalise("in the 2000s"), "in the two thousands")
+        self.assertEqual(normalise("readings of 140/90"), "readings of one hundred and forty over ninety")
+        self.assertEqual(normalise("a Phase 2/3 trial"), "a Phase two-three trial")
+        self.assertEqual(normalise("according to ESA/Hubble"), "according to ESA Hubble")
+        self.assertEqual(normalise("Strabane, Co Tyrone"), "Strabane, County Tyrone")
 
 
 if __name__ == "__main__":

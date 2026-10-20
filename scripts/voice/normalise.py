@@ -83,12 +83,20 @@ def number(s: str) -> str:
 
 SCALE_WORDS = {"bn": "billion", "billion": "billion", "m": "million", "million": "million", "tn": "trillion", "trillion": "trillion", "k": "thousand"}
 CURRENCY = {"£": ("pound", "pounds"), "$": ("dollar", "dollars"), "€": ("euro", "euros")}
-NUM = r"\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?"
+NUM = r"(?:\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)"
+
+
+DOLLAR_PREFIX = {"A": "Australian", "AU": "Australian", "C": "Canadian", "CA": "Canadian", "NZ": "New Zealand",
+                 "HK": "Hong Kong", "NT": "Taiwan", "S": "Singapore", "US": "US"}
 
 
 def _money(m: re.Match) -> str:
-    sym, amount, scale = m.group(1), m.group(2), (m.group(3) or "").lower()
+    prefix, sym, amount, scale = m.group(1), m.group(2), m.group(3), (m.group(4) or "").lower()
     one, many = CURRENCY[sym]
+    if prefix and sym == "$":
+        one, many = f"{DOLLAR_PREFIX[prefix]} {one}", f"{DOLLAR_PREFIX[prefix]} {many}"
+    elif prefix:
+        return m.group(0)
     if scale:
         return f"{number(amount)} {SCALE_WORDS[scale]} {many}"
     whole, _, pence = amount.replace(",", "").partition(".")
@@ -105,14 +113,20 @@ def _score(a: str, b: str) -> str:
     return f"{words(int(a))}-{'nil' if b == '0' else words(int(b))}"
 
 
+def _plural(w: str) -> str:
+    """twenty -> twenties, nineteen ninety -> nineteen nineties, two thousand -> two thousands"""
+    return w[:-1] + "ies" if w.endswith("y") else w + "s"
+
+
 def normalise(text: str, sport: bool = False) -> str:
-    # names with numbers: COP17, GLP-1, Covid-19 -> "COP 17" (the number is read below)
-    t = re.sub(r"\b([A-Za-z]{2,})-?(\d+)\b(?!%)", r"\1 \2", text)
+    # names with numbers: COP17, GLP-1, Covid-19, H3, M25 -> "COP 17" (the number is read below)
+    t = re.sub(r"\b([A-Z]|[A-Za-z]{2,})-?(\d+)\b(?!%)", r"\1 \2", text)
     for written, said in LEXICON["respell"].items():
         t = re.sub(rf"(?<![\w]){re.escape(written)}(?![A-Za-z])", said, t)
     t = t.replace("–", "-").replace("—", ", ")
-    # money: £1.3bn, $20, €4.5 million
-    t = re.sub(rf"([£$€])({NUM})(?:\s?(bn|tn|m|k|billion|million|trillion))?\b", _money, t)
+    # money: £1.3bn, $20, €4.5 million, A$7bn, NT$760bn
+    t = re.sub(rf"(?:\b(A|AU|C|CA|NZ|HK|NT|S|US))?([£$€])({NUM})(?:\s?(bn|tn|m|k|billion|million|trillion))?\b", _money, t)
+    t = re.sub(r"\b(\d+)p\b", lambda m: words(int(m.group(1))) + " p", t)  # 10p
     # percentages
     t = re.sub(rf"({NUM})\s?%", lambda m: number(m.group(1)) + " per cent", t)
     # seasons and year ranges: 1986-87, 2024-25, 2024-2025
@@ -134,9 +148,17 @@ def normalise(text: str, sport: bool = False) -> str:
     t = re.sub(r"\b(\d+)(st|nd|rd|th)\b", lambda m: ordinal(int(m.group(1))), t)
     # years: four digits on their own, not part of a bigger number
     t = re.sub(r"(?<![\d,.])\b(1[1-9]\d\d|20\d\d)\b(?![\d,]|\.\d)", lambda m: year(int(m.group(1))), t)
+    # temperatures written 23.4C, decades: 20s, mid-70s, 1990s
+    t = re.sub(rf"({NUM})C\b", lambda m: number(m.group(1)) + " degrees Celsius", t)
+    t = re.sub(r"\b(1[1-9]\d0|20\d0)s\b", lambda m: _plural(year(int(m.group(1)))), t)
+    t = re.sub(r"\b([2-9]0)s\b", lambda m: _plural(words(int(m.group(1)))), t)
+    # 140/90 (blood pressure), Phase 2/3
+    t = re.sub(r"\b(Phase|phase) (\d)/(\d)\b", lambda m: f"{m.group(1)} {words(int(m.group(2)))}-{words(int(m.group(3)))}", t)
+    t = re.sub(r"\b(\d+)/(\d+)\b", lambda m: f"{words(int(m.group(1)))} over {words(int(m.group(2)))}", t)
     # units: 5km, 30°C, 70mph
     units = "|".join(re.escape(u) for u in sorted(LEXICON["units"], key=len, reverse=True))
     t = re.sub(rf"({NUM})\s?({units})(?![\w])", lambda m: f"{number(m.group(1))} {LEXICON['units'][m.group(2)]}", t)
+    t = re.sub(r"(?<=[A-Za-z])/(?=[A-Za-z])", " ", t)  # ESA/Hubble
     # numbers with scale words: 2.5 million, 500,000
     t = re.sub(rf"\b({NUM})\s?(bn|tn)\b", lambda m: f"{number(m.group(1))} {SCALE_WORDS[m.group(2)]}", t)
     t = re.sub(rf"(?<![\w.]){NUM}\b", lambda m: number(m.group(0)), t)
