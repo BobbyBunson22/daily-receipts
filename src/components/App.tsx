@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { deckList, todays } from '../lib/reader/personalise';
 import { brandFor } from '../lib/reader/name';
@@ -15,6 +15,7 @@ import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } fro
 import { SwipeView } from './SwipeView';
 import { DailyCard, DailySync, dailyDue, markDailySeen } from './Daily';
 import { InstallSheet } from './Install';
+import { ClaimCard, ClaimWatcher, claimDue, markClaimShown } from './Claim';
 import { Tour } from './Tour';
 
 function Header() {
@@ -60,6 +61,7 @@ function Overlays() {
     case 'tour': return <Tour />;
     case 'install': return <InstallSheet />;
     case 'daily': return <DailyCard />;
+    case 'claim': return <ClaimCard done={overlay.done} />;
     case 'puzzles': return <PuzzlesSheet />;
     case 'game': return <GameSheet key={overlay.game} game={overlay.game} />;
   }
@@ -67,6 +69,7 @@ function Overlays() {
 
 function Body() {
   const { st, ready, toastMsg, overlay, setOverlay } = useReader();
+  const dailyShownNow = useRef(false);
   useEffect(() => {
     if (!ready || overlay) return;
     // new readers get the tour first; then, once each London day, the daily fact and question
@@ -77,8 +80,17 @@ function Body() {
     if (dailyDue()) {
       const t = setTimeout(() => {
         markDailySeen();
+        dailyShownNow.current = true;
         setOverlay({ kind: 'daily' });
       }, 400);
+      return () => clearTimeout(t);
+    }
+    // then, on a later visit (not straight after another pop-up), the offer to secure a username
+    if (!dailyShownNow.current && claimDue(st.secured)) {
+      const t = setTimeout(() => {
+        markClaimShown();
+        setOverlay({ kind: 'claim' });
+      }, 1200);
       return () => clearTimeout(t);
     }
   }, [ready, st, overlay, setOverlay]);
@@ -91,6 +103,7 @@ function Body() {
       </main>
       <Overlays />
       <DailySync />
+      <ClaimWatcher />
       <div className={`toast${toastMsg ? ' on' : ''}`} role="status" aria-live="polite">{toastMsg}</div>
     </>
   );

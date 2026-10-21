@@ -19,6 +19,8 @@ import { useReader } from './ReaderContext';
 import { PuzzleSettings } from './Puzzles';
 import { SavedList } from './SavedList';
 import { ShareButton } from './Share';
+import { claim, why } from './Claim';
+import { GoldToken } from './Daily';
 import { SaveAudioButton, ShareRoundupButton } from './RoundupShare';
 
 /** Bottom sheet dialog: focus moves in, Escape or the scrim closes, the page behind stays put. */
@@ -390,14 +392,24 @@ function TopicOrder() {
   );
 }
 
-/** The reader's username: "jay" makes it Jay’s Receipts. */
+/** The reader's username: "jay" makes it Jay’s Receipts. Once secured, changes go to the account. */
 function NameField() {
-  const { st, update, toast } = useReader();
+  const { st, user, update, toast, setOverlay } = useReader();
   const [draft, setDraft] = useState(st.name);
+  const [busy, setBusy] = useState(false);
   const clean = cleanName(draft);
-  const save = (e: React.FormEvent) => {
+  const save = async (e: React.FormEvent) => {
     e.preventDefault();
     if (clean === st.name) return;
+    if (st.secured && user) {
+      // a secured name can change, but the new one must be free too
+      setBusy(true);
+      const r = await claim(clean);
+      setBusy(false);
+      if (!r.ok) return toast(why(r.reason));
+      update((x) => ({ ...setName(x, r.name), secured: r.name }));
+      return toast(`You're now ${brandFor(r.name)}`);
+    }
     update((x) => setName(x, clean));
     track('settings', { name: clean ? 'set' : 'cleared' });
     toast(clean ? `Welcome to ${brandFor(clean)}` : 'Back to Daily Receipts');
@@ -408,8 +420,15 @@ function NameField() {
       <div className="namerow">
         <input id="dr-name" type="text" value={draft} onChange={(e) => setDraft(e.target.value)} maxLength={NAME_MAX + 10}
           placeholder="e.g. jay" autoComplete="nickname" autoCapitalize="words" spellCheck={false} enterKeyHint="done" />
-        <button className="pill solid" type="submit" disabled={clean === st.name}>Save</button>
+        <button className="pill solid" type="submit" disabled={clean === st.name || busy || (!!st.secured && !clean)}>{busy ? 'Saving…' : 'Save'}</button>
       </div>
+      {st.secured ? (
+        <p className="namestate ok"><GoldToken size={16} /> Secured to your account: nobody else can be {brandFor(st.secured)}.</p>
+      ) : (
+        <p className="namestate">
+          Not secured yet. <button type="button" className="linkish" onClick={() => setOverlay({ kind: 'claim' })}>Secure it free and win 5 gold DR tokens</button>
+        </p>
+      )}
     </form>
   );
 }

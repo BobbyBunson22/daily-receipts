@@ -257,3 +257,43 @@ describe('daily question answers', () => {
     expect(r.rows.map((x) => [Number(x.answered), Number(x.correct)])).toEqual([[1, 1]]);
   });
 });
+
+describe('securing a username', () => {
+  const OTHER = '33333333-3333-4333-8333-333333333333';
+  const claim = (uid: string | null, name: string) =>
+    as(uid ? 'authenticated' : 'anon', uid, () => db.query<{ r: { ok: boolean; reason?: string; name?: string; awarded?: number } }>('select public.dr_claim_username($1) r', [name])).then((x) => x.rows[0].r);
+  const available = (uid: string | null, name: string) =>
+    as(uid ? 'authenticated' : 'anon', uid, () => db.query<{ r: string }>('select public.dr_username_available($1) r', [name])).then((x) => x.rows[0].r);
+
+  beforeAll(async () => {
+    await db.exec(`insert into auth.users (id, email) values ('${OTHER}', 'other@example.com') on conflict do nothing`);
+  });
+
+  it('needs an account', async () => {
+    await expect(claim(null, 'jay')).rejects.toThrow(/permission denied/);
+  });
+
+  it('the first claim earns 5 gold tokens, once; changing it later earns none', async () => {
+    expect(await claim(READER, '  jay ')).toEqual({ ok: true, name: 'jay', awarded: 5 });
+    expect(await claim(READER, 'Jay T')).toEqual({ ok: true, name: 'Jay T', awarded: 0 });
+    expect(await claim(READER, 'jay')).toEqual({ ok: true, name: 'jay', awarded: 0 });
+    const awards = await as('authenticated', READER, () => db.query<{ amount: number }>('select amount from public.token_awards'));
+    expect(awards.rows).toEqual([{ amount: 5 }]);
+  });
+
+  it('a username is one reader\'s only, whatever the capitals', async () => {
+    expect(await available(OTHER, 'JAY')).toBe('taken');
+    expect(await claim(OTHER, 'JAY')).toEqual({ ok: false, reason: 'taken' });
+    expect(await available(READER, 'jay')).toBe('ok'); // it's already theirs
+    // and nobody sees anyone else's tokens
+    const theirs = await as('authenticated', OTHER, () => db.query('select * from public.token_awards'));
+    expect(theirs.rows).toEqual([]);
+  });
+
+  it('keeps out reserved, rude and badly formed names', async () => {
+    expect(await available(null, 'Emma')).toBe('reserved');
+    expect(await available(null, 'x')).toBe('too short');
+    expect(await available(null, 'a<b>')).toMatch(/only/);
+    expect(await available(null, 'BullShitter')).toBe('not allowed');
+  });
+});

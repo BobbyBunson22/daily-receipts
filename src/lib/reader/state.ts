@@ -41,6 +41,7 @@ export function initialState(ed: ClientEdition): ReaderState {
     voice: 'both',
     voicePicked: false,
     name: '',
+    secured: '',
     maxIssue: 0,
     taste: { sec: {}, sub: {}, tag: {} },
     react: {},
@@ -70,6 +71,7 @@ export function normalise(raw: unknown, ed: ClientEdition): ReaderState {
     // the default (both, taking turns) applies until a reader picks; picks are kept
     voicePicked: r.voicePicked === true,
     name: cleanName(r.name),
+    secured: cleanName(r.secured),
     voice: r.voicePicked === true && (r.voice === 'george' || r.voice === 'emma' || r.voice === 'both') ? r.voice : 'both',
     maxIssue: sameIssue && r.maxIssue === ed.issue ? ed.issue : 0,
     taste: { sec: num(r.taste?.sec), sub: num(r.taste?.sub), tag: pruneTags(num(r.taste?.tag)) },

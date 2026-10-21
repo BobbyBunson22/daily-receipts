@@ -49,6 +49,9 @@ export function useDailyState(): D.DailyState | null {
   return st === EMPTY ? null : st;
 }
 
+/** Records gold tokens given for something (once per reason), e.g. securing a username. */
+export const addAward = (reason: string, amount: number) => write(D.award(read(), reason, amount));
+
 /** Should the card open by itself now? Once per London day. */
 export const dailyDue = () => read().seen !== londonDay();
 export const markDailySeen = () => write({ ...read(), seen: londonDay() });
@@ -80,6 +83,9 @@ export function DailySync() {
       const missing = Object.entries(local.ans).filter(([day]) => !have.has(day)).map(([day, result]) => ({ day, result }));
       if (missing.length) await db.from('daily_answers').upsert(missing, { onConflict: 'user_id,day', ignoreDuplicates: true });
       if (!gone) write(D.mergeDaily(read(), remote));
+      // tokens given for other things, like securing a username
+      const { data: awards } = await db.from('token_awards').select('reason, amount');
+      if (!gone) for (const a of (awards ?? []) as { reason: string; amount: number }[]) write(D.award(read(), a.reason, a.amount));
     })();
     return () => {
       gone = true;

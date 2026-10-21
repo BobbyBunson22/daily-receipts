@@ -80,24 +80,34 @@ export interface DailyState {
   seen: string;
   /** London day → how that day's question went. */
   ans: Record<string, Result>;
+  /** Gold tokens given for other things, by reason (e.g. securing a username: 5). */
+  awards: Record<string, number>;
 }
 
 export const DAILY_KEY = 'dr.daily.v1';
-export const emptyDaily = (): DailyState => ({ seen: '', ans: {} });
+export const emptyDaily = (): DailyState => ({ seen: '', ans: {}, awards: {} });
 
 export function normaliseDaily(raw: unknown): DailyState {
   const r = (raw && typeof raw === 'object' ? raw : {}) as Partial<DailyState>;
   const ans: Record<string, Result> = {};
   for (const [k, v] of Object.entries(r.ans ?? {}))
     if (/^\d{4}-\d{2}-\d{2}$/.test(k) && (v === 'correct' || v === 'wrong' || v === 'dontknow')) ans[k] = v;
-  return { seen: typeof r.seen === 'string' ? r.seen : '', ans };
+  const awards: Record<string, number> = {};
+  for (const [k, v] of Object.entries((r as { awards?: unknown }).awards ?? {}))
+    if (/^[a-z_]{1,30}$/.test(k) && Number.isInteger(v) && (v as number) > 0 && (v as number) <= 100) awards[k] = v as number;
+  return { seen: typeof r.seen === 'string' ? r.seen : '', ans, awards };
 }
 
 /** One answer per day: a second answer for the same day changes nothing. */
 export const answer = (st: DailyState, day: string, result: Result): DailyState =>
   st.ans[day] ? st : { ...st, ans: { ...st.ans, [day]: result } };
 
-export const tokens = (st: DailyState) => Object.values(st.ans).filter((r) => r === 'correct').length;
+export const tokens = (st: DailyState) =>
+  Object.values(st.ans).filter((r) => r === 'correct').length + Object.values(st.awards ?? {}).reduce((a, b) => a + b, 0);
+
+/** Records an award (once per reason). */
+export const award = (st: DailyState, reason: string, amount: number): DailyState =>
+  st.awards?.[reason] ? st : { ...st, awards: { ...(st.awards ?? {}), [reason]: amount } };
 
 /** Days in a row, up to today, with a correct answer. */
 export function goldStreak(st: DailyState, today: string): number {

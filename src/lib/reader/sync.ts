@@ -9,7 +9,7 @@ import { normalise } from './state';
 import type { ClientEdition, Mode, ReaderState, SavedEntry, DeckSize, VoiceChoice } from './types';
 
 export interface Remote {
-  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: VoiceChoice | null; display_name?: string | null } | null;
+  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: VoiceChoice | null; display_name?: string | null; username?: string | null } | null;
   taste: { key: string; score: number }[];
   reactions: { story_id: number; value: 1 | -1 }[];
   swipes: { story_id: number; action: 'more' | 'less' | 'later'; created_at: string }[];
@@ -49,7 +49,9 @@ export function merge(local: ReaderState, remote: Remote, ed: ClientEdition): Re
       min: hasProfile ? remote.profile!.min_grade : local.min,
       mode: hasProfile ? remote.profile!.mode : local.mode,
       size: hasProfile && remote.profile!.deck_size ? remote.profile!.deck_size : local.size,
-      name: hasProfile && remote.profile!.display_name ? remote.profile!.display_name : local.name,
+      // a secured username is the reader's name everywhere; the account says whether there is one
+      name: remote.profile?.username || (hasProfile && remote.profile!.display_name ? remote.profile!.display_name : local.name),
+      secured: remote.profile?.username ?? '',
       // the account's choice wins only if it's a real pick (the account default is 'both')
       ...(hasProfile && remote.profile!.voice && remote.profile!.voice !== 'both' && !local.voicePicked
         ? { voice: remote.profile!.voice, voicePicked: true }

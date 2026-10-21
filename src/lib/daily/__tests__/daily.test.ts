@@ -1,5 +1,5 @@
 import { FACTS, QUESTIONS } from '../content';
-import { answer, check, dayNumber, distance, emptyDaily, factFor, goldStreak, mergeDaily, normalise, normaliseDaily, questionFor, tokens } from '../daily';
+import { answer, award, check, dayNumber, distance, emptyDaily, factFor, goldStreak, mergeDaily, normalise, normaliseDaily, questionFor, tokens } from '../daily';
 
 const q = (text: string) => QUESTIONS.find((x) => x.q.startsWith(text))!;
 
@@ -88,6 +88,14 @@ describe('gold DR tokens', () => {
     const local = answer(emptyDaily(), '2026-10-17', 'correct');
     const m = mergeDaily(local, [{ day: '2026-10-16', result: 'correct' }]);
     expect(tokens(m)).toBe(2);
-    expect(normaliseDaily({ seen: 5, ans: { bad: 'correct', '2026-10-17': 'nope', '2026-10-16': 'wrong' } })).toEqual({ seen: '', ans: { '2026-10-16': 'wrong' } });
+    expect(normaliseDaily({ seen: 5, ans: { bad: 'correct', '2026-10-17': 'nope', '2026-10-16': 'wrong' } })).toEqual({ seen: '', ans: { '2026-10-16': 'wrong' }, awards: {} });
+  });
+
+  it('securing a username adds 5 gold tokens, once', () => {
+    let st = answer(emptyDaily(), '2026-10-17', 'correct');
+    st = award(st, 'username', 5);
+    st = award(st, 'username', 5);
+    expect(tokens(st)).toBe(6);
+    expect(normaliseDaily({ awards: { username: 5, 'bad key': 3, cheat: 1e6 } }).awards).toEqual({ username: 5 });
   });
 });

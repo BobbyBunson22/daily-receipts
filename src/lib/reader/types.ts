@@ -99,6 +99,8 @@ export interface ReaderState {
   voicePicked: boolean;
   /** Their username, e.g. "jay" for "Jay’s Receipts"; empty when not set. */
   name: string;
+  /** The username secured to their account (unique), when they've claimed one. */
+  secured: string;
   /** The issue for which the reader asked for maximum receipts (every story); 0 when not. */
   maxIssue: number;
   taste: { sec: Record<string, number>; sub: Record<string, number>; tag: Record<string, number> };

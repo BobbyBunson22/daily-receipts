@@ -623,3 +623,19 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .rs-cta h2{font-family:var(--f-disp);font-weight:800;font-size:24px;color:var(--navy);margin:0 0 6px}
 .rs-cta p{margin:0 0 12px}
 .rs-cta .pill{gap:8px}
+
+/* securing a username */
+.claim .daily-card h2{font-family:var(--f-disp);font-weight:800;font-size:28px;line-height:1.08;letter-spacing:-.025em;color:var(--navy);margin:4px 0 8px;text-wrap:balance}
+.claim-tokens{display:flex;justify-content:center;gap:4px;margin:0;padding:18px 22px 4px}
+.claim section{padding:6px 22px 22px}
+.claim section p{margin:0 0 6px}
+.claim-tokens span{display:inline-flex;animation:claimpop .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes claimpop{from{transform:translateY(14px) scale(.6);opacity:0}to{transform:none;opacity:1}}
+.claim-form{margin:12px 0 4px}
+.claim-status{min-height:1.4em;margin:2px 0 10px;font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2)}
+.claim-status.ok{color:#1f7a3a}.claim-status.no{color:var(--cut)}
+.claim-prize{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:#8a6408;background:#fff7d6;border-radius:8px;padding:8px 10px;margin:6px 0 10px}
+.claim-done{text-align:center}
+.namestate{font-size:15px;color:var(--ink-2);margin:8px 0 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.namestate.ok{color:var(--navy)}
+@media (prefers-reduced-motion:reduce){.claim-tokens span{animation:none}}
