@@ -649,3 +649,7 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .fbprize b{color:#8a6408}
 .fbmulti{display:grid;gap:6px}
 .fbmulti label{border-radius:10px}
+.codeform{margin-top:8px}
+.coderow{display:flex;gap:8px}
+.coderow input{flex:1;min-width:0;font-family:var(--f-mono);font-size:22px;letter-spacing:.3em;padding:10px 12px;border:1.5px solid var(--navy);border-radius:10px;background:var(--paper);color:var(--navy)}
+.won-k{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin:0 0 4px}

@@ -88,6 +88,15 @@ function useAvailable(name: string) {
 export function ClaimWatcher() {
   const { user, update, toast } = useReader();
   const busy = useRef(false);
+  // a sign-in link carries the name (/?claim=jay), as it may open in a different browser
+  useEffect(() => {
+    const u = new URL(location.href);
+    const name = cleanName(u.searchParams.get('claim') ?? '');
+    if (!u.searchParams.has('claim')) return;
+    if (name) remember({ pending: name });
+    u.searchParams.delete('claim');
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  }, []);
   useEffect(() => {
     const pending = memo().pending;
     if (!user || !pending || busy.current) return;
@@ -130,6 +139,7 @@ export function TokensCard({ won }: { won: Won[] }) {
           {Array.from({ length: Math.min(total, 7) }, (_, i) => <span key={i} style={{ animationDelay: `${i * 90}ms` }}><GoldToken size={42} spin /></span>)}
         </div>
         <section className="claim-done" role="status">
+          {won.some((w) => w.reason === 'username') && st.secured && <p className="won-k">{brandFor(st.secured)} is yours, locked in.</p>}
           <h2 id="won-h">You&apos;ve won {total} gold DR tokens</h2>
           <ul className="won-list">{won.map((w) => <li key={w.reason}><b>{w.amount}</b> {WON_FOR[w.reason] ?? ''}</li>)}</ul>
           <p>They&apos;re on your account, on every device.</p>
@@ -207,7 +217,7 @@ export function ClaimCard({ done }: { done?: { name: string; awarded: number } }
           <section>
             <h2 id="claim-h">One step left</h2>
             <p>Sign up free and <b>{brandFor(name)}</b> is yours, with <b>{TOKENS + SIGNUP} gold DR tokens</b>: {SIGNUP} for signing up and {TOKENS} for your username.</p>
-            <AuthForm from="claim" />
+            <AuthForm from="claim" next={`/?claim=${encodeURIComponent(name)}`} />
             <button className="linkish" onClick={() => setStep('pick')}>Change the name</button>
           </section>
         ) : (

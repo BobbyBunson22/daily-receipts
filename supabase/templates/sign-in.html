@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
-<title>Your Daily Receipts sign-in link</title>
+<title>Your Daily Receipts code</title>
 </head>
 <!--
   Sign-in email for Supabase (Authentication > Emails > Templates).
-  Use for both "Magic Link" and "Confirm signup". Subject: Your Daily Receipts sign-in link
-  The button goes to /auth/confirm, which verifies the token directly, so it works in any browser.
+  Use for BOTH "Confirm signup" and "Magic Link". Subject: Your Daily Receipts code: {{ .Token }}
+  The code is typed into the app, which signs the reader in right where they are (on phones the
+  link often opens in a different browser). The button goes to /auth/confirm, which verifies the
+  token directly and carries on to where the reader was going ({{ .RedirectTo }}).
 -->
 <body style="margin:0;padding:0;background:#0d1836;-webkit-text-size-adjust:100%;">
-  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Tap to sign in to Daily Receipts. The link works once and expires in an hour.</div>
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Your code is {{ .Token }}. Type it into Daily Receipts to sign in. It works once and expires in an hour.</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0d1836;">
     <tr>
       <td align="center" style="padding:32px 16px 40px;">
@@ -38,14 +40,16 @@
           <!-- the receipt slip -->
           <tr>
             <td style="background:#fcfbf8;border-radius:14px 14px 0 0;padding:26px 26px 14px;">
-              <p style="margin:0 0 4px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#5c616e;">Sign-in link</p>
+              <p style="margin:0 0 4px;font-family:'Courier New',Courier,monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#5c616e;">Your sign-in code</p>
               <h1 style="margin:0 0 14px;font-family:'Arial Narrow',Arial,Helvetica,sans-serif;font-size:28px;line-height:1.1;font-weight:800;letter-spacing:-0.5px;color:#0d1836;">Your receipts are waiting.</h1>
-              <p style="margin:0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.5;color:#15171c;">Tap the button to sign in. Your roundup, saves and topics will follow you to every device.</p>
+              <p style="margin:0 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.5;color:#15171c;">Type this code into Daily Receipts, where you asked for it:</p>
+              <p style="margin:0 0 20px;font-family:'Courier New',Courier,monospace;font-size:36px;font-weight:700;letter-spacing:8px;color:#0d1836;background:#f2f0ea;border-radius:10px;padding:12px 16px;text-align:center;">{{ .Token }}</p>
+              <p style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.5;color:#5c616e;">Or tap the button. Your roundup, saves and topics will follow you to every device.</p>
 
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 22px;">
                 <tr>
                   <td style="border-radius:999px;background:#0d1836;">
-                    <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email&amp;next=/"
+                    <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email&amp;redirect_to={{ .RedirectTo }}"
                        style="display:inline-block;padding:14px 26px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:999px;">Sign in to Daily Receipts</a>
                   </td>
                 </tr>
@@ -65,7 +69,7 @@
               </table>
 
               <p style="margin:14px 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.5;color:#5c616e;">Button not working? Copy this into your browser:</p>
-              <p style="margin:0 0 18px;font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.5;word-break:break-all;color:#0d1836;">{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email&amp;next=/</p>
+              <p style="margin:0 0 18px;font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.5;word-break:break-all;color:#0d1836;">{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=email</p>
               <p style="margin:0 0 18px;font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.5;color:#5c616e;">Didn&rsquo;t ask for this? Ignore it. Nobody can sign in without this email.</p>
             </td>
           </tr>

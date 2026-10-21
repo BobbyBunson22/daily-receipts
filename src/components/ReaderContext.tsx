@@ -202,6 +202,14 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
       }
     };
     db.auth.getSession().then(({ data }) => adopt(data.session, false));
+    // signed in from another tab (the email's link): pick it up when the reader comes back here
+    const recheck = () => {
+      if (document.visibilityState !== 'visible') return;
+      void db.auth.getSession().then(({ data }) => {
+        if (data.session?.user && data.session.user.id !== userRef.current?.id) void adopt(data.session, true);
+      });
+    };
+    document.addEventListener('visibilitychange', recheck);
     const { data: sub } = db.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user?.id !== userRef.current?.id) void adopt(session, true);
       if (event === 'SIGNED_OUT') void adopt(null, false);
@@ -209,6 +217,7 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
     return () => {
       cancelled = true;
       sub.subscription.unsubscribe();
+      document.removeEventListener('visibilitychange', recheck);
     };
   }, [ready, ed]);
 
