@@ -49,15 +49,10 @@ interface StoryRow {
 
 const clipUrl = (path: string) => `${SUPABASE_URL}/storage/v1/object/public/voice/${path.split('/').map(encodeURIComponent).join('/')}`;
 
-async function fromDatabase(): Promise<ClientEdition | null> {
+async function fromDatabase(editionId?: number): Promise<ClientEdition | null> {
   const db = supabasePublic();
-  const { data: ed, error } = await db
-    .from('editions')
-    .select('id, issue, date_label, compiled_at')
-    .eq('status', 'published')
-    .order('issue', { ascending: false })
-    .limit(1)
-    .maybeSingle();
+  const base = db.from('editions').select('id, issue, date_label, compiled_at').eq('status', 'published');
+  const { data: ed, error } = await (editionId ? base.eq('id', editionId) : base.order('issue', { ascending: false })).limit(1).maybeSingle();
   if (error) throw new Error(`Couldn't read editions: ${error.message}`);
   if (!ed) return null;
 
@@ -193,6 +188,24 @@ export function fromFile(file?: string): ClientEdition {
     outletCount: new Set(stories.flatMap((s) => s.src.map((x) => x.key))).size,
     voice: null,
   };
+}
+
+/**
+ * A story someone shared, with the edition it came from (today's or an earlier one).
+ * Null when there's no such published story.
+ */
+export async function loadSharedStory(storyId: number): Promise<{ edition: ClientEdition; story: ClientStory } | null> {
+  if (!Number.isSafeInteger(storyId) || storyId <= 0) return null;
+  if (!hasSupabase()) {
+    const edition = fromFile();
+    const story = edition.stories.find((s) => s.id === storyId);
+    return story ? { edition, story } : null;
+  }
+  const { data, error } = await supabasePublic().from('stories').select('edition_id').eq('id', storyId).maybeSingle();
+  if (error || !data) return null;
+  const edition = await fromDatabase(data.edition_id as number);
+  const story = edition?.stories.find((s) => s.id === storyId);
+  return edition && story ? { edition, story } : null;
 }
 
 export async function loadEdition(): Promise<ClientEdition | null> {

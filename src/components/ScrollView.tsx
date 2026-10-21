@@ -11,6 +11,7 @@ import { InstallHint } from './InstallHint';
 import { usePuzzles } from './Puzzles';
 import { useReader } from './ReaderContext';
 import { AlsoReported } from './Sheets';
+import { ShareButton } from './Share';
 
 function Item({ s, why }: { s: ClientStory; why?: string }) {
   const { ed, st, openStory, react, toggleSave } = useReader();
@@ -28,6 +29,7 @@ function Item({ s, why }: { s: ClientStory; why?: string }) {
           <button className="rb down" onClick={() => react(s, -1)} aria-pressed={r === -1} aria-label={`Less like this: ${s.head}`}><Icon.cross /></button>
           <button className="rb keep" onClick={() => toggleSave(s)} aria-pressed={isSaved(st, s.id)} aria-label={`Save for later: ${s.head}`}><Icon.keep /></button>
           <button className="rb up" onClick={() => react(s, 1)} aria-pressed={r === 1} aria-label={`More like this: ${s.head}`}><Icon.heart /></button>
+          <ShareButton s={s} from="scroll" />
         </span>
       </div>
       <AlsoReported story={s} compact />

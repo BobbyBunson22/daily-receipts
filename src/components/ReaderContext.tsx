@@ -29,8 +29,16 @@ export type Overlay =
 
 type SyncStatus = 'off' | 'syncing' | 'saved' | 'error';
 
+/** A story opened from a shared link: from today's edition, or an earlier one (live false). */
+export interface SharedStory {
+  story: ClientStory & { secName?: string };
+  date: string;
+  live: boolean;
+}
+
 interface Ctx {
   ed: ClientEdition;
+  shared: SharedStory | null;
   st: ReaderState;
   ready: boolean;
   user: { id: string; email: string | null } | null;
@@ -73,12 +81,13 @@ function readStored(ed: ClientEdition): ReaderState {
   }
 }
 
-export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: React.ReactNode }) {
+export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdition; shared?: SharedStory | null; children: React.ReactNode }) {
   const [st, setSt] = useState<ReaderState>(() => S.initialState(ed));
   const [ready, setReady] = useState(false);
   const [user, setUser] = useState<Ctx['user']>(null);
   const [sync, setSync] = useState<SyncStatus>('off');
-  const [overlay, setOverlayRaw] = useState<Overlay>(null);
+  // a shared link opens straight onto its story; the tour and daily card wait until it's closed
+  const [overlay, setOverlayRaw] = useState<Overlay>(() => (shared ? { kind: 'story', id: shared.story.id } : null));
   const [toastMsg, setToastMsg] = useState('');
   const [player, setPlayer] = useState<PlayerState>({ playing: false, paused: false, story: -1, n: 0 });
   const bulletinRef = useRef<Bulletin | null>(null);
@@ -110,7 +119,7 @@ export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: 
     setSt(loaded);
     setReady(true);
     const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
-    track('open', { mode: loaded.mode, standalone, w: innerWidth, h: innerHeight });
+    track('open', { mode: loaded.mode, standalone, w: innerWidth, h: innerHeight, ...(shared ? { shared: shared.story.id, live: shared.live } : {}) }, shared?.live ? shared.story.id : null);
     bulletinRef.current = new Bulletin((p, event) => {
       setPlayer(p);
       if (event === 'done') {
@@ -121,6 +130,7 @@ export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: 
     });
     setBulletin(bulletinRef.current);
     return () => bulletinRef.current?.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- once per page load
   }, [ed, toast]);
 
   // ---- save to this browser on every change, and to the account shortly after
@@ -284,9 +294,9 @@ export function ReaderProvider({ ed, children }: { ed: ClientEdition; children: 
   }, [toast, update]);
 
   const value = useMemo<Ctx>(() => ({
-    ed, st, ready, user, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave,
+    ed, shared, st, ready, user, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave,
     undo, restart, toast, toastMsg, player, bulletin, signOut,
-  }), [ed, st, ready, user, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave, undo, restart, toast, toastMsg, player, bulletin, signOut]);
+  }), [ed, shared, st, ready, user, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave, undo, restart, toast, toastMsg, player, bulletin, signOut]);
 
   return <ReaderCtx.Provider value={value}>{children}</ReaderCtx.Provider>;
 }

@@ -163,7 +163,7 @@ a{color:inherit}
 .meter span{font-family:var(--f-mono);font-size:11px;letter-spacing:.03em;color:var(--ink-2)}
 .meter i,.lrow i{display:block;height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:4px}
 .meter b,.lrow b{display:block;height:100%;background:var(--navy);border-radius:3px}
-.sh-react{display:flex;align-items:center;gap:8px;margin-top:24px;padding-top:14px;border-top:1.5px dashed var(--dash);font-family:var(--f-disp);font-weight:700;color:var(--navy)}
+.sh-react{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:24px;padding-top:14px;border-top:1.5px dashed var(--dash);font-family:var(--f-disp);font-weight:700;color:var(--navy)}
 .sh-react span{margin-right:auto}
 .srow{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
 .srow .num{width:24px;font-family:var(--f-mono);font-weight:600;font-size:15px;text-align:right;color:var(--navy)}
@@ -183,7 +183,14 @@ a{color:inherit}
 @media (max-width:480px){.modes button{padding:6px 10px}.meters{grid-template-columns:minmax(0,1fr)}.react{margin-left:0}.word{font-size:19px}}
 @media (max-width:420px){.word{font-size:17px}.modes button{padding:6px 9px;font-size:11.5px}.brand{gap:8px}.top-in{gap:8px}}
 @media (max-width:370px){.word{display:none}}
-.cardfoot{flex-wrap:wrap}.cardfoot > span{white-space:nowrap}
+.cardfoot{flex-wrap:wrap;align-items:center}.cardfoot > span{white-space:nowrap}
+/* share */
+.cshare{width:34px;height:34px;flex:none;border-radius:50%;border:1.5px solid var(--navy);background:var(--paper);color:var(--navy);display:grid;place-items:center;margin:-6px 0}
+.cshare:hover,.cshare:active{background:var(--navy);color:var(--on-navy)}
+.rb.share{color:var(--navy)}
+.sharerow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 6px}
+.sharerow .pill{gap:8px}
+.sharerow small{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
 @media (max-height:700px){.cstand{display:none}.cin{gap:8px}.card{padding:14px 18px 0}.chead{padding-bottom:8px}.card .facts{gap:6px}.card .facts li{font-size:15px;line-height:1.3}.cardfoot{padding:8px 0 12px;margin-top:6px}.dcount{margin:4px 0 8px}.dbtns{margin-top:18px}.hint{display:none}.deck{min-height:430px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 

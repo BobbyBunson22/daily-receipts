@@ -17,6 +17,7 @@ import { Facts, Grade, Icon, VoiceBadge } from './brand';
 import { useReader } from './ReaderContext';
 import { PuzzleSettings } from './Puzzles';
 import { SavedList } from './SavedList';
+import { ShareButton } from './Share';
 
 /** Bottom sheet dialog: focus moves in, Escape or the scrim closes, the page behind stays put. */
 /** Other outlets' coverage of the story, for further reading. Not sources, not graded. */
@@ -82,10 +83,11 @@ export function Sheet({ label, children, tall = false }: { label: string; childr
 }
 
 export function StorySheet({ id }: { id: number }) {
-  const { ed, st, react, toggleSave, update, closeOverlay } = useReader();
+  const { ed, st, react, toggleSave, update, closeOverlay, shared } = useReader();
   const live = ed.stories.find((x) => x.id === id);
   const saved = st.saves.find((e) => e.id === id);
-  const s: (ClientStory & { secName?: string }) | undefined = live ?? saved?.s;
+  const fromLink = !live && shared?.story.id === id ? shared : null;
+  const s: (ClientStory & { secName?: string }) | undefined = live ?? saved?.s ?? fromLink?.story;
   if (!s) return null;
   const secName = ed.sections.find((x) => x.id === s.sec)?.name ?? s.secName ?? s.sec;
   const r = st.react[s.id] ?? 0;
@@ -94,8 +96,13 @@ export function StorySheet({ id }: { id: number }) {
     <Sheet label={s.head}>
       <div className="meta"><Grade grade={s.grade} /><span>{secName} · {s.sub}</span>{live && <VoiceBadge story={s} name={ed.voice?.name} reader={st.voice === 'both' ? undefined : st.voice} />}</div>
       {!live && saved && <p className="archnote">Saved from the edition of {saved.date}</p>}
+      {!live && !saved && fromLink && <p className="archnote">From the edition of {fromLink.date}</p>}
       <h2 className="sh-title">{s.head}</h2>
       <p className="stand">{s.stand}</p>
+      <div className="sharerow">
+        <ShareButton s={s} from="story" className="pill" label="Share this receipt" />
+        <small>Grade {s.grade} · {s.kept.length} facts checked</small>
+      </div>
       <h4>Verified facts</h4>
       <Facts story={s} n={8} />
       <div className="body">{s.body.map((p, i) => <p key={i}>{p}</p>)}</div>
@@ -140,6 +147,11 @@ export function StorySheet({ id }: { id: number }) {
           <button className="rb keep" onClick={() => toggleSave(s)} aria-pressed={isSaved(st, s.id)} aria-label="Save for later"><Icon.keep /></button>
           <button className="rb down" onClick={() => react(s, -1)} aria-pressed={r === -1} aria-label="Less like this"><Icon.cross /></button>
           <button className="rb up" onClick={() => react(s, 1)} aria-pressed={r === 1} aria-label="More like this"><Icon.heart /></button>
+        </div>
+      ) : fromLink && !saved ? (
+        <div className="sh-react">
+          <span>That was one story. There are {ed.stories.length} in today&apos;s edition.</span>
+          <button className="pill solid" onClick={closeOverlay}>Read today&apos;s news</button>
         </div>
       ) : (
         <div className="sh-react">

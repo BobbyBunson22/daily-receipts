@@ -1,6 +1,3 @@
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-
 import { ImageResponse } from 'next/og';
 
 import { mastDate, shortDate } from '../components/brand';
@@ -11,34 +8,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 export const revalidate = 300;
 
-const NAVY = '#0d1836';
-const NAVY3 = '#24345f';
-const PAPER = '#fcfbf8';
-const INK2 = '#5c616e';
-const SOFT = '#a9b3d3';
-
-/** The torn-slip logo, drawn with boxes because share images can't render SVG text. */
-function LogoBox({ scale = 1 }: { scale?: number }) {
-  const w = 72 * scale;
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: w, alignItems: 'center' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: w, height: 80 * scale, background: NAVY, borderRadius: `${8 * scale}px ${8 * scale}px 0 0`, paddingTop: 14 * scale }}>
-        <span style={{ color: PAPER, fontFamily: 'Bricolage', fontSize: 34 * scale, lineHeight: 1, letterSpacing: -1 }}>DR</span>
-        <div style={{ width: 40 * scale, borderTop: `${2 * scale}px dashed ${PAPER}`, marginTop: 8 * scale }} />
-        <svg width={28 * scale} height={20 * scale} viewBox="0 0 28 20" style={{ marginTop: 4 * scale }}><path d="M3 10l7 6L25 3" fill="none" stroke={PAPER} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-      </div>
-      <svg width={w} height={8 * scale} viewBox="0 0 72 8" preserveAspectRatio="none"><path d="M0 0h72v0l-6 8-6-8-6 8-6-8-6 8-6-8-6 8-6-8-6 8-6-8-6 8-6-8z" fill={NAVY} /></svg>
-    </div>
-  );
-}
+import { INK2, LogoBox, NAVY, NAVY3, PAPER, SOFT, ogFonts } from './og-parts';
 
 export default async function Image() {
-  const fonts = join(process.cwd(), 'assets', 'fonts');
-  const [disp, mono, mono4] = await Promise.all([
-    readFile(join(fonts, 'bricolage-grotesque-latin-800-normal.woff')),
-    readFile(join(fonts, 'ibm-plex-mono-latin-600-normal.woff')),
-    readFile(join(fonts, 'ibm-plex-mono-latin-400-normal.woff')),
-  ]);
   let ed = null;
   try {
     ed = await loadEdition();
@@ -85,11 +57,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        { name: 'Bricolage', data: disp, weight: 800, style: 'normal' },
-        { name: 'Mono', data: mono, weight: 600, style: 'normal' },
-        { name: 'Mono4', data: mono4, weight: 400, style: 'normal' },
-      ],
+      fonts: await ogFonts(),
     },
   );
 }

@@ -10,6 +10,7 @@ import { EndExtras } from './EndExtras';
 import { InstallButton } from './Install';
 import { usePuzzles } from './Puzzles';
 import { useReader } from './ReaderContext';
+import { ShareButton } from './Share';
 
 const reduced = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -63,6 +64,7 @@ function Card({ s, depth, onGesture }: { s: ClientStory; depth: number; onGestur
       <div className="cardfoot">
         <span>{s.kept.length} checked · <span className={s.cut.length ? 'cutn' : ''}><span className="cl-long">{cutLabel(s)}</span><span className="cl-short" aria-hidden="true">{s.cut.length ? `${s.cut.length} cut` : 'None cut'}</span></span></span>
         <span>Tap for receipts</span>
+        {top && <ShareButton s={s} from="card" className="cshare" />}
       </div>
     </article>
   );
@@ -118,6 +120,7 @@ export function SwipeView() {
     const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
     el.onpointerdown = (e) => {
       if (busy.current) return;
+      if ((e.target as HTMLElement).closest('[data-nodrag]')) return; // the card's own buttons
       down = true; x0 = e.clientX; y0 = e.clientY; dx = dy = 0; t0 = Date.now();
       el.setPointerCapture(e.pointerId);
       el.style.transition = 'none';

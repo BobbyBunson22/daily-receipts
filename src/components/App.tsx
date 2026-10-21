@@ -8,7 +8,7 @@ import { track } from '../lib/reader/track';
 import type { ClientEdition } from '../lib/reader/types';
 import { Icon, Logo } from './brand';
 import { GameSheet, PuzzleProvider, PuzzlesSheet } from './Puzzles';
-import { ReaderProvider, useReader } from './ReaderContext';
+import { ReaderProvider, type SharedStory, useReader } from './ReaderContext';
 import { ScrollView } from './ScrollView';
 import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } from './Sheets';
 import { SwipeView } from './SwipeView';
@@ -95,9 +95,9 @@ function Body() {
   );
 }
 
-export function App({ edition }: { edition: ClientEdition }) {
+export function App({ edition, shared = null }: { edition: ClientEdition; shared?: SharedStory | null }) {
   return (
-    <ReaderProvider ed={edition}>
+    <ReaderProvider ed={edition} shared={shared}>
       <PuzzleProvider>
         <Body />
       </PuzzleProvider>
