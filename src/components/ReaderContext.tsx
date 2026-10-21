@@ -24,6 +24,7 @@ export type Overlay =
   | { kind: 'install' }
   | { kind: 'daily' }
   | { kind: 'claim'; done?: { name: string; awarded: number } }
+  | { kind: 'tokens'; won: { reason: string; amount: number }[] }
   | { kind: 'puzzles' }
   | { kind: 'game'; game: 'cw' | 'su' | 'rb' | 'sr' }
   | null;

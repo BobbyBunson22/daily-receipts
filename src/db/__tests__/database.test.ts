@@ -273,12 +273,17 @@ describe('securing a username', () => {
     await expect(claim(null, 'jay')).rejects.toThrow(/permission denied/);
   });
 
+  it('signing up earns 10 gold tokens, once', async () => {
+    const mine = await as('authenticated', OTHER, () => db.query<{ reason: string; amount: number }>('select reason, amount from public.token_awards'));
+    expect(mine.rows).toEqual([{ reason: 'signup', amount: 10 }]);
+  });
+
   it('the first claim earns 5 gold tokens, once; changing it later earns none', async () => {
     expect(await claim(READER, '  jay ')).toEqual({ ok: true, name: 'jay', awarded: 5 });
     expect(await claim(READER, 'Jay T')).toEqual({ ok: true, name: 'Jay T', awarded: 0 });
     expect(await claim(READER, 'jay')).toEqual({ ok: true, name: 'jay', awarded: 0 });
-    const awards = await as('authenticated', READER, () => db.query<{ amount: number }>('select amount from public.token_awards'));
-    expect(awards.rows).toEqual([{ amount: 5 }]);
+    const awards = await as('authenticated', READER, () => db.query<{ reason: string; amount: number }>('select reason, amount from public.token_awards order by reason'));
+    expect(awards.rows).toEqual([{ reason: 'signup', amount: 10 }, { reason: 'username', amount: 5 }]);
   });
 
   it('a username is one reader\'s only, whatever the capitals', async () => {
@@ -286,8 +291,8 @@ describe('securing a username', () => {
     expect(await claim(OTHER, 'JAY')).toEqual({ ok: false, reason: 'taken' });
     expect(await available(READER, 'jay')).toBe('ok'); // it's already theirs
     // and nobody sees anyone else's tokens
-    const theirs = await as('authenticated', OTHER, () => db.query('select * from public.token_awards'));
-    expect(theirs.rows).toEqual([]);
+    const theirs = await as('authenticated', OTHER, () => db.query<{ reason: string }>('select reason from public.token_awards'));
+    expect(theirs.rows).toEqual([{ reason: 'signup' }]);
   });
 
   it('keeps out reserved, rude and badly formed names', async () => {

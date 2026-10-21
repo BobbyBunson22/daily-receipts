@@ -639,3 +639,5 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .namestate{font-size:15px;color:var(--ink-2);margin:8px 0 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .namestate.ok{color:var(--navy)}
 @media (prefers-reduced-motion:reduce){.claim-tokens span{animation:none}}
+.won-list{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:4px;font-size:17px}
+.won-list b{font-family:var(--f-disp);font-weight:800;color:#8a6408;font-size:20px;margin-right:4px}

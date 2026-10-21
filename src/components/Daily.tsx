@@ -52,6 +52,15 @@ export function useDailyState(): D.DailyState | null {
 /** Records gold tokens given for something (once per reason), e.g. securing a username. */
 export const addAward = (reason: string, amount: number) => write(D.award(read(), reason, amount));
 
+/** Tokens just won (signing up, securing a username), for the celebration. */
+export interface Won { reason: string; amount: number }
+const wonListeners = new Set<(won: Won[]) => void>();
+export function onTokensWon(cb: (won: Won[]) => void) {
+  wonListeners.add(cb);
+  return () => void wonListeners.delete(cb);
+}
+export const celebrate = (won: Won[]) => won.length && wonListeners.forEach((f) => f(won));
+
 /** Should the card open by itself now? Once per London day. */
 export const dailyDue = () => read().seen !== londonDay();
 export const markDailySeen = () => write({ ...read(), seen: londonDay() });
@@ -84,8 +93,16 @@ export function DailySync() {
       if (missing.length) await db.from('daily_answers').upsert(missing, { onConflict: 'user_id,day', ignoreDuplicates: true });
       if (!gone) write(D.mergeDaily(read(), remote));
       // tokens given for other things, like securing a username
-      const { data: awards } = await db.from('token_awards').select('reason, amount');
-      if (!gone) for (const a of (awards ?? []) as { reason: string; amount: number }[]) write(D.award(read(), a.reason, a.amount));
+      const { data: awards } = await db.from('token_awards').select('reason, amount, created_at');
+      if (gone) return;
+      const before = read().awards ?? {};
+      const fresh: Won[] = [];
+      for (const a of (awards ?? []) as { reason: string; amount: number; created_at: string }[]) {
+        // celebrate tokens won in the last quarter of an hour (not old ones arriving on a new device)
+        if (!before[a.reason] && Date.now() - Date.parse(a.created_at) < 15 * 60_000) fresh.push({ reason: a.reason, amount: a.amount });
+        write(D.award(read(), a.reason, a.amount));
+      }
+      celebrate(fresh);
     })();
     return () => {
       gone = true;
@@ -215,7 +232,7 @@ export function DailyCard() {
               )}
               {q.note && <p className="muted">{q.note}</p>}
               {!user && n > 0 && (
-                <p className="daily-keep">Sign up free to keep your tokens on your profile, on every device. <button className="linkish" onClick={() => setOverlay({ kind: 'account', reason: 'daily' })}>Sign up</button></p>
+                <p className="daily-keep">Sign up free and win <b>10 more gold tokens</b>, kept on your profile on every device. <button className="linkish" onClick={() => setOverlay({ kind: 'account', reason: 'daily' })}>Sign up</button></p>
               )}
             </div>
           )}

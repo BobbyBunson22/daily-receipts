@@ -18,7 +18,7 @@ export function EndExtras() {
       {!user && (
         <section className="nudge" aria-labelledby="nudge-h">
           <h2 id="nudge-h">Keep your receipts</h2>
-          <p>Sign up free and your roundup, saves and topics follow you to every device. No password: we email you a link.</p>
+          <p>Sign up free and win 10 gold DR tokens. Your roundup, saves and topics follow you to every device. No password: we email you a link.</p>
           <div className="endbtns"><button className="pill solid" onClick={() => setOverlay({ kind: 'account', reason: 'end' })}>Sign up or sign in</button></div>
         </section>
       )}

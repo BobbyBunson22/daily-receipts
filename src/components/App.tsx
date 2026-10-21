@@ -13,9 +13,9 @@ import { ReaderProvider, type SharedStory, useReader } from './ReaderContext';
 import { ScrollView } from './ScrollView';
 import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } from './Sheets';
 import { SwipeView } from './SwipeView';
-import { DailyCard, DailySync, dailyDue, markDailySeen } from './Daily';
+import { DailyCard, DailySync, type Won, dailyDue, markDailySeen, onTokensWon } from './Daily';
 import { InstallSheet } from './Install';
-import { ClaimCard, ClaimWatcher, claimDue, markClaimShown } from './Claim';
+import { ClaimCard, ClaimWatcher, TokensCard, claimDue, markClaimShown } from './Claim';
 import { Tour } from './Tour';
 
 function Header() {
@@ -62,6 +62,7 @@ function Overlays() {
     case 'install': return <InstallSheet />;
     case 'daily': return <DailyCard />;
     case 'claim': return <ClaimCard done={overlay.done} />;
+    case 'tokens': return <TokensCard won={overlay.won} />;
     case 'puzzles': return <PuzzlesSheet />;
     case 'game': return <GameSheet key={overlay.game} game={overlay.game} />;
   }
@@ -70,6 +71,23 @@ function Overlays() {
 function Body() {
   const { st, ready, toastMsg, overlay, setOverlay } = useReader();
   const dailyShownNow = useRef(false);
+  // tokens just won (signing up, securing a username): gather what arrives together, then celebrate
+  useEffect(() => {
+    let batch: Won[] = [];
+    let t: ReturnType<typeof setTimeout> | null = null;
+    const off = onTokensWon((won) => {
+      for (const w of won) if (!batch.some((b) => b.reason === w.reason)) batch.push(w);
+      if (t) clearTimeout(t);
+      t = setTimeout(() => {
+        setOverlay({ kind: 'tokens', won: batch });
+        batch = [];
+      }, 900);
+    });
+    return () => {
+      off();
+      if (t) clearTimeout(t);
+    };
+  }, [setOverlay]);
   useEffect(() => {
     if (!ready || overlay) return;
     // new readers get the tour first; then, once each London day, the daily fact and question

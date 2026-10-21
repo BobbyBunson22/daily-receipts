@@ -490,7 +490,7 @@ export function SettingsSheet() {
         </>
       ) : (
         <>
-          <p className="muted">Sign up free to keep your roundup, saves and topics on every device.</p>
+          <p className="muted">Sign up free and win 10 gold DR tokens. Your roundup, saves and topics follow you to every device.</p>
           <button className="pill solid" onClick={() => setOverlay({ kind: 'account', reason: 'settings' })}>Sign up or sign in</button>
         </>
       )}
@@ -511,7 +511,7 @@ export function AccountSheet({ reason }: { reason?: string }) {
   return (
     <Sheet label="Sign up or sign in">
       <h2 className="sh-title">Keep your receipts</h2>
-      <p className="stand">Sign up free. Your roundup, saves and topics follow you to every device.</p>
+      <p className="stand">Sign up free and win <b>10 gold DR tokens</b>. Your roundup, saves and topics follow you to every device.</p>
       <AuthForm from={reason ?? 'sheet'} />
     </Sheet>
   );

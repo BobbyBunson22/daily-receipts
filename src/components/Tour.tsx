@@ -31,7 +31,7 @@ export function Tour() {
     ...(offerInstall(platform) ? [{ h: 'Keep it on your home screen', p: platform === 'prompt' || platform === 'android' ? 'Add Daily Receipts to your home screen and it opens full screen with its own icon, like any other app.' : "Add Daily Receipts to your home screen and it opens full screen with its own icon. On iPhone it takes three quick taps; we'll show you.",
       extra: <InstallButton className="pill" from="tour" label={platform === 'prompt' ? 'Add to Home Screen' : 'Show me how'} />,
       art: <HomeIconArt /> }] : []),
-    { h: user ? 'Make it yours' : 'Make it yours, free', p: user ? 'Tap the topics you want, then hold and drag to put your favourites first. Your top three get the most stories.' : 'Sign up free with just your email: no password, no card. Your topics, likes and saved stories then follow you to every device.',
+    { h: user ? 'Make it yours' : 'Make it yours, free', p: user ? 'Tap the topics you want, then hold and drag to put your favourites first. Your top three get the most stories.' : 'Sign up free with just your email and win 10 gold DR tokens: no password, no card. Your topics, likes and saved stories then follow you to every device.',
       art: <div className="ta-topics">{st.order.slice(0, 4).map((id, k) => <span key={id}><b>{k + 1}</b>{ed.sections.find((s) => s.id === id)?.name}<em className="tgrip"><i /><i /><i /></em></span>)}</div> },
   ];
   const last = i === steps.length - 1;

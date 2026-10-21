@@ -11,11 +11,13 @@ import { setName } from '../lib/reader/state';
 import { track } from '../lib/reader/track';
 import { supabaseBrowser } from '../lib/supabase/browser';
 import { AuthForm } from './AuthForm';
-import { GoldToken, addAward } from './Daily';
+import { GoldToken, type Won, addAward, celebrate } from './Daily';
 import { useReader } from './ReaderContext';
 
 const KEY = 'dr.claim.v1';
 const TOKENS = 5;
+/** Tokens for signing up, given by the server when an account is created. */
+export const SIGNUP = 10;
 const londonDay = (d = new Date()) => d.toLocaleDateString('en-CA', { timeZone: 'Europe/London' });
 
 interface ClaimMemo { last?: string; snooze?: string; pending?: string }
@@ -84,7 +86,7 @@ function useAvailable(name: string) {
 
 /** After signing in from the pop-up, claim the name they picked. */
 export function ClaimWatcher() {
-  const { user, update, setOverlay, toast } = useReader();
+  const { user, update, toast } = useReader();
   const busy = useRef(false);
   useEffect(() => {
     const pending = memo().pending;
@@ -97,11 +99,46 @@ export function ClaimWatcher() {
         update((x) => ({ ...setName(x, r.name), secured: r.name }));
         if (r.awarded) addAward('username', r.awarded);
         track('settings', { name: 'secured', awarded: r.awarded });
-        setOverlay({ kind: 'claim', done: { name: r.name, awarded: r.awarded } });
+        celebrate([{ reason: 'username', amount: r.awarded }].filter((w) => w.amount));
       } else toast(`Couldn't secure “${pending}”: ${why(r.reason)}`);
     });
-  }, [user, update, setOverlay, toast]);
+  }, [user, update, toast]);
   return null;
+}
+
+const WON_FOR: Record<string, string> = { signup: 'for signing up', username: 'for securing your username' };
+
+/** The celebration: gold tokens just won, and what for. */
+export function TokensCard({ won }: { won: Won[] }) {
+  const { closeOverlay, st } = useReader();
+  const total = won.reduce((a, w) => a + w.amount, 0);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && closeOverlay();
+    addEventListener('keydown', onKey);
+    return () => removeEventListener('keydown', onKey);
+  }, [closeOverlay]);
+  return (
+    <div className="daily claim" role="dialog" aria-modal="true" aria-labelledby="won-h">
+      <div className="daily-card">
+        <div className="daily-top">
+          <span className="daily-date">{st.secured ? brandFor(st.secured) : 'Welcome'}</span>
+          <button className="daily-x" onClick={closeOverlay} aria-label="Close">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" /></svg>
+          </button>
+        </div>
+        <div className="claim-tokens" aria-hidden="true">
+          {Array.from({ length: Math.min(total, 7) }, (_, i) => <span key={i} style={{ animationDelay: `${i * 90}ms` }}><GoldToken size={42} spin /></span>)}
+        </div>
+        <section className="claim-done" role="status">
+          <h2 id="won-h">You&apos;ve won {total} gold DR tokens</h2>
+          <ul className="won-list">{won.map((w) => <li key={w.reason}><b>{w.amount}</b> {WON_FOR[w.reason] ?? ''}</li>)}</ul>
+          <p>They&apos;re on your account, on every device.</p>
+          <p className="claim-prize">Gold tokens unlock free prizes. What they are is still a secret: watch this space.</p>
+          <button className="pill solid" onClick={closeOverlay}>Back to the news</button>
+        </section>
+      </div>
+    </div>
+  );
 }
 
 export function ClaimCard({ done }: { done?: { name: string; awarded: number } }) {
@@ -157,7 +194,7 @@ export function ClaimCard({ done }: { done?: { name: string; awarded: number } }
           </button>
         </div>
         <div className="claim-tokens" aria-hidden="true">
-          {Array.from({ length: TOKENS }, (_, i) => <span key={i} style={{ animationDelay: `${i * 90}ms` }}><GoldToken size={result ? 46 : 38} spin={!!result} /></span>)}
+          {Array.from({ length: result || user ? TOKENS : 7 }, (_, i) => <span key={i} style={{ animationDelay: `${i * 90}ms` }}><GoldToken size={result ? 46 : 38} spin={!!result} /></span>)}
         </div>
         {result ? (
           <section className="claim-done" role="status">
@@ -169,14 +206,14 @@ export function ClaimCard({ done }: { done?: { name: string; awarded: number } }
         ) : step === 'signup' ? (
           <section>
             <h2 id="claim-h">One step left</h2>
-            <p>Sign up free and <b>{brandFor(name)}</b> is yours, with <b>{TOKENS} gold DR tokens</b>.</p>
+            <p>Sign up free and <b>{brandFor(name)}</b> is yours, with <b>{TOKENS + SIGNUP} gold DR tokens</b>: {SIGNUP} for signing up and {TOKENS} for your username.</p>
             <AuthForm from="claim" />
             <button className="linkish" onClick={() => setStep('pick')}>Change the name</button>
           </section>
         ) : (
           <section>
             <h2 id="claim-h">Secure your username</h2>
-            <p>Make it <b>{brandFor(name || 'your')}</b>, so nobody else can have it. Secure it free and win <b>{TOKENS} gold DR tokens</b>.</p>
+            <p>Make it <b>{brandFor(name || 'your')}</b>, so nobody else can have it. Secure it free and win <b>{user ? TOKENS : TOKENS + SIGNUP} gold DR tokens</b>{user ? '' : `: ${SIGNUP} for signing up and ${TOKENS} for your username`}.</p>
             <form className="namerow claim-form" onSubmit={submit} noValidate>
               <input type="text" value={draft} onChange={(e) => { setDraft(e.target.value); setErr(''); }} maxLength={NAME_MAX + 10}
                 aria-label="Your username" placeholder="e.g. jay" autoComplete="nickname" autoCapitalize="words" spellCheck={false} enterKeyHint="go" />
