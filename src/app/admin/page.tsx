@@ -46,6 +46,8 @@ function Tile({ label, value, note }: { label: string; value: string; note?: str
   );
 }
 
+type Membership = { answers: number; price: Record<string, number>; extras: Record<string, number> };
+
 function Split({ data, order }: { data: Record<string, number> | null; order: [string, string][] }) {
   const total = order.reduce((a, [k]) => a + (data?.[k] ?? 0), 0);
   if (!total) return <p className="muted">No answers yet.</p>;
@@ -77,7 +79,7 @@ export default async function Admin() {
       </Shell>
     );
 
-  const [ov, fb, people, stories, puzzles, out30, outAll] = await Promise.all([
+  const [ov, fb, people, stories, puzzles, out30, outAll, member] = await Promise.all([
     db.rpc('dr_admin_overview', { days: 14 }),
     db.rpc('dr_admin_feedback', { lim: 60 }),
     db.rpc('dr_admin_people', { lim: 200 }),
@@ -85,6 +87,7 @@ export default async function Admin() {
     db.rpc('dr_admin_puzzles', { days: 14 }),
     db.rpc('dr_admin_outlets', { days: 30 }),
     db.rpc('dr_admin_outlets', { days: 3650 }),
+    db.rpc('dr_admin_membership'),
   ]);
   if (ov.error)
     return (
@@ -189,7 +192,11 @@ export default async function Admin() {
           <Tile label="Answers" value={num(o.feedback.answers)} />
           <Tile label="Usefulness" value={o.feedback.useful_avg == null ? '–' : `${o.feedback.useful_avg} / 5`} />
         </div>
-        <h3>Would pay £39 a year</h3>
+        <h3>Membership at £2.50 a month or £25 a year ({num((member.data as Membership | null)?.answers ?? 0)} answers)</h3>
+        <Split data={(member.data as Membership | null)?.price ?? null} order={[['annual', 'Yearly'], ['monthly', 'Monthly'], ['maybe', 'Maybe'], ['cheaper', 'If cheaper'], ['free', 'Stay free']]} />
+        <h3>Extras they&apos;d want</h3>
+        <Split data={(member.data as Membership | null)?.extras ?? null} order={[['roundup', 'Roundup read in full'], ['audio', 'Save audio'], ['archive', 'Archive'], ['alerts', 'Alerts'], ['puzzles', 'More puzzles'], ['nosponsor', 'No sponsors'], ['support', 'To support us']]} />
+        <h3>Would pay (all answers, incl. the old £39 question)</h3>
         <Split data={o.feedback.pay} order={[['yes', 'Yes'], ['maybe', 'Maybe'], ['no', 'No']]} />
         <h3>Trust the facts</h3>
         <Split data={o.feedback.trust} order={[['yes', 'Yes'], ['partly', 'Partly'], ['no', 'No']]} />

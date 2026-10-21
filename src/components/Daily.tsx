@@ -103,6 +103,10 @@ export function DailySync() {
         write(D.award(read(), a.reason, a.amount));
       }
       celebrate(fresh);
+      // answered the questionnaire before signing up: once those answers are on the account, so are the tokens
+      if (read().awards?.questionnaire && !(awards ?? []).some((a: { reason: string }) => a.reason === 'questionnaire')) {
+        setTimeout(() => void db.rpc('dr_claim_questionnaire_award'), 2500);
+      }
     })();
     return () => {
       gone = true;

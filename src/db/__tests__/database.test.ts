@@ -302,3 +302,48 @@ describe('securing a username', () => {
     expect(await available(null, 'BullShitter')).toBe('not allowed');
   });
 });
+
+describe('the membership questionnaire', () => {
+  const NEW = '66666666-6666-4666-8666-666666666666';
+  const send = (uid: string | null, anon: string, price: string, extras: string[] | null) =>
+    as(uid ? 'authenticated' : 'anon', uid, () =>
+      db.query<{ r: { awarded: number } }>(
+        `select dr_send_questionnaire($1, (select id from editions limit 1), 4::smallint, 2::smallint, $2, $3::text[], ' daily alerts ') r`,
+        [anon, price, extras],
+      )).then((x) => x.rows[0].r);
+  const awards = (uid: string) =>
+    as('authenticated', uid, () => db.query<{ reason: string; amount: number }>("select reason, amount from token_awards where reason = 'questionnaire'")).then((x) => x.rows);
+
+  beforeAll(async () => {
+    await db.exec(`insert into auth.users (id, email) values ('${NEW}', 'new@example.com') on conflict do nothing`);
+  });
+
+  it('saves price and extras, and the old yes/maybe/no from the price', async () => {
+    await send(null, 'device-q12345', 'monthly', ['roundup', 'alerts']);
+    const { rows } = await db.query<{ price: string; pay: string; extras: string[] }>("select price, pay, extras from feedback where anon_id = 'device-q12345'");
+    expect(rows).toEqual([{ price: 'monthly', pay: 'yes', extras: ['roundup', 'alerts'] }]);
+    await expect(send(null, 'device-q12345', 'monthly', ['bitcoin'])).rejects.toThrow();
+    await expect(send(null, 'device-q12345', 'free please', null)).rejects.toThrow();
+  });
+
+  it('a signed-in reader wins 10 gold tokens the first time, and only once', async () => {
+    expect(await send(NEW, 'device-q99999', 'annual', ['support'])).toEqual({ awarded: 10 });
+    expect(await send(NEW, 'device-q99999', 'cheaper', null)).toEqual({ awarded: 0 });
+    expect(await awards(NEW)).toEqual([{ reason: 'questionnaire', amount: 10 }]);
+  });
+
+  it('someone who answered before signing up gets theirs after signing in', async () => {
+    await as('authenticated', ADMIN, () => db.query(`select dr_claim_device('device-q12345')`));
+    const got = await as('authenticated', ADMIN, () => db.query<{ n: number }>('select dr_claim_questionnaire_award() n'));
+    expect(got.rows[0].n).toBe(10);
+    const again = await as('authenticated', ADMIN, () => db.query<{ n: number }>('select dr_claim_questionnaire_award() n'));
+    expect(again.rows[0].n).toBe(0);
+  });
+
+  it('admins see what readers would pay and want; nobody else does', async () => {
+    const m = await as('authenticated', ADMIN, () => db.query<{ m: { answers: number; price: Record<string, number>; extras: Record<string, number> } }>('select dr_admin_membership() m'));
+    expect(m.rows[0].m.price).toMatchObject({ monthly: 1, cheaper: 1 });
+    expect(m.rows[0].m.extras.roundup).toBe(1);
+    await expect(as('authenticated', NEW, () => db.query('select dr_admin_membership()'))).rejects.toThrow(/admins only/);
+  });
+});

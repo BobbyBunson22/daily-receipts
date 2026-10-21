@@ -641,3 +641,11 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 @media (prefers-reduced-motion:reduce){.claim-tokens span{animation:none}}
 .won-list{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:4px;font-size:17px}
 .won-list b{font-family:var(--f-disp);font-weight:800;color:#8a6408;font-size:20px;margin-right:4px}
+
+/* questionnaire */
+.fbintro{background:var(--paper-2);border-radius:10px;padding:12px 14px;margin:8px 0 10px}
+.fbintro p{margin:0;font-size:16px;line-height:1.45}
+.fbprize{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px!important;font-family:var(--f-mono);font-size:12px!important;letter-spacing:.03em;text-transform:uppercase;color:#8a6408}
+.fbprize b{color:#8a6408}
+.fbmulti{display:grid;gap:6px}
+.fbmulti label{border-radius:10px}
