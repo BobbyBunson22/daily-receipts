@@ -597,3 +597,12 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 @media (prefers-reduced-motion:reduce){.daily-card,.gtoken.spin{animation:none}}
 .pill.gold{background:#f2c23a;border-color:#b8860b;color:var(--navy)}
 .pill.gold:hover{background:#e6b42a;color:var(--navy)}
+
+/* username */
+.namefield label{display:block;font-size:16px;color:var(--ink-2);margin:0 0 8px}
+.namefield label b{color:var(--navy);font-family:var(--f-disp)}
+.namerow{display:flex;gap:8px}
+.namerow input{flex:1;min-width:0;font-family:var(--f-disp);font-weight:700;font-size:18px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--navy)}
+.namerow input:focus{border-color:var(--navy);outline:none}
+.word{max-width:46vw;overflow:hidden;text-overflow:ellipsis}
+.mast-k{overflow-wrap:anywhere}

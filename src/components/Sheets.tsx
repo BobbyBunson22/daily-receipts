@@ -6,7 +6,8 @@ import { GRADE_LABELS } from '../lib/grading';
 import { bulletinMinutes, canSpeak } from '../lib/reader/bulletin';
 import { liked } from '../lib/reader/personalise';
 import { tagKey } from '../lib/reader/tags';
-import { forgetTag, isSaved, moveTopic, resetTaste, setMin, setSize, setVoice, toggleTopic } from '../lib/reader/state';
+import { NAME_MAX, brandFor, cleanName, roundupFor } from '../lib/reader/name';
+import { forgetTag, isSaved, moveTopic, resetTaste, setMin, setName, setSize, setVoice, toggleTopic } from '../lib/reader/state';
 import { READER_IDS, READERS, choiceName, openingUrl, partUrl, readerFor } from '../lib/reader/voices';
 import { track } from '../lib/reader/track';
 import type { ClientStory, Reader, VoiceChoice } from '../lib/reader/types';
@@ -210,7 +211,7 @@ export function RoundupSheet() {
   if (!list.length)
     return (
       <Sheet label="Your roundup">
-        <h2 className="sh-title">Your roundup</h2>
+        <h2 className="sh-title">{roundupFor(st.name)}</h2>
         <p className="stand">Your own daily bulletin, built from the stories you like.</p>
         <p className="muted">Tap the heart or swipe right on any story to add it here. Then come back and press play to hear them read out as a short news bulletin.</p>
         <p><button className="pill solid" onClick={closeOverlay}>Find stories</button></p>
@@ -221,7 +222,7 @@ export function RoundupSheet() {
   const status = !player.playing ? `About ${bulletinMinutes(list, ed, st.voice)} min · ${voiceLabel}` : player.paused ? 'Paused' : player.story < 0 ? 'Playing' : `Story ${player.story + 1} of ${player.n}`;
   return (
     <Sheet label="Your roundup">
-      <h2 className="sh-title">Your roundup</h2>
+      <h2 className="sh-title">{roundupFor(st.name)}</h2>
       <p className="stand">The {list.length} {list.length === 1 ? 'story' : 'stories'} you liked today, read in full as your own news bulletin.</p>
       {speak || voiced ? (
         <div className="player">
@@ -382,6 +383,30 @@ function TopicOrder() {
   );
 }
 
+/** The reader's username: "jay" makes it Jay’s Receipts. */
+function NameField() {
+  const { st, update, toast } = useReader();
+  const [draft, setDraft] = useState(st.name);
+  const clean = cleanName(draft);
+  const save = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (clean === st.name) return;
+    update((x) => setName(x, clean));
+    track('settings', { name: clean ? 'set' : 'cleared' });
+    toast(clean ? `Welcome to ${brandFor(clean)}` : 'Back to Daily Receipts');
+  };
+  return (
+    <form className="namefield" onSubmit={save}>
+      <label htmlFor="dr-name">Shows as <b>{brandFor(clean)}</b> and <b>{roundupFor(clean)}</b>.</label>
+      <div className="namerow">
+        <input id="dr-name" type="text" value={draft} onChange={(e) => setDraft(e.target.value)} maxLength={NAME_MAX + 10}
+          placeholder="e.g. jay" autoComplete="nickname" autoCapitalize="words" spellCheck={false} enterKeyHint="done" />
+        <button className="pill solid" type="submit" disabled={clean === st.name}>Save</button>
+      </div>
+    </form>
+  );
+}
+
 export function SettingsSheet() {
   const { ed, st, update, toast, user, signOut, setOverlay, sync } = useReader();
   const names = new Map<string, string>();
@@ -392,6 +417,9 @@ export function SettingsSheet() {
   return (
     <Sheet label="Your edition">
       <h2 className="sh-title">Your edition</h2>
+      <h4>Your username</h4>
+      <NameField />
+      <h4>Your topics</h4>
       <p className="stand">Tap the topics you want, then hold and drag to put your favourites first. Your top three get the most stories.</p>
       <TopicOrder />
       <h4>Number of receipts</h4>

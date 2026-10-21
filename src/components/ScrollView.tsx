@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 import { because, extraCount, liked, minutes, sectionLists, todays, topStories } from '../lib/reader/personalise';
+import { brandFor } from '../lib/reader/name';
 import { isSaved, showMax } from '../lib/reader/state';
 import type { ClientStory } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel } from './brand';
@@ -50,7 +51,7 @@ export function ScrollView() {
   return (
     <>
       <section className="intro">
-        <div className="date">{ed.date} · No. {ed.issue}</div>
+        <div className="date">{st.name ? `${brandFor(st.name)} · ` : ''}{ed.date} · No. {ed.issue}</div>
         <h1>Today&apos;s news, <span>with receipts.</span></h1>
         <p>The top {top.length} in about {minutes(top.length)} minutes. The rest if you fancy it.</p>
         <div className="stats">

@@ -9,7 +9,7 @@ import { normalise } from './state';
 import type { ClientEdition, Mode, ReaderState, SavedEntry, DeckSize, VoiceChoice } from './types';
 
 export interface Remote {
-  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: VoiceChoice | null } | null;
+  profile: { topic_order: string[]; min_grade: GradeLetter; mode: Mode; deck_size?: DeckSize | null; voice?: VoiceChoice | null; display_name?: string | null } | null;
   taste: { key: string; score: number }[];
   reactions: { story_id: number; value: 1 | -1 }[];
   swipes: { story_id: number; action: 'more' | 'less' | 'later'; created_at: string }[];
@@ -49,6 +49,7 @@ export function merge(local: ReaderState, remote: Remote, ed: ClientEdition): Re
       min: hasProfile ? remote.profile!.min_grade : local.min,
       mode: hasProfile ? remote.profile!.mode : local.mode,
       size: hasProfile && remote.profile!.deck_size ? remote.profile!.deck_size : local.size,
+      name: hasProfile && remote.profile!.display_name ? remote.profile!.display_name : local.name,
       // the account's choice wins only if it's a real pick (the account default is 'both')
       ...(hasProfile && remote.profile!.voice && remote.profile!.voice !== 'both' && !local.voicePicked
         ? { voice: remote.profile!.voice, voicePicked: true }
@@ -99,7 +100,7 @@ export async function push(db: SupabaseClient, uid: string, st: ReaderState, ed:
   const saveRows = st.saves.map((e) => ({ user_id: uid, story_id: e.id, snapshot: e }));
 
   const results = await Promise.all([
-    db.from('profiles').upsert({ user_id: uid, topic_order: st.order, min_grade: st.min, mode: st.mode, deck_size: st.size, voice: st.voice, updated_at: new Date().toISOString() }),
+    db.from('profiles').upsert({ user_id: uid, topic_order: st.order, min_grade: st.min, mode: st.mode, deck_size: st.size, voice: st.voice, display_name: st.name || null, updated_at: new Date().toISOString() }),
     tasteRows.length ? db.from('taste').upsert(tasteRows) : db.from('taste').delete().eq('user_id', uid),
     (async () => {
       const unreacted = editionIds.filter((id) => !(id in st.react));

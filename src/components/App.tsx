@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 
 import { deckList, todays } from '../lib/reader/personalise';
+import { brandFor } from '../lib/reader/name';
 import { needsTour } from '../lib/reader/state';
 import { track } from '../lib/reader/track';
 import type { ClientEdition } from '../lib/reader/types';
@@ -30,7 +31,7 @@ function Header() {
   return (
     <header className="top">
       <div className="top-in">
-        <Link className="brand" href="/" aria-label="Daily Receipts, today's edition"><Logo inv /><span className="word">Daily Receipts</span></Link>
+        <Link className="brand" href="/" aria-label={`${brandFor(st.name)}, today's edition`}><Logo inv /><span className="word">{brandFor(st.name)}</span></Link>
         <div className="modes" role="group" aria-label="View">
           <button aria-pressed={st.mode === 'swipe'} onClick={() => setMode('swipe')}>Swipe</button>
           <button aria-pressed={st.mode === 'scroll'} onClick={() => setMode('scroll')}>Scroll</button>

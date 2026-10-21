@@ -3,6 +3,7 @@
  * Stored in the browser for everyone; mirrored to their account when signed in (see sync.ts).
  */
 import { tagKey } from './tags';
+import { cleanName } from './name';
 import type { GradeLetter } from '../../types/edition';
 import { GRADE_ORDER } from '../grading';
 import type { ClientEdition, ClientStory, DeckSize, Mode, ReaderState, VoiceChoice, SavedEntry, SwipeAction } from './types';
@@ -39,6 +40,7 @@ export function initialState(ed: ClientEdition): ReaderState {
     size: 'standard',
     voice: 'both',
     voicePicked: false,
+    name: '',
     maxIssue: 0,
     taste: { sec: {}, sub: {}, tag: {} },
     react: {},
@@ -67,6 +69,7 @@ export function normalise(raw: unknown, ed: ClientEdition): ReaderState {
     size: r.size === 'quick' || r.size === 'long' ? r.size : 'standard',
     // the default (both, taking turns) applies until a reader picks; picks are kept
     voicePicked: r.voicePicked === true,
+    name: cleanName(r.name),
     voice: r.voicePicked === true && (r.voice === 'george' || r.voice === 'emma' || r.voice === 'both') ? r.voice : 'both',
     maxIssue: sameIssue && r.maxIssue === ed.issue ? ed.issue : 0,
     taste: { sec: num(r.taste?.sec), sub: num(r.taste?.sub), tag: pruneTags(num(r.taste?.tag)) },
@@ -169,6 +172,7 @@ export function moveTopic(st: ReaderState, from: number, to: number): ReaderStat
 export const setMin = (st: ReaderState, min: GradeLetter): ReaderState => ({ ...st, min });
 export const setMode = (st: ReaderState, mode: Mode): ReaderState => ({ ...st, mode });
 export const setSize = (st: ReaderState, size: DeckSize): ReaderState => ({ ...st, size });
+export const setName = (st: ReaderState, name: string): ReaderState => ({ ...st, name: cleanName(name) });
 export const setVoice = (st: ReaderState, voice: VoiceChoice): ReaderState => ({ ...st, voice, voicePicked: true });
 /** Maximum receipts: every story in today's edition, for today only. */
 export const showMax = (st: ReaderState, ed: ClientEdition): ReaderState => ({ ...st, maxIssue: ed.issue });

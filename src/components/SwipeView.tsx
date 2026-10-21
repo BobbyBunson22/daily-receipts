@@ -2,6 +2,7 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
 import { deckList, extraCount, leans, liked, minutes, todays } from '../lib/reader/personalise';
+import { brandFor } from '../lib/reader/name';
 import { reswipeSaved, showMax } from '../lib/reader/state';
 import type { ClientStory, SwipeAction } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel, mastDate, shortDate } from './brand';
@@ -204,7 +205,7 @@ export function SwipeView() {
   return (
     <div className="deckwrap">
       <div className="mast">
-        <span className="mast-k">Today&apos;s Daily Receipts</span>
+        <span className="mast-k">{st.name ? brandFor(st.name) : <>Today&apos;s Daily Receipts</>}</span>
         <span className="mast-row"><b className="mast-d">{mastDate(ed.date)}</b><span className="mast-n">No. {ed.issue}</span></span>
       </div>
       <div className="dtop">
