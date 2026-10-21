@@ -17,7 +17,8 @@ import { prepareEdition } from '../prepareEdition';
 import { deriveTags } from './tags';
 import { SUPABASE_URL, hasSupabase } from '../supabase/env';
 import { supabasePublic } from '../supabase/server';
-import type { ClientEdition, ClientStory, Reader } from './types';
+import type { ClientEdition, ClientStory, Reader, VoiceChoice } from './types';
+import { cleanName } from './name';
 import { READER_BY_VOICE } from './voices';
 
 interface StoryRow {
@@ -206,6 +207,34 @@ export async function loadSharedStory(storyId: number): Promise<{ edition: Clien
   const edition = await fromDatabase(data.edition_id as number);
   const story = edition?.stories.find((s) => s.id === storyId);
   return edition && story ? { edition, story } : null;
+}
+
+export interface SharedRoundup {
+  code: string;
+  edition: ClientEdition;
+  /** In the order the reader had them. */
+  stories: ClientStory[];
+  voice: VoiceChoice;
+  name: string;
+}
+
+/** A roundup someone shared (/r/<code>), or null when there's no such code. */
+export async function loadSharedRoundup(code: string): Promise<SharedRoundup | null> {
+  if (!/^[A-Za-z0-9]{6,12}$/.test(code)) return null;
+  if (!hasSupabase()) {
+    // local preview: the first five stories, so the page can be seen without a database
+    const edition = fromFile();
+    return code === 'preview' ? null : { code, edition, stories: edition.stories.slice(0, 5), voice: 'both', name: 'jay' };
+  }
+  const { data, error } = await supabasePublic().from('shared_roundups').select('edition_id, story_ids, voice, name').eq('code', code).maybeSingle();
+  if (error || !data) return null;
+  const edition = await fromDatabase(data.edition_id as number);
+  if (!edition) return null;
+  const byId = new Map(edition.stories.map((s) => [s.id, s]));
+  const stories = (data.story_ids as (number | string)[]).map((id) => byId.get(Number(id))).filter((s): s is ClientStory => !!s);
+  if (!stories.length) return null;
+  const voice = data.voice === 'george' || data.voice === 'emma' ? data.voice : 'both';
+  return { code, edition, stories, voice, name: cleanName(data.name) };
 }
 
 export async function loadEdition(): Promise<ClientEdition | null> {

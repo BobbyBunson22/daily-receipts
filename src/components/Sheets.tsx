@@ -19,6 +19,7 @@ import { useReader } from './ReaderContext';
 import { PuzzleSettings } from './Puzzles';
 import { SavedList } from './SavedList';
 import { ShareButton } from './Share';
+import { SaveAudioButton, ShareRoundupButton } from './RoundupShare';
 
 /** Bottom sheet dialog: focus moves in, Escape or the scrim closes, the page behind stays put. */
 /** Other outlets' coverage of the story, for further reading. Not sources, not graded. */
@@ -200,7 +201,7 @@ export function NewsreaderPicker() {
 }
 
 export function RoundupSheet() {
-  const { ed, st, bulletin, player, react, openStory, closeOverlay } = useReader();
+  const { ed, st, bulletin, player, react, openStory, closeOverlay, toast, setOverlay } = useReader();
   const list = liked(st, ed);
   const [speak, setSpeak] = useState(true);
   // eslint-disable-next-line react-hooks/set-state-in-effect -- reads browser-only state after hydration
@@ -237,6 +238,12 @@ export function RoundupSheet() {
       ) : (
         <p className="muted">Audio isn&apos;t available in this browser. Try opening the link in Safari or Chrome.</p>
       )}
+      <div className="rshare-row">
+        <ShareRoundupButton list={list} ed={ed} voice={st.voice} name={st.name} toast={toast} />
+        <SaveAudioButton list={list} ed={ed} voice={st.voice} name={st.name} bulletin={bulletin} toast={toast} from="roundup" />
+      </div>
+      {!st.name && <p className="muted">Add a username in <button className="linkish" onClick={() => setOverlay({ kind: 'settings' })}>settings</button> and it&apos;s shared as your roundup, by name.</p>}
+      {player.playing && (player.cached ?? 0) >= 1 && <p className="muted">Your roundup is on your phone now: it keeps playing without signal.</p>}
       <h4>Your newsreader</h4>
       <NewsreaderPicker />
       <h4>In your roundup</h4>

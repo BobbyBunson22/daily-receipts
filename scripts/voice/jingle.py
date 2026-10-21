@@ -91,13 +91,13 @@ def reverb(x, size=1.4, mix=0.22):
     return dry * (1 - mix) + wet * mix
 
 
-def write_mp3(path: Path, x: np.ndarray, af: str):
+def write_mp3(path: Path, x: np.ndarray, af: str, extra: list[str] | None = None):
     path.parent.mkdir(parents=True, exist_ok=True)
     wav = path.with_suffix(".wav")
     with wave.open(str(wav), "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((x * 32767).astype(np.int16).tobytes())
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(wav), "-af", af, "-b:a", "128k", str(path)], check=True)
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(wav), "-af", af, *(extra or ["-b:a", "128k"]), str(path)], check=True)
     wav.unlink()
 
 
@@ -168,4 +168,5 @@ cut = int(SR * 1.95)
 fade = int(SR * 0.3)
 short = x[:cut].copy()
 short[-fade:] *= np.linspace(1, 0, fade)
-write_mp3(ROOT / "public/audio/jingle.mp3", short, "loudnorm=I=-16:TP=-1.5")
+# same format as the voice clips (24 kHz mono), so a roundup can be saved as one file
+write_mp3(ROOT / "public/audio/jingle.mp3", short, "loudnorm=I=-16:TP=-1.5,aresample=24000", ["-ac", "1", "-b:a", "48k"])

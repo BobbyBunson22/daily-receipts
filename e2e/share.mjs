@@ -58,6 +58,44 @@ for (const [w, h, touch] of [[390, 844, true], [1280, 800, false]]) {
   await q.getByRole('button', { name: 'Close' }).first().click();
   await q.waitForSelector('.tour', { timeout: 5000 });
   check(true, `${tag} then the welcome tour shows`);
+  // the roundup: share and save buttons
+  await p.goto(BASE + '/');
+  await p.getByRole('button', { name: 'Swipe', exact: true }).click();
+  await p.waitForSelector('#topcard', { timeout: 5000 }).catch(async () => { await p.screenshot({ path: `${OUT}/debug-${tag}.png` }); throw new Error('no top card'); });
+  for (let k = 0; k < 2; k++) {
+    await p.getByRole('button', { name: 'More like this', exact: true }).click();
+    await p.waitForTimeout(600);
+  }
+  await p.getByRole('button', { name: /^Roundup · [1-9]/ }).click();
+  await p.waitForSelector('.rshare-row');
+  check(await p.getByRole('button', { name: /Share your roundup/ }).count() === 1, `${tag} roundup has a share button`);
+  check(await p.getByRole('button', { name: 'Save audio' }).count() === 1, `${tag} roundup has save audio`);
+  await p.getByRole('button', { name: 'Close' }).click();
+  await p.getByRole('button', { name: 'Your topics and settings' }).click();
+  await p.fill('#dr-name', 'jay');
+  await p.getByRole('button', { name: 'Save', exact: true }).click();
+  await p.getByRole('button', { name: 'Close' }).click();
+  check(/Jay’s Receipts/.test(await p.textContent('.mast-k')), `${tag} a username makes it Jay’s Receipts`);
+  await p.getByRole('button', { name: /^Roundup · [1-9]/ }).click();
+  check(/Jay’s roundup/.test(await p.textContent('.sheet .sh-title')), `${tag} and Jay’s roundup`);
+  check(await p.getByRole('button', { name: /Share Jay’s roundup/ }).count() === 1, `${tag} shared by name`);
+  await p.getByRole('button', { name: 'Close' }).click();
+
+  // a shared roundup, opened by a friend
+  const ctx3 = await b.newContext({ viewport: { width: w, height: h }, hasTouch: touch, isMobile: touch });
+  const r = await ctx3.newPage();
+  const rerr = [];
+  r.on('pageerror', (e) => rerr.push(e.message));
+  await r.goto(BASE + '/r/abc123xy');
+  await r.waitForSelector('.rs-head h1');
+  check(/roundup/.test(await r.textContent('.rs-head h1')), `${tag} shared roundup page shows whose it is`);
+  check(await r.getByRole('button', { name: 'Play' }).count() === 1 && await r.getByRole('button', { name: 'Save audio' }).count() === 1, `${tag} it has play and save audio`);
+  check(await r.$$eval('.rlist a.hl', (as) => as.length > 0 && as.every((a) => /\/s\/\d+-/.test(a.getAttribute('href')))), `${tag} its stories link to their receipts`);
+  check(await r.getByRole('link', { name: /Read today/ }).count() === 1, `${tag} and invites the friend in`);
+  check(await r.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${tag} it fits the screen`);
+  await r.screenshot({ path: `${OUT}/roundup-page-${tag}.png`, fullPage: true });
+  check(rerr.length === 0, `${tag} no errors on the roundup page ${rerr.join(' | ')}`);
+  await ctx3.close();
   check(errors.length === 0, `${tag} no page errors ${errors.join(' | ')}`);
   await ctx2.close();
   await ctx.close();

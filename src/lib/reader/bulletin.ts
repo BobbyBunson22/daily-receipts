@@ -1,10 +1,10 @@
-'use client';
 /**
  * The roundup read aloud as a short bulletin: the jingle, an intro, "First / Next / Finally", each story
  * read in full (headline, then the report), and a sign-off. The reader's chosen newsreader
  * reads wherever their clip is recorded; the device voice reads the rest, and takes over if a
  * clip fails. Never the grade or source counts.
  */
+import { joinMp3 } from './mp3';
 import type { ClientEdition, ClientStory, Reader, VoiceChoice } from './types';
 import { PARTS, type PartKey, duoLead, openingUrl, otherReader, partText, partUrl, readerFor, readingScript, speakable } from './voices';
 
@@ -107,6 +107,48 @@ export interface PlayerState {
   /** Story index being read, -1 for intro/outro. */
   story: number;
   n: number;
+  /** How much of the bulletin's audio is held on the device (0 to 1): at 1 it plays without signal. */
+  cached?: number;
+}
+
+/** Everything the bulletin plays, in order: the jingle, then the bulletin itself. */
+export const playlist = (list: ClientStory[], ed: ClientEdition, voice: VoiceChoice = 'george'): Segment[] => [
+  { src: JINGLE, t: '', k: -1 },
+  ...segments(list, ed, voice),
+];
+
+/**
+ * Downloads every recorded clip into the device's memory (a few at a time) and returns a map
+ * from each clip's address to its in-memory copy, so playback carries on without signal.
+ */
+export async function fetchClips(srcs: string[], have: Map<string, Blob>, onProgress?: (done: number) => void): Promise<Map<string, Blob>> {
+  const todo = [...new Set(srcs)].filter((s) => !have.has(s));
+  let done = srcs.length - todo.length;
+  onProgress?.(srcs.length ? done / srcs.length : 1);
+  const worker = async () => {
+    for (let src = todo.shift(); src; src = todo.shift()) {
+      try {
+        const r = await fetch(src);
+        if (r.ok) have.set(src, await r.blob());
+      } catch {
+        // not recorded or no signal: played from the network, or by the device voice
+      }
+      onProgress?.(++done / srcs.length);
+    }
+  };
+  await Promise.all(Array.from({ length: 4 }, worker));
+  return have;
+}
+
+/** The bulletin as one mp3 (recorded parts only), for saving. */
+export async function bulletinFile(list: ClientStory[], ed: ClientEdition, voice: VoiceChoice, have = new Map<string, Blob>()): Promise<{ blob: Blob; missing: number } | null> {
+  const segs = playlist(list, ed, voice);
+  const srcs = segs.map((x) => x.src).filter((x): x is string => !!x);
+  await fetchClips(srcs, have);
+  const parts = await Promise.all(srcs.filter((s) => have.has(s)).map(async (s) => new Uint8Array(await have.get(s)!.arrayBuffer())));
+  if (parts.length < 2) return null;
+  const missing = list.filter((s, i) => !segs.some((x) => x.k === i && x.src && have.has(x.src) && x.t === storyScript(s))).length;
+  return { blob: new Blob([joinMp3(parts) as BlobPart], { type: 'audio/mpeg' }), missing };
 }
 
 export class Bulletin {
@@ -114,7 +156,10 @@ export class Bulletin {
   private i = 0;
   private audio: HTMLAudioElement | null = typeof Audio !== 'undefined' ? new Audio() : null;
   private preload: HTMLAudioElement | null = null;
-  state: PlayerState = { playing: false, paused: false, story: -1, n: 0 };
+  /** Clips held in memory, by address, and their in-memory addresses. */
+  readonly clips = new Map<string, Blob>();
+  private local = new Map<string, string>();
+  state: PlayerState = { playing: false, paused: false, story: -1, n: 0, cached: 0 };
 
   constructor(private onChange: (s: PlayerState, event?: 'done' | 'error') => void) {
     if (canSpeak()) {
@@ -135,9 +180,23 @@ export class Bulletin {
     this.stop();
     if (!list.length) return;
     // the jingle first; if it can't play, the bulletin simply starts
-    this.segs = [{ src: JINGLE, t: '', k: -1 }, ...segments(list, ed, reader)];
+    this.segs = playlist(list, ed, reader);
     this.set({ playing: true, paused: false, story: -1, n: list.length });
     this.speakFrom(0);
+    // meanwhile, bring the whole bulletin onto the device
+    void fetchClips(this.segs.map((x) => x.src).filter((x): x is string => !!x), this.clips, (f) => this.set({ cached: f }));
+  }
+
+  /** The address to play a clip from: its copy in memory when there is one. */
+  private addr(src: string) {
+    const blob = this.clips.get(src);
+    if (!blob || typeof URL === 'undefined') return src;
+    let u = this.local.get(src);
+    if (!u) {
+      u = URL.createObjectURL(blob);
+      this.local.set(src, u);
+    }
+    return u;
   }
 
   toggle(list: ClientStory[], ed: ClientEdition, reader: VoiceChoice = 'george') {
@@ -201,7 +260,7 @@ export class Bulletin {
     if (this.state.story !== seg.k) this.set({ story: seg.k });
     // fetch the next clip now, so handovers don't wait on the network
     const upcoming = this.segs[i + 1]?.src;
-    if (upcoming && typeof Audio !== 'undefined') {
+    if (upcoming && !this.clips.has(upcoming) && typeof Audio !== 'undefined') {
       this.preload = new Audio();
       this.preload.preload = 'auto';
       this.preload.src = upcoming;
@@ -214,7 +273,7 @@ export class Bulletin {
       };
       this.audio.onended = next;
       this.audio.onerror = fallback;
-      this.audio.src = seg.src;
+      this.audio.src = this.addr(seg.src);
       this.audio.play().catch(fallback);
       return;
     }

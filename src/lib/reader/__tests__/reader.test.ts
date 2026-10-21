@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import type { Edition } from '../../../types/edition';
 import { gradeStory } from '../../grading';
 import { prepareEdition } from '../../prepareEdition';
-import { bulletinMinutes, segments, spoken, storyScript, VOICE_FIXED } from '../bulletin';
+import { JINGLE, bulletinMinutes, fetchClips, playlist, segments, spoken, storyScript, VOICE_FIXED } from '../bulletin';
 import { READER_BY_VOICE } from '../voices';
 import edition2026_10_20 from '../../../../data/edition-2026-10-20.json';
 import { DECK_SIZES, MUTED, dealWeight, deckList, extraCount, todays, liked, sectionLists, storyScore, tagAffinity, topStories, visible } from '../personalise';
@@ -317,6 +317,25 @@ describe('roundup bulletin', () => {
     // nothing recorded: the device reads every line
     expect(segments(ed.stories.slice(0, 2), duo, 'both').every((x) => !x.src)).toBe(true);
     expect(S.normalise({ voice: 'both' }, ed).voice).toBe('both');
+  });
+
+  it('the jingle comes first, and every recorded clip can be brought onto the phone', async () => {
+    const list = [{ ...ed.stories[0], voices: { george: 'https://x/g.mp3', emma: 'https://x/e.mp3' } }];
+    const pl = playlist(list, voiced, 'both');
+    expect(pl[0]).toEqual({ src: JINGLE, t: '', k: -1 });
+    const have = new Map<string, Blob>();
+    const seen: number[] = [];
+    const fetched: string[] = [];
+    const real = globalThis.fetch;
+    globalThis.fetch = (async (u: string) => { fetched.push(u); return new Response(new Blob(['x'])); }) as typeof fetch;
+    try {
+      await fetchClips([...pl.map((x) => x.src!).filter(Boolean), JINGLE], have, (f) => seen.push(f));
+    } finally {
+      globalThis.fetch = real;
+    }
+    expect(new Set(fetched).size).toBe(fetched.length); // each clip once
+    expect(have.has('https://x/e.mp3')).toBe(true);
+    expect(seen[seen.length - 1]).toBe(1);
   });
 
   it('reads ranges and dashes the way a newsreader would', () => {

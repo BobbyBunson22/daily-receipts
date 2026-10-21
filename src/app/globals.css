@@ -606,3 +606,20 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .namerow input:focus{border-color:var(--navy);outline:none}
 .word{max-width:46vw;overflow:hidden;text-overflow:ellipsis}
 .mast-k{overflow-wrap:anywhere}
+
+/* roundup sharing */
+.rshare-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.rshare-row .pill svg{width:16px;height:16px}
+.rshare{min-height:100vh}
+.rs-top{max-width:600px;margin:0 auto;padding:14px 0}
+.rs-top .brand{display:inline-flex;align-items:center;gap:10px;color:var(--on-navy);text-decoration:none}
+.rs-top .word{display:inline}
+.rs-slip{padding:22px 22px 26px}
+.rs-k{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.rs-head h1{font-family:var(--f-disp);font-weight:800;font-size:clamp(32px,9vw,46px);line-height:1.02;letter-spacing:-.035em;color:var(--navy);margin:6px 0 8px;text-wrap:balance}
+.rs-slip .rlist li{grid-template-columns:26px minmax(0,1fr) auto}
+.rs-slip .rlist a.hl{font-family:var(--f-disp);font-weight:700;font-size:16.5px;line-height:1.25;color:var(--navy);text-decoration:none}
+.rs-cta{margin-top:22px;padding-top:18px;border-top:1.5px dashed var(--dash);text-align:center}
+.rs-cta h2{font-family:var(--f-disp);font-weight:800;font-size:24px;color:var(--navy);margin:0 0 6px}
+.rs-cta p{margin:0 0 12px}
+.rs-cta .pill{gap:8px}
