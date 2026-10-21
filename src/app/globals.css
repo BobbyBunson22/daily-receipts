@@ -653,3 +653,7 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .coderow{display:flex;gap:8px}
 .coderow input{flex:1;min-width:0;font-family:var(--f-mono);font-size:22px;letter-spacing:.3em;padding:10px 12px;border:1.5px solid var(--navy);border-radius:10px;background:var(--paper);color:var(--navy)}
 .won-k{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin:0 0 4px}
+.acctsum{display:grid;gap:4px;margin:10px 0 6px;padding:10px 12px;background:var(--paper-2);border-radius:10px}
+.acctsum div{display:flex;justify-content:space-between;gap:10px}
+.acctsum dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.acctsum dd{margin:0;display:flex;align-items:center;gap:6px;font-family:var(--f-disp);font-weight:700;color:var(--navy)}

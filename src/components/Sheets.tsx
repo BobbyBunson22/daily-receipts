@@ -20,7 +20,8 @@ import { PuzzleSettings } from './Puzzles';
 import { SavedList } from './SavedList';
 import { ShareButton } from './Share';
 import { claim, why } from './Claim';
-import { GoldToken } from './Daily';
+import { GoldToken, useDailyState } from './Daily';
+import { tokens } from '../lib/daily/daily';
 import { SaveAudioButton, ShareRoundupButton } from './RoundupShare';
 
 /** Bottom sheet dialog: focus moves in, Escape or the scrim closes, the page behind stays put. */
@@ -392,6 +393,31 @@ function TopicOrder() {
   );
 }
 
+/** What the account holds: the secured username and the gold token total, as the account has them. */
+function AccountSummary() {
+  const { st, user } = useReader();
+  const daily = useDailyState();
+  const [saved, setSaved] = useState<number | null>(null);
+  useEffect(() => {
+    const db = supabaseBrowser();
+    if (!db || !user) return;
+    let gone = false;
+    void db.from('profiles').select('gold_tokens').eq('user_id', user.id).maybeSingle().then(({ data }) => {
+      if (!gone && data) setSaved((data as { gold_tokens: number }).gold_tokens);
+    });
+    return () => {
+      gone = true;
+    };
+  }, [user, daily]);
+  const n = saved ?? (daily ? tokens(daily) : 0);
+  return (
+    <dl className="acctsum">
+      <div><dt>Username</dt><dd>{st.secured ? brandFor(st.secured) : 'Not secured yet'}</dd></div>
+      <div><dt>Gold DR tokens</dt><dd><GoldToken size={16} /> {n}</dd></div>
+    </dl>
+  );
+}
+
 /** The reader's username: "jay" makes it Jay’s Receipts. Once secured, changes go to the account. */
 function NameField() {
   const { st, user, update, toast, setOverlay } = useReader();
@@ -486,7 +512,8 @@ export function SettingsSheet() {
       {user ? (
         <>
           <div className="acctrow"><b>{user.email ?? 'Signed in'}</b><button className="pill" onClick={signOut}>Sign out</button></div>
-          <p className="muted">{sync === 'error' ? "Couldn't reach your account just now. Your changes are safe on this device and will sync next time." : 'Your topics, roundup and saves are kept in your account.'}</p>
+          <AccountSummary />
+          <p className="muted">{sync === 'error' ? "Couldn't reach your account just now. Your changes are safe on this device and will sync next time." : 'Your username, gold tokens, topics, roundup and saves are kept in your account.'}</p>
         </>
       ) : (
         <>

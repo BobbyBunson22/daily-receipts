@@ -347,3 +347,39 @@ describe('the membership questionnaire', () => {
     await expect(as('authenticated', NEW, () => db.query('select dr_admin_membership()'))).rejects.toThrow(/admins only/);
   });
 });
+
+describe('the profile holds email, username and gold tokens', () => {
+  const PERSON = '77777777-7777-4777-8777-777777777777';
+  const profile = () => db.query<{ email: string; username: string | null; gold_tokens: number }>(`select email, username, gold_tokens from profiles where user_id = '${PERSON}'`).then((r) => r.rows[0]);
+
+  it('signing up saves the email and 10 tokens', async () => {
+    await db.exec(`insert into auth.users (id, email) values ('${PERSON}', 'person@example.com')`);
+    expect(await profile()).toEqual({ email: 'person@example.com', username: null, gold_tokens: 10 });
+  });
+
+  it('a secured username and correct answers add up on the profile', async () => {
+    await as('authenticated', PERSON, () => db.query(`select dr_claim_username('Person')`));
+    await as('authenticated', PERSON, () => db.query(`insert into daily_answers (day, result) values ('2026-10-20', 'correct'), ('2026-10-21', 'wrong')`));
+    expect(await profile()).toEqual({ email: 'person@example.com', username: 'Person', gold_tokens: 16 });
+  });
+
+  it('readers can change their choices but not their tokens, email or username', async () => {
+    await as('authenticated', PERSON, () => db.query(`update profiles set min_grade = 'B' where user_id = '${PERSON}'`));
+    // the app saves with an upsert, exactly like this
+    await as('authenticated', PERSON, () => db.query(
+      `insert into profiles (user_id, topic_order, min_grade, mode, deck_size, voice, display_name, updated_at)
+       values ('${PERSON}', '{world}', 'C', 'swipe', 'standard', 'both', 'Person', now())
+       on conflict (user_id) do update set user_id = excluded.user_id, topic_order = excluded.topic_order, min_grade = excluded.min_grade,
+         mode = excluded.mode, deck_size = excluded.deck_size, voice = excluded.voice, display_name = excluded.display_name, updated_at = excluded.updated_at`));
+    await expect(as('authenticated', PERSON, () => db.query(`update profiles set user_id = '${READER}' where user_id = '${PERSON}'`))).rejects.toThrow();
+    await expect(as('authenticated', PERSON, () => db.query(`update profiles set gold_tokens = 9999 where user_id = '${PERSON}'`))).rejects.toThrow(/permission denied/);
+    await expect(as('authenticated', PERSON, () => db.query(`update profiles set username = 'Emma' where user_id = '${PERSON}'`))).rejects.toThrow(/permission denied/);
+    await expect(as('authenticated', PERSON, () => db.query(`update profiles set email = 'x@example.com' where user_id = '${PERSON}'`))).rejects.toThrow(/permission denied/);
+    expect((await profile()).gold_tokens).toBe(16);
+  });
+
+  it('a changed email follows on the profile', async () => {
+    await db.exec(`update auth.users set email = 'new-person@example.com' where id = '${PERSON}'`);
+    expect((await profile()).email).toBe('new-person@example.com');
+  });
+});
