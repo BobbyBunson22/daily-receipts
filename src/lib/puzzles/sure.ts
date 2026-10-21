@@ -1,5 +1,6 @@
 /** Sure?: give a range you're 90% sure of; scored with the interval score, a proper scoring rule. */
-import { isFresh, newsNumbers, type NewsStory } from './daily';
+import { isFresh } from './daily';
+import { SR_Q_GK } from './sure-bank-gk';
 import { rng, seedFrom, shuffled } from './rng';
 
 /** [question, unit, answer, scale (null = the answer itself), note] */
@@ -133,6 +134,9 @@ export const SR_Q_MORE: SureQ[] = [
 ];
 
 export const SR_N = 5;
+
+/** Every general-knowledge question the daily game draws on. */
+export const SR_BANK: SureQ[] = [...SR_Q, ...SR_Q_MORE, ...SR_Q_GK];
 const SR_ALPHA = 0.1;
 
 /** The five questions for an edition (same order as the prototype). */
@@ -154,23 +158,15 @@ export interface SureItem { q: string; unit: string; x: number; sc: number; note
 
 const fromBank = ([q, unit, x, sc, note]: SureQ): SureItem => ({ q, unit, x, sc: sc ?? Math.abs(x), note });
 
-/** How many of the five come from today's facts, when there are enough to choose from. */
-export const SR_NEWS = 2;
-
 /**
- * Today's five questions. Before issue 11, the prototype's set. From issue 11: two numbers
- * from today's checked facts, then the bank, which rotates three a day and doesn't repeat
- * for weeks.
+ * Today's five questions. Before issue 11, the prototype's set. From issue 11, general
+ * knowledge only, five a day from the whole bank, not repeating for weeks. (For a while two
+ * came from the day's news; those didn't play well, so the game is back to general knowledge.)
  */
-export function sureQuestions(ed: { issue: number; date: string; stories: NewsStory[] }): SureItem[] {
+export function sureQuestions(ed: { issue: number }): SureItem[] {
   if (!isFresh(ed.issue)) return srSet(ed.issue).map((i) => fromBank(SR_Q[i]));
-  const news = newsNumbers(ed.stories, ed.date, SR_NEWS).map((n): SureItem => ({ q: n.q, unit: '', x: n.x, sc: Math.abs(n.x), note: n.note, news: true, head: n.head }));
-  const bank = [...SR_Q, ...SR_Q_MORE];
-  const order = shuffled(bank.map((_, i) => i), rng(seedFrom('sure-bank-2')));
-  const per = SR_N - SR_NEWS, start = (ed.issue - 1) * per;
-  const rest = Array.from({ length: SR_N - news.length }, (_, k) => fromBank(bank[order[(start + k) % bank.length]]));
-  // news questions go second and fourth, so the set opens and closes on the bank
-  const out = rest.slice();
-  news.forEach((n, k) => out.splice(1 + k * 2, 0, n));
-  return out;
+  const bank = SR_BANK;
+  const order = shuffled(bank.map((_, i) => i), rng(seedFrom('sure-bank-3')));
+  const start = (ed.issue - 1) * SR_N;
+  return Array.from({ length: SR_N }, (_, k) => fromBank(bank[order[(start + k) % bank.length]]));
 }

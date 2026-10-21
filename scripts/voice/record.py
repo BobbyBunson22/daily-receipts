@@ -9,7 +9,7 @@ lines and tidies old clips.
 For every story (most important first): the headline, then the full report, read in the voice,
 saved as an mp3 in the public "voice" bucket and listed in voice_clips. Also the fixed bulletin
 lines (intro, first, next, finally, outro, sample). Stories already recorded are skipped, so a
-re-run only fills gaps. Clips older than the last two editions are deleted.
+re-run only fills gaps. Roundups last a day: clips and shared roundups from earlier editions are deleted.
 
 The words read must match readingScript() in src/lib/reader/bulletin.ts.
 """
@@ -31,7 +31,7 @@ from speak import mp3, opening, paragraphs, synth, unknown_names  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 LINES = json.loads((ROOT / "src/lib/reader/voice-lines.json").read_text())
 SETTINGS = f"long-v{LINES['version']}"  # bump "version" in voice-lines.json when the words or settings change, to re-record
-KEEP_EDITIONS = 2
+KEEP_EDITIONS = 1  # roundups are for today's news only: yesterday's clips and shared roundups are wiped
 
 URL = os.environ["SUPABASE_URL"].rstrip("/")
 KEY = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
@@ -120,6 +120,9 @@ def main() -> None:
         print(f"{len(rows)} names not in the dictionary: {', '.join(sorted(names))[:500]}")
     if shard == 0:
         cleanup(reader, {e["date"] for e in eds})
+    if shard == 0 and reader == "george":
+        api("DELETE", f"/rest/v1/shared_roundups?edition_id=neq.{ed['id']}")
+        print("Removed shared roundups from earlier editions")
 
 
 if __name__ == "__main__":

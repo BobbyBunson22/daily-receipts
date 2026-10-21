@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { CW_BANK_ALL, CW_LEVELS, cwCells, makeCrossword } from '../crossword';
 import { FRESH_FROM_ISSUE, dayIndex, headlineWords, isFresh, newsCrosswordWords, newsNumbers, type NewsStory } from '../daily';
 import { RB_RULES, makeRulebookDaily } from '../rulebook';
-import { SR_N, SR_NEWS, SR_Q, SR_Q_MORE, srSet, sureQuestions } from '../sure';
+import { SR_BANK, SR_N, SR_Q, srSet, sureQuestions } from '../sure';
 
 interface Ed { edition: { issue: number; date: string }; stories: NewsStory[] }
 const load = (f: string) => JSON.parse(readFileSync(join(__dirname, '../../../../data', f), 'utf8')) as Ed;
@@ -113,53 +113,38 @@ describe('Rulebook from the headlines', () => {
   });
 });
 
-describe('Sure? from the news', () => {
-  it('every news question is a kept fact, backed by 2+ outlets, with its one number blanked', () => {
-    for (const e of eds) {
-      const ns = newsNumbers(e.stories, e.edition.date, 10);
-      expect(ns.length).toBeGreaterThanOrEqual(SR_NEWS);
-      for (const n of ns) {
-        const facts = e.stories.flatMap((s) => s.kept);
-        const hit = facts.find(([f]) => {
-          const [a, b] = n.q.split('___');
-          return f.startsWith(a) && f.endsWith(b) && Number(f.slice(a.length, f.length - b.length).replace(/,/g, '')) === n.x;
-        });
-        expect(hit, n.q).toBeDefined();
-        expect(+/^(\d+) of/.exec(hit![1])![1]).toBeGreaterThanOrEqual(2);
-        expect(n.q.split('___').length).toBe(2);
-        expect(n.q).not.toMatch(/\d/);
-      }
-    }
-  });
-
-  it('five questions, two from the news; before issue 11 the prototype set is kept', () => {
-    for (const e of eds) {
-      const qs = sureQuestions(asFresh(e, 11));
+describe('Sure?', () => {
+  it('five general-knowledge questions a day; before issue 11 the prototype set is kept', () => {
+    for (const issue of [11, 16, 40]) {
+      const qs = sureQuestions({ issue });
       expect(qs.length).toBe(SR_N);
-      expect(qs.filter((q) => q.news).length).toBe(SR_NEWS);
+      expect(qs.some((q) => q.news)).toBe(false);
       expect(new Set(qs.map((q) => q.q)).size).toBe(SR_N);
       expect(qs.every((q) => Number.isFinite(q.x) && q.sc > 0)).toBe(true);
     }
-    const old = sureQuestions(asFresh(eds[2], 10));
+    const old = sureQuestions({ issue: 10 });
     expect(old.map((q) => q.q)).toEqual(srSet(10).map((i) => SR_Q[i][0]));
   });
 
-  it('bank questions don\'t repeat for at least five weeks', () => {
-    const e = eds[2], seen = new Map<string, number>();
-    for (let issue = 11; issue < 11 + 36; issue++)
-      for (const q of sureQuestions(asFresh(e, issue)).filter((x) => !x.news)) {
+  it('questions don\'t repeat for at least seven weeks', () => {
+    expect(SR_BANK.length).toBeGreaterThanOrEqual(250);
+    const seen = new Map<string, number>();
+    const days = Math.floor(SR_BANK.length / SR_N);
+    expect(days).toBeGreaterThanOrEqual(49);
+    for (let issue = 11; issue < 11 + days; issue++)
+      for (const q of sureQuestions({ issue })) {
         expect(seen.has(q.q), `${q.q} on ${seen.get(q.q)} and ${issue}`).toBe(false);
         seen.set(q.q, issue);
       }
   });
 
   it('the bank is well formed', () => {
-    for (const [q, , x, sc, note] of [...SR_Q, ...SR_Q_MORE]) {
+    for (const [q, , x, sc, note] of SR_BANK) {
       expect(q.endsWith('?')).toBe(true);
       expect(Number.isFinite(x) && x !== 0).toBe(true);
       expect(sc === null || sc > 0).toBe(true);
       expect(note.length).toBeGreaterThan(3);
     }
-    expect(new Set([...SR_Q, ...SR_Q_MORE].map((q) => q[0])).size).toBe(SR_Q.length + SR_Q_MORE.length);
+    expect(new Set(SR_BANK.map((q) => q[0].toLowerCase())).size).toBe(SR_BANK.length);
   });
 });

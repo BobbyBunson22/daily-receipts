@@ -95,8 +95,8 @@ export function ShareRoundupButton({ list, ed, voice, name, toast }: { list: Cli
 }
 
 /** A friend's roundup, opened from a link: a small player, the stories, and a way in. */
-export function SharedRoundupPage({ code, ed, stories, voice, name, todayIssue }: {
-  code: string; ed: ClientEdition; stories: ClientStory[]; voice: VoiceChoice; name: string; todayIssue: number;
+export function SharedRoundupPage({ code, ed, stories, voice, name }: {
+  code: string; ed: ClientEdition; stories: ClientStory[]; voice: VoiceChoice; name: string;
 }) {
   const [player, setPlayer] = useState<PlayerState>({ playing: false, paused: false, story: -1, n: 0, cached: 0 });
   const [msg, setMsg] = useState('');
@@ -122,7 +122,6 @@ export function SharedRoundupPage({ code, ed, stories, voice, name, todayIssue }
   }, [code, ed.id, stories]);
 
   const title = roundupFor(name).replace(/^Your roundup$/, 'A Daily Receipts roundup');
-  const old = ed.issue !== todayIssue;
   const status = !player.playing
     ? `About ${bulletinMinutes(stories, ed, voice)} min · read by ${choiceName(voice)}, AI ${voice === 'both' ? 'voices' : 'voice'}`
     : player.paused ? 'Paused' : player.story < 0 ? 'Playing' : `Story ${player.story + 1} of ${player.n}`;
@@ -152,7 +151,6 @@ export function SharedRoundupPage({ code, ed, stories, voice, name, todayIssue }
           ) : (
             <p className="muted">Audio isn&apos;t available in this browser. Try Safari or Chrome.</p>
           )}
-          {old && <p className="archnote">From the edition of {ed.date}. Some audio may no longer be available.</p>}
           <ol className="rlist">
             {stories.map((s, i) => (
               <li key={s.id} className={player.playing && player.story === i ? 'now' : ''}>
