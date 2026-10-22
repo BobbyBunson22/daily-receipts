@@ -13,7 +13,7 @@ import { ReaderProvider, type SharedStory, useReader } from './ReaderContext';
 import { ScrollView } from './ScrollView';
 import { AccountSheet, RoundupSheet, SavedSheet, SettingsSheet, StorySheet } from './Sheets';
 import { SwipeView } from './SwipeView';
-import { DailyCard, DailySync, type Won, dailyDue, markDailySeen, onTokensWon } from './Daily';
+import { DailyCard, DailySync, type Won, dailyDue, markDailySeen, onTokensWon, useDailySyncedFor } from './Daily';
 import { InstallSheet } from './Install';
 import { ClaimCard, ClaimWatcher, TokensCard, claimDue, markClaimShown } from './Claim';
 import { Tour } from './Tour';
@@ -69,7 +69,8 @@ function Overlays() {
 }
 
 function Body() {
-  const { st, ready, toastMsg, overlay, setOverlay } = useReader();
+  const { st, ready, toastMsg, overlay, setOverlay, user, authChecked } = useReader();
+  const syncedFor = useDailySyncedFor();
   const dailyShownNow = useRef(false);
   // tokens just won (signing up, securing a username): gather what arrives together, then celebrate
   useEffect(() => {
@@ -89,7 +90,9 @@ function Body() {
     };
   }, [setOverlay]);
   useEffect(() => {
-    if (!ready || overlay) return;
+    if (!ready || overlay || !authChecked) return;
+    // a signed-in reader: first catch up with their account, so pop-ups seen elsewhere today stay away
+    if (user && syncedFor !== user.id) return;
     // new readers get the tour first; then, once each London day, the daily fact and question
     if (needsTour(st)) {
       const t = setTimeout(() => setOverlay({ kind: 'tour' }), 500);
@@ -111,7 +114,7 @@ function Body() {
       }, 1200);
       return () => clearTimeout(t);
     }
-  }, [ready, st, overlay, setOverlay]);
+  }, [ready, st, overlay, setOverlay, authChecked, user, syncedFor]);
   return (
     <>
       <a className="skip" href="#app">Skip to the stories</a>

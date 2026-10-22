@@ -44,6 +44,8 @@ interface Ctx {
   st: ReaderState;
   ready: boolean;
   user: { id: string; email: string | null } | null;
+  /** True once we know whether the reader is signed in. */
+  authChecked: boolean;
   sync: SyncStatus;
   overlay: Overlay;
   setOverlay: (o: Overlay) => void;
@@ -87,6 +89,7 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
   const [st, setSt] = useState<ReaderState>(() => S.initialState(ed));
   const [ready, setReady] = useState(false);
   const [user, setUser] = useState<Ctx['user']>(null);
+  const [authChecked, setAuthChecked] = useState(false);
   const [sync, setSync] = useState<SyncStatus>('off');
   // a shared link opens straight onto its story; the tour and daily card wait until it's closed
   const [overlay, setOverlayRaw] = useState<Overlay>(() => (shared ? { kind: 'story', id: shared.story.id } : null));
@@ -173,7 +176,12 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
   // ---- account: pick up the session, merge with the account, keep in step
   useEffect(() => {
     const db = supabaseBrowser();
-    if (!db || !ready) return;
+    if (!db) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- no accounts on this preview
+      setAuthChecked(true);
+      return;
+    }
+    if (!ready) return;
     let cancelled = false;
     const adopt = async (session: Session | null, isNewSignIn: boolean) => {
       const u = session?.user;
@@ -201,7 +209,10 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
         setSync('error');
       }
     };
-    db.auth.getSession().then(({ data }) => adopt(data.session, false));
+    db.auth.getSession().then(({ data }) => {
+      setAuthChecked(true);
+      return adopt(data.session, false);
+    });
     // signed in from another tab (the email's link): pick it up when the reader comes back here
     const recheck = () => {
       if (document.visibilityState !== 'visible') return;
@@ -305,9 +316,9 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
   }, [toast, update]);
 
   const value = useMemo<Ctx>(() => ({
-    ed, shared, st, ready, user, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave,
+    ed, shared, st, ready, user, authChecked, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave,
     undo, restart, toast, toastMsg, player, bulletin, signOut,
-  }), [ed, shared, st, ready, user, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave, undo, restart, toast, toastMsg, player, bulletin, signOut]);
+  }), [ed, shared, st, ready, user, authChecked, sync, overlay, setOverlay, closeOverlay, openStory, update, swipe, react, toggleSave, undo, restart, toast, toastMsg, player, bulletin, signOut]);
 
   return <ReaderCtx.Provider value={value}>{children}</ReaderCtx.Provider>;
 }

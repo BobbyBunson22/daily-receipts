@@ -38,6 +38,10 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   check(/The answer:/.test(await p.textContent('.daily-res')), `${tag} don't know reveals the answer`);
   await p.getByRole('button', { name: "Read today's news" }).click();
   check(!(await p.$('.daily')), `${tag} daily card closes`);
+  await p.reload();
+  await p.waitForSelector('#app');
+  await p.waitForTimeout(1500);
+  check(!(await p.$('.daily')), `${tag} the daily card doesn't come back the same day`);
 
   // the deck
   await p.waitForSelector('#topcard');

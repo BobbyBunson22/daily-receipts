@@ -61,9 +61,37 @@ export function onTokensWon(cb: (won: Won[]) => void) {
 }
 export const celebrate = (won: Won[]) => won.length && wonListeners.forEach((f) => f(won));
 
-/** Should the card open by itself now? Once per London day. */
-export const dailyDue = () => read().seen !== londonDay();
-export const markDailySeen = () => write({ ...read(), seen: londonDay() });
+/**
+ * Should the card open by itself now? Once per London day per reader: not if it was shown today
+ * (on any of their devices, when signed in) or today's question is already answered.
+ */
+export const dailyDue = () => {
+  const s = read(), today = londonDay();
+  return s.seen !== today && !s.ans[today];
+};
+export const markDailySeen = () => {
+  const day = londonDay();
+  write({ ...read(), seen: day });
+  // and on the account, so their other devices don't show it again today
+  const db = supabaseBrowser();
+  if (db)
+    void db.auth.getUser().then(({ data }) => {
+      if (data.user) void db.from('profiles').update({ daily_seen: day }).eq('user_id', data.user.id);
+    });
+};
+
+/** The account whose answers and "seen today" this browser has caught up with, if any. */
+let syncedFor: string | null = null;
+export function useDailySyncedFor(): string | null {
+  return useSyncExternalStore(
+    (f) => {
+      subs.add(f);
+      return () => subs.delete(f);
+    },
+    () => syncedFor,
+    () => null,
+  );
+}
 
 // ---------------------------------------------------------------- account sync
 
@@ -84,6 +112,21 @@ export function DailySync() {
     if (!db || !user) return;
     let gone = false;
     (async () => {
+      try {
+        // shown today on another device? then not here either
+        const { data: prof } = await db.from('profiles').select('daily_seen').eq('user_id', user.id).maybeSingle();
+        const seen = (prof as { daily_seen: string | null } | null)?.daily_seen;
+        if (!gone && seen && seen > read().seen) write({ ...read(), seen });
+        const { data, error } = await db.from('daily_answers').select('day, result');
+        if (error || gone) return;
+        const remote = (data ?? []) as { day: string; result: D.Result }[];
+        if (!gone) write(D.mergeDaily(read(), remote));
+      } finally {
+        if (!gone) {
+          syncedFor = user.id;
+          subs.forEach((f) => f());
+        }
+      }
       const { data, error } = await db.from('daily_answers').select('day, result');
       if (error || gone) return;
       const remote = (data ?? []) as { day: string; result: D.Result }[];
