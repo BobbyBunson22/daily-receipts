@@ -1,0 +1,29 @@
+name: Edition watchdog
+
+# Checks that today's edition is on the website. If it isn't, this run fails and GitHub
+# emails the repository owner, so a missed morning never goes unnoticed.
+# Runs twice a morning (UTC; London is the same as UTC in winter, an hour ahead in summer).
+
+on:
+  schedule:
+    - cron: '40 7 * * *'
+    - cron: '40 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Is today's edition published?
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          today="$(TZ=Europe/London date +%F)"
+          rows="$(curl -fsS "$SUPABASE_URL/rest/v1/editions?select=issue,status&date=eq.$today&status=eq.published" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY")"
+          echo "Editions published for $today: $rows"
+          if [ "$rows" = "[]" ]; then
+            echo "::error::No edition is published for $today. The morning job or the catch-up did not get it onto the website."
+            exit 1
+          fi
