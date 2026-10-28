@@ -13,7 +13,7 @@ export default async function SignIn({ searchParams }: { searchParams: Promise<{
       <div className="rcpt">
         <Logo />
         <h1>Keep your receipts</h1>
-        <p>Sign up or sign in. Your roundup, saves and topics follow you to every device.</p>
+        <p>Sign in or sign up. Your username, roundup, saves and topics follow you to every device.</p>
         {error && <p className="authmsg err" role="alert">That link didn&apos;t work. It may have expired or been opened on another device. Send a new one below.</p>}
         <AuthForm from="page" next={next?.startsWith('/') && !next.startsWith('//') ? next : '/'} />
       </div>

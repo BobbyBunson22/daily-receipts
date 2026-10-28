@@ -154,7 +154,7 @@ export function TokensCard({ won }: { won: Won[] }) {
 export function ClaimCard({ done }: { done?: { name: string; awarded: number } }) {
   const { st, user, update, closeOverlay } = useReader();
   const [draft, setDraft] = useState(st.name);
-  const [step, setStep] = useState<'pick' | 'signup'>('pick');
+  const [step, setStep] = useState<'pick' | 'signup' | 'signin'>('pick');
   const [result, setResult] = useState(done ?? null);
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
@@ -213,11 +213,18 @@ export function ClaimCard({ done }: { done?: { name: string; awarded: number } }
             <p className="claim-prize">Gold tokens unlock free prizes. What they are is still a secret: watch this space.</p>
             <button className="pill solid" onClick={closeOverlay}>Back to the news</button>
           </section>
+        ) : step === 'signin' ? (
+          <section>
+            <h2 id="claim-h">Welcome back</h2>
+            <p>Sign in and your username, tokens and topics come with you.</p>
+            <AuthForm from="claim" start="signin" onDone={closeOverlay} />
+            <button className="linkish" onClick={() => setStep('pick')}>Pick a different name</button>
+          </section>
         ) : step === 'signup' ? (
           <section>
             <h2 id="claim-h">One step left</h2>
             <p>Sign up free and <b>{brandFor(name)}</b> is yours, with <b>{TOKENS + SIGNUP} gold DR tokens</b>: {SIGNUP} for signing up and {TOKENS} for your username.</p>
-            <AuthForm from="claim" next={`/?claim=${encodeURIComponent(name)}`} />
+            <AuthForm from="claim" start="signup" next={`/?claim=${encodeURIComponent(name)}`} />
             <button className="linkish" onClick={() => setStep('pick')}>Change the name</button>
           </section>
         ) : (
@@ -230,8 +237,11 @@ export function ClaimCard({ done }: { done?: { name: string; awarded: number } }
               <button className="pill solid" type="submit" disabled={busy}>{busy ? 'Securing…' : user ? 'Secure it' : 'Next'}</button>
             </form>
             <p className={`claim-status ${status === 'ok' ? 'ok' : status && status !== 'checking' ? 'no' : ''}`} role="status">
-              {err || (status === 'ok' ? `✓ ${name} is free` : status === 'checking' ? 'Checking…' : status ? why(status) : ' ')}
+              {err || (status === 'ok' ? `✓ ${name} is free` : status === 'checking' ? 'Checking…' : status === 'taken' && !user ? 'Someone already has that one.' : status ? why(status) : ' ')}
             </p>
+            {status === 'taken' && !user && (
+              <p className="claim-mine">Is it yours? <button className="linkish" onClick={() => { setErr(''); setStep('signin'); }}>Sign in</button> and it&apos;s back on this device.</p>
+            )}
             <p className="claim-prize">Gold tokens unlock free prizes, to be revealed soon.</p>
             <button className="linkish" onClick={notNow}>Not now</button>
           </section>

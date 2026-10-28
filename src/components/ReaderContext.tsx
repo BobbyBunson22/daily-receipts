@@ -13,6 +13,7 @@ import { merge, pull, push } from '../lib/reader/sync';
 import { getAnonId, setTrackingEdition, track } from '../lib/reader/track';
 import type { ClientEdition, ClientStory, ReaderState, SwipeAction } from '../lib/reader/types';
 import { supabaseBrowser } from '../lib/supabase/browser';
+import { clearRemember, sessionShouldEnd } from '../lib/supabase/remember';
 
 export type Overlay =
   | { kind: 'story'; id: number; back?: Overlay }
@@ -188,6 +189,12 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
       if (!u) {
         setUser(null);
         setSync('off');
+        // the secured username belongs to the account: signed out, this device doesn't hold it
+        if (stRef.current.secured) {
+          const out = S.forgetAccount(stRef.current);
+          stRef.current = out;
+          setSt(out);
+        }
         return;
       }
       setUser({ id: u.id, email: u.email ?? null });
@@ -209,7 +216,9 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
         setSync('error');
       }
     };
-    db.auth.getSession().then(({ data }) => {
+    // "Keep me signed in" was unticked and the browser has closed since: end the session here
+    const start = sessionShouldEnd() ? db.auth.signOut({ scope: 'local' }).then(clearRemember) : Promise.resolve();
+    void start.then(() => db.auth.getSession()).then(({ data }) => {
       setAuthChecked(true);
       return adopt(data.session, false);
     });
@@ -235,10 +244,14 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
   const signOut = useCallback(async () => {
     const db = supabaseBrowser();
     track('signout');
-    await db?.auth.signOut();
+    await db?.auth.signOut({ scope: 'local' });
+    clearRemember();
     setUser(null);
+    const out = S.forgetAccount(stRef.current);
+    stRef.current = out;
+    setSt(out);
     setSync('off');
-    toast('Signed out. Your choices stay on this device');
+    toast('Signed out. Your topics stay on this device');
   }, [toast]);
 
   // ---- overlays

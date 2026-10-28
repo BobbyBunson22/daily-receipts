@@ -175,6 +175,8 @@ export const setMin = (st: ReaderState, min: GradeLetter): ReaderState => ({ ...
 export const setMode = (st: ReaderState, mode: Mode): ReaderState => ({ ...st, mode });
 export const setSize = (st: ReaderState, size: DeckSize): ReaderState => ({ ...st, size });
 export const setName = (st: ReaderState, name: string): ReaderState => ({ ...st, name: cleanName(name) });
+/** Signed out: the secured username goes with the account (signing in brings it back). */
+export const forgetAccount = (st: ReaderState): ReaderState => ({ ...st, secured: '', name: st.secured && st.name === st.secured ? '' : st.name });
 export const setVoice = (st: ReaderState, voice: VoiceChoice): ReaderState => ({ ...st, voice, voicePicked: true });
 /** Maximum receipts: every story in today's edition, for today only. */
 export const showMax = (st: ReaderState, ed: ClientEdition): ReaderState => ({ ...st, maxIssue: ed.issue });

@@ -29,3 +29,17 @@ describe('usernames', () => {
     expect(S.setName(S.initialState(ed), ' Jay! ').name).toBe('Jay');
   });
 });
+
+describe('signing out', () => {
+  const ed = { issue: 1, date: '', compiled: '', id: 1, sections: [], stories: [], outletCount: 0 };
+  it('takes the secured username off this device; it stays on the account', () => {
+    const st = { ...S.setName(S.initialState(ed), 'Jay'), secured: 'Jay' };
+    const out = S.forgetAccount(st);
+    expect(out.secured).toBe('');
+    expect(out.name).toBe('');
+  });
+  it('leaves a name that was never secured', () => {
+    const st = S.setName(S.initialState(ed), 'Sam');
+    expect(S.forgetAccount(st).name).toBe('Sam');
+  });
+});

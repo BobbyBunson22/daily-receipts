@@ -12,6 +12,7 @@ import { READER_IDS, READERS, choiceName, openingUrl, partUrl, readerFor } from 
 import { track } from '../lib/reader/track';
 import type { ClientStory, Reader, VoiceChoice } from '../lib/reader/types';
 import { supabaseBrowser } from '../lib/supabase/browser';
+import { PASSWORD_MIN, authProblem } from '../lib/supabase/remember';
 import { spreadFor } from '../lib/grading';
 import { AuthForm } from './AuthForm';
 import { Facts, Grade, Icon, VoiceBadge } from './brand';
@@ -513,12 +514,13 @@ export function SettingsSheet() {
         <>
           <div className="acctrow"><b>{user.email ?? 'Signed in'}</b><button className="pill" onClick={signOut}>Sign out</button></div>
           <AccountSummary />
+          <PasswordField />
           <p className="muted">{sync === 'error' ? "Couldn't reach your account just now. Your changes are safe on this device and will sync next time." : 'Your username, gold tokens, topics, roundup and saves are kept in your account.'}</p>
         </>
       ) : (
         <>
           <p className="muted">Sign up free and win 10 gold DR tokens. Your roundup, saves and topics follow you to every device.</p>
-          <button className="pill solid" onClick={() => setOverlay({ kind: 'account', reason: 'settings' })}>Sign up or sign in</button>
+          <button className="pill solid" onClick={() => setOverlay({ kind: 'account', reason: 'settings' })}>Sign in or sign up</button>
         </>
       )}
       <h4>How the grade works</h4>
@@ -531,16 +533,78 @@ export function SettingsSheet() {
 }
 
 export function AccountSheet({ reason }: { reason?: string }) {
-  const { user, closeOverlay } = useReader();
+  const { user, closeOverlay, toast } = useReader();
+  // already signed in when it opened: nothing to do. Otherwise the form says when it's finished
+  // (signing in comes before saving a password, so the sheet waits for the form)
+  const signedInAtOpen = useRef(!!user);
   useEffect(() => {
-    if (user) closeOverlay();
-  }, [user, closeOverlay]);
+    if (signedInAtOpen.current) closeOverlay();
+  }, [closeOverlay]);
   return (
     <Sheet label="Sign up or sign in">
       <h2 className="sh-title">Keep your receipts</h2>
-      <p className="stand">Sign up free and win <b>10 gold DR tokens</b>. Your roundup, saves and topics follow you to every device.</p>
-      <AuthForm from={reason ?? 'sheet'} />
+      <p className="stand">Sign up free and win <b>10 gold DR tokens</b>. Your username, roundup, saves and topics follow you to every device.</p>
+      <AuthForm from={reason ?? 'sheet'} onDone={() => { closeOverlay(); toast("You're signed in"); }} />
     </Sheet>
+  );
+}
+
+/** Set or change the account's password. Supabase may ask for an emailed code first if the sign-in is old. */
+function PasswordField() {
+  const { user, toast } = useReader();
+  const [open, setOpen] = useState(false);
+  const [pw, setPw] = useState('');
+  const [show, setShow] = useState(false);
+  const [nonce, setNonce] = useState<string | null>(null);
+  const [msg, setMsg] = useState('');
+  const [busy, setBusy] = useState(false);
+  if (!user) return null;
+  const save = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const db = supabaseBrowser();
+    if (!db) return;
+    if (pw.length < PASSWORD_MIN) return setMsg(`At least ${PASSWORD_MIN} characters.`);
+    setBusy(true);
+    setMsg('');
+    const { error } = await db.auth.updateUser(nonce ? { password: pw, nonce: nonce.replace(/\D/g, '') } : { password: pw });
+    if (error && (error.code === 'reauthentication_needed' || /reauth/i.test(error.message)) && nonce === null) {
+      // an older sign-in: prove it's them with a code first
+      const { error: rErr } = await db.auth.reauthenticate();
+      setBusy(false);
+      if (rErr) return setMsg(authProblem(rErr));
+      setNonce('');
+      return setMsg(`For safety, we've emailed ${user.email ?? 'you'} a code. Type it below, then Save again.`);
+    }
+    setBusy(false);
+    if (error) return setMsg(authProblem(error));
+    track('settings', { name: 'password_set', from: 'settings' });
+    setOpen(false);
+    setPw('');
+    setNonce(null);
+    toast('Password saved');
+  };
+  if (!open) return <p><button className="pill" onClick={() => setOpen(true)}>Set or change your password</button></p>;
+  return (
+    <form className="auth pwfield" onSubmit={save} noValidate>
+      <input type="email" autoComplete="username" value={user.email ?? ''} readOnly hidden />
+      <label htmlFor="set-pw">New password ({PASSWORD_MIN}+ characters)</label>
+      <div className="pwrow">
+        <input id="set-pw" type={show ? 'text' : 'password'} autoComplete="new-password" autoCapitalize="none" spellCheck={false}
+          value={pw} onChange={(e) => { setPw(e.target.value); setMsg(''); }} />
+        <button type="button" className="pwshow" onClick={() => setShow((s) => !s)} aria-pressed={show} aria-label={show ? 'Hide password' : 'Show password'}>{show ? 'Hide' : 'Show'}</button>
+      </div>
+      {nonce !== null && (
+        <>
+          <label htmlFor="set-pw-code">Code from the email</label>
+          <input id="set-pw-code" type="text" inputMode="numeric" autoComplete="one-time-code" maxLength={10} value={nonce} onChange={(e) => setNonce(e.target.value)} placeholder="123456" />
+        </>
+      )}
+      {msg && <p className="authmsg" role="status">{msg}</p>}
+      <div className="addrow">
+        <button className="pill solid" type="submit" disabled={busy}>{busy ? 'Saving…' : 'Save password'}</button>
+        <button type="button" className="pill" onClick={() => { setOpen(false); setPw(''); setNonce(null); setMsg(''); }}>Cancel</button>
+      </div>
+    </form>
   );
 }
 
