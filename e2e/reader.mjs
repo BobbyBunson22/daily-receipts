@@ -38,10 +38,24 @@ for (const [w, h, touch] of [[360, 640, true], [390, 844, true], [1280, 800, fal
   check(/The answer:/.test(await p.textContent('.daily-res')), `${tag} don't know reveals the answer`);
   await p.getByRole('button', { name: "Read today's news" }).click();
   check(!(await p.$('.daily')), `${tag} daily card closes`);
+  // on a big news day: the focus receipt, straight after (only on editions that have one)
+  if (await p.waitForSelector('.focus', { timeout: 2500 }).catch(() => null)) {
+    const lines = await p.locator('.focus-lines li').count();
+    check(lines >= 4 && lines <= 8, `${tag} focus receipt shows 4 to 8 facts`);
+    check(await p.evaluate(() => document.querySelector('.focus-slip').getBoundingClientRect().right <= innerWidth), `${tag} focus receipt fits the screen`);
+    await p.screenshot({ path: `${OUT}/focus-${tag}.png` });
+    await p.locator('.focus-lines button').first().click();
+    check(!!(await p.$('.sheet')), `${tag} a focus line opens its story`);
+    await p.keyboard.press('Escape');
+    check(!!(await p.$('.focus')), `${tag} closing the story goes back to the focus receipt`);
+    await p.getByRole('button', { name: 'Got it', exact: true }).click();
+    check(!(await p.$('.focus')), `${tag} focus receipt closes`);
+  }
   await p.reload();
   await p.waitForSelector('#app');
   await p.waitForTimeout(1500);
   check(!(await p.$('.daily')), `${tag} the daily card doesn't come back the same day`);
+  check(!(await p.$('.focus')), `${tag} the focus receipt doesn't pop up again`);
 
   // the deck
   await p.waitForSelector('#topcard');

@@ -24,6 +24,7 @@ export type Overlay =
   | { kind: 'tour' }
   | { kind: 'install' }
   | { kind: 'daily' }
+  | { kind: 'focus' }
   | { kind: 'claim'; done?: { name: string; awarded: number } }
   | { kind: 'tokens'; won: { reason: string; amount: number }[] }
   | { kind: 'puzzles' }
@@ -273,7 +274,7 @@ export function ReaderProvider({ ed, shared = null, children }: { ed: ClientEdit
 
   const openStory = useCallback((s: ClientStory, from = 'card') => {
     setOverlayRaw((o) => {
-      const back = o?.kind === 'roundup' || o?.kind === 'saved' ? o : undefined;
+      const back = o?.kind === 'roundup' || o?.kind === 'saved' || o?.kind === 'focus' ? o : undefined;
       if (o?.kind === 'roundup') bulletinRef.current?.stop();
       return { kind: 'story', id: s.id, back };
     });

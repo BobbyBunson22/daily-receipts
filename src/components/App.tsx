@@ -16,6 +16,7 @@ import { SwipeView } from './SwipeView';
 import { DailyCard, DailySync, type Won, dailyDue, markDailySeen, onTokensWon, useDailySyncedFor } from './Daily';
 import { InstallSheet } from './Install';
 import { ClaimCard, ClaimWatcher, TokensCard, claimDue, markClaimShown } from './Claim';
+import { FocusCard, focusDue, markFocusSeen, useFocus } from './Focus';
 import { Tour } from './Tour';
 
 function Header() {
@@ -61,6 +62,7 @@ function Overlays() {
     case 'tour': return <Tour />;
     case 'install': return <InstallSheet />;
     case 'daily': return <DailyCard />;
+    case 'focus': return <FocusCard />;
     case 'claim': return <ClaimCard done={overlay.done} />;
     case 'tokens': return <TokensCard won={overlay.won} />;
     case 'puzzles': return <PuzzlesSheet />;
@@ -72,6 +74,7 @@ function Body() {
   const { st, ready, toastMsg, overlay, setOverlay, user, authChecked } = useReader();
   const syncedFor = useDailySyncedFor();
   const dailyShownNow = useRef(false);
+  const focus = useFocus();
   // tokens just won (signing up, securing a username): gather what arrives together, then celebrate
   useEffect(() => {
     let batch: Won[] = [];
@@ -106,6 +109,15 @@ function Body() {
       }, 400);
       return () => clearTimeout(t);
     }
+    // a big story today (say, the Budget): its focus receipt, once, straight after the daily card
+    if (focus && focusDue(focus)) {
+      const t = setTimeout(() => {
+        markFocusSeen(focus);
+        dailyShownNow.current = true;
+        setOverlay({ kind: 'focus' });
+      }, 600);
+      return () => clearTimeout(t);
+    }
     // then, on a later visit (not straight after another pop-up), the offer to secure a username
     if (!dailyShownNow.current && claimDue(st.secured)) {
       const t = setTimeout(() => {
@@ -114,7 +126,7 @@ function Body() {
       }, 1200);
       return () => clearTimeout(t);
     }
-  }, [ready, st, overlay, setOverlay, authChecked, user, syncedFor]);
+  }, [ready, st, overlay, setOverlay, authChecked, user, syncedFor, focus]);
   return (
     <>
       <a className="skip" href="#app">Skip to the stories</a>

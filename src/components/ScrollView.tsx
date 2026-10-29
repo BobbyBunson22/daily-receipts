@@ -7,6 +7,7 @@ import { isSaved, showMax } from '../lib/reader/state';
 import type { ClientStory } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel } from './brand';
 import { DailyBadge } from './Daily';
+import { FocusStrip } from './Focus';
 import { EndExtras } from './EndExtras';
 import { InstallHint } from './InstallHint';
 import { usePuzzles } from './Puzzles';
@@ -66,6 +67,7 @@ export function ScrollView() {
           {anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}
           <button className="rpill" onClick={() => setOverlay({ kind: 'tour' })}>How it works</button>
         </p>
+        <FocusStrip />
         <InstallHint />
       </section>
 
