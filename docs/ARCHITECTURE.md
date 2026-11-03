@@ -61,6 +61,10 @@ Row-level security: readers see published editions and their own rows only. Only
 - A ≥ 85, B ≥ 70, C ≥ 55, else D. Labels: Firm, Solid, Developing, Unconfirmed.
 - importance = sources × 10 + score / 10 (used for "top stories" and which stories get voiced).
 
+## Today's top 10 (web app, from 3 November 2026)
+- The same ten stories for every reader: the day's most widely covered, counted as distinct outlets across a story's sources and its "also reported by" list. Ties go to more countries, then the higher computed score (`src/lib/reader/topten.ts`).
+- Shown first as its own receipt after the daily fact and question, then a "Your receipts" check (topics, number of receipts, lowest grade). Personal decks and scroll mode never repeat the top 10.
+
 ## Personalisation (web app, from 20 October 2026)
 - Topics are a hard filter: only the sections a reader picks ever show.
 - The topic order decides the mix: the deck deals from each topic in turn, 5, 4, 3, 2 and then 1 card per round by rank, so the first choice leads and gets the most.
