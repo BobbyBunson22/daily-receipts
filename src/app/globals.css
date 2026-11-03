@@ -703,3 +703,19 @@ body{min-height:100dvh;overscroll-behavior-y:none}
 .fstrip-n{flex:none;font-family:var(--f-mono);font-size:12px;color:var(--on-navy-2)}
 .intro .fstrip{margin-top:12px}
 @media (prefers-reduced-motion:reduce){.focus-slip,.focus-lines li{animation:none}}
+
+/* Today's top 10 and "Your receipts" */
+.top10-lines li{display:flex;align-items:stretch;gap:2px}
+.top10-lines .t10-open{flex:1;min-width:0;grid-template-columns:auto minmax(0,1fr);row-gap:4px}
+.t10-n{font-family:var(--f-mono);font-weight:600;font-size:15px;color:var(--navy);min-width:1.4em;text-align:right}
+.t10-h{font-family:var(--f-disp);font-weight:700;font-size:17px;line-height:1.2;color:var(--ink);text-wrap:pretty}
+.t10-meta{grid-column:2;display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+.t10-meta .grade,.t10-meta svg{transform:scale(.85);transform-origin:left center}
+.top10-lines .t10-love{flex:none;width:44px;display:grid;place-items:center;padding:0;color:var(--ink-2);border-radius:6px}
+.top10-lines .t10-love svg{width:20px;height:20px}
+.top10-lines .t10-love.on{color:#d64545}
+.yours-body{padding:0 20px;border-top:1.5px dashed var(--dash)}
+.yours-body h4{margin:16px 0 8px}
+.yours-body .tchips{display:flex;flex-wrap:wrap;gap:6px}
+.between-l{color:var(--on-navy);text-transform:none;letter-spacing:0}
+.tstrip .fstrip-k{background:var(--paper);color:var(--navy)}

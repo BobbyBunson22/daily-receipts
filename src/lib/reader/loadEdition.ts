@@ -83,10 +83,14 @@ async function fromDatabase(editionId?: number): Promise<ClientEdition | null> {
   for (const r of rows as unknown as StoryRow[]) r.also = alsoById.get(r.id) ?? [];
   const alsoKeys = [...new Set([...alsoById.values()].flatMap((a) => a.map((x) => x[0])))];
   const names = new Map<string, string>();
+  const lands = new Map<string, string>();
   if (alsoKeys.length) {
-    const { data: outs, error: e3 } = await db.from('outlets').select('key, name').in('key', alsoKeys);
+    const { data: outs, error: e3 } = await db.from('outlets').select('key, name, country').in('key', alsoKeys);
     if (e3) throw new Error(`Couldn't read outlets: ${e3.message}`);
-    for (const o of outs ?? []) names.set(o.key, o.name);
+    for (const o of outs ?? []) {
+      names.set(o.key, o.name);
+      if (o.country) lands.set(o.key, o.country);
+    }
   }
 
   const stories: ClientStory[] = (rows as unknown as StoryRow[]).map((r) => {
@@ -115,7 +119,7 @@ async function fromDatabase(editionId?: number): Promise<ClientEdition | null> {
         .sort((a, b) => a.sort - b.sort)
         .map((s) => ({ key: s.outlet_key, name: s.outlets?.name ?? s.outlet_key, country: s.outlets?.country ?? '', url: s.url, note: s.note })),
       fig: r.fig,
-      also: (r.also ?? []).filter((a) => names.has(a[0])).map(([key, url]) => ({ key, url, name: names.get(key)! })),
+      also: (r.also ?? []).filter((a) => names.has(a[0])).map(([key, url]) => ({ key, url, name: names.get(key)!, country: lands.get(key) ?? '' })),
       say: r.say,
       sources: r.sources,
       score: r.score,
@@ -169,7 +173,7 @@ export function fromFile(file?: string): ClientEdition {
       src: s.src.map(([key, url, note]) => ({ key, url, note: note ?? null, name: edition.outlets[key]?.name ?? key, country: edition.outlets[key]?.country ?? '' })),
       fig: s.fig ?? null,
       tags: tags[i],
-      also: (s.also ?? []).map(([key, url]) => ({ key, url, name: edition.outlets[key]?.name ?? key })),
+      also: (s.also ?? []).map(([key, url]) => ({ key, url, name: edition.outlets[key]?.name ?? key, country: edition.outlets[key]?.country ?? '' })),
       say: s.say ?? null,
       spoken: s.spoken ?? null,
       sources: g.sources,

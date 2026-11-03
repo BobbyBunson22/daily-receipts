@@ -286,7 +286,7 @@ export function SavedSheet() {
 }
 
 /** Topics: tap to choose, hold and drag to order (Alt+arrows on a keyboard). */
-function TopicOrder() {
+export function TopicOrder() {
   const { ed, st, update, toast } = useReader();
   const listRef = useRef<HTMLOListElement>(null);
 

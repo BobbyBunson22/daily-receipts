@@ -8,6 +8,7 @@ import type { ClientStory, SwipeAction } from '../lib/reader/types';
 import { Facts, Grade, Icon, Logo, VoiceBadge, cutLabel, mastDate, shortDate } from './brand';
 import { DailyBadge } from './Daily';
 import { FocusStrip } from './Focus';
+import { TopTenStrip } from './TopTen';
 import { EndExtras } from './EndExtras';
 import { InstallButton } from './Install';
 import { usePuzzles } from './Puzzles';
@@ -210,6 +211,7 @@ export function SwipeView() {
         <span className="mast-row"><b className="mast-d">{mastDate(ed.date)}</b><span className="mast-n">No. {ed.issue}</span></span>
       </div>
       <FocusStrip />
+      <TopTenStrip />
       <div className="dtop">
         <p className="dcount" aria-live="polite">{done + 1} of {all.length}<span className="dmin"> · {minutes(deck.length)} min left</span></p>
         <span className="dpills"><DailyBadge />{anyOn && <button className="rpill" onClick={() => setOverlay({ kind: 'puzzles' })}>Puzzles</button>}<button className="rpill" onClick={() => setOverlay({ kind: 'roundup' })}>Roundup · {nLiked}</button></span>

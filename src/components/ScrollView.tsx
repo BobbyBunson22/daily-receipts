@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 
-import { because, extraCount, liked, minutes, sectionLists, todays, topStories } from '../lib/reader/personalise';
+import { extraCount, liked, minutes, sectionLists, todays } from '../lib/reader/personalise';
+import { topTen } from '../lib/reader/topten';
 import { brandFor } from '../lib/reader/name';
 import { isSaved, showMax } from '../lib/reader/state';
 import type { ClientStory } from '../lib/reader/types';
@@ -45,7 +46,7 @@ export function ScrollView() {
   const { anyOn } = usePuzzles();
   const vis = todays(st, ed);
   const extra = extraCount(st, ed);
-  const top = topStories(st, ed);
+  const top = topTen(ed);
   const topIds = new Set(top.map((s) => s.id));
   const nLiked = liked(st, ed).length;
 
@@ -54,9 +55,9 @@ export function ScrollView() {
       <section className="intro">
         <div className="date">{st.name ? `${brandFor(st.name)} · ` : ''}{ed.date} · No. {ed.issue}</div>
         <h1>Today&apos;s news, <span>with receipts.</span></h1>
-        <p>The top {top.length} in about {minutes(top.length)} minutes. The rest if you fancy it.</p>
+        <p>Today&apos;s top {top.length} in about {minutes(top.length)} minutes, then your own receipts.</p>
         <div className="stats">
-          <span>{vis.length} stories</span>
+          <span>{top.length + vis.length} stories</span>
           <span>{ed.outletCount} outlets checked</span>
           {st.streak.n > 1 && <span className="hot">Day {st.streak.n} streak</span>}
         </div>
@@ -71,16 +72,17 @@ export function ScrollView() {
         <InstallHint />
       </section>
 
+      <section className="rcpt" aria-labelledby="top-h">
+        <div className="band"><h2 id="top-h">Today&apos;s top {top.length}</h2><span>Same for everyone</span></div>
+        {top.map((s) => <Item key={s.id} s={s} />)}
+      </section>
+      <p className="between">Now for your receipts, from your topics in your order. <button className="linkish between-l" onClick={() => setOverlay({ kind: 'yours' })}>Change them</button></p>
+
       {!vis.length ? (
-        <div className="rcpt"><div className="end"><h2>Nothing here yet</h2><p>Add topics or widen the grade filter.</p>
-          <button className="pill" onClick={() => setOverlay({ kind: 'settings' })}>Your topics</button></div></div>
+        <div className="rcpt"><div className="end"><h2>Nothing more here yet</h2><p>Add topics or widen the grade filter for your own receipts.</p>
+          <button className="pill" onClick={() => setOverlay({ kind: 'yours' })}>Your topics</button></div></div>
       ) : (
         <>
-          <section className="rcpt" aria-labelledby="top-h">
-            <div className="band"><h2 id="top-h">Top stories</h2><span>{minutes(top.length)} min</span></div>
-            {top.map((s) => <Item key={s.id} s={s} why={because(st, s)} />)}
-          </section>
-          <p className="between">Done with the top? Keep scrolling for more.</p>
 
           {sectionLists(st, ed, topIds).map(({ section, list, limit }) => {
             const shown = more[section.id] ? list : list.slice(0, limit);

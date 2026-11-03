@@ -17,6 +17,7 @@ import { DailyCard, DailySync, type Won, dailyDue, markDailySeen, onTokensWon, u
 import { InstallSheet } from './Install';
 import { ClaimCard, ClaimWatcher, TokensCard, claimDue, markClaimShown } from './Claim';
 import { FocusCard, focusDue, markFocusSeen, useFocus } from './Focus';
+import { TopTenCard, YoursCard, markTopTenSeen, markYoursSeen, topTenDue, yoursDue } from './TopTen';
 import { Tour } from './Tour';
 
 function Header() {
@@ -63,6 +64,8 @@ function Overlays() {
     case 'install': return <InstallSheet />;
     case 'daily': return <DailyCard />;
     case 'focus': return <FocusCard />;
+    case 'top10': return <TopTenCard />;
+    case 'yours': return <YoursCard />;
     case 'claim': return <ClaimCard done={overlay.done} />;
     case 'tokens': return <TokensCard won={overlay.won} />;
     case 'puzzles': return <PuzzlesSheet />;
@@ -71,7 +74,7 @@ function Overlays() {
 }
 
 function Body() {
-  const { st, ready, toastMsg, overlay, setOverlay, user, authChecked } = useReader();
+  const { ed, st, ready, toastMsg, overlay, setOverlay, user, authChecked } = useReader();
   const syncedFor = useDailySyncedFor();
   const dailyShownNow = useRef(false);
   const focus = useFocus();
@@ -118,6 +121,24 @@ function Body() {
       }, 600);
       return () => clearTimeout(t);
     }
+    // then today's top 10, the same for everyone, as its own receipt
+    if (topTenDue(ed)) {
+      const t = setTimeout(() => {
+        markTopTenSeen(ed);
+        dailyShownNow.current = true;
+        setOverlay({ kind: 'top10' });
+      }, 600);
+      return () => clearTimeout(t);
+    }
+    // and a quick check that the reader is happy with their own options, before their deck
+    if (yoursDue(ed)) {
+      const t = setTimeout(() => {
+        markYoursSeen(ed);
+        dailyShownNow.current = true;
+        setOverlay({ kind: 'yours' });
+      }, 300);
+      return () => clearTimeout(t);
+    }
     // then, on a later visit (not straight after another pop-up), the offer to secure a username
     if (!dailyShownNow.current && claimDue(st.secured)) {
       const t = setTimeout(() => {
@@ -126,7 +147,7 @@ function Body() {
       }, 1200);
       return () => clearTimeout(t);
     }
-  }, [ready, st, overlay, setOverlay, authChecked, user, syncedFor, focus]);
+  }, [ready, st, overlay, setOverlay, authChecked, user, syncedFor, focus, ed]);
   return (
     <>
       <a className="skip" href="#app">Skip to the stories</a>

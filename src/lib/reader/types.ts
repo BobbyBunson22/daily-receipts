@@ -16,6 +16,8 @@ export interface ClientAlso {
   key: string;
   name: string;
   url: string;
+  /** The outlet's country, for counting how widely a story was covered. */
+  country?: string;
 }
 
 export interface ClientStory {

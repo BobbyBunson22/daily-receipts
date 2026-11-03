@@ -11,6 +11,7 @@
  */
 import { GRADE_ORDER } from '../grading';
 import { tagKey } from './tags';
+import { topTenIds } from './topten';
 import type { ClientEdition, ClientStory, ReaderState } from './types';
 
 export const SECS_PER_STORY = 12;
@@ -41,8 +42,14 @@ export const forYou = (st: ReaderState, s: ClientStory) => storyScore(st, s) + (
 
 export const passes = (st: ReaderState, s: ClientStory) => GRADE_ORDER.indexOf(s.grade) <= GRADE_ORDER.indexOf(st.min);
 
-/** Stories in the reader's topics that meet their minimum grade. */
-export const visible = (st: ReaderState, ed: ClientEdition) => ed.stories.filter((s) => st.order.includes(s.sec) && passes(st, s));
+/**
+ * Stories in the reader's topics that meet their minimum grade, leaving out today's top 10:
+ * everyone sees those first, as their own receipt, so the personal deck never repeats them.
+ */
+export function visible(st: ReaderState, ed: ClientEdition) {
+  const top = topTenIds(ed);
+  return ed.stories.filter((s) => !top.has(s.id) && st.order.includes(s.sec) && passes(st, s));
+}
 
 const byScore = (st: ReaderState) => (a: ClientStory, b: ClientStory) => storyScore(st, b) - storyScore(st, a) || a.id - b.id;
 

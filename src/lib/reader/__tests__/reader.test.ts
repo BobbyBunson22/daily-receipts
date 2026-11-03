@@ -8,8 +8,9 @@ import { prepareEdition } from '../../prepareEdition';
 import { JINGLE, bulletinMinutes, fetchClips, playlist, segments, spoken, storyScript, VOICE_FIXED } from '../bulletin';
 import { READER_BY_VOICE } from '../voices';
 import edition2026_10_20 from '../../../../data/edition-2026-10-20.json';
-import { DECK_SIZES, MUTED, dealWeight, deckList, extraCount, todays, liked, sectionLists, storyScore, tagAffinity, topStories, visible } from '../personalise';
+import { DECK_SIZES, MUTED, dealWeight, deckList, extraCount, todays, liked, sectionLists, storyScore, tagAffinity, visible } from '../personalise';
 import { deriveTags, tagKey } from '../tags';
+import { TOP_TEN, countries, coverage, topTen, topTenIds } from '../topten';
 import * as S from '../state';
 import { merge, type Remote } from '../sync';
 import type { ClientEdition, ClientStory, ReaderState } from '../types';
@@ -36,6 +37,8 @@ const ed: ClientEdition = {
   }),
 };
 const at = 1_760_000_000_000;
+/** Stories outside today's top 10: what personal decks are dealt from. */
+const rest = ed.stories.filter((s) => !topTenIds(ed).has(s.id));
 const fresh = () => ({ ...S.initialState(ed), maxIssue: ed.issue });
 const standard = () => S.initialState(ed);
 const byId = (id: number) => ed.stories.find((s) => s.id === id)!;
@@ -57,7 +60,7 @@ describe('deck order', () => {
 
   it('starts with every story; the reader\'s first topic leads, best story first', () => {
     const d = deckList(fresh(), ed);
-    expect(d.length).toBe(ed.stories.length);
+    expect(d.length).toBe(rest.length);
     const first = fresh().order[0];
     expect(d[0].sec).toBe(first);
     const firstTopic = d.filter((s) => s.sec === first);
@@ -67,7 +70,7 @@ describe('deck order', () => {
   it('topics are a hard filter: someone who only picks sport gets only sport, all of it', () => {
     const st = { ...fresh(), order: ['sport'] };
     const d = deckList(st, ed);
-    expect(d.length).toBe(ed.stories.filter((s) => s.sec === 'sport').length);
+    expect(d.length).toBe(rest.filter((s) => s.sec === 'sport').length);
     expect(d.every((s) => s.sec === 'sport')).toBe(true);
   });
 
@@ -121,9 +124,9 @@ describe('deck order', () => {
     let st = S.swipe(fresh(), a, 'more', ed, at);
     st = S.swipe(st, b, 'less', ed, at);
     st = S.swipe(st, c, 'later', ed, at);
-    expect(deckList(st, ed).length).toBe(ed.stories.length - 3);
+    expect(deckList(st, ed).length).toBe(rest.length - 3);
     st = S.restart(st);
-    expect(deckList(st, ed).length).toBe(ed.stories.length);
+    expect(deckList(st, ed).length).toBe(rest.length);
     expect(liked(st, ed).map((s) => s.id)).toEqual([a.id]);
     expect(st.saves.map((e) => e.id)).toEqual([c.id]);
   });
@@ -150,9 +153,9 @@ describe('deck order', () => {
     expect(st.taste.tag[pair.tag]).toBeUndefined();
   });
 
-  it('scroll mode shows the top 8, then each topic in order without repeats', () => {
-    const top = topStories(fresh(), ed);
-    expect(top.length).toBe(8);
+  it('scroll mode shows the top 10, then each topic in order without repeats', () => {
+    const top = topTen(ed);
+    expect(top.length).toBe(10);
     const lists = sectionLists(fresh(), ed, new Set(top.map((s) => s.id)));
     expect(lists.map((l) => l.section.id)).toEqual(fresh().order.filter((id) => lists.some((l) => l.section.id === id)));
     const shown = lists.flatMap((l) => l.list.map((s) => s.id));
@@ -163,9 +166,9 @@ describe('deck order', () => {
 describe('number of receipts', () => {
   it('standard is 36, quick 18, long 54 (or everything, if the edition has fewer)', () => {
     expect(S.initialState(ed).size).toBe('standard');
-    expect(deckList(standard(), ed).length).toBe(Math.min(36, ed.stories.length));
+    expect(deckList(standard(), ed).length).toBe(Math.min(36, rest.length));
     expect(deckList(S.setSize(standard(), 'quick'), ed).length).toBe(18);
-    expect(deckList(S.setSize(standard(), 'long'), ed).length).toBe(Math.min(54, ed.stories.length));
+    expect(deckList(S.setSize(standard(), 'long'), ed).length).toBe(Math.min(54, rest.length));
     expect(DECK_SIZES).toEqual({ quick: 18, standard: 36, long: 54 });
   });
 
@@ -178,9 +181,9 @@ describe('number of receipts', () => {
 
   it('maximum receipts adds every other story in your topics, for today only', () => {
     const st = S.setSize(standard(), 'quick');
-    expect(extraCount(st, ed)).toBe(ed.stories.length - 18);
+    expect(extraCount(st, ed)).toBe(rest.length - 18);
     const max = S.showMax(st, ed);
-    expect(todays(max, ed).length).toBe(ed.stories.length);
+    expect(todays(max, ed).length).toBe(rest.length);
     expect(extraCount(max, ed)).toBe(0);
     const tomorrow: ClientEdition = { ...ed, issue: ed.issue + 1 };
     expect(S.normalise(JSON.parse(JSON.stringify(max)), tomorrow).maxIssue).toBe(0);
@@ -371,5 +374,41 @@ describe('welcome tour', () => {
     expect(S.needsTour(S.normalise({ toured: true }, ed))).toBe(true);
     expect(S.needsTour(S.normalise({ toured: S.TOUR_VERSION }, ed))).toBe(false);
     expect(S.needsTour({ ...fresh(), toured: S.TOUR_VERSION })).toBe(false);
+  });
+});
+
+describe("today's top 10", () => {
+  it('is the ten most widely covered stories, most covered first, ties to more countries then higher score', () => {
+    const top = topTen(ed);
+    expect(top.length).toBe(TOP_TEN);
+    for (let i = 1; i < top.length; i++) {
+      const [a, b] = [top[i - 1], top[i]];
+      const order = coverage(a) - coverage(b) || countries(a) - countries(b) || a.score - b.score;
+      expect(order).toBeGreaterThanOrEqual(0);
+    }
+    const tenth = coverage(top[TOP_TEN - 1]);
+    for (const s of rest) expect(coverage(s)).toBeLessThanOrEqual(tenth);
+  });
+
+  it('counts each outlet once, across sources checked and "also reported by"', () => {
+    const s = { src: [{ key: 'a', country: 'UK' }, { key: 'b', country: 'US' }], also: [{ key: 'b', country: 'US' }, { key: 'c', country: 'France' }] } as unknown as ClientStory;
+    expect(coverage(s)).toBe(3);
+    expect(countries(s)).toBe(3);
+  });
+
+  it('is the same for every reader, whatever their topics, swipes or grade filter', () => {
+    const ids = topTen(ed).map((s) => s.id);
+    let st: ReaderState = { ...fresh(), order: ['sport'], min: 'A' };
+    for (const s of deckList(st, ed).slice(0, 3)) st = S.swipe(st, s, 'less', ed, at);
+    expect(topTen(ed).map((s) => s.id)).toEqual(ids);
+    expect(deckList(st, ed).some((s) => ids.includes(s.id))).toBe(false);
+  });
+
+  it('never turns up again in anyone\'s personal deck', () => {
+    const top = topTenIds(ed);
+    for (const size of ['quick', 'standard', 'long'] as const) {
+      expect(todays(S.setSize(standard(), size), ed).some((s) => top.has(s.id))).toBe(false);
+    }
+    expect(todays(S.showMax(standard(), ed), ed).some((s) => top.has(s.id))).toBe(false);
   });
 });
